@@ -1,9 +1,10 @@
-- `Content` -- `StandardContent` and `PluginContent`
+- `Node` -- every node also contains its text
 
-- parse standard contents
+- `nodes/paragraph`
+- `nodes/code-block`
 
-- `Contents`
+- parse nodes
 
-Paragraph
+- `Sequence` -- special interface for top level linear contents
 
-CodeBlock
+- `Content`
