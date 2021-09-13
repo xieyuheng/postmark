@@ -1,4 +1,4 @@
-- `Node` -- every node also contains its text
+- `Node` -- every node also contains its text -- render node to markdown itself
 
 - `nodes/paragraph`
 - `nodes/code-block`
