@@ -14,10 +14,7 @@
 - nodes/item
 - nodes/list
 - nodes/heading
-- nodes/code_block
 - nodes/html_block
-
-- parse nodes
 
 - `Sequence` -- special interface for top level linear contents
 
