@@ -23,6 +23,8 @@ export function createNode(node: Commonmark.Node): Node {
   } else if (node.type === "text") {
     const value = ty.string().validate(node.literal)
     return new Nodes.Text({ value })
+  } else if (node.type === "thematic_break") {
+    return new Nodes.ThematicBreak({ span })
   } else {
     return new Nodes.Paragraph({ span, children })
   }

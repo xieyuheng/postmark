@@ -5,6 +5,8 @@ import { Node, parseNode } from "../node"
 Hello *world*
 
 Hi **there**
+
+---
 `
   const node = parseNode(text)
   console.dir(node, { depth: null })
