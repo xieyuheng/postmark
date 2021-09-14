@@ -1,6 +1,7 @@
 import { Node } from "../node"
 import * as Nodes from "../nodes"
 import * as Commonmark from "commonmark"
+import ty from "@xieyuheng/ty"
 
 export function parseNode(text: string): Node {
   const reader = new Commonmark.Parser()
@@ -15,6 +16,10 @@ export function createNode(node: Commonmark.Node): Node {
   } else if (node.type === "paragraph") {
     return new Nodes.Paragraph({
       children: commonmarkChildren(node).map(createNode),
+    })
+  } else if (node.type === "text") {
+    return new Nodes.Text({
+      value: ty.string().validate(node.literal),
     })
   } else {
     return new Nodes.Paragraph({

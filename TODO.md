@@ -1,6 +1,6 @@
 - `Node` -- every node also contains its text -- render node to markdown itself
 
-- nodes/text
+- `Position` in `Node`
 
 - nodes/softbreak
 - nodes/linebreak

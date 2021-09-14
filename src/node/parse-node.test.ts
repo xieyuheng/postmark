@@ -7,5 +7,5 @@ Hello world
 Hi there
 `
   const node = parseNode(text)
-  console.log(node)
+  console.dir(node, { depth: null })
 }
