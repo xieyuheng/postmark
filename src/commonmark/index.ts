@@ -65,6 +65,7 @@ function presentNode(node: Node): any {
   return {
     type: node.type,
     literal: node.literal,
+    isContainer: node.isContainer,
     sourcepos: node.sourcepos,
     children: nodeChildren(node).map(presentNode),
   }
