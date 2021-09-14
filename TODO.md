@@ -1,12 +1,9 @@
 - `Node` -- every node also contains its text -- render node to markdown itself
 
-- nodes/emph
-- nodes/strong
+- nodes/soft-break
+- nodes/line-break
 
-- nodes/softbreak
-- nodes/linebreak
-
-- nodes/html_inline
+- nodes/html-inline
 - nodes/link
 - nodes/image
 - nodes/code

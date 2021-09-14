@@ -16,15 +16,15 @@ export function createNode(node: Commonmark.Node): Node {
     return new Nodes.Document({ span, children })
   } else if (node.type === "paragraph") {
     return new Nodes.Paragraph({ span, children })
+  } else if (node.type === "emph") {
+    return new Nodes.Emphasize({ children })
+  } else if (node.type === "strong") {
+    return new Nodes.Strong({ children })
   } else if (node.type === "text") {
     const value = ty.string().validate(node.literal)
     return new Nodes.Text({ value })
   } else {
-    return new Nodes.Paragraph({
-
-      span,
-      children,
-    })
+    return new Nodes.Paragraph({ span, children })
   }
 }
 

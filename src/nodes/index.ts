@@ -1,4 +1,5 @@
 export * from "./document"
 export * from "./paragraph"
-
+export * from "./emphasize"
+export * from "./strong"
 export * from "./text"
