@@ -1,11 +1,11 @@
 - `Node` -- every node also contains its text -- render node to markdown itself
 
-- `Position` in `Node`
+- nodes/emph
+- nodes/strong
 
 - nodes/softbreak
 - nodes/linebreak
-- nodes/emph
-- nodes/strong
+
 - nodes/html_inline
 - nodes/link
 - nodes/image

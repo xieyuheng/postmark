@@ -23,7 +23,7 @@ const sisuo = renderCodeBlock(
   - cards-1
 `
 )
-const parsed = reader.parse(`
+const parsed = reader.parse(`\
 Hello *world*
 
 Hi **there**
