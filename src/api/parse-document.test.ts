@@ -1,4 +1,4 @@
-import { Node, parseDocument } from "../node"
+import { Node, parseDocument } from "../api"
 
 {
   const emphasize = "Hello *world*"
