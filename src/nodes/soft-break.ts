@@ -6,4 +6,10 @@ export class SoftBreak extends Node {
   constructor() {
     super()
   }
+
+  json() {
+    return {
+      kind: this.kind,
+    }
+  }
 }

@@ -11,4 +11,11 @@ export class Document extends Node {
     this.span = opts.span
     this.children = opts.children
   }
+
+  json() {
+    return {
+      kind: this.kind,
+      children: this.children.map((child) => child.json()),
+    }
+  }
 }

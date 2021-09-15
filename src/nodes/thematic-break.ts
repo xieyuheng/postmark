@@ -9,4 +9,10 @@ export class ThematicBreak extends Node {
     super()
     this.span = opts.span
   }
+
+  json() {
+    return {
+      kind: this.kind,
+    }
+  }
 }

@@ -9,4 +9,11 @@ export class Text extends Node {
     super()
     this.value = opts.value
   }
+
+  json() {
+    return {
+      kind: this.kind,
+      value: this.value,
+    }
+  }
 }

@@ -1,6 +1,7 @@
 export abstract class Node {
   abstract kind: string
   span?: Span
+  abstract json(): any
 }
 
 export class Span {

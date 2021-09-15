@@ -13,4 +13,12 @@ export class CodeBlock extends Node {
     this.info = opts.info
     this.value = opts.value
   }
+
+  json() {
+    return {
+      kind: this.kind,
+      info: this.info,
+      value: this.value,
+    }
+  }
 }

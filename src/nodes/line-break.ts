@@ -6,4 +6,10 @@ export class LineBreak extends Node {
   constructor() {
     super()
   }
+
+  json() {
+    return {
+      kind: this.kind,
+    }
+  }
 }
