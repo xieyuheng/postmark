@@ -1,14 +1,7 @@
 import * as Commonmark from "../commonmark"
+import { formatCodeBlock } from "../../api"
 
 const parser = new Commonmark.Parser()
-
-function formatCodeBlock(info: string, text: string): string {
-  let s = ""
-  s += "``` " + info + "\n"
-  s += text
-  s += "```" + "\n"
-  return s
-}
 
 const sisuo = formatCodeBlock(
   "sisuo",

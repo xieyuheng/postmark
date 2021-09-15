@@ -1,4 +1,4 @@
-import { Node, parseDocument, assertDocument } from "../api"
+import { Node, parseDocument, assertDocument, formatCodeBlock } from "../api"
 
 {
   const emphasize = "Hello *world*"
@@ -58,14 +58,6 @@ import { Node, parseDocument, assertDocument } from "../api"
       value: "console.log('Hello')\n",
     },
   ])
-
-  function formatCodeBlock(info: string, text: string): string {
-    let s = ""
-    s += "``` " + info + "\n"
-    s += text + "\n"
-    s += "```" + "\n"
-    return s
-  }
 }
 
 {
