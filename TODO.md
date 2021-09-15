@@ -1,5 +1,3 @@
-- [testing] `assertDocument` without `Span`
-
 - [maybe] `Container` as sub-class of `Node`
 - [maybe] `LeafNode` as sub-class of `Node`
 
