@@ -19,35 +19,10 @@ import { Node, parseDocument, assertDocument } from "../api"
 }
 
 {
-  const emphasize = "Hello *world*"
   const strong = "Hi **there**"
-  const thematicBreak = "\n---\n"
-  const codeBlock = renderCodeBlock("sisuo", "console.log('Hello')")
-  const lineBreak = "Hello  \nWorld"
-  const softBreak = "Hello\nWorld"
-
-  const text = [
-    emphasize,
-    strong,
-    thematicBreak,
-    codeBlock,
-    lineBreak,
-    softBreak,
-  ].join("\n\n")
-
-  const node = parseDocument(text)
+  const node = parseDocument(strong)
 
   assertDocument(node, [
-    {
-      kind: "Paragraph",
-      children: [
-        { kind: "Text", value: "Hello " },
-        {
-          kind: "Emphasize",
-          children: [{ kind: "Text", value: "world" }],
-        },
-      ],
-    },
     {
       kind: "Paragraph",
       children: [
@@ -58,14 +33,46 @@ import { Node, parseDocument, assertDocument } from "../api"
         },
       ],
     },
+  ])
+}
+
+{
+  const thematicBreak = "\n---\n"
+  const node = parseDocument(thematicBreak)
+
+  assertDocument(node, [
     {
       kind: "ThematicBreak",
     },
+  ])
+}
+
+{
+  const codeBlock = renderCodeBlock("sisuo", "console.log('Hello')")
+  const node = parseDocument(codeBlock)
+
+  assertDocument(node, [
     {
       kind: "CodeBlock",
       info: "sisuo",
       value: "console.log('Hello')\n",
     },
+  ])
+
+  function renderCodeBlock(info: string, text: string): string {
+    let s = ""
+    s += "``` " + info + "\n"
+    s += text + "\n"
+    s += "```" + "\n"
+    return s
+  }
+}
+
+{
+  const lineBreak = "Hello  \nWorld"
+  const node = parseDocument(lineBreak)
+
+  assertDocument(node, [
     {
       kind: "Paragraph",
       children: [
@@ -74,6 +81,14 @@ import { Node, parseDocument, assertDocument } from "../api"
         { kind: "Text", value: "World" },
       ],
     },
+  ])
+}
+
+{
+  const softBreak = "Hello\nWorld"
+  const node = parseDocument(softBreak)
+
+  assertDocument(node, [
     {
       kind: "Paragraph",
       children: [
@@ -83,12 +98,4 @@ import { Node, parseDocument, assertDocument } from "../api"
       ],
     },
   ])
-}
-
-function renderCodeBlock(info: string, text: string): string {
-  let s = ""
-  s += "``` " + info + "\n"
-  s += text + "\n"
-  s += "```" + "\n"
-  return s
 }
