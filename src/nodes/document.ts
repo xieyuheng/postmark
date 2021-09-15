@@ -1,6 +1,6 @@
-import { Node, ContainerNode, Span } from "../node"
+import { Node, Span } from "../node"
 
-export class Document extends ContainerNode {
+export class Document extends Node {
   kind = "Document"
 
   span: Span

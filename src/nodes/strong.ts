@@ -1,6 +1,6 @@
-import { Node, ContainerNode, Span } from "../node"
+import { Node, Span } from "../node"
 
-export class Strong extends ContainerNode {
+export class Strong extends Node {
   kind = "Strong"
 
   children: Array<Node>
