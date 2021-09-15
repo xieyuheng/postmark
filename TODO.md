@@ -2,8 +2,7 @@
 
 - `Container` as sub-class of `Node`
 
-- nodes/softbreak
-- nodes/linebreak
+- nodes/soft-break
 
 - nodes/html_inline
 - nodes/link
@@ -15,6 +14,8 @@
 - nodes/list
 - nodes/heading
 - nodes/html_block
+
+- [maybe] `Node` has `fromCommonmark` static method
 
 - `Sequence` -- special interface for top level linear contents
 

@@ -25,6 +25,8 @@ export function createNode(node: Commonmark.Node): Node {
     return new Nodes.Text({ value })
   } else if (node.type === "thematic_break") {
     return new Nodes.ThematicBreak({ span })
+  } else if (node.type === "linebreak") {
+    return new Nodes.LineBreak()
   } else if (node.type === "code_block") {
     const info = ty.string().validate(node.info)
     const value = ty.string().validate(node.literal)
@@ -33,7 +35,6 @@ export function createNode(node: Commonmark.Node): Node {
     throw new Error([
       `I meet unknown commonmark node type: ${node.type}`,
       `  sourcepos: ${JSON.stringify(node.sourcepos)}`,
-      `  node: ${JSON.stringify(node)}`,
     ].join("\n"))
   }
 }

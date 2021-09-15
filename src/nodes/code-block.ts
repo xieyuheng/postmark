@@ -1,7 +1,7 @@
 import { Node, Span } from "../node"
 
 export class CodeBlock extends Node {
-  kind = "Text"
+  kind = "CodeBlock"
 
   span: Span
   info: string
