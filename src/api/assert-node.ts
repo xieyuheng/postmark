@@ -1,7 +1,4 @@
-import { Node, Span, Position } from "."
-import * as Nodes from "../nodes"
-import * as Commonmark from "commonmark"
-import ty from "@xieyuheng/ty"
+import { Node } from "../api"
 import * as ut from "../ut"
 
 export function assertNode(node: Node, json: any): void {

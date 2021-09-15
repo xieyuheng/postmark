@@ -1,4 +1,4 @@
-import { Node, Span, Position } from "."
+import { Node, Span, Position } from "../api"
 import * as Nodes from "../nodes"
 import * as Commonmark from "commonmark"
 import ty from "@xieyuheng/ty"
@@ -8,7 +8,7 @@ export function parseDocument(text: string): Node {
   return createNode(reader.parse(text))
 }
 
-export function createNode(node: Commonmark.Node): Node {
+function createNode(node: Commonmark.Node): Node {
   const span = node.sourcepos && createSpan(node.sourcepos)
   const children = commonmarkChildren(node).map(createNode)
 
