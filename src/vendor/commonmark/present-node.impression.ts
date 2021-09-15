@@ -29,13 +29,6 @@ Hi **there**
 - c
 
 ${sisuo}
-
-Hello
-world
-
-Hello
-world
-
 `)
 
 console.dir(Commonmark.presentNode(parsed), { depth: null })

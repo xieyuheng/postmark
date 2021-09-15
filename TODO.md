@@ -1,14 +1,18 @@
 - `Node` has `fromCommonmark` static method
 
-- nodes/html_inline
 - nodes/link
 - nodes/image
 - nodes/code
 
+- nodes/heading
+
 - nodes/block_quote
+
+- nodes/html_inline
+
 - nodes/item
 - nodes/list
-- nodes/heading
+
 - nodes/html_block
 
 - [maybe] If the interface are well separated, we can use `ContainerNode` `LeafNode` `InlineNode` as subclass of `Node`
