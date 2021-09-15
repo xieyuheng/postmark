@@ -1,3 +1,5 @@
+- `formatCodeBlock` in `api`
+
 - `Node` has `fromCommonmark` static method
 
 - nodes/html_inline

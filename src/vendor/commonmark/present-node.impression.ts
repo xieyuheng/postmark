@@ -1,0 +1,56 @@
+import * as Commonmark from "../commonmark"
+
+const parser = new Commonmark.Parser()
+
+function formatCodeBlock(info: string, text: string): string {
+  let s = ""
+  s += "``` " + info + "\n"
+  s += text
+  s += "```" + "\n"
+  return s
+}
+
+const sisuo = formatCodeBlock(
+  "sisuo",
+  `\
+环节:
+  标题: 简单的测试
+  标签:
+  - 测试标签1
+  - 测试标签2
+  - 测试标签3
+  卡组:
+  - cards-1
+`
+)
+
+const parsed = parser.parse(`\
+Hello *world*
+
+Hi **there**
+
+---
+
+- a
+- b
+- c
+
+${sisuo}
+
+Hello
+world
+
+Hello
+world
+
+`)
+
+console.dir(Commonmark.presentNode(parsed), { depth: null })
+
+// for (const node of nodeChildren(parsed)) {
+//   console.log(presentNode(node))
+// }
+
+// const writer = new Commonmark.HtmlRenderer()
+// const result = writer.render(parsed)
+// console.log(result)

@@ -4,8 +4,8 @@ import * as Commonmark from "../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
 export function parseDocument(text: string): Node {
-  const reader = new Commonmark.Parser()
-  return createNode(reader.parse(text))
+  const parser = new Commonmark.Parser()
+  return createNode(parser.parse(text))
 }
 
 function createNode(node: Commonmark.Node): Node {
