@@ -1,19 +1,21 @@
 import { Node, parseNode } from "../node"
 
 {
+  const emphasize = "Hello *world*"
+  const strong = "Hi **there**"
+  const thematicBreak = "\n---\n"
   const codeBlock = renderCodeBlock("sisuo", "console.log('Hello')")
   const lineBreak = "Hello  \nWorld"
+  const softBreak = "Hello\nWorld"
 
-  const text = `\
-Hello *world*
-
-Hi **there**
-
----
-
-${codeBlock}
-${lineBreak}
-`
+  const text = [
+    emphasize,
+    strong,
+    thematicBreak,
+    codeBlock,
+    lineBreak,
+    softBreak,
+  ].join("\n\n")
 
   const node = parseNode(text)
   console.dir(node, { depth: null })

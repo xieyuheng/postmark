@@ -27,6 +27,8 @@ export function createNode(node: Commonmark.Node): Node {
     return new Nodes.ThematicBreak({ span })
   } else if (node.type === "linebreak") {
     return new Nodes.LineBreak()
+  } else if (node.type === "softbreak") {
+    return new Nodes.SoftBreak()
   } else if (node.type === "code_block") {
     const info = ty.string().validate(node.info)
     const value = ty.string().validate(node.literal)

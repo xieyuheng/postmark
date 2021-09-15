@@ -1,8 +1,11 @@
-- `Node` -- every node also contains its text -- render node to markdown itself
+- [refactor] rename `parseNode` to `parseDocument`
 
-- `Container` as sub-class of `Node`
+- [testing] `assertDocument` without `Span`
 
-- nodes/soft-break
+- [maybe] `Container` as sub-class of `Node`
+- [maybe] `LeafNode` as sub-class of `Node`
+
+- [maybe] `Node` has `fromCommonmark` static method
 
 - nodes/html_inline
 - nodes/link
@@ -15,7 +18,9 @@
 - nodes/heading
 - nodes/html_block
 
-- [maybe] `Node` has `fromCommonmark` static method
+- `Node` -- every node also contains its text -- render node to markdown itself
+
+# sequence
 
 - `Sequence` -- special interface for top level linear contents
 
