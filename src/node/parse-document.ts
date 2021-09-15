@@ -1,9 +1,9 @@
-import { Node, Span, Position } from "../node"
+import { Node, Span, Position } from "."
 import * as Nodes from "../nodes"
 import * as Commonmark from "commonmark"
 import ty from "@xieyuheng/ty"
 
-export function parseNode(text: string): Node {
+export function parseDocument(text: string): Node {
   const reader = new Commonmark.Parser()
   return createNode(reader.parse(text))
 }

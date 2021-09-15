@@ -1,2 +1,2 @@
 export * from "./node"
-export * from "./parse-node"
+export * from "./parse-document"

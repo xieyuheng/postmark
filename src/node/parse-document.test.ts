@@ -1,4 +1,4 @@
-import { Node, parseNode } from "../node"
+import { Node, parseDocument } from "../node"
 
 {
   const emphasize = "Hello *world*"
@@ -17,7 +17,7 @@ import { Node, parseNode } from "../node"
     softBreak,
   ].join("\n\n")
 
-  const node = parseNode(text)
+  const node = parseDocument(text)
   console.dir(node, { depth: null })
 }
 

@@ -1,5 +1,3 @@
-- [refactor] rename `parseNode` to `parseDocument`
-
 - [testing] `assertDocument` without `Span`
 
 - [maybe] `Container` as sub-class of `Node`
