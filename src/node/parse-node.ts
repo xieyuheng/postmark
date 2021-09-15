@@ -32,10 +32,12 @@ export function createNode(node: Commonmark.Node): Node {
     const value = ty.string().validate(node.literal)
     return new Nodes.CodeBlock({ span, info, value })
   } else {
-    throw new Error([
-      `I meet unknown commonmark node type: ${node.type}`,
-      `  sourcepos: ${JSON.stringify(node.sourcepos)}`,
-    ].join("\n"))
+    throw new Error(
+      [
+        `I meet unknown commonmark node type: ${node.type}`,
+        `  sourcepos: ${JSON.stringify(node.sourcepos)}`,
+      ].join("\n")
+    )
   }
 }
 

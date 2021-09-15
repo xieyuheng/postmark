@@ -1,3 +1,1 @@
-export abstract class Content {
-
-}
+export abstract class Content {}
