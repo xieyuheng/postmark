@@ -48,7 +48,7 @@ import { Node, parseDocument, assertDocument } from "../api"
 }
 
 {
-  const codeBlock = renderCodeBlock("sisuo", "console.log('Hello')")
+  const codeBlock = formatCodeBlock("sisuo", "console.log('Hello')")
   const node = parseDocument(codeBlock)
 
   assertDocument(node, [
@@ -59,7 +59,7 @@ import { Node, parseDocument, assertDocument } from "../api"
     },
   ])
 
-  function renderCodeBlock(info: string, text: string): string {
+  function formatCodeBlock(info: string, text: string): string {
     let s = ""
     s += "``` " + info + "\n"
     s += text + "\n"

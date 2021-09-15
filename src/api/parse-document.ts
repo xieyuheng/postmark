@@ -1,6 +1,6 @@
 import { Node, Span, Position } from "../api"
 import * as Nodes from "../nodes"
-import * as Commonmark from "commonmark"
+import * as Commonmark from "../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
 export function parseDocument(text: string): Node {
@@ -10,7 +10,7 @@ export function parseDocument(text: string): Node {
 
 function createNode(node: Commonmark.Node): Node {
   const span = node.sourcepos && createSpan(node.sourcepos)
-  const children = commonmarkChildren(node).map(createNode)
+  const children = Commonmark.children(node).map(createNode)
 
   if (node.type === "document") {
     return new Nodes.Document({ span, children })
@@ -49,17 +49,4 @@ function createSpan(sourcepos: [[number, number], [number, number]]): Span {
     new Position(startline, startcolumn),
     new Position(endline, endcolumn)
   )
-}
-
-function commonmarkChildren(node: Commonmark.Node): Array<Commonmark.Node> {
-  const children = []
-
-  let child = node.firstChild
-
-  while (child) {
-    children.push(child)
-    child = child.next
-  }
-
-  return children
 }

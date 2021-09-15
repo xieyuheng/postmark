@@ -1,3 +1,5 @@
+- `Span.fromPairs` instead of `createSpan`
+
 - `Node` has `fromCommonmark` static method
 
 - nodes/html_inline

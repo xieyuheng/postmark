@@ -1,8 +1,11 @@
+export * from "commonmark"
+import * as Commonmark from "commonmark"
+
 import { Parser, HtmlRenderer, Node } from "commonmark"
 
 const reader = new Parser()
 
-function renderCodeBlock(info: string, text: string): string {
+function formatCodeBlock(info: string, text: string): string {
   let s = ""
   s += "``` " + info + "\n"
   s += text
@@ -10,7 +13,7 @@ function renderCodeBlock(info: string, text: string): string {
   return s
 }
 
-const sisuo = renderCodeBlock(
+const sisuo = formatCodeBlock(
   "sisuo",
   `\
 环节:
@@ -37,7 +40,7 @@ Hi **there**
 
 ${sisuo}
 
-Hello  
+Hello
 world
 
 Hello
@@ -55,7 +58,7 @@ console.dir(presentNode(parsed), { depth: null })
 // const result = writer.render(parsed)
 // console.log(result)
 
-function nodeChildren(node: Node): Array<Node> {
+export function children(node: Commonmark.Node): Array<Commonmark.Node> {
   const children = []
 
   let child = node.firstChild
@@ -74,6 +77,6 @@ function presentNode(node: Node): any {
     literal: node.literal,
     isContainer: node.isContainer,
     sourcepos: node.sourcepos,
-    children: nodeChildren(node).map(presentNode),
+    children: children(node).map(presentNode),
   }
 }
