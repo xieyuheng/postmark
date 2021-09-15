@@ -4,6 +4,10 @@ export abstract class Node {
   abstract json(): any
 }
 
+export abstract class ContainerNode extends Node {
+  abstract children: Array<Node>
+}
+
 export class Span {
   start: Position
   end: Position

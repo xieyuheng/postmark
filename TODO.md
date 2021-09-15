@@ -1,7 +1,6 @@
-- [maybe] `Container` as sub-class of `Node`
-- [maybe] `LeafNode` as sub-class of `Node`
+- `LeafNode` as sub-class of `Node`
 
-- [maybe] `Node` has `fromCommonmark` static method
+- `Node` has `fromCommonmark` static method
 
 - nodes/html_inline
 - nodes/link
