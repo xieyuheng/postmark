@@ -9,7 +9,7 @@ export function parseDocument(text: string): Node {
 }
 
 function createNode(node: Commonmark.Node): Node {
-  const span = node.sourcepos && createSpan(node.sourcepos)
+  const span = node.sourcepos && Span.fromPairs(node.sourcepos)
   const children = Commonmark.children(node).map(createNode)
 
   if (node.type === "document") {
@@ -41,12 +41,4 @@ function createNode(node: Commonmark.Node): Node {
       ].join("\n")
     )
   }
-}
-
-function createSpan(sourcepos: [[number, number], [number, number]]): Span {
-  const [[startline, startcolumn], [endline, endcolumn]] = sourcepos
-  return new Span(
-    new Position(startline, startcolumn),
-    new Position(endline, endcolumn)
-  )
 }
