@@ -26,7 +26,7 @@ export class CodeBlock extends Node {
   }
 
   static fromCommonmark(node: Commonmark.Node): undefined | CodeBlock {
-    if (node.type === "document") {
+    if (node.type === "code_block") {
       return new CodeBlock({
         span: node.sourcepos && Span.fromPairs(node.sourcepos),
         info: ty.string().validate(node.info),
