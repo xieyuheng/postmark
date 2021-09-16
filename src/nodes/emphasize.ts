@@ -18,4 +18,12 @@ export class Emphasize extends Node {
       children: this.children.map((child) => child.json()),
     }
   }
+
+  static fromCommonmark(node: Commonmark.Node): undefined | Emphasize {
+    if (node.type === "emph") {
+      return new Emphasize({
+        children: Commonmark.children(node).map(nodeFromCommonmark),
+      })
+    }
+  }
 }

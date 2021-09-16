@@ -1,4 +1,3 @@
-- Emphasize.fromCommonmark
 - Strong.fromCommonmark
 - Text.fromCommonmark
 - ThematicBreak.fromCommonmark
