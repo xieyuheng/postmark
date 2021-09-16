@@ -3,6 +3,7 @@ import * as Nodes from "../nodes"
 import * as Commonmark from "../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
+// NOTE We define a function to avoid top-level side effects -- for circular.
 function nodeClasses(): Array<{
   fromCommonmark: (node: Commonmark.Node) => undefined | Node
 }> {
