@@ -12,7 +12,7 @@ function nodeClasses(): Array<{
     Nodes.Emphasize,
     Nodes.Strong,
     Nodes.Text,
-    // Nodes.ThematicBreak,
+    Nodes.ThematicBreak,
     // Nodes.LineBreak,
     // Nodes.SoftBreak,
     Nodes.CodeBlock,
@@ -27,11 +27,7 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
     }
   }
 
-  if (node.type === "thematic_break") {
-    return new Nodes.ThematicBreak({
-      span: node.sourcepos && Span.fromPairs(node.sourcepos),
-    })
-  } else if (node.type === "linebreak") {
+  if (node.type === "linebreak") {
     return new Nodes.LineBreak()
   } else if (node.type === "softbreak") {
     return new Nodes.SoftBreak()

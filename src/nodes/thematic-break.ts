@@ -17,4 +17,12 @@ export class ThematicBreak extends Node {
       kind: this.kind,
     }
   }
+
+  static fromCommonmark(node: Commonmark.Node): undefined | ThematicBreak {
+    if (node.type === "thematic_break") {
+      return new ThematicBreak({
+        span: node.sourcepos && Span.fromPairs(node.sourcepos),
+      })
+    }
+  }
 }
