@@ -1,4 +1,4 @@
-- `Node` has `fromCommonmark` static method
+- all `Node`s has `fromCommonmark` static method
 
 - nodes/link
 - nodes/image

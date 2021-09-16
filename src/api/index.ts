@@ -1,4 +1,5 @@
 export * from "../node"
+export * from "./node-from-commonmark"
 export * from "./parse-document"
 export * from "./assert-node"
 export * from "./assert-document"

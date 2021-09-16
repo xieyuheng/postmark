@@ -1,4 +1,4 @@
-import { Node, Span } from "../node"
+import { Node } from "../node"
 
 export class SoftBreak extends Node {
   kind = "SoftBreak"

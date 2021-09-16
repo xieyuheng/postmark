@@ -1,4 +1,4 @@
-import { Node, Span } from "../node"
+import { Node } from "../node"
 
 export class Strong extends Node {
   kind = "Strong"
