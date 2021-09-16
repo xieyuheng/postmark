@@ -14,4 +14,10 @@ export class SoftBreak extends Node {
       kind: this.kind,
     }
   }
+
+  static fromCommonmark(node: Commonmark.Node): undefined | SoftBreak {
+    if (node.type === "softbreak") {
+      return new SoftBreak()
+    }
+  }
 }

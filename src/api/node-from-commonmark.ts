@@ -15,7 +15,7 @@ function nodeClasses(): Array<{
     Nodes.Text,
     Nodes.ThematicBreak,
     // Nodes.LineBreak,
-    // Nodes.SoftBreak,
+    Nodes.SoftBreak,
     Nodes.CodeBlock,
   ]
 }
@@ -30,8 +30,6 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
 
   if (node.type === "linebreak") {
     return new Nodes.LineBreak()
-  } else if (node.type === "softbreak") {
-    return new Nodes.SoftBreak()
   } else {
     throw new Error(
       [
