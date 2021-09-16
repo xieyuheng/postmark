@@ -20,6 +20,7 @@ function nodeClasses(): Array<{
     Nodes.Link,
     Nodes.Image,
     Nodes.Code,
+    Nodes.Heading,
   ]
 }
 

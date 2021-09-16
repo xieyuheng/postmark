@@ -1,5 +1,3 @@
-- nodes/heading
-
 - nodes/block_quote
 
 - nodes/item

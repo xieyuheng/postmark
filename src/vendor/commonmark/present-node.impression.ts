@@ -19,6 +19,10 @@ ${formatCodeBlock("js", "console.log('Hello')")}
 ![image link](https://example.com "example title")
 
 ${"`console.log('Hello')`"}
+
+# heading 1
+## heading 2
+### heading 3
 `
 
 const parser = new Commonmark.Parser()
