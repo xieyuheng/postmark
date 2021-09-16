@@ -1,15 +1,13 @@
-- nodes/code
-
 - nodes/heading
 
 - nodes/block_quote
-
-- nodes/html_inline
 
 - nodes/item
 - nodes/list
 
 - nodes/html_block
+
+- nodes/html_inline
 
 - [maybe] If the interface are well separated, we can use `ContainerNode` `LeafNode` `InlineNode` as subclass of `Node`
 

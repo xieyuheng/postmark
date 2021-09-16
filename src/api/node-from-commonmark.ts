@@ -18,7 +18,8 @@ function nodeClasses(): Array<{
     Nodes.SoftBreak,
     Nodes.CodeBlock,
     Nodes.Link,
-    Nodes.Image,    
+    Nodes.Image,
+    Nodes.Code,
   ]
 }
 
