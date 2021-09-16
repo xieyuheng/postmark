@@ -1,4 +1,3 @@
-- Strong.fromCommonmark
 - Text.fromCommonmark
 - ThematicBreak.fromCommonmark
 - LineBreak.fromCommonmark

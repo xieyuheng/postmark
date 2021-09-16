@@ -18,4 +18,12 @@ export class Strong extends Node {
       children: this.children.map((child) => child.json()),
     }
   }
+
+  static fromCommonmark(node: Commonmark.Node): undefined | Strong {
+    if (node.type === "strong") {
+      return new Strong({
+        children: Commonmark.children(node).map(nodeFromCommonmark),
+      })
+    }
+  }
 }

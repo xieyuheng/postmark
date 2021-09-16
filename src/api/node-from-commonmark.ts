@@ -10,7 +10,7 @@ function nodeClasses(): Array<{
     Nodes.Document,
     Nodes.Paragraph,
     Nodes.Emphasize,
-    // Nodes.Strong,
+    Nodes.Strong,
     // Nodes.Text,
     // Nodes.ThematicBreak,
     // Nodes.LineBreak,
@@ -27,11 +27,7 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
     }
   }
 
-  if (node.type === "strong") {
-    return new Nodes.Strong({
-      children: Commonmark.children(node).map(nodeFromCommonmark),
-    })
-  } else if (node.type === "text") {
+  if (node.type === "text") {
     return new Nodes.Text({
       value: ty.string().validate(node.literal),
     })
