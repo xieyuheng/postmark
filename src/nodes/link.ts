@@ -10,7 +10,7 @@ export class Link extends Node {
   href: string
   children: Array<Node>
 
-  constructor(opts: { title: string; href: string, children: Array<Node> }) {
+  constructor(opts: { title: string; href: string; children: Array<Node> }) {
     super()
     this.title = opts.title
     this.href = opts.href

@@ -8,7 +8,7 @@ export class Document extends Node {
   span: Span
   children: Array<Node>
 
-  constructor(opts: { span: Span, children: Array<Node>;  }) {
+  constructor(opts: { span: Span; children: Array<Node> }) {
     super()
     this.span = opts.span
     this.children = opts.children

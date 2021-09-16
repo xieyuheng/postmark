@@ -25,7 +25,7 @@ export function presentNode(node: Commonmark.Node): any {
   if (node.level) {
     result.level = node.level
   }
-  
+
   result.children = Commonmark.children(node).map(presentNode)
 
   return result
