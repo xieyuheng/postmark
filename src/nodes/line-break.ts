@@ -14,4 +14,10 @@ export class LineBreak extends Node {
       kind: this.kind,
     }
   }
+
+  static fromCommonmark(node: Commonmark.Node): undefined | LineBreak {
+    if (node.type === "linebreak") {
+      return new LineBreak()
+    }
+  }
 }

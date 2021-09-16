@@ -14,7 +14,7 @@ function nodeClasses(): Array<{
     Nodes.Strong,
     Nodes.Text,
     Nodes.ThematicBreak,
-    // Nodes.LineBreak,
+    Nodes.LineBreak,
     Nodes.SoftBreak,
     Nodes.CodeBlock,
   ]
@@ -28,14 +28,10 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
     }
   }
 
-  if (node.type === "linebreak") {
-    return new Nodes.LineBreak()
-  } else {
-    throw new Error(
-      [
-        `I meet unknown commonmark node type: ${node.type}`,
-        `  sourcepos: ${JSON.stringify(node.sourcepos)}`,
-      ].join("\n")
-    )
-  }
+  throw new Error(
+    [
+      `I meet unknown commonmark node type: ${node.type}`,
+      `  sourcepos: ${JSON.stringify(node.sourcepos)}`,
+    ].join("\n")
+  )
 }
