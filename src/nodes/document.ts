@@ -21,7 +21,7 @@ export class Document extends Node {
     }
   }
 
-  static fromCommonmark(node: Commonmark.Node): undefined | Node {
+  static fromCommonmark(node: Commonmark.Node): undefined | Document {
     if (node.type === "document") {
       return new Document({
         span: node.sourcepos && Span.fromPairs(node.sourcepos),

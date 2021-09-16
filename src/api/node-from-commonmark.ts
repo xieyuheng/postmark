@@ -15,7 +15,7 @@ function nodeClasses(): Array<{
     // Nodes.ThematicBreak,
     // Nodes.LineBreak,
     // Nodes.SoftBreak,
-    // Nodes.CodeBlock,
+    Nodes.CodeBlock,
   ]
 }
 
@@ -45,10 +45,6 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
     return new Nodes.LineBreak()
   } else if (node.type === "softbreak") {
     return new Nodes.SoftBreak()
-  } else if (node.type === "code_block") {
-    const info = ty.string().validate(node.info)
-    const value = ty.string().validate(node.literal)
-    return new Nodes.CodeBlock({ span, info, value })
   } else {
     throw new Error(
       [

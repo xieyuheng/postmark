@@ -1,4 +1,7 @@
 import { Node, Span } from "../node"
+import { nodeFromCommonmark } from "../api"
+import * as Commonmark from "../vendor/commonmark"
+import ty from "@xieyuheng/ty"
 
 export class CodeBlock extends Node {
   kind = "CodeBlock"
@@ -19,6 +22,16 @@ export class CodeBlock extends Node {
       kind: this.kind,
       info: this.info,
       value: this.value,
+    }
+  }
+
+  static fromCommonmark(node: Commonmark.Node): undefined | CodeBlock {
+    if (node.type === "document") {
+      return new CodeBlock({
+        span: node.sourcepos && Span.fromPairs(node.sourcepos),
+        info: ty.string().validate(node.info),
+        value: ty.string().validate(node.literal),
+      })
     }
   }
 }
