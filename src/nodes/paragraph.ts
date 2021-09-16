@@ -20,4 +20,13 @@ export class Paragraph extends Node {
       children: this.children.map((child) => child.json()),
     }
   }
+
+  static fromCommonmark(node: Commonmark.Node): undefined | Paragraph {
+    if (node.type === "paragraph") {
+      return new Paragraph({
+        span: node.sourcepos && Span.fromPairs(node.sourcepos),
+        children: Commonmark.children(node).map(nodeFromCommonmark),
+      })
+    }
+  }
 }

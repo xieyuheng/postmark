@@ -1,11 +1,9 @@
-- Paragraph.fromCommonmark
 - Emphasize.fromCommonmark
 - Strong.fromCommonmark
 - Text.fromCommonmark
 - ThematicBreak.fromCommonmark
 - LineBreak.fromCommonmark
 - SoftBreak.fromCommonmark
-
 
 - nodes/link
 - nodes/image

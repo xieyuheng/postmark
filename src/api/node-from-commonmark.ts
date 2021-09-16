@@ -8,7 +8,7 @@ function nodeClasses(): Array<{
 }> {
   return [
     Nodes.Document,
-    // Nodes.Paragraph,
+    Nodes.Paragraph,
     // Nodes.Emphasize,
     // Nodes.Strong,
     // Nodes.Text,
@@ -20,9 +20,6 @@ function nodeClasses(): Array<{
 }
 
 export function nodeFromCommonmark(node: Commonmark.Node): Node {
-  const span = node.sourcepos && Span.fromPairs(node.sourcepos)
-  const children = Commonmark.children(node).map(nodeFromCommonmark)
-
   for (const nodeClass of nodeClasses()) {
     const result = nodeClass.fromCommonmark(node)
     if (result) {
@@ -30,17 +27,22 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
     }
   }
 
-  if (node.type === "paragraph") {
-    return new Nodes.Paragraph({ span, children })
-  } else if (node.type === "emph") {
-    return new Nodes.Emphasize({ children })
+  if (node.type === "emph") {
+    return new Nodes.Emphasize({
+      children: Commonmark.children(node).map(nodeFromCommonmark),
+    })
   } else if (node.type === "strong") {
-    return new Nodes.Strong({ children })
+    return new Nodes.Strong({
+      children: Commonmark.children(node).map(nodeFromCommonmark),
+    })
   } else if (node.type === "text") {
-    const value = ty.string().validate(node.literal)
-    return new Nodes.Text({ value })
+    return new Nodes.Text({
+      value: ty.string().validate(node.literal),
+    })
   } else if (node.type === "thematic_break") {
-    return new Nodes.ThematicBreak({ span })
+    return new Nodes.ThematicBreak({
+      span: node.sourcepos && Span.fromPairs(node.sourcepos),
+    })
   } else if (node.type === "linebreak") {
     return new Nodes.LineBreak()
   } else if (node.type === "softbreak") {
