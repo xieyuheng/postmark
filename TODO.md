@@ -1,4 +1,3 @@
-- nodes/image
 - nodes/code
 
 - nodes/heading

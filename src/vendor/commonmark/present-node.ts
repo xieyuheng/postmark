@@ -18,6 +18,10 @@ export function presentNode(node: Commonmark.Node): any {
     result.title = node.title
   }
 
+  if (node.destination) {
+    result.destination = node.destination
+  }
+
   result.children = Commonmark.children(node).map(presentNode)
 
   return result
