@@ -10,7 +10,7 @@ export * from "./soft-break"
 export * from "./link"
 export * from "./image"
 export * from "./code"
-export * from "./heading"
+export * from "./headline"
 export * from "./block-quote"
 
 export * from "./bullet-list"

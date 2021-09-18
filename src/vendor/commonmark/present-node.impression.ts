@@ -16,9 +16,9 @@ ${formatCodeBlock("js", "console.log('Hello')")}
 
 ${"`console.log('Hello')`"}
 
-# heading 1
-## heading 2
-### heading 3
+# headline 1
+## headline 2
+### headline 3
 
 > Make the change easy, then make the easy change.
 >

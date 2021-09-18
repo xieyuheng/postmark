@@ -20,7 +20,7 @@ function nodeClasses(): Array<{
     Nodes.Link,
     Nodes.Image,
     Nodes.Code,
-    Nodes.Heading,
+    Nodes.Headline,
     Nodes.BlockQuote,
     Nodes.BulletList,
     Nodes.BulletListItem,

@@ -3,8 +3,8 @@ import { nodeFromCommonmark } from "../api"
 import * as Commonmark from "../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
-export class Heading extends Node {
-  kind = "Heading"
+export class Headline extends Node {
+  kind = "Headline"
 
   span: Span
   level: number
@@ -25,9 +25,9 @@ export class Heading extends Node {
     }
   }
 
-  static fromCommonmark(node: Commonmark.Node): undefined | Heading {
+  static fromCommonmark(node: Commonmark.Node): undefined | Headline {
     if (node.type === "heading") {
-      return new Heading({
+      return new Headline({
         span: node.sourcepos && Span.fromPairs(node.sourcepos),
         level: ty.number().validate(node.level),
         children: Commonmark.children(node).map(nodeFromCommonmark),
