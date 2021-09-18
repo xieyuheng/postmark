@@ -1,5 +1,4 @@
-- nodes/item
-- nodes/list
+- nodes/ordered-list
 
 - nodes/html_block
 

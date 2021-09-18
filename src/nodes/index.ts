@@ -12,3 +12,7 @@ export * from "./image"
 export * from "./code"
 export * from "./heading"
 export * from "./block-quote"
+
+export * from "./bullet-list"
+export * from "./ordered-list"
+export * from "./list-item"

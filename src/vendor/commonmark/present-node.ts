@@ -26,6 +26,22 @@ export function presentNode(node: Commonmark.Node): any {
     result.level = node.level
   }
 
+  if (node.listType) {
+    result.listType = node.listType
+  }
+
+  if (node.listTight !== undefined) {
+    result.listTight = node.listTight
+  }
+
+  if (node.listStart) {
+    result.listStart = node.listStart
+  }
+
+  if (node.listDelimiter) {
+    result.listDelimiter = node.listDelimiter
+  }
+
   result.children = Commonmark.children(node).map(presentNode)
 
   return result

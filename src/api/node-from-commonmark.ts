@@ -22,6 +22,9 @@ function nodeClasses(): Array<{
     Nodes.Code,
     Nodes.Heading,
     Nodes.BlockQuote,
+    Nodes.BulletList,
+    Nodes.OrderedList,
+    Nodes.ListItem,
   ]
 }
 
