@@ -19,7 +19,7 @@ import { parseDocument, assertDocument } from "../api"
 {
   const htmlBlock = `\
 <x-card>
-  Hiya
+  Hello world!
 </x-card>
 `
 
