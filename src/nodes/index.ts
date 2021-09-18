@@ -14,5 +14,6 @@ export * from "./heading"
 export * from "./block-quote"
 
 export * from "./bullet-list"
-export * from "./ordered-list"
 export * from "./bullet-list-item"
+export * from "./ordered-list"
+export * from "./ordered-list-item"

@@ -2,8 +2,8 @@ import { Node, Span } from "../node"
 import { nodeFromCommonmark } from "../api"
 import * as Commonmark from "../vendor/commonmark"
 
-export class BulletListItem extends Node {
-  kind = "BulletListItem"
+export class OrderedListItem extends Node {
+  kind = "OrderedListItem"
 
   span: Span
   children: Array<Node>
@@ -21,9 +21,9 @@ export class BulletListItem extends Node {
     }
   }
 
-  static fromCommonmark(node: Commonmark.Node): undefined | BulletListItem {
-    if (node.type === "item" && node.listType === "bullet") {
-      return new BulletListItem({
+  static fromCommonmark(node: Commonmark.Node): undefined | OrderedListItem {
+    if (node.type === "item" && node.listType === "ordered") {
+      return new OrderedListItem({
         span: node.sourcepos && Span.fromPairs(node.sourcepos),
         children: Commonmark.children(node).map(nodeFromCommonmark),
       })

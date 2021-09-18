@@ -23,8 +23,9 @@ function nodeClasses(): Array<{
     Nodes.Heading,
     Nodes.BlockQuote,
     Nodes.BulletList,
-    Nodes.OrderedList,
     Nodes.BulletListItem,
+    Nodes.OrderedList,
+    Nodes.OrderedListItem,
   ]
 }
 
