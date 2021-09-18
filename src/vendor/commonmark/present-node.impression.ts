@@ -42,7 +42,7 @@ A loose list:
 
 A tight ordered list:
 
-1. a
+5. a
 1. b
 1. c
 `

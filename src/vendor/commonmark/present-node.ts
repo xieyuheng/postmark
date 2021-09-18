@@ -30,11 +30,11 @@ export function presentNode(node: Commonmark.Node): any {
     result.listType = node.listType
   }
 
-  if (node.listTight !== undefined) {
+  if (typeof node.listTight === "string") {
     result.listTight = node.listTight
   }
 
-  if (node.listStart !== undefined) {
+  if (typeof node.listStart === "number") {
     result.listStart = node.listStart
   }
 

@@ -8,12 +8,22 @@ export class OrderedList extends Node {
 
   span: Span
   tight: boolean
+  start: number
+  delimiter: "." | ")"
   children: Array<Node>
 
-  constructor(opts: { children: Array<Node>; tight: boolean; span: Span }) {
+  constructor(opts: {
+    children: Array<Node>
+    tight: boolean
+    start: number
+    delimiter: "." | ")"
+    span: Span
+  }) {
     super()
     this.span = opts.span
     this.tight = opts.tight
+    this.start = opts.start
+    this.delimiter = opts.delimiter
     this.children = opts.children
   }
 
@@ -21,6 +31,8 @@ export class OrderedList extends Node {
     return {
       kind: this.kind,
       tight: this.tight,
+      start: this.start,
+      delimiter: this.delimiter,
       children: this.children.map((child) => child.json()),
     }
   }
@@ -30,6 +42,10 @@ export class OrderedList extends Node {
       return new OrderedList({
         span: node.sourcepos && Span.fromPairs(node.sourcepos),
         tight: ty.boolean().validate(node.listTight),
+        start: ty.number().validate(node.listStart),
+        delimiter: ty
+          .union(ty.const("." as const), ty.const(")" as const))
+          .validate(node.listDelimiter),
         children: Commonmark.children(node).map(nodeFromCommonmark),
       })
     }
