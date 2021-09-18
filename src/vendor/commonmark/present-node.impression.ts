@@ -45,6 +45,12 @@ A tight ordered list:
 5. a
 1. b
 1. c
+
+<x-card />
+
+<x-card>
+  Hello world!
+</x-card>
 `
 
 const parser = new Commonmark.Parser()

@@ -17,3 +17,6 @@ export * from "./bullet-list"
 export * from "./bullet-list-item"
 export * from "./ordered-list"
 export * from "./ordered-list-item"
+
+export * from "./html-block"
+export * from "./html-inline"

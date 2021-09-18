@@ -26,6 +26,8 @@ function nodeClasses(): Array<{
     Nodes.BulletListItem,
     Nodes.OrderedList,
     Nodes.OrderedListItem,
+    Nodes.HtmlBlock,
+    // Nodes.HtmlInline,
   ]
 }
 
