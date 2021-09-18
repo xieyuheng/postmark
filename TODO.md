@@ -1,5 +1,3 @@
-- ordered-list--loose.test.ts
-
 - nodes/html_block
 
 - nodes/html_inline
