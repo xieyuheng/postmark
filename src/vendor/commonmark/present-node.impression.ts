@@ -51,6 +51,16 @@ A tight ordered list:
 <x-card>
   Hello world!
 </x-card>
+
+${
+  "`" +
+  `${`\
+| Header  | Another Header |
+|---------|----------------|
+| field 1 | value one      |
+`}` +
+  "`"
+}
 `
 
 const parser = new Commonmark.Parser()
