@@ -34,7 +34,7 @@ export function presentNode(node: Commonmark.Node): any {
     result.listTight = node.listTight
   }
 
-  if (node.listStart) {
+  if (node.listStart !== undefined) {
     result.listStart = node.listStart
   }
 

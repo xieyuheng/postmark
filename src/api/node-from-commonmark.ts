@@ -24,7 +24,7 @@ function nodeClasses(): Array<{
     Nodes.BlockQuote,
     Nodes.BulletList,
     Nodes.OrderedList,
-    Nodes.ListItem,
+    Nodes.BulletListItem,
   ]
 }
 

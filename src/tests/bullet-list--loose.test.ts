@@ -24,7 +24,7 @@ A loose list:
       tight: false,
       children: [
         {
-          kind: "ListItem",
+          kind: "BulletListItem",
           children: [
             {
               kind: "Paragraph",
@@ -39,13 +39,13 @@ A loose list:
           ],
         },
         {
-          kind: "ListItem",
+          kind: "BulletListItem",
           children: [
             { kind: "Paragraph", children: [{ kind: "Text", value: "b" }] },
           ],
         },
         {
-          kind: "ListItem",
+          kind: "BulletListItem",
           children: [
             { kind: "Paragraph", children: [{ kind: "Text", value: "c" }] },
           ],

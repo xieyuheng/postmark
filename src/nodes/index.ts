@@ -15,4 +15,4 @@ export * from "./block-quote"
 
 export * from "./bullet-list"
 export * from "./ordered-list"
-export * from "./list-item"
+export * from "./bullet-list-item"

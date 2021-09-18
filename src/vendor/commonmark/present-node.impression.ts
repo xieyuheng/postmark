@@ -39,6 +39,12 @@ A loose list:
 - c
 
 - d
+
+A tight ordered list:
+
+1. a
+1. b
+1. c
 `
 
 const parser = new Commonmark.Parser()

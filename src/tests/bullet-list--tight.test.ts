@@ -20,19 +20,19 @@ A tight list:
       tight: true,
       children: [
         {
-          kind: "ListItem",
+          kind: "BulletListItem",
           children: [
             { kind: "Paragraph", children: [{ kind: "Text", value: "a" }] },
           ],
         },
         {
-          kind: "ListItem",
+          kind: "BulletListItem",
           children: [
             { kind: "Paragraph", children: [{ kind: "Text", value: "b" }] },
           ],
         },
         {
-          kind: "ListItem",
+          kind: "BulletListItem",
           children: [
             { kind: "Paragraph", children: [{ kind: "Text", value: "c" }] },
           ],

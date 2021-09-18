@@ -1,4 +1,5 @@
 - nodes/ordered-list
+- nodes/ordered-list-item
 
 - ordered-list--tight.test.ts
 - ordered-list--loose.test.ts
