@@ -21,6 +21,7 @@ function nodeClasses(): Array<{
     Nodes.Image,
     Nodes.Code,
     Nodes.Heading,
+    Nodes.BlockQuote,
   ]
 }
 
