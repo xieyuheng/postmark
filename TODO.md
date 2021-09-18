@@ -1,4 +1,10 @@
+- bullet-list--tight.test.ts
+- bullet-list--loose.test.ts
+
 - nodes/ordered-list
+
+- ordered-list--tight.test.ts
+- ordered-list--loose.test.ts
 
 - nodes/html_block
 
