@@ -1,7 +1,6 @@
 - nodes/leaf-blocks/
 - nodes/inlines/
 
-- tests/container-blocks/
 - tests/leaf-blocks/
 - tests/inlines/
 

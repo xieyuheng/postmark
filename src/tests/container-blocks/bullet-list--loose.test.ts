@@ -1,35 +1,30 @@
-import { parseDocument, assertDocument } from "../api"
+import { parseDocument, assertDocument } from "../../api"
 
 {
-  const looseOrderedList = `\
-A loose ordered list:
+  const looseBulletList = `\
+A loose list:
+- a
+  a
+  a
 
-6. a
-   a
-   a
+- b
 
-7. b
-
-100. c
+- c
 `
 
-  const node = parseDocument(looseOrderedList)
+  const node = parseDocument(looseBulletList)
 
   assertDocument(node, [
     {
       kind: "Paragraph",
-      children: [{ kind: "Text", value: "A loose ordered list:" }],
+      children: [{ kind: "Text", value: "A loose list:" }],
     },
     {
-      kind: "OrderedList",
+      kind: "BulletList",
       tight: false,
-      start: 6,
-      delimiter: ".",
       children: [
         {
-          kind: "OrderedListItem",
-          number: 6,
-          delimiter: ".",
+          kind: "BulletListItem",
           children: [
             {
               kind: "Paragraph",
@@ -44,17 +39,13 @@ A loose ordered list:
           ],
         },
         {
-          kind: "OrderedListItem",
-          number: 7,
-          delimiter: ".",
+          kind: "BulletListItem",
           children: [
             { kind: "Paragraph", children: [{ kind: "Text", value: "b" }] },
           ],
         },
         {
-          kind: "OrderedListItem",
-          number: 100,
-          delimiter: ".",
+          kind: "BulletListItem",
           children: [
             { kind: "Paragraph", children: [{ kind: "Text", value: "c" }] },
           ],
