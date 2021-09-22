@@ -1,1 +1,2 @@
-- `Node.render()` render node back to markdown itself
+- `Node.format()` format node back to markdown itself
+- `Node.render()` format back to markdown, and render to html

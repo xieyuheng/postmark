@@ -1,6 +1,7 @@
+import * as Commonmark from "../vendor/commonmark"
+
 export abstract class Node {
   abstract kind: string
-  span?: Span
   abstract json(): any
 }
 
