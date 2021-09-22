@@ -1,9 +1,9 @@
-import { Node } from "../../node"
+import { Inline, Node } from "../../node"
 import { nodeFromCommonmark } from "../../api"
 import * as Commonmark from "../../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
-export class HtmlTag extends Node {
+export class HtmlTag extends Inline {
   kind = "HtmlTag"
 
   value: string

@@ -1,8 +1,8 @@
-import { Node, Span } from "../../node"
+import { LeafBlock, Node, Span } from "../../node"
 import { nodeFromCommonmark } from "../../api"
 import * as Commonmark from "../../vendor/commonmark"
 
-export class Paragraph extends Node {
+export class Paragraph extends LeafBlock {
   kind = "Paragraph"
 
   span: Span

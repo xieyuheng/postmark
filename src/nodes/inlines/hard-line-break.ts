@@ -1,8 +1,8 @@
-import { Node } from "../../node"
+import { Inline, Node } from "../../node"
 import { nodeFromCommonmark } from "../../api"
 import * as Commonmark from "../../vendor/commonmark"
 
-export class HardLineBreak extends Node {
+export class HardLineBreak extends Inline {
   kind = "HardLineBreak"
 
   constructor() {

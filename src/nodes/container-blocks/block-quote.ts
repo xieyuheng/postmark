@@ -1,8 +1,8 @@
-import { Node, Span } from "../../node"
+import { ContainerBlock, Node, Span } from "../../node"
 import { nodeFromCommonmark } from "../../api"
 import * as Commonmark from "../../vendor/commonmark"
 
-export class BlockQuote extends Node {
+export class BlockQuote extends ContainerBlock {
   kind = "BlockQuote"
 
   span: Span

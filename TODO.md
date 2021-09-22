@@ -1,5 +1,3 @@
-- nodes -- use subclasses
-
 - node/list > bullet-list, ordered-list
 - node/list-item > bullet-list-item, ordered-list-item
 

@@ -1,9 +1,9 @@
-import { Node, Span } from "../../node"
+import { LeafBlock, Node, Span } from "../../node"
 import { nodeFromCommonmark } from "../../api"
 import * as Commonmark from "../../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
-export class Headline extends Node {
+export class Headline extends LeafBlock {
   kind = "Headline"
 
   span: Span

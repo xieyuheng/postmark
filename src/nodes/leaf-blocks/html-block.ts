@@ -1,9 +1,9 @@
-import { Node, Span } from "../../node"
+import { LeafBlock, Node, Span } from "../../node"
 import { nodeFromCommonmark } from "../../api"
 import * as Commonmark from "../../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
-export class HtmlBlock extends Node {
+export class HtmlBlock extends LeafBlock {
   kind = "HtmlBlock"
 
   span: Span

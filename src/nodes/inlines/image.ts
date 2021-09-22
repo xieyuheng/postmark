@@ -1,9 +1,9 @@
-import { Node } from "../../node"
+import { Inline, Node } from "../../node"
 import { nodeFromCommonmark } from "../../api"
 import * as Commonmark from "../../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
-export class Image extends Node {
+export class Image extends Inline {
   kind = "Image"
 
   title: string

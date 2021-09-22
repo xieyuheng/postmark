@@ -1,9 +1,9 @@
-import { Node, Span } from "../../node"
+import { ContainerBlock, Node, Span } from "../../node"
 import { nodeFromCommonmark } from "../../api"
 import * as Commonmark from "../../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
-export class OrderedList extends Node {
+export class OrderedList extends ContainerBlock {
   kind = "OrderedList"
 
   span: Span
