@@ -1,5 +1,3 @@
-- node/inline
-
 - nodes -- use subclasses
 
 - node/list > bullet-list, ordered-list
