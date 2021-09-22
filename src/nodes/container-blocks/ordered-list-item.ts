@@ -1,28 +1,25 @@
-import { Node, Span } from "../node"
-import { nodeFromCommonmark } from "../api"
-import * as Commonmark from "../vendor/commonmark"
+import { Node, Span } from "../../node"
+import { nodeFromCommonmark } from "../../api"
+import * as Commonmark from "../../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
-export class OrderedList extends Node {
-  kind = "OrderedList"
+export class OrderedListItem extends Node {
+  kind = "OrderedListItem"
 
   span: Span
-  tight: boolean
-  start: number
+  number: number
   delimiter: "." | ")"
   children: Array<Node>
 
   constructor(opts: {
     children: Array<Node>
-    tight: boolean
-    start: number
+    number: number
     delimiter: "." | ")"
     span: Span
   }) {
     super()
     this.span = opts.span
-    this.tight = opts.tight
-    this.start = opts.start
+    this.number = opts.number
     this.delimiter = opts.delimiter
     this.children = opts.children
   }
@@ -30,19 +27,17 @@ export class OrderedList extends Node {
   json() {
     return {
       kind: this.kind,
-      tight: this.tight,
-      start: this.start,
+      number: this.number,
       delimiter: this.delimiter,
       children: this.children.map((child) => child.json()),
     }
   }
 
-  static fromCommonmark(node: Commonmark.Node): undefined | OrderedList {
-    if (node.type === "list" && node.listType === "ordered") {
-      return new OrderedList({
+  static fromCommonmark(node: Commonmark.Node): undefined | OrderedListItem {
+    if (node.type === "item" && node.listType === "ordered") {
+      return new OrderedListItem({
         span: node.sourcepos && Span.fromPairs(node.sourcepos),
-        tight: ty.boolean().validate(node.listTight),
-        start: ty.number().validate(node.listStart),
+        number: ty.number().validate(node.listStart),
         delimiter: ty
           .union(ty.const("." as const), ty.const(")" as const))
           .validate(node.listDelimiter),

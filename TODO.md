@@ -1,21 +1,28 @@
-- use `ContainerNode` `LeafNode` `InlineNode` as subclass of `Node`
+- nodes/leaf-blocks/
+- nodes/inlines/
+
+- tests/container-blocks/
+- tests/leaf-blocks/
+- tests/inlines/
+
+- use `ContainerBlock` `LeafBlock` `Inline` as subclass of `Node`
 
   - https://spec.commonmark.org/current
 
-  - ContainerBlockNode < BlockNode < Node
+  - ContainerBlock < Block < Node
 
     - block-quote
     - list > bullet-list, ordered-list
     - list-item > bullet-list-item, ordered-list-item
 
-  - LeafBlockNode < BlockNode < Node
+  - LeafBlock < Block < Node
 
     - thematic-break
     - headline
     - code-block
     - html-block
 
-  - InlineNode < Node
+  - Inline < Node
 
     - code
     - emphasis

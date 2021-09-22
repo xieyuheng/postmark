@@ -1,3 +1,9 @@
+export * from "./container-blocks/block-quote"
+export * from "./container-blocks/bullet-list"
+export * from "./container-blocks/bullet-list-item"
+export * from "./container-blocks/ordered-list"
+export * from "./container-blocks/ordered-list-item"
+
 export * from "./document"
 export * from "./paragraph"
 export * from "./emphasis"
@@ -11,12 +17,8 @@ export * from "./link"
 export * from "./image"
 export * from "./code"
 export * from "./headline"
-export * from "./block-quote"
 
-export * from "./bullet-list"
-export * from "./bullet-list-item"
-export * from "./ordered-list"
-export * from "./ordered-list-item"
+
 
 export * from "./html-block"
 export * from "./html-tag"

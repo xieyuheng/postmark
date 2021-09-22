@@ -1,9 +1,9 @@
-import { Node, Span } from "../node"
-import { nodeFromCommonmark } from "../api"
-import * as Commonmark from "../vendor/commonmark"
+import { Node, Span } from "../../node"
+import { nodeFromCommonmark } from "../../api"
+import * as Commonmark from "../../vendor/commonmark"
 
-export class BulletListItem extends Node {
-  kind = "BulletListItem"
+export class BlockQuote extends Node {
+  kind = "BlockQuote"
 
   span: Span
   children: Array<Node>
@@ -21,9 +21,9 @@ export class BulletListItem extends Node {
     }
   }
 
-  static fromCommonmark(node: Commonmark.Node): undefined | BulletListItem {
-    if (node.type === "item" && node.listType === "bullet") {
-      return new BulletListItem({
+  static fromCommonmark(node: Commonmark.Node): undefined | BlockQuote {
+    if (node.type === "block_quote") {
+      return new BlockQuote({
         span: node.sourcepos && Span.fromPairs(node.sourcepos),
         children: Commonmark.children(node).map(nodeFromCommonmark),
       })
