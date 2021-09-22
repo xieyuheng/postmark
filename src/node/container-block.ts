@@ -8,7 +8,7 @@ export abstract class ContainerBlock extends Block {
   abstract json(): any
   abstract children: Array<Node>
 
-  isBlock(node: Node): node is ContainerBlock {
+  static isContainerBlock(node: Node): node is ContainerBlock {
     return (node as ContainerBlock).instanceofContainerBlock
   }
 }

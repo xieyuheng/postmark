@@ -7,7 +7,7 @@ export abstract class Block extends Node {
   abstract span: Span
   abstract json(): any
 
-  isBlock(node: Node): node is Block {
+  static isBlock(node: Node): node is Block {
     return (node as Block).instanceofBlock
   }
 }

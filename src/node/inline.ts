@@ -6,7 +6,7 @@ export abstract class Inline extends Node {
   abstract kind: string
   abstract json(): any
 
-  isInline(node: Node): node is Inline {
+  static isInline(node: Node): node is Inline {
     return (node as Inline).instanceofInline
   }
 }
