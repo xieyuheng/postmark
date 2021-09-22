@@ -1,27 +1,34 @@
 - rename emphasize to emphasis
+- rename html-inline to html tag
+- rename line-break to hard-line-break
+- rename soft-break to soft-line-break
 
 - use `ContainerNode` `LeafNode` `InlineNode` as subclass of `Node`
 
+  - https://spec.commonmark.org/current
+
   - ContainerBlockNode < BlockNode < Node
 
-    - Block quotes
-    - List items
-    - Lists
+    - block-quote
+    - list > bullet-list, ordered-list
+    - list-item > bullet-list-item, ordered-list-item
 
   - LeafBlockNode < BlockNode < Node
 
-    - Thematic breaks
+    - thematic-break
     - headline
-    - code block
-    - HTML blocks
+    - code-block
+    - html-block
 
   - InlineNode < Node
 
     - code
-    - Emphasis
+    - emphasis
     - strong
     - link
-
+    - hard-line-break
+    - soft-line-break
+    - text
 
 - support well typed metadata in `Document<T>` -- `T` with a default
 
