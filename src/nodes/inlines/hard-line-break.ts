@@ -1,6 +1,6 @@
-import { Node } from "../node"
-import { nodeFromCommonmark } from "../api"
-import * as Commonmark from "../vendor/commonmark"
+import { Node } from "../../node"
+import { nodeFromCommonmark } from "../../api"
+import * as Commonmark from "../../vendor/commonmark"
 
 export class HardLineBreak extends Node {
   kind = "HardLineBreak"

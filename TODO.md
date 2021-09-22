@@ -1,5 +1,3 @@
-- nodes/inlines/
-
 - tests/inlines/
 
 - node/block

@@ -1,6 +1,6 @@
-import { Node } from "../node"
-import { nodeFromCommonmark } from "../api"
-import * as Commonmark from "../vendor/commonmark"
+import { Node } from "../../node"
+import { nodeFromCommonmark } from "../../api"
+import * as Commonmark from "../../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
 export class HtmlTag extends Node {

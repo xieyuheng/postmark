@@ -1,10 +1,10 @@
-import { Node } from "../node"
-import { nodeFromCommonmark } from "../api"
-import * as Commonmark from "../vendor/commonmark"
+import { Node } from "../../node"
+import { nodeFromCommonmark } from "../../api"
+import * as Commonmark from "../../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
-export class Link extends Node {
-  kind = "Link"
+export class Image extends Node {
+  kind = "Image"
 
   title: string
   href: string
@@ -26,9 +26,9 @@ export class Link extends Node {
     }
   }
 
-  static fromCommonmark(node: Commonmark.Node): undefined | Link {
-    if (node.type === "link") {
-      return new Link({
+  static fromCommonmark(node: Commonmark.Node): undefined | Image {
+    if (node.type === "image") {
+      return new Image({
         title: ty.string().validate(node.title),
         href: ty.string().validate(node.destination),
         children: Commonmark.children(node).map(nodeFromCommonmark),
