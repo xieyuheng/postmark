@@ -7,7 +7,6 @@ function nodeClasses(): Array<{
   fromCommonmark: (node: Commonmark.Node) => undefined | Node
 }> {
   return [
-    Nodes.Document,
     Nodes.Paragraph,
     Nodes.Emphasis,
     Nodes.Strong,
@@ -28,6 +27,23 @@ function nodeClasses(): Array<{
     Nodes.HtmlBlock,
     Nodes.HtmlTag,
   ]
+}
+
+export function documentFromCommonmark<A>(
+  node: Commonmark.Node,
+  opts: { attributes: A }
+): Nodes.Document<A> {
+  const result = Nodes.Document.fromCommonmark(node, opts)
+  if (result) {
+    return result
+  }
+
+  throw new Error(
+    [
+      `I meet unknown commonmark node type: ${node.type}`,
+      `  sourcepos: ${JSON.stringify(node.sourcepos)}`,
+    ].join("\n")
+  )
 }
 
 export function nodeFromCommonmark(node: Commonmark.Node): Node {

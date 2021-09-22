@@ -1,5 +1,3 @@
-- support well typed metadata in `Document<T>` -- `T` with a default
-
 - `Node` -- every node also contains its text -- render node to markdown itself
 
 # sequence

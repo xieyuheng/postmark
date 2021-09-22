@@ -1,4 +1,5 @@
 export * from "./equal"
+export * from "./assert-equal"
 export * from "./is-object"
 export * from "./format-date"
 export * from "./format-time"
