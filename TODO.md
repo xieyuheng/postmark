@@ -1,4 +1,3 @@
-- rename html-inline to html-tag
 - rename line-break to hard-line-break
 - rename soft-break to soft-line-break
 

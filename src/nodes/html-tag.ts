@@ -3,8 +3,8 @@ import { nodeFromCommonmark } from "../api"
 import * as Commonmark from "../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
-export class HtmlInline extends Node {
-  kind = "HtmlInline"
+export class HtmlTag extends Node {
+  kind = "HtmlTag"
 
   value: string
 
@@ -20,9 +20,9 @@ export class HtmlInline extends Node {
     }
   }
 
-  static fromCommonmark(node: Commonmark.Node): undefined | HtmlInline {
+  static fromCommonmark(node: Commonmark.Node): undefined | HtmlTag {
     if (node.type === "html_inline") {
-      return new HtmlInline({
+      return new HtmlTag({
         value: ty.string().validate(node.literal),
       })
     }

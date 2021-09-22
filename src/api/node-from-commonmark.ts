@@ -27,7 +27,7 @@ function nodeClasses(): Array<{
     Nodes.OrderedList,
     Nodes.OrderedListItem,
     Nodes.HtmlBlock,
-    Nodes.HtmlInline,
+    Nodes.HtmlTag,
   ]
 }
 

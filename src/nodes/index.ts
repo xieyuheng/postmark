@@ -19,4 +19,4 @@ export * from "./ordered-list"
 export * from "./ordered-list-item"
 
 export * from "./html-block"
-export * from "./html-inline"
+export * from "./html-tag"
