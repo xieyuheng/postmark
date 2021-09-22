@@ -5,6 +5,11 @@
 - tests/leaf-blocks/
 - tests/inlines/
 
+- node/block
+- node/container-block
+- node/leaf-block
+- node/inline
+
 - use `ContainerBlock` `LeafBlock` `Inline` as subclass of `Node`
 
   - https://spec.commonmark.org/current
