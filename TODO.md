@@ -1,4 +1,3 @@
-- rename line-break to hard-line-break
 - rename soft-break to soft-line-break
 
 - use `ContainerNode` `LeafNode` `InlineNode` as subclass of `Node`

@@ -2,8 +2,8 @@ import { Node } from "../node"
 import { nodeFromCommonmark } from "../api"
 import * as Commonmark from "../vendor/commonmark"
 
-export class LineBreak extends Node {
-  kind = "LineBreak"
+export class HardLineBreak extends Node {
+  kind = "HardLineBreak"
 
   constructor() {
     super()
@@ -15,9 +15,9 @@ export class LineBreak extends Node {
     }
   }
 
-  static fromCommonmark(node: Commonmark.Node): undefined | LineBreak {
+  static fromCommonmark(node: Commonmark.Node): undefined | HardLineBreak {
     if (node.type === "linebreak") {
-      return new LineBreak()
+      return new HardLineBreak()
     }
   }
 }
