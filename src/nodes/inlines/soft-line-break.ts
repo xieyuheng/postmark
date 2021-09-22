@@ -1,8 +1,9 @@
+import { LineBreak } from "./line-break"
 import { Inline, Node } from "../../node"
 import { nodeFromCommonmark } from "../../api"
 import * as Commonmark from "../../vendor/commonmark"
 
-export class SoftLineBreak extends Inline {
+export class SoftLineBreak extends LineBreak {
   kind = "SoftLineBreak"
 
   constructor() {
