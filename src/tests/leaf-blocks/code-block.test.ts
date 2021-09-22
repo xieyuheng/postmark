@@ -2,10 +2,10 @@ import { parseDocument, assertDocument } from "../../api"
 import { formatCodeBlock } from "../../api"
 
 {
-  const codeBlock = formatCodeBlock("sisuo", "console.log('Hello')")
-  const node = parseDocument(codeBlock)
+  const text = formatCodeBlock("sisuo", "console.log('Hello')")
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "CodeBlock",
       info: "sisuo",

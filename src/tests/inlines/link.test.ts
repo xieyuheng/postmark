@@ -1,10 +1,10 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const link = '[example link](https://example.com "example title")'
-  const node = parseDocument(link)
+  const text = '[example link](https://example.com "example title")'
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [
@@ -20,14 +20,14 @@ import { parseDocument, assertDocument } from "../../api"
 }
 
 {
-  const link = `\
+  const text = `\
 [example link][]
 
 [example link]: https://example.com "example title"
 `
-  const node = parseDocument(link)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [
@@ -43,10 +43,10 @@ import { parseDocument, assertDocument } from "../../api"
 }
 
 {
-  const link = `<https://example.com>`
-  const node = parseDocument(link)
+  const text = `<https://example.com>`
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [

@@ -1,15 +1,15 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const headlines = `\
+  const text = `\
 # headline 1
 ## headline 2
 ### headline 3
 `
 
-  const node = parseDocument(headlines)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Headline",
       level: 1,
@@ -29,7 +29,7 @@ import { parseDocument, assertDocument } from "../../api"
 }
 
 {
-  const headlines = `\
+  const text = `\
 headline 1
 ==========
 
@@ -37,9 +37,9 @@ headline 2
 ----------
 `
 
-  const node = parseDocument(headlines)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Headline",
       level: 1,

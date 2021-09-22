@@ -1,14 +1,14 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const htmlTag = `
+  const text = `
 
 a <x /> b
 
 `
-  const node = parseDocument(htmlTag)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [
@@ -21,14 +21,14 @@ a <x /> b
 }
 
 {
-  const htmlTag = `
+  const text = `
 
 a <x> hi </x> b
 
 `
-  const node = parseDocument(htmlTag)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [

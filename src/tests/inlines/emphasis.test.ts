@@ -1,10 +1,10 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const emphasis = "Hello *world*"
-  const node = parseDocument(emphasis)
+  const text = "Hello *world*"
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [

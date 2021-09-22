@@ -1,7 +1,7 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const looseBulletList = `\
+  const text = `\
 A loose list:
 - a
   a
@@ -12,9 +12,9 @@ A loose list:
 - c
 `
 
-  const node = parseDocument(looseBulletList)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [{ kind: "Text", value: "A loose list:" }],

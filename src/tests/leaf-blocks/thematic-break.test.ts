@@ -1,10 +1,10 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const thematicBreak = "\n---\n"
-  const node = parseDocument(thematicBreak)
+  const text = "\n---\n"
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "ThematicBreak",
     },

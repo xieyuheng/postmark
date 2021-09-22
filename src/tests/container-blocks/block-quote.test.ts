@@ -1,15 +1,15 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const blockQuote = `\
+  const text = `\
 > Make the change easy, then make the easy change.
 >
 > -- Kent Beck
 `
 
-  const node = parseDocument(blockQuote)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "BlockQuote",
       children: [

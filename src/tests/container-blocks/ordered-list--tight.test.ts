@@ -1,7 +1,7 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const tightOrderedList = `\
+  const text = `\
 A tight ordered list:
 
 6. a
@@ -9,9 +9,9 @@ A tight ordered list:
 100. c
 `
 
-  const node = parseDocument(tightOrderedList)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [{ kind: "Text", value: "A tight ordered list:" }],
@@ -52,7 +52,7 @@ A tight ordered list:
 }
 
 {
-  const tightOrderedList = `\
+  const text = `\
 A tight ordered list:
 
 6) a
@@ -60,9 +60,9 @@ A tight ordered list:
 100) c
 `
 
-  const node = parseDocument(tightOrderedList)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [{ kind: "Text", value: "A tight ordered list:" }],

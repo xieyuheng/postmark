@@ -1,10 +1,10 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const image = '![example image](https://example.com "example title")'
-  const node = parseDocument(image)
+  const text = '![example image](https://example.com "example title")'
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [

@@ -1,34 +1,34 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const htmlBlock = `
+  const text = `
 
 <x-card />
 
 `
-  const node = parseDocument(htmlBlock)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "HtmlBlock",
-      value: htmlBlock.trim(),
+      value: text.trim(),
     },
   ])
 }
 
 {
-  const htmlBlock = `\
+  const text = `\
 <x-card>
   Hello world!
 </x-card>
 `
 
-  const node = parseDocument(htmlBlock)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "HtmlBlock",
-      value: htmlBlock.trim(),
+      value: text.trim(),
     },
   ])
 }

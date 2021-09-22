@@ -1,16 +1,16 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const tightBulletList = `\
+  const text = `\
 A tight list:
 - a
 - b
 - c
 `
 
-  const node = parseDocument(tightBulletList)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [{ kind: "Text", value: "A tight list:" }],

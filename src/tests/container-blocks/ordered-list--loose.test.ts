@@ -1,7 +1,7 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const looseOrderedList = `\
+  const text = `\
 A loose ordered list:
 
 6. a
@@ -13,9 +13,9 @@ A loose ordered list:
 100. c
 `
 
-  const node = parseDocument(looseOrderedList)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [{ kind: "Text", value: "A loose ordered list:" }],

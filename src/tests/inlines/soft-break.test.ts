@@ -1,10 +1,10 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const softLineBreak = "Hello\nWorld"
-  const node = parseDocument(softLineBreak)
+  const text = "Hello\nWorld"
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [

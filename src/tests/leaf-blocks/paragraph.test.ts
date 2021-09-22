@@ -1,15 +1,15 @@
 import { parseDocument, assertDocument } from "../../api"
 
 {
-  const paragraph = `\
+  const text = `\
 A, B, C!
 
 A! B! C!
 `
 
-  const node = parseDocument(paragraph)
+  const document = parseDocument(text)
 
-  assertDocument(node, [
+  assertDocument(document, [
     {
       kind: "Paragraph",
       children: [
