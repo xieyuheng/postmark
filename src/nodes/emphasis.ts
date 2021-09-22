@@ -2,8 +2,8 @@ import { Node } from "../node"
 import { nodeFromCommonmark } from "../api"
 import * as Commonmark from "../vendor/commonmark"
 
-export class Emphasize extends Node {
-  kind = "Emphasize"
+export class Emphasis extends Node {
+  kind = "Emphasis"
 
   children: Array<Node>
 
@@ -19,9 +19,9 @@ export class Emphasize extends Node {
     }
   }
 
-  static fromCommonmark(node: Commonmark.Node): undefined | Emphasize {
+  static fromCommonmark(node: Commonmark.Node): undefined | Emphasis {
     if (node.type === "emph") {
-      return new Emphasize({
+      return new Emphasis({
         children: Commonmark.children(node).map(nodeFromCommonmark),
       })
     }

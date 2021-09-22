@@ -1,8 +1,8 @@
 import { parseDocument, assertDocument } from "../api"
 
 {
-  const emphasize = "Hello *world*"
-  const node = parseDocument(emphasize)
+  const emphasis = "Hello *world*"
+  const node = parseDocument(emphasis)
 
   assertDocument(node, [
     {
@@ -10,7 +10,7 @@ import { parseDocument, assertDocument } from "../api"
       children: [
         { kind: "Text", value: "Hello " },
         {
-          kind: "Emphasize",
+          kind: "Emphasis",
           children: [{ kind: "Text", value: "world" }],
         },
       ],

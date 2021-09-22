@@ -10,7 +10,7 @@ function nodeClasses(): Array<{
   return [
     Nodes.Document,
     Nodes.Paragraph,
-    Nodes.Emphasize,
+    Nodes.Emphasis,
     Nodes.Strong,
     Nodes.Text,
     Nodes.ThematicBreak,

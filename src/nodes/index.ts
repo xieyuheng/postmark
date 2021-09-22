@@ -1,6 +1,6 @@
 export * from "./document"
 export * from "./paragraph"
-export * from "./emphasize"
+export * from "./emphasis"
 export * from "./strong"
 export * from "./text"
 export * from "./thematic-break"
