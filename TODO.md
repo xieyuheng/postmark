@@ -1,4 +1,4 @@
-- rename html-inline to html tag
+- rename html-inline to html-tag
 - rename line-break to hard-line-break
 - rename soft-break to soft-line-break
 
@@ -25,8 +25,8 @@
     - emphasis
     - strong
     - link
-    - hard-line-break
-    - soft-line-break
+    - hard-line-break < line-break
+    - soft-line-break < line-break
     - text
 
 - support well typed metadata in `Document<T>` -- `T` with a default

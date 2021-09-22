@@ -1,4 +1,4 @@
-import { Node, Span } from "../node"
+import { Node } from "../node"
 import { nodeFromCommonmark } from "../api"
 import * as Commonmark from "../vendor/commonmark"
 import ty from "@xieyuheng/ty"
@@ -6,12 +6,10 @@ import ty from "@xieyuheng/ty"
 export class HtmlInline extends Node {
   kind = "HtmlInline"
 
-  span: Span
   value: string
 
-  constructor(opts: { span: Span; value: string }) {
+  constructor(opts: { value: string }) {
     super()
-    this.span = opts.span
     this.value = opts.value
   }
 
@@ -25,7 +23,6 @@ export class HtmlInline extends Node {
   static fromCommonmark(node: Commonmark.Node): undefined | HtmlInline {
     if (node.type === "html_inline") {
       return new HtmlInline({
-        span: node.sourcepos && Span.fromPairs(node.sourcepos),
         value: ty.string().validate(node.literal),
       })
     }
