@@ -1,5 +1,5 @@
-import { parseDocument, assertDocument } from "../api"
-import { formatCodeBlock } from "../api"
+import { parseDocument, assertDocument } from "../../api"
+import { formatCodeBlock } from "../../api"
 
 {
   const codeBlock = formatCodeBlock("sisuo", "console.log('Hello')")
