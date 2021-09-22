@@ -2,8 +2,8 @@ import { Node } from "../node"
 import { nodeFromCommonmark } from "../api"
 import * as Commonmark from "../vendor/commonmark"
 
-export class SoftBreak extends Node {
-  kind = "SoftBreak"
+export class SoftLineBreak extends Node {
+  kind = "SoftLineBreak"
 
   constructor() {
     super()
@@ -15,9 +15,9 @@ export class SoftBreak extends Node {
     }
   }
 
-  static fromCommonmark(node: Commonmark.Node): undefined | SoftBreak {
+  static fromCommonmark(node: Commonmark.Node): undefined | SoftLineBreak {
     if (node.type === "softbreak") {
-      return new SoftBreak()
+      return new SoftLineBreak()
     }
   }
 }

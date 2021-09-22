@@ -15,7 +15,7 @@ function nodeClasses(): Array<{
     Nodes.Text,
     Nodes.ThematicBreak,
     Nodes.HardLineBreak,
-    Nodes.SoftBreak,
+    Nodes.SoftLineBreak,
     Nodes.CodeBlock,
     Nodes.Link,
     Nodes.Image,

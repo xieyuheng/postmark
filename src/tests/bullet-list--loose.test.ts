@@ -30,9 +30,9 @@ A loose list:
               kind: "Paragraph",
               children: [
                 { kind: "Text", value: "a" },
-                { kind: "SoftBreak" },
+                { kind: "SoftLineBreak" },
                 { kind: "Text", value: "a" },
-                { kind: "SoftBreak" },
+                { kind: "SoftLineBreak" },
                 { kind: "Text", value: "a" },
               ],
             },

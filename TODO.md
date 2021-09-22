@@ -1,5 +1,3 @@
-- rename soft-break to soft-line-break
-
 - use `ContainerNode` `LeafNode` `InlineNode` as subclass of `Node`
 
   - https://spec.commonmark.org/current

@@ -9,7 +9,7 @@ import { parseDocument, assertDocument } from "../api"
       kind: "Paragraph",
       children: [
         { kind: "Text", value: "Hello" },
-        { kind: "SoftBreak" },
+        { kind: "SoftLineBreak" },
         { kind: "Text", value: "World" },
       ],
     },
