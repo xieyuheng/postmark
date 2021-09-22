@@ -1,4 +1,3 @@
-- nodes/leaf-blocks/
 - nodes/inlines/
 
 - tests/leaf-blocks/
@@ -9,32 +8,10 @@
 - node/leaf-block
 - node/inline
 
-- use `ContainerBlock` `LeafBlock` `Inline` as subclass of `Node`
+- node/list > bullet-list, ordered-list
+- node/list-item > bullet-list-item, ordered-list-item
 
-  - https://spec.commonmark.org/current
-
-  - ContainerBlock < Block < Node
-
-    - block-quote
-    - list > bullet-list, ordered-list
-    - list-item > bullet-list-item, ordered-list-item
-
-  - LeafBlock < Block < Node
-
-    - thematic-break
-    - headline
-    - code-block
-    - html-block
-
-  - Inline < Node
-
-    - code
-    - emphasis
-    - strong
-    - link
-    - hard-line-break < line-break
-    - soft-line-break < line-break
-    - text
+- node/line-break > soft-line-break, hard-line-break
 
 - support well typed metadata in `Document<T>` -- `T` with a default
 
