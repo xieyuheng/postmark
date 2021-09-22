@@ -1,7 +1,1 @@
-- `Node` -- every node also contains its text -- render node to markdown itself
-
-# sequence
-
-- `Sequence` -- special interface for top level linear contents
-
-- `Content`
+- `Node.render()` render node back to markdown itself
