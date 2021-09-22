@@ -1,8 +1,9 @@
+import { ListItem } from "./list-item"
 import { ContainerBlock, Node, Span } from "../../node"
 import { nodeFromCommonmark } from "../../api"
 import * as Commonmark from "../../vendor/commonmark"
 
-export class BulletListItem extends ContainerBlock {
+export class BulletListItem extends ListItem {
   kind = "BulletListItem"
 
   span: Span

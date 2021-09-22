@@ -1,6 +1,3 @@
-- node/list > bullet-list, ordered-list
-- node/list-item > bullet-list-item, ordered-list-item
-
 - node/line-break > soft-line-break, hard-line-break
 
 - support well typed metadata in `Document<T>` -- `T` with a default

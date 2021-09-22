@@ -1,9 +1,10 @@
+import { ListItem } from "./list-item"
 import { ContainerBlock, Node, Span } from "../../node"
 import { nodeFromCommonmark } from "../../api"
 import * as Commonmark from "../../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
-export class OrderedListItem extends ContainerBlock {
+export class OrderedListItem extends ListItem {
   kind = "OrderedListItem"
 
   span: Span
