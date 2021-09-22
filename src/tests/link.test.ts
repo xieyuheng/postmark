@@ -41,3 +41,22 @@ import { parseDocument, assertDocument } from "../api"
     },
   ])
 }
+
+{
+  const link = `<https://example.com>`
+  const node = parseDocument(link)
+
+  assertDocument(node, [
+    {
+      kind: "Paragraph",
+      children: [
+        {
+          kind: "Link",
+          title: "",
+          href: "https://example.com",
+          children: [{ kind: "Text", value: "https://example.com" }],
+        },
+      ],
+    },
+  ])
+}

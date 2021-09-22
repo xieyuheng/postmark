@@ -1,6 +1,27 @@
-- [maybe] If the interface are well separated, we can use `ContainerNode` `LeafNode` `InlineNode` as subclass of `Node`
+- rename emphasize to emphasis
 
-  - reference: https://spec.commonmark.org/0.30/
+- use `ContainerNode` `LeafNode` `InlineNode` as subclass of `Node`
+
+  - ContainerBlockNode < BlockNode < Node
+
+    - Block quotes
+    - List items
+    - Lists
+
+  - LeafBlockNode < BlockNode < Node
+
+    - Thematic breaks
+    - headline
+    - code block
+    - HTML blocks
+
+  - InlineNode < Node
+
+    - code
+    - Emphasis
+    - strong
+    - link
+
 
 - support well typed metadata in `Document<T>` -- `T` with a default
 
