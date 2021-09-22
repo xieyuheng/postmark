@@ -1,5 +1,4 @@
-import { LeafBlock, Node, Span } from "../../node"
-import { nodeFromCommonmark } from "../../api"
+import { LeafBlock, Span } from "../../node"
 import * as Commonmark from "../../vendor/commonmark"
 
 export class ThematicBreak extends LeafBlock {

@@ -1,6 +1,4 @@
 import { LineBreak } from "./line-break"
-import { Inline, Node } from "../../node"
-import { nodeFromCommonmark } from "../../api"
 import * as Commonmark from "../../vendor/commonmark"
 
 export class HardLineBreak extends LineBreak {

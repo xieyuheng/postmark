@@ -1,5 +1,4 @@
-import { Inline, Node } from "../../node"
-import { nodeFromCommonmark } from "../../api"
+import { Inline } from "../../node"
 import * as Commonmark from "../../vendor/commonmark"
 import ty from "@xieyuheng/ty"
 
