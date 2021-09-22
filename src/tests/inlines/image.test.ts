@@ -1,4 +1,4 @@
-import { parseDocument, assertDocument } from "../api"
+import { parseDocument, assertDocument } from "../../api"
 
 {
   const image = '![example image](https://example.com "example title")'

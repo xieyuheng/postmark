@@ -1,4 +1,4 @@
-import { parseDocument, assertDocument } from "../api"
+import { parseDocument, assertDocument } from "../../api"
 
 {
   const emphasis = "Hello *world*"
