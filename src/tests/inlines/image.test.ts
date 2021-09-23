@@ -12,7 +12,7 @@ import { parseDocument, assertDocument } from "../../api"
           kind: "Image",
           title: "example title",
           href: "https://example.com",
-          children: [{ kind: "Text", value: "example image" }],
+          children: [{ kind: "Text", text: "example image" }],
         },
       ],
     },

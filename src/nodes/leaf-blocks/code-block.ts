@@ -7,20 +7,20 @@ export class CodeBlock extends LeafBlock {
 
   span: Span
   info: string
-  value: string
+  text: string
 
-  constructor(opts: { span: Span; info: string; value: string }) {
+  constructor(opts: { span: Span; info: string; text: string }) {
     super()
     this.span = opts.span
     this.info = opts.info
-    this.value = opts.value
+    this.text = opts.text
   }
 
   json() {
     return {
       kind: this.kind,
       info: this.info,
-      value: this.value,
+      text: this.text,
     }
   }
 
@@ -29,7 +29,7 @@ export class CodeBlock extends LeafBlock {
       return new CodeBlock({
         span: node.sourcepos && Span.fromPairs(node.sourcepos),
         info: ty.string().validate(node.info),
-        value: ty.string().validate(node.literal),
+        text: ty.string().validate(node.literal),
       })
     }
   }

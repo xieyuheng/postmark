@@ -14,7 +14,7 @@ A tight ordered list:
   assertDocument(document, [
     {
       kind: "Paragraph",
-      children: [{ kind: "Text", value: "A tight ordered list:" }],
+      children: [{ kind: "Text", text: "A tight ordered list:" }],
     },
     {
       kind: "OrderedList",
@@ -27,7 +27,7 @@ A tight ordered list:
           number: 6,
           delimiter: ".",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "a" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "a" }] },
           ],
         },
         {
@@ -35,7 +35,7 @@ A tight ordered list:
           number: 7,
           delimiter: ".",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "b" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "b" }] },
           ],
         },
         {
@@ -43,7 +43,7 @@ A tight ordered list:
           number: 100,
           delimiter: ".",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "c" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "c" }] },
           ],
         },
       ],
@@ -65,7 +65,7 @@ A tight ordered list:
   assertDocument(document, [
     {
       kind: "Paragraph",
-      children: [{ kind: "Text", value: "A tight ordered list:" }],
+      children: [{ kind: "Text", text: "A tight ordered list:" }],
     },
     {
       kind: "OrderedList",
@@ -78,7 +78,7 @@ A tight ordered list:
           number: 6,
           delimiter: ")",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "a" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "a" }] },
           ],
         },
         {
@@ -86,7 +86,7 @@ A tight ordered list:
           number: 7,
           delimiter: ")",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "b" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "b" }] },
           ],
         },
         {
@@ -94,7 +94,7 @@ A tight ordered list:
           number: 100,
           delimiter: ")",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "c" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "c" }] },
           ],
         },
       ],

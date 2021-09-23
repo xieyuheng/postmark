@@ -18,13 +18,13 @@ import { parseDocument, assertDocument } from "../../api"
           children: [
             {
               kind: "Text",
-              value: "Make the change easy, then make the easy change.",
+              text: "Make the change easy, then make the easy change.",
             },
           ],
         },
         {
           kind: "Paragraph",
-          children: [{ kind: "Text", value: "-- Kent Beck" }],
+          children: [{ kind: "Text", text: "-- Kent Beck" }],
         },
       ],
     },

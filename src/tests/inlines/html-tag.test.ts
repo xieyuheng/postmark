@@ -12,9 +12,9 @@ a <x /> b
     {
       kind: "Paragraph",
       children: [
-        { kind: "Text", value: "a " },
-        { kind: "HtmlTag", value: "<x />" },
-        { kind: "Text", value: " b" },
+        { kind: "Text", text: "a " },
+        { kind: "HtmlTag", text: "<x />" },
+        { kind: "Text", text: " b" },
       ],
     },
   ])
@@ -32,11 +32,11 @@ a <x> hi </x> b
     {
       kind: "Paragraph",
       children: [
-        { kind: "Text", value: "a " },
-        { kind: "HtmlTag", value: "<x>" },
-        { kind: "Text", value: " hi " },
-        { kind: "HtmlTag", value: "</x>" },
-        { kind: "Text", value: " b" },
+        { kind: "Text", text: "a " },
+        { kind: "HtmlTag", text: "<x>" },
+        { kind: "Text", text: " hi " },
+        { kind: "HtmlTag", text: "</x>" },
+        { kind: "Text", text: " b" },
       ],
     },
   ])

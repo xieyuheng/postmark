@@ -8,9 +8,9 @@ import { parseDocument, assertDocument } from "../../api"
     {
       kind: "Paragraph",
       children: [
-        { kind: "Text", value: "Hello" },
+        { kind: "Text", text: "Hello" },
         { kind: "HardLineBreak" },
-        { kind: "Text", value: "World" },
+        { kind: "Text", text: "World" },
       ],
     },
   ])

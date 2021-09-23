@@ -5,24 +5,24 @@ import ty from "@xieyuheng/ty"
 export class Code extends Inline {
   kind = "Code"
 
-  value: string
+  text: string
 
-  constructor(opts: { value: string }) {
+  constructor(opts: { text: string }) {
     super()
-    this.value = opts.value
+    this.text = opts.text
   }
 
   json() {
     return {
       kind: this.kind,
-      value: this.value,
+      text: this.text,
     }
   }
 
   static fromCommonmark(node: Commonmark.Node): undefined | Code {
     if (node.type === "code") {
       return new Code({
-        value: ty.string().validate(node.literal),
+        text: ty.string().validate(node.literal),
       })
     }
   }

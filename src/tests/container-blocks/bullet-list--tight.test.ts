@@ -13,7 +13,7 @@ A tight list:
   assertDocument(document, [
     {
       kind: "Paragraph",
-      children: [{ kind: "Text", value: "A tight list:" }],
+      children: [{ kind: "Text", text: "A tight list:" }],
     },
     {
       kind: "BulletList",
@@ -22,19 +22,19 @@ A tight list:
         {
           kind: "BulletListItem",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "a" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "a" }] },
           ],
         },
         {
           kind: "BulletListItem",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "b" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "b" }] },
           ],
         },
         {
           kind: "BulletListItem",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "c" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "c" }] },
           ],
         },
       ],

@@ -13,20 +13,20 @@ A! B! C!
     {
       kind: "Paragraph",
       children: [
-        { kind: "Text", value: "A, B, C" },
+        { kind: "Text", text: "A, B, C" },
         // NOTE Be careful about this "!"
-        { kind: "Text", value: "!" },
+        { kind: "Text", text: "!" },
       ],
     },
     {
       kind: "Paragraph",
       children: [
-        { kind: "Text", value: "A" },
-        { kind: "Text", value: "!" },
-        { kind: "Text", value: " B" },
-        { kind: "Text", value: "!" },
-        { kind: "Text", value: " C" },
-        { kind: "Text", value: "!" },
+        { kind: "Text", text: "A" },
+        { kind: "Text", text: "!" },
+        { kind: "Text", text: " B" },
+        { kind: "Text", text: "!" },
+        { kind: "Text", text: " C" },
+        { kind: "Text", text: "!" },
       ],
     },
   ])

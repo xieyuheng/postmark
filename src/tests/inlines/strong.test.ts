@@ -8,10 +8,10 @@ import { parseDocument, assertDocument } from "../../api"
     {
       kind: "Paragraph",
       children: [
-        { kind: "Text", value: "Hi " },
+        { kind: "Text", text: "Hi " },
         {
           kind: "Strong",
-          children: [{ kind: "Text", value: "there" }],
+          children: [{ kind: "Text", text: "there" }],
         },
       ],
     },

@@ -17,7 +17,7 @@ A loose list:
   assertDocument(document, [
     {
       kind: "Paragraph",
-      children: [{ kind: "Text", value: "A loose list:" }],
+      children: [{ kind: "Text", text: "A loose list:" }],
     },
     {
       kind: "BulletList",
@@ -29,11 +29,11 @@ A loose list:
             {
               kind: "Paragraph",
               children: [
-                { kind: "Text", value: "a" },
+                { kind: "Text", text: "a" },
                 { kind: "SoftLineBreak" },
-                { kind: "Text", value: "a" },
+                { kind: "Text", text: "a" },
                 { kind: "SoftLineBreak" },
-                { kind: "Text", value: "a" },
+                { kind: "Text", text: "a" },
               ],
             },
           ],
@@ -41,13 +41,13 @@ A loose list:
         {
           kind: "BulletListItem",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "b" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "b" }] },
           ],
         },
         {
           kind: "BulletListItem",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "c" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "c" }] },
           ],
         },
       ],

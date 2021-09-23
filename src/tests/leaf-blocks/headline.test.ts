@@ -13,17 +13,17 @@ import { parseDocument, assertDocument } from "../../api"
     {
       kind: "Headline",
       level: 1,
-      children: [{ kind: "Text", value: "headline 1" }],
+      children: [{ kind: "Text", text: "headline 1" }],
     },
     {
       kind: "Headline",
       level: 2,
-      children: [{ kind: "Text", value: "headline 2" }],
+      children: [{ kind: "Text", text: "headline 2" }],
     },
     {
       kind: "Headline",
       level: 3,
-      children: [{ kind: "Text", value: "headline 3" }],
+      children: [{ kind: "Text", text: "headline 3" }],
     },
   ])
 }
@@ -43,12 +43,12 @@ headline 2
     {
       kind: "Headline",
       level: 1,
-      children: [{ kind: "Text", value: "headline 1" }],
+      children: [{ kind: "Text", text: "headline 1" }],
     },
     {
       kind: "Headline",
       level: 2,
-      children: [{ kind: "Text", value: "headline 2" }],
+      children: [{ kind: "Text", text: "headline 2" }],
     },
   ])
 }

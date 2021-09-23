@@ -10,7 +10,7 @@ import { parseDocument, assertDocument } from "../../api"
       children: [
         {
           kind: "Code",
-          value: "console.log('Hello')",
+          text: "console.log('Hello')",
         },
       ],
     },

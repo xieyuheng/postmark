@@ -11,7 +11,7 @@ import { parseDocument, assertDocument } from "../../api"
   assertDocument(document, [
     {
       kind: "HtmlBlock",
-      value: text.trim(),
+      text: text.trim(),
     },
   ])
 }
@@ -28,7 +28,7 @@ import { parseDocument, assertDocument } from "../../api"
   assertDocument(document, [
     {
       kind: "HtmlBlock",
-      value: text.trim(),
+      text: text.trim(),
     },
   ])
 }

@@ -5,24 +5,24 @@ import ty from "@xieyuheng/ty"
 export class HtmlTag extends Inline {
   kind = "HtmlTag"
 
-  value: string
+  text: string
 
-  constructor(opts: { value: string }) {
+  constructor(opts: { text: string }) {
     super()
-    this.value = opts.value
+    this.text = opts.text
   }
 
   json() {
     return {
       kind: this.kind,
-      value: this.value,
+      text: this.text,
     }
   }
 
   static fromCommonmark(node: Commonmark.Node): undefined | HtmlTag {
     if (node.type === "html_inline") {
       return new HtmlTag({
-        value: ty.string().validate(node.literal),
+        text: ty.string().validate(node.literal),
       })
     }
   }

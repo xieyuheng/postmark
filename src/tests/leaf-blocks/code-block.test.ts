@@ -9,7 +9,7 @@ import { formatCodeBlock } from "../../api"
     {
       kind: "CodeBlock",
       info: "sisuo",
-      value: "console.log('Hello')\n",
+      text: "console.log('Hello')\n",
     },
   ])
 }

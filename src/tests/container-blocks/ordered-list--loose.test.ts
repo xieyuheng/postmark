@@ -18,7 +18,7 @@ A loose ordered list:
   assertDocument(document, [
     {
       kind: "Paragraph",
-      children: [{ kind: "Text", value: "A loose ordered list:" }],
+      children: [{ kind: "Text", text: "A loose ordered list:" }],
     },
     {
       kind: "OrderedList",
@@ -34,11 +34,11 @@ A loose ordered list:
             {
               kind: "Paragraph",
               children: [
-                { kind: "Text", value: "a" },
+                { kind: "Text", text: "a" },
                 { kind: "SoftLineBreak" },
-                { kind: "Text", value: "a" },
+                { kind: "Text", text: "a" },
                 { kind: "SoftLineBreak" },
-                { kind: "Text", value: "a" },
+                { kind: "Text", text: "a" },
               ],
             },
           ],
@@ -48,7 +48,7 @@ A loose ordered list:
           number: 7,
           delimiter: ".",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "b" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "b" }] },
           ],
         },
         {
@@ -56,7 +56,7 @@ A loose ordered list:
           number: 100,
           delimiter: ".",
           children: [
-            { kind: "Paragraph", children: [{ kind: "Text", value: "c" }] },
+            { kind: "Paragraph", children: [{ kind: "Text", text: "c" }] },
           ],
         },
       ],

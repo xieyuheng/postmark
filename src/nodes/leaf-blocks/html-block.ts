@@ -6,18 +6,18 @@ export class HtmlBlock extends LeafBlock {
   kind = "HtmlBlock"
 
   span: Span
-  value: string
+  text: string
 
-  constructor(opts: { span: Span; value: string }) {
+  constructor(opts: { span: Span; text: string }) {
     super()
     this.span = opts.span
-    this.value = opts.value
+    this.text = opts.text
   }
 
   json() {
     return {
       kind: this.kind,
-      value: this.value,
+      text: this.text,
     }
   }
 
@@ -25,7 +25,7 @@ export class HtmlBlock extends LeafBlock {
     if (node.type === "html_block") {
       return new HtmlBlock({
         span: node.sourcepos && Span.fromPairs(node.sourcepos),
-        value: ty.string().validate(node.literal),
+        text: ty.string().validate(node.literal),
       })
     }
   }

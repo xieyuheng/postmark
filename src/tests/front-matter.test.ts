@@ -38,11 +38,11 @@ Hi Hi Yo Yo
     {
       kind: "Headline",
       level: 1,
-      children: [{ kind: "Text", value: "Hiya" }],
+      children: [{ kind: "Text", text: "Hiya" }],
     },
     {
       kind: "Paragraph",
-      children: [{ kind: "Text", value: "Hi Hi Yo Yo" }],
+      children: [{ kind: "Text", text: "Hi Hi Yo Yo" }],
     },
   ])
 }
