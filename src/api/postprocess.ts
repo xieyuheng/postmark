@@ -5,10 +5,10 @@ import * as Nodes from "../nodes"
 export function postprocess(
   node: Node,
   opts: {
-    // codeBlockParsers: Array<CodeBlockParser>
+    codeBlockParsers: Array<CodeBlockParser<unknown>>
   }
 ): Node {
-  // const { codeBlockParsers } = opts
+  const { codeBlockParsers } = opts
   // TODO
   return node
 }
