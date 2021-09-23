@@ -1,2 +1,4 @@
-- `Node.format()` format node back to markdown itself
-- `Node.render()` format back to markdown, and render to html
+- `Node.format()` format node back to markdown itself.
+- `Node.render()` render node to html.
+
+- plugin to `CodeBlock`
