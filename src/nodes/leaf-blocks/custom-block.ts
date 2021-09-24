@@ -38,6 +38,7 @@ export class CustomBlock<T> extends LeafBlock {
       customKind: this.customKind,
       info: this.info,
       text: this.text,
+      value: this.value,
     }
   }
 }

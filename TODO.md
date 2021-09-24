@@ -1,5 +1,3 @@
-- `TrivialParser` -- an example `CodeBlockParser`
-
 - `Node.accept`
 
 - `Node.format()` format node back to markdown itself.

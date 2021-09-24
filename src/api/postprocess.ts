@@ -8,7 +8,8 @@ export function postprocess(
     codeBlockParsers: Array<Nodes.CodeBlockParser<unknown>>
   }
 ): Node {
-  return node.accept(new Postprocessor(opts))
+  const postprocessor = new Postprocessor(opts)
+  return node.accept(postprocessor)
 }
 
 class Postprocessor extends NodeVisitor<Node> {
@@ -24,8 +25,11 @@ class Postprocessor extends NodeVisitor<Node> {
   default(node: Node): Node {
     const newNode = node.shallowCopy()
 
-    if (ContainerBlock.isContainerBlock(newNode)) {
-      newNode.children = newNode.children.map((node) => node.accept(this))
+    if (
+      newNode instanceof Nodes.Document ||
+      ContainerBlock.isContainerBlock(newNode)
+    ) {
+      newNode.children = newNode.children.map((child) => child.accept(this))
     }
 
     return newNode
