@@ -1,4 +1,4 @@
-import { Node, Span } from "../node"
+import { Span } from "../node"
 import * as Nodes from "../nodes"
 import * as Commonmark from "../vendor/commonmark"
 import { nodeFromCommonmark } from "./node-from-commonmark"

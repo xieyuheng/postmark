@@ -1,4 +1,4 @@
-import { Node, Span, Block } from "../node"
+import { Node, Block } from "../node"
 
 export abstract class ContainerBlock extends Block {
   instanceofContainerBlock = true
