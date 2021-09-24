@@ -32,6 +32,7 @@ export * from "./leaf-blocks/headline"
 export * from "./leaf-blocks/thematic-break"
 export * from "./leaf-blocks/html-block"
 export * from "./leaf-blocks/code-block"
+export * from "./leaf-blocks/custom-block"
 
 export * from "./inlines/emphasis"
 export * from "./inlines/strong"

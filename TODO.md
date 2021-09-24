@@ -1,6 +1,4 @@
-- `CustomBlock<T>`
-
-- `postprocess` with `codeBlockParsers` -- by `NodeVisitor`
+- example `CodeBlockParser`
 
 - `Node.accept`
 
