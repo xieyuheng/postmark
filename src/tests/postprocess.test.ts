@@ -1,6 +1,5 @@
 import { postprocess } from "../api"
 import { tester } from "../api"
-import { formatCodeBlock } from "../api"
 import * as Nodes from "../nodes"
 
 class Trivial {
@@ -23,66 +22,178 @@ class TrivialParser extends Nodes.CodeBlockParser<Trivial> {
   }
 }
 
-const text = `\
+{
+  const text = `\
 # Non Trivial
 
-${formatCodeBlock("non-trivial", "Hello! I am Non Trivial.")}
+~~~ non-trivial
+Hello! I am Non Trivial.
+~~~
 
 # Trivial
 
-${formatCodeBlock("trivial", "Hello! I am Trivial.")}
+~~~ trivial
+Hello! I am Trivial.
+~~~
 `
 
-const document = tester.parser.parseDocument(text)
+  const document = tester.parser.parseDocument(text)
 
-tester.assertDocument(document, [
-  {
-    kind: "Headline",
-    level: 1,
-    children: [{ kind: "Text", text: "Non Trivial" }],
-  },
-  {
-    kind: "CodeBlock",
-    info: "non-trivial",
-    text: "Hello! I am Non Trivial.\n",
-  },
-  {
-    kind: "Headline",
-    level: 1,
-    children: [{ kind: "Text", text: "Trivial" }],
-  },
-  {
-    kind: "CodeBlock",
-    info: "trivial",
-    text: "Hello! I am Trivial.\n",
-  },
-])
+  tester.assertDocument(document, [
+    {
+      kind: "Headline",
+      level: 1,
+      children: [{ kind: "Text", text: "Non Trivial" }],
+    },
+    {
+      kind: "CodeBlock",
+      info: "non-trivial",
+      text: "Hello! I am Non Trivial.\n",
+    },
+    {
+      kind: "Headline",
+      level: 1,
+      children: [{ kind: "Text", text: "Trivial" }],
+    },
+    {
+      kind: "CodeBlock",
+      info: "trivial",
+      text: "Hello! I am Trivial.\n",
+    },
+  ])
 
-const processed = postprocess(document, {
-  codeBlockParsers: [new TrivialParser()],
-})
+  const processed = postprocess(document, {
+    codeBlockParsers: [new TrivialParser()],
+  })
 
-tester.assertDocument(processed, [
-  {
-    kind: "Headline",
-    level: 1,
-    children: [{ kind: "Text", text: "Non Trivial" }],
-  },
-  {
-    kind: "CodeBlock",
-    info: "non-trivial",
-    text: "Hello! I am Non Trivial.\n",
-  },
-  {
-    kind: "Headline",
-    level: 1,
-    children: [{ kind: "Text", text: "Trivial" }],
-  },
-  {
-    kind: "CustomBlock",
-    customKind: "Trivial",
-    info: "trivial",
-    text: "Hello! I am Trivial.\n",
-    value: new Trivial("Hello! I am Trivial.\n"),
-  },
-])
+  tester.assertDocument(processed, [
+    {
+      kind: "Headline",
+      level: 1,
+      children: [{ kind: "Text", text: "Non Trivial" }],
+    },
+    {
+      kind: "CodeBlock",
+      info: "non-trivial",
+      text: "Hello! I am Non Trivial.\n",
+    },
+    {
+      kind: "Headline",
+      level: 1,
+      children: [{ kind: "Text", text: "Trivial" }],
+    },
+    {
+      kind: "CustomBlock",
+      customKind: "Trivial",
+      info: "trivial",
+      text: "Hello! I am Trivial.\n",
+      value: new Trivial("Hello! I am Trivial.\n"),
+    },
+  ])
+}
+
+{
+  const text = `\
+- ~~~ trivial
+  a
+  ~~~
+
+- ~~~ trivial
+  b
+  ~~~
+
+- ~~~ trivial
+  c
+  ~~~
+`
+
+  const document = tester.parser.parseDocument(text)
+
+  tester.assertDocument(document, [
+    {
+      kind: "BulletList",
+      tight: false,
+      children: [
+        {
+          kind: "BulletListItem",
+          children: [
+            {
+              kind: "CodeBlock",
+              info: "trivial",
+              text: "a\n",
+            },
+          ],
+        },
+        {
+          kind: "BulletListItem",
+          children: [
+            {
+              kind: "CodeBlock",
+              info: "trivial",
+              text: "b\n",
+            },
+          ],
+        },
+        {
+          kind: "BulletListItem",
+          children: [
+            {
+              kind: "CodeBlock",
+              info: "trivial",
+              text: "c\n",
+            },
+          ],
+        },
+      ],
+    },
+  ])
+
+  const processed = postprocess(document, {
+    codeBlockParsers: [new TrivialParser()],
+  })
+
+  tester.assertDocument(processed, [
+    {
+      kind: "BulletList",
+      tight: false,
+      children: [
+        {
+          kind: "BulletListItem",
+          children: [
+            {
+              kind: "CustomBlock",
+              customKind: "Trivial",
+              info: "trivial",
+              text: "a\n",
+              value: new Trivial("a\n"),
+            },
+          ],
+        },
+        {
+          kind: "BulletListItem",
+          children: [
+            {
+              kind: "CustomBlock",
+              customKind: "Trivial",
+              info: "trivial",
+              text: "b\n",
+              value: new Trivial("b\n"),
+            },
+          ],
+        },
+        {
+          kind: "BulletListItem",
+          children: [
+            {
+              kind: "CustomBlock",
+              customKind: "Trivial",
+              info: "trivial",
+              text: "c\n",
+              value: new Trivial("c\n"),
+            },
+          ],
+        },
+      ],
+    },
+  ])
+}
