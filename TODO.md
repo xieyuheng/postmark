@@ -1,4 +1,4 @@
-- `NodeVisitor`
+- `Node.accept`
 
 - plugin to transform `CodeBlock`
 
