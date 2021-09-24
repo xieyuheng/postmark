@@ -1,5 +1,3 @@
-- `CodeBlock.accept`
-
 - `postprocess` with `codeBlockParsers` -- by `NodeVisitor`
 
 - `Node.accept`

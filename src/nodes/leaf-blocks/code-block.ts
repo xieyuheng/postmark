@@ -1,5 +1,6 @@
 import { CodeBlockParser } from "src/code-block-parser"
 import { LeafBlock, Span } from "../../node"
+import { NodeVisitor } from "../../node-visitor"
 
 export class CodeBlock extends LeafBlock {
   kind = "CodeBlock"
@@ -25,5 +26,9 @@ export class CodeBlock extends LeafBlock {
       info: this.info,
       text: this.text,
     }
+  }
+
+  accept<T>(visitor: NodeVisitor<T>): T {
+    return visitor.onCodeBlock(this)
   }
 }
