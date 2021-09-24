@@ -2,32 +2,31 @@ import { Node } from "../node"
 import * as Nodes from "../nodes"
 
 export abstract class NodeVisitor<T> {
-  abstract default(node: Node): T
+  default(node: Node): T {
+    throw new Error("The default visiting method is not implemented")
+  }
 
-  abstract onDocument<A>(node: Nodes.Document<A>): T
+  onDocument?<A>(node: Nodes.Document<A>): T
 
-  abstract onBlockQuote(node: Nodes.BlockQuote): T
-  abstract onBulletList(node: Nodes.BulletList): T
-  abstract onBulletListItem(node: Nodes.BulletListItem): T
-  abstract onOrderedList(node: Nodes.OrderedList): T
-  abstract onOrderedListItem(node: Nodes.OrderedListItem): T
+  onBlockQuote?(node: Nodes.BlockQuote): T
+  onBulletList?(node: Nodes.BulletList): T
+  onBulletListItem?(node: Nodes.BulletListItem): T
+  onOrderedList?(node: Nodes.OrderedList): T
+  onOrderedListItem?(node: Nodes.OrderedListItem): T
 
-  abstract onParagraph(node: Nodes.Paragraph): T
-  abstract onHeadline(node: Nodes.Headline): T
-  abstract onThematicBreak(node: Nodes.ThematicBreak): T
-  abstract onHtmlBlock(node: Nodes.HtmlBlock): T
-  abstract onCodeBlock(node: Nodes.CodeBlock): T
+  onParagraph?(node: Nodes.Paragraph): T
+  onHeadline?(node: Nodes.Headline): T
+  onThematicBreak?(node: Nodes.ThematicBreak): T
+  onHtmlBlock?(node: Nodes.HtmlBlock): T
+  onCodeBlock?(node: Nodes.CodeBlock): T
 
-  abstract onEmphasis(node: Nodes.Emphasis): T
-  abstract onStrong(node: Nodes.Strong): T
-  abstract onHardLineBreak(node: Nodes.HardLineBreak): T
-  abstract onSoftLineBreak(node: Nodes.SoftLineBreak): T
-  abstract onLink(node: Nodes.Link): T
-  abstract onImage(node: Nodes.Image): T
-  abstract onCode(node: Nodes.Code): T
-  abstract onHtmlTag(node: Nodes.HtmlTag): T
-  abstract onText(node: Nodes.Text): T    
-
-  // "./inlines/html-tag"
-  // "./inlines/text"
+  onEmphasis?(node: Nodes.Emphasis): T
+  onStrong?(node: Nodes.Strong): T
+  onHardLineBreak?(node: Nodes.HardLineBreak): T
+  onSoftLineBreak?(node: Nodes.SoftLineBreak): T
+  onLink?(node: Nodes.Link): T
+  onImage?(node: Nodes.Image): T
+  onCode?(node: Nodes.Code): T
+  onHtmlTag?(node: Nodes.HtmlTag): T
+  onText?(node: Nodes.Text): T
 }

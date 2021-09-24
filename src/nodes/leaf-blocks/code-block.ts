@@ -29,6 +29,6 @@ export class CodeBlock extends LeafBlock {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onCodeBlock(this)
+    return (visitor.onCodeBlock || visitor.default)(this)
   }
 }
