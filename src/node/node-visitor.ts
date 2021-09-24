@@ -20,6 +20,7 @@ export abstract class NodeVisitor<T> {
   onThematicBreak?(node: Nodes.ThematicBreak): T
   onHtmlBlock?(node: Nodes.HtmlBlock): T
   onCodeBlock?(node: Nodes.CodeBlock): T
+  onCustomBlock?<A>(node: Nodes.CustomBlock<A>): T
 
   onEmphasis?(node: Nodes.Emphasis): T
   onStrong?(node: Nodes.Strong): T

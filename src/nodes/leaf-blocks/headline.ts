@@ -1,5 +1,5 @@
-import { headerCase } from "header-case"
 import { LeafBlock, Node, Span } from "../../node"
+import { NodeVisitor } from "../../node"
 
 export class Headline extends LeafBlock {
   kind = "Headline"
@@ -25,5 +25,9 @@ export class Headline extends LeafBlock {
       level: this.level,
       children: this.children.map((child) => child.json()),
     }
+  }
+
+  accept<T>(visitor: NodeVisitor<T>): T {
+    return visitor.onHeadline ? visitor.onHeadline(this) : visitor.default(this)
   }
 }

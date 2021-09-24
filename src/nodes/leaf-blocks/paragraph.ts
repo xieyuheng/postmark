@@ -1,4 +1,5 @@
 import { LeafBlock, Node, Span } from "../../node"
+import { NodeVisitor } from "../../node"
 
 export class Paragraph extends LeafBlock {
   kind = "Paragraph"
@@ -21,5 +22,11 @@ export class Paragraph extends LeafBlock {
       kind: this.kind,
       children: this.children.map((child) => child.json()),
     }
+  }
+
+  accept<T>(visitor: NodeVisitor<T>): T {
+    return visitor.onParagraph
+      ? visitor.onParagraph(this)
+      : visitor.default(this)
   }
 }

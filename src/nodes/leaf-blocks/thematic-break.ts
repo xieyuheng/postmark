@@ -1,4 +1,5 @@
 import { LeafBlock, Span } from "../../node"
+import { NodeVisitor } from "../../node"
 
 export class ThematicBreak extends LeafBlock {
   kind = "ThematicBreak"
@@ -18,5 +19,11 @@ export class ThematicBreak extends LeafBlock {
     return {
       kind: this.kind,
     }
+  }
+
+  accept<T>(visitor: NodeVisitor<T>): T {
+    return visitor.onThematicBreak
+      ? visitor.onThematicBreak(this)
+      : visitor.default(this)
   }
 }
