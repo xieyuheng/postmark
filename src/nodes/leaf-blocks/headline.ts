@@ -1,3 +1,4 @@
+import { headerCase } from "header-case"
 import { LeafBlock, Node, Span } from "../../node"
 
 export class Headline extends LeafBlock {
@@ -12,6 +13,10 @@ export class Headline extends LeafBlock {
     this.span = opts.span
     this.level = opts.level
     this.children = opts.children
+  }
+
+  shallowCopy(): Headline {
+    return new Headline(this)
   }
 
   json() {

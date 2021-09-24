@@ -14,6 +14,10 @@ export class Image extends Inline {
     this.children = opts.children
   }
 
+  shallowCopy(): Image {
+    return new Image(this)
+  }
+
   json() {
     return {
       kind: this.kind,

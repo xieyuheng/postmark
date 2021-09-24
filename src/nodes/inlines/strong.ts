@@ -10,6 +10,10 @@ export class Strong extends Inline {
     this.children = opts.children
   }
 
+  shallowCopy(): Strong {
+    return new Strong(this)
+  }
+
   json() {
     return {
       kind: this.kind,

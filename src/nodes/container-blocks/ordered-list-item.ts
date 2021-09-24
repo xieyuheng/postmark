@@ -22,6 +22,10 @@ export class OrderedListItem extends ListItem {
     this.children = opts.children
   }
 
+  shallowCopy(): OrderedListItem {
+    return new OrderedListItem(this)
+  }
+
   json() {
     return {
       kind: this.kind,

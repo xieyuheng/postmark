@@ -7,6 +7,10 @@ export class HardLineBreak extends LineBreak {
     super()
   }
 
+  shallowCopy(): HardLineBreak {
+    return new HardLineBreak()
+  }
+
   json() {
     return {
       kind: this.kind,

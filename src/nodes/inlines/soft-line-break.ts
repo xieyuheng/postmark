@@ -7,6 +7,10 @@ export class SoftLineBreak extends LineBreak {
     super()
   }
 
+  shallowCopy(): SoftLineBreak {
+    return new SoftLineBreak()
+  }
+
   json() {
     return {
       kind: this.kind,

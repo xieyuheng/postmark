@@ -15,6 +15,10 @@ export class Document<A> extends Node {
     this.children = opts.children
   }
 
+  shallowCopy(): Document<A> {
+    return new Document(this)
+  }
+
   json() {
     return {
       kind: this.kind,

@@ -10,6 +10,10 @@ export class Emphasis extends Inline {
     this.children = opts.children
   }
 
+  shallowCopy(): Emphasis {
+    return new Emphasis(this)
+  }
+
   json() {
     return {
       kind: this.kind,

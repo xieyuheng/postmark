@@ -10,6 +10,10 @@ export class ThematicBreak extends LeafBlock {
     this.span = opts.span
   }
 
+  shallowCopy(): ThematicBreak {
+    return new ThematicBreak(this)
+  }
+
   json() {
     return {
       kind: this.kind,

@@ -15,6 +15,10 @@ export class BulletList extends List {
     this.children = opts.children
   }
 
+  shallowCopy(): BulletList {
+    return new BulletList(this)
+  }
+
   json() {
     return {
       kind: this.kind,

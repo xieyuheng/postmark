@@ -10,6 +10,10 @@ export class Code extends Inline {
     this.text = opts.text
   }
 
+  shallowCopy(): Code {
+    return new Code(this)
+  }
+
   json() {
     return {
       kind: this.kind,

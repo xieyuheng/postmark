@@ -12,6 +12,10 @@ export class HtmlBlock extends LeafBlock {
     this.text = opts.text
   }
 
+  shallowCopy(): HtmlBlock {
+    return new HtmlBlock(this)
+  }
+
   json() {
     return {
       kind: this.kind,

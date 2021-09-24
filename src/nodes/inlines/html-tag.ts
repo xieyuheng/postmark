@@ -10,6 +10,10 @@ export class HtmlTag extends Inline {
     this.text = opts.text
   }
 
+  shallowCopy(): HtmlTag {
+    return new HtmlTag(this)
+  }
+
   json() {
     return {
       kind: this.kind,

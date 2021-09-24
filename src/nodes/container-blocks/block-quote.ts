@@ -12,6 +12,10 @@ export class BlockQuote extends ContainerBlock {
     this.children = opts.children
   }
 
+  shallowCopy(): BlockQuote {
+    return new BlockQuote(this)
+  }
+
   json() {
     return {
       kind: this.kind,

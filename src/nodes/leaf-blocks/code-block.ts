@@ -1,3 +1,4 @@
+import { CodeBlockParser } from "src/code-block-parser"
 import { LeafBlock, Span } from "../../node"
 
 export class CodeBlock extends LeafBlock {
@@ -12,6 +13,10 @@ export class CodeBlock extends LeafBlock {
     this.span = opts.span
     this.info = opts.info
     this.text = opts.text
+  }
+
+  shallowCopy(): CodeBlock {
+    return new CodeBlock(this)
   }
 
   json() {

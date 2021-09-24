@@ -14,6 +14,10 @@ export class Link extends Inline {
     this.children = opts.children
   }
 
+  shallowCopy(): Link {
+    return new Link(this)
+  }
+
   json() {
     return {
       kind: this.kind,

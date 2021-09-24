@@ -12,6 +12,10 @@ export class Paragraph extends LeafBlock {
     this.children = opts.children
   }
 
+  shallowCopy(): Paragraph {
+    return new Paragraph(this)
+  }
+
   json() {
     return {
       kind: this.kind,
