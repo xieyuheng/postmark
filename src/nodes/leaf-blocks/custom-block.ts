@@ -1,4 +1,4 @@
-import { CodeBlockParser } from "src/code-block-parser"
+import { CodeBlockParser } from "../../nodes"
 import { LeafBlock, Span } from "../../node"
 import { NodeVisitor } from "../../node"
 

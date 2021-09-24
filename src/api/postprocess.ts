@@ -1,6 +1,6 @@
 import { Node, ContainerBlock } from "../node"
 import { NodeVisitor } from "../node"
-import { CodeBlockParser } from "../code-block-parser"
+import { CodeBlockParser } from "../nodes"
 import * as Nodes from "../nodes"
 
 export function postprocess(
