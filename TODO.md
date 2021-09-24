@@ -1,4 +1,4 @@
-- extract `Parser` class
+- use `Parser`
 
 - plugin to transform `CodeBlock`
 

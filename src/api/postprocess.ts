@@ -1,4 +1,4 @@
-import { Node } from "../api"
+import { Node } from "../node"
 import { CodeBlockParser } from "../code-block-parser"
 import * as Nodes from "../nodes"
 
