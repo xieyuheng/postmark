@@ -1,4 +1,4 @@
-- example `CodeBlockParser`
+- `TrivialParser` -- an example `CodeBlockParser`
 
 - `Node.accept`
 

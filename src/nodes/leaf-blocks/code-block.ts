@@ -1,6 +1,6 @@
 import { CodeBlockParser } from "src/code-block-parser"
 import { LeafBlock, Span } from "../../node"
-import { NodeVisitor } from "../../node-visitor"
+import { NodeVisitor } from "../../node"
 
 export class CodeBlock extends LeafBlock {
   kind = "CodeBlock"

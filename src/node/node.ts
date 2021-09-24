@@ -1,4 +1,4 @@
-import { NodeVisitor } from "../node-visitor"
+import { NodeVisitor } from "../node"
 
 export abstract class Node {
   abstract kind: string

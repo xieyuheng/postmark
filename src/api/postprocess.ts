@@ -1,5 +1,5 @@
 import { Node, ContainerBlock } from "../node"
-import { NodeVisitor } from "../node-visitor"
+import { NodeVisitor } from "../node"
 import { CodeBlockParser } from "../code-block-parser"
 import * as Nodes from "../nodes"
 
