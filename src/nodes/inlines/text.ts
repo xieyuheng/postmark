@@ -1,4 +1,5 @@
 import { Inline } from "../../node"
+import { NodeVisitor } from "../../node"
 
 export class Text extends Inline {
   kind = "Text"
@@ -19,5 +20,9 @@ export class Text extends Inline {
       kind: this.kind,
       text: this.text,
     }
+  }
+
+  accept<T>(visitor: NodeVisitor<T>): T {
+    return visitor.onText ? visitor.onText(this) : visitor.default(this)
   }
 }

@@ -1,4 +1,5 @@
 import { Inline, Node } from "../../node"
+import { NodeVisitor } from "../../node"
 
 export class Link extends Inline {
   kind = "Link"
@@ -25,5 +26,9 @@ export class Link extends Inline {
       href: this.href,
       children: this.children.map((child) => child.json()),
     }
+  }
+
+  accept<T>(visitor: NodeVisitor<T>): T {
+    return visitor.onLink ? visitor.onLink(this) : visitor.default(this)
   }
 }

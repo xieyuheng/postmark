@@ -1,4 +1,5 @@
 import { ContainerBlock, Node, Span } from "../../node"
+import { NodeVisitor } from "../../node"
 
 export class BlockQuote extends ContainerBlock {
   kind = "BlockQuote"

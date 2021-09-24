@@ -1,4 +1,5 @@
 import { Inline, Node } from "../../node"
+import { NodeVisitor } from "../../node"
 
 export class Strong extends Inline {
   kind = "Strong"
@@ -19,5 +20,9 @@ export class Strong extends Inline {
       kind: this.kind,
       children: this.children.map((child) => child.json()),
     }
+  }
+
+  accept<T>(visitor: NodeVisitor<T>): T {
+    return visitor.onStrong ? visitor.onStrong(this) : visitor.default(this)
   }
 }

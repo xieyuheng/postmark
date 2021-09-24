@@ -1,4 +1,5 @@
 import { Inline, Node } from "../../node"
+import { NodeVisitor } from "../../node"
 
 export class Image extends Inline {
   kind = "Image"
@@ -25,5 +26,9 @@ export class Image extends Inline {
       href: this.href,
       children: this.children.map((child) => child.json()),
     }
+  }
+
+  accept<T>(visitor: NodeVisitor<T>): T {
+    return visitor.onImage ? visitor.onImage(this) : visitor.default(this)
   }
 }
