@@ -1,11 +1,11 @@
-import { parseDocument, assertDocument } from "../../api"
+import { tester } from "../../api"
 import { formatCodeBlock } from "../../api"
 
 {
   const text = formatCodeBlock("sisuo", "console.log('Hello')")
-  const document = parseDocument(text)
+  const document = tester.parser.parseDocument(text)
 
-  assertDocument(document, [
+  tester.assertDocument(document, [
     {
       kind: "CodeBlock",
       info: "sisuo",

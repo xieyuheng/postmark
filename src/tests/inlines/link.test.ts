@@ -1,10 +1,10 @@
-import { parseDocument, assertDocument } from "../../api"
+import { tester } from "../../api"
 
 {
   const text = '[example link](https://example.com "example title")'
-  const document = parseDocument(text)
+  const document = tester.parser.parseDocument(text)
 
-  assertDocument(document, [
+  tester.assertDocument(document, [
     {
       kind: "Paragraph",
       children: [
@@ -25,9 +25,9 @@ import { parseDocument, assertDocument } from "../../api"
 
 [example link]: https://example.com "example title"
 `
-  const document = parseDocument(text)
+  const document = tester.parser.parseDocument(text)
 
-  assertDocument(document, [
+  tester.assertDocument(document, [
     {
       kind: "Paragraph",
       children: [
@@ -44,9 +44,9 @@ import { parseDocument, assertDocument } from "../../api"
 
 {
   const text = `<https://example.com>`
-  const document = parseDocument(text)
+  const document = tester.parser.parseDocument(text)
 
-  assertDocument(document, [
+  tester.assertDocument(document, [
     {
       kind: "Paragraph",
       children: [

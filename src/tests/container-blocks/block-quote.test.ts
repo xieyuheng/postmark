@@ -1,4 +1,4 @@
-import { parseDocument, assertDocument } from "../../api"
+import { tester } from "../../api"
 
 {
   const text = `\
@@ -7,9 +7,9 @@ import { parseDocument, assertDocument } from "../../api"
 > -- Kent Beck
 `
 
-  const document = parseDocument(text)
+  const document = tester.parser.parseDocument(text)
 
-  assertDocument(document, [
+  tester.assertDocument(document, [
     {
       kind: "BlockQuote",
       children: [

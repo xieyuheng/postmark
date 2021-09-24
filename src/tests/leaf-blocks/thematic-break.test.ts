@@ -1,10 +1,10 @@
-import { parseDocument, assertDocument } from "../../api"
+import { tester } from "../../api"
 
 {
   const text = "\n---\n"
-  const document = parseDocument(text)
+  const document = tester.parser.parseDocument(text)
 
-  assertDocument(document, [
+  tester.assertDocument(document, [
     {
       kind: "ThematicBreak",
     },

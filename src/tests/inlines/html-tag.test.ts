@@ -1,4 +1,4 @@
-import { parseDocument, assertDocument } from "../../api"
+import { tester } from "../../api"
 
 {
   const text = `
@@ -6,9 +6,9 @@ import { parseDocument, assertDocument } from "../../api"
 a <x /> b
 
 `
-  const document = parseDocument(text)
+  const document = tester.parser.parseDocument(text)
 
-  assertDocument(document, [
+  tester.assertDocument(document, [
     {
       kind: "Paragraph",
       children: [
@@ -26,9 +26,9 @@ a <x /> b
 a <x> hi </x> b
 
 `
-  const document = parseDocument(text)
+  const document = tester.parser.parseDocument(text)
 
-  assertDocument(document, [
+  tester.assertDocument(document, [
     {
       kind: "Paragraph",
       children: [

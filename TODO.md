@@ -1,5 +1,3 @@
-- use `Parser`
-
 - plugin to transform `CodeBlock`
 
 - `NodeVisitor`
