@@ -1,7 +1,4 @@
 import { Inline, Node } from "../../node"
-import { nodeFromCommonmark } from "../../api"
-import * as Commonmark from "../../vendor/commonmark"
-import ty from "@xieyuheng/ty"
 
 export class Link extends Inline {
   kind = "Link"
@@ -23,16 +20,6 @@ export class Link extends Inline {
       title: this.title,
       href: this.href,
       children: this.children.map((child) => child.json()),
-    }
-  }
-
-  static fromCommonmark(node: Commonmark.Node): undefined | Link {
-    if (node.type === "link") {
-      return new Link({
-        title: ty.string().validate(node.title),
-        href: ty.string().validate(node.destination),
-        children: Commonmark.children(node).map(nodeFromCommonmark),
-      })
     }
   }
 }

@@ -1,6 +1,4 @@
 import { LeafBlock, Span } from "../../node"
-import * as Commonmark from "../../vendor/commonmark"
-import ty from "@xieyuheng/ty"
 
 export class CodeBlock extends LeafBlock {
   kind = "CodeBlock"
@@ -21,16 +19,6 @@ export class CodeBlock extends LeafBlock {
       kind: this.kind,
       info: this.info,
       text: this.text,
-    }
-  }
-
-  static fromCommonmark(node: Commonmark.Node): undefined | CodeBlock {
-    if (node.type === "code_block") {
-      return new CodeBlock({
-        span: node.sourcepos && Span.fromPairs(node.sourcepos),
-        info: ty.string().validate(node.info),
-        text: ty.string().validate(node.literal),
-      })
     }
   }
 }

@@ -1,6 +1,4 @@
 import { Node, Span } from "../node"
-import { nodeFromCommonmark } from "../api"
-import * as Commonmark from "../vendor/commonmark"
 
 export class Document<A> extends Node {
   kind = "Document"
@@ -21,19 +19,6 @@ export class Document<A> extends Node {
     return {
       kind: this.kind,
       children: this.children.map((child) => child.json()),
-    }
-  }
-
-  static fromCommonmark<A>(
-    node: Commonmark.Node,
-    opts: { attributes: A }
-  ): undefined | Document<A> {
-    if (node.type === "document") {
-      return new Document({
-        attributes: opts.attributes,
-        span: node.sourcepos && Span.fromPairs(node.sourcepos),
-        children: Commonmark.children(node).map(nodeFromCommonmark),
-      })
     }
   }
 }

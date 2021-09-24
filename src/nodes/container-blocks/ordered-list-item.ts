@@ -1,8 +1,5 @@
 import { ListItem } from "./list-item"
 import { Node, Span } from "../../node"
-import { nodeFromCommonmark } from "../../api"
-import * as Commonmark from "../../vendor/commonmark"
-import ty from "@xieyuheng/ty"
 
 export class OrderedListItem extends ListItem {
   kind = "OrderedListItem"
@@ -31,19 +28,6 @@ export class OrderedListItem extends ListItem {
       number: this.number,
       delimiter: this.delimiter,
       children: this.children.map((child) => child.json()),
-    }
-  }
-
-  static fromCommonmark(node: Commonmark.Node): undefined | OrderedListItem {
-    if (node.type === "item" && node.listType === "ordered") {
-      return new OrderedListItem({
-        span: node.sourcepos && Span.fromPairs(node.sourcepos),
-        number: ty.number().validate(node.listStart),
-        delimiter: ty
-          .union(ty.const("." as const), ty.const(")" as const))
-          .validate(node.listDelimiter),
-        children: Commonmark.children(node).map(nodeFromCommonmark),
-      })
     }
   }
 }

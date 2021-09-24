@@ -1,6 +1,4 @@
 import { Inline, Node } from "../../node"
-import { nodeFromCommonmark } from "../../api"
-import * as Commonmark from "../../vendor/commonmark"
 
 export class Strong extends Inline {
   kind = "Strong"
@@ -16,14 +14,6 @@ export class Strong extends Inline {
     return {
       kind: this.kind,
       children: this.children.map((child) => child.json()),
-    }
-  }
-
-  static fromCommonmark(node: Commonmark.Node): undefined | Strong {
-    if (node.type === "strong") {
-      return new Strong({
-        children: Commonmark.children(node).map(nodeFromCommonmark),
-      })
     }
   }
 }

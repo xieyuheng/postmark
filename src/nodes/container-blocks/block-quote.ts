@@ -20,13 +20,4 @@ export class BlockQuote extends ContainerBlock {
       children: this.children.map((child) => child.json()),
     }
   }
-
-  static fromCommonmark(node: Commonmark.Node): undefined | BlockQuote {
-    if (node.type === "block_quote") {
-      return new BlockQuote({
-        span: node.sourcepos && Span.fromPairs(node.sourcepos),
-        children: Commonmark.children(node).map(nodeFromCommonmark),
-      })
-    }
-  }
 }

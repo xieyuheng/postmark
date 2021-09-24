@@ -1,6 +1,4 @@
 import { Inline } from "../../node"
-import * as Commonmark from "../../vendor/commonmark"
-import ty from "@xieyuheng/ty"
 
 export class Text extends Inline {
   kind = "Text"
@@ -16,14 +14,6 @@ export class Text extends Inline {
     return {
       kind: this.kind,
       text: this.text,
-    }
-  }
-
-  static fromCommonmark(node: Commonmark.Node): undefined | Text {
-    if (node.type === "text") {
-      return new Text({
-        text: ty.string().validate(node.literal),
-      })
     }
   }
 }

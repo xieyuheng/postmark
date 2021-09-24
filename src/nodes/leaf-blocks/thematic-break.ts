@@ -1,5 +1,4 @@
 import { LeafBlock, Span } from "../../node"
-import * as Commonmark from "../../vendor/commonmark"
 
 export class ThematicBreak extends LeafBlock {
   kind = "ThematicBreak"
@@ -14,14 +13,6 @@ export class ThematicBreak extends LeafBlock {
   json() {
     return {
       kind: this.kind,
-    }
-  }
-
-  static fromCommonmark(node: Commonmark.Node): undefined | ThematicBreak {
-    if (node.type === "thematic_break") {
-      return new ThematicBreak({
-        span: node.sourcepos && Span.fromPairs(node.sourcepos),
-      })
     }
   }
 }
