@@ -35,4 +35,10 @@ export class OrderedListItem extends ListItem {
       children: this.children.map((child) => child.json()),
     }
   }
+
+  accept<T>(visitor: NodeVisitor<T>): T {
+    return visitor.onOrderedListItem
+      ? visitor.onOrderedListItem(this)
+      : visitor.default(this)
+  }
 }

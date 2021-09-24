@@ -27,4 +27,10 @@ export class BulletList extends List {
       children: this.children.map((child) => child.json()),
     }
   }
+
+  accept<T>(visitor: NodeVisitor<T>): T {
+    return visitor.onBulletList
+      ? visitor.onBulletList(this)
+      : visitor.default(this)
+  }
 }

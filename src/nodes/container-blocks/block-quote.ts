@@ -23,4 +23,10 @@ export class BlockQuote extends ContainerBlock {
       children: this.children.map((child) => child.json()),
     }
   }
+
+  accept<T>(visitor: NodeVisitor<T>): T {
+    return visitor.onBlockQuote
+      ? visitor.onBlockQuote(this)
+      : visitor.default(this)
+  }
 }
