@@ -4,7 +4,6 @@
 - container-blocks/ordered-list -- `format`
 - container-blocks/ordered-list-item -- `format`
 
-- leaf-blocks/thematic-break -- `format`
 - leaf-blocks/html-block -- `format`
 - leaf-blocks/custom-block -- `format`
 

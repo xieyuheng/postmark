@@ -26,4 +26,8 @@ export class ThematicBreak extends LeafBlock {
       ? visitor.onThematicBreak(this)
       : visitor.default(this)
   }
+
+  format(): string {
+    return "------"
+  }
 }
