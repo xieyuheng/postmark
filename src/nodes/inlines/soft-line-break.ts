@@ -23,4 +23,8 @@ export class SoftLineBreak extends LineBreak {
       ? visitor.onSoftLineBreak(this)
       : visitor.default(this)
   }
+
+  format(): string {
+    return "\n"
+  }
 }

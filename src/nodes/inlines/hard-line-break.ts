@@ -23,4 +23,8 @@ export class HardLineBreak extends LineBreak {
       ? visitor.onHardLineBreak(this)
       : visitor.default(this)
   }
+
+  format(): string {
+    return "\\\n"
+  }
 }
