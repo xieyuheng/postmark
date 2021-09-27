@@ -29,4 +29,8 @@ export class HtmlBlock extends LeafBlock {
       ? visitor.onHtmlBlock(this)
       : visitor.default(this)
   }
+
+  // format(): string {
+  //   return this.text.trim()
+  // }
 }

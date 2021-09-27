@@ -5,7 +5,6 @@
 - container-blocks/ordered-list-item -- `format`
 
 - leaf-blocks/html-block -- `format`
-- leaf-blocks/custom-block -- `format`
 
 - inlines/link -- `format`
 - inlines/image -- `format`

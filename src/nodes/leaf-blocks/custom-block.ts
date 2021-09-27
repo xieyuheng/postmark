@@ -47,4 +47,8 @@ export class CustomBlock<T> extends LeafBlock {
       ? visitor.onCustomBlock(this)
       : visitor.default(this)
   }
+
+  format(): string {
+    return ["``` " + this.info, this.text.trim(), "```"].join("\n")
+  }
 }
