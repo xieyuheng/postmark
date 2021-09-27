@@ -7,7 +7,6 @@
 - leaf-blocks/paragraph -- `format`
 - leaf-blocks/thematic-break -- `format`
 - leaf-blocks/html-block -- `format`
-- leaf-blocks/code-block -- `format`
 - leaf-blocks/custom-block -- `format`
 
 - inlines/emphasis -- `format`

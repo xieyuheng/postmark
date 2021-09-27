@@ -32,4 +32,8 @@ export class CodeBlock extends LeafBlock {
       ? visitor.onCodeBlock(this)
       : visitor.default(this)
   }
+
+  format(): string {
+    return ["``` " + this.info, this.text.trim(), "```"].join("\n")
+  }
 }
