@@ -18,6 +18,5 @@
 - inlines/image -- `format`
 - inlines/code -- `format`
 - inlines/html-tag -- `format`
-- inlines/text -- `format`
 
 - `Node.render()` render node to html.

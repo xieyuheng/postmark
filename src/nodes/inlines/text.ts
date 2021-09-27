@@ -25,4 +25,8 @@ export class Text extends Inline {
   accept<T>(visitor: NodeVisitor<T>): T {
     return visitor.onText ? visitor.onText(this) : visitor.default(this)
   }
+
+  format(): string {
+    return this.text
+  }
 }
