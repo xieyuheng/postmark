@@ -1,6 +1,7 @@
 import { Node, Span } from "../node"
 import { NodeVisitor } from "../node"
 import YAML from "js-yaml"
+import * as ut from "../ut"
 
 export class Document<A> extends Node {
   kind = "Document"
@@ -29,19 +30,34 @@ export class Document<A> extends Node {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onDocument
-      ? visitor.onDocument(this)
-      : visitor.default(this)
+    return visitor.onDocument ? visitor.onDocument(this) : visitor.default(this)
+  }
+
+  private formatAttributes(): string {
+    function replacer(key: string, value: any): any {
+      // NOTE
+      return value
+    }
+
+    return YAML.dump(this.attributes, {
+      noArrayIndent: true,
+      replacer,
+    }).trim()
+  }
+
+  private formatFrontMatter(): string {
+    return ["---", this.formatAttributes(), "---"].join("\n")
   }
 
   format(): string {
-    if (this.attributes) {
-      const attributes = YAML.dump(this.attributes).trim()
-      const children = this.children.map((child) => child.format()).join("\n\n")
-      return ["---", attributes, "---", "", children].join("\n")
+    if (Object.keys(this.attributes).length === 0) {
+      return this.children.map((child) => child.format()).join("\n\n")
     } else {
-      const children = this.children.map((child) => child.format()).join("\n\n")
-      return children
+      return [
+        this.formatFrontMatter(),
+        "",
+        this.children.map((child) => child.format()).join("\n\n"),
+      ].join("\n")
     }
   }
 }

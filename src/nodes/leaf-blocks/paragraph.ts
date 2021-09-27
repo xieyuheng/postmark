@@ -29,4 +29,8 @@ export class Paragraph extends LeafBlock {
       ? visitor.onParagraph(this)
       : visitor.default(this)
   }
+
+  format(): string {
+    return this.children.map((child) => child.format()).join("")
+  }
 }
