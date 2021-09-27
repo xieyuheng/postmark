@@ -7,9 +7,9 @@ import fm from "front-matter"
 export class Parser {
   commonmarkParser = new Commonmark.Parser()
 
-  parseDocument(text: string): Nodes.Document<{}> {
+  parseDocument(text: string): Nodes.Document<undefined> {
     return documentFromCommonmark(this.commonmarkParser.parse(text), {
-      attributes: {},
+      attributes: undefined,
     })
   }
 
