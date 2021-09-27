@@ -30,4 +30,12 @@ export class Headline extends LeafBlock {
   accept<T>(visitor: NodeVisitor<T>): T {
     return visitor.onHeadline ? visitor.onHeadline(this) : visitor.default(this)
   }
+
+  format(): string {
+    return (
+      "#".repeat(this.level) +
+      " " +
+      this.children.map((child) => child.format()).join("")
+    )
+  }
 }
