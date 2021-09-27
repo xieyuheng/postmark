@@ -25,4 +25,8 @@ export class Emphasis extends Inline {
   accept<T>(visitor: NodeVisitor<T>): T {
     return visitor.onEmphasis ? visitor.onEmphasis(this) : visitor.default(this)
   }
+
+  format(): string {
+    return "*" + this.children.map((child) => child.format()).join("") + "*"
+  }
 }

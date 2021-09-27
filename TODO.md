@@ -8,8 +8,6 @@
 - leaf-blocks/html-block -- `format`
 - leaf-blocks/custom-block -- `format`
 
-- inlines/emphasis -- `format`
-- inlines/strong -- `format`
 - inlines/hard-line-break -- `format`
 - inlines/soft-line-break -- `format`
 - inlines/link -- `format`
