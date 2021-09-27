@@ -16,7 +16,8 @@
 - inlines/soft-line-break -- `format`
 - inlines/link -- `format`
 - inlines/image -- `format`
-- inlines/code -- `format`
 - inlines/html-tag -- `format`
+
+- [test] [cli] snapshot testing for `postmark format`
 
 - `Node.render()` render node to html.

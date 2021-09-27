@@ -32,10 +32,8 @@ export class Headline extends LeafBlock {
   }
 
   format(): string {
-    return (
-      "#".repeat(this.level) +
-      " " +
-      this.children.map((child) => child.format()).join("")
-    )
+    const head = "#".repeat(this.level)
+    const body = this.children.map((child) => child.format()).join("")
+    return `${head} ${body}`
   }
 }

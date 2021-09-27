@@ -25,4 +25,8 @@ export class Code extends Inline {
   accept<T>(visitor: NodeVisitor<T>): T {
     return visitor.onCode ? visitor.onCode(this) : visitor.default(this)
   }
+
+  format(): string {
+    return "`" + this.text + "`"
+  }
 }
