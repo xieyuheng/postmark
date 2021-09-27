@@ -1,4 +1,5 @@
 import { Node, Span } from "../node"
+import { NodeVisitor } from "../node"
 import YAML from "js-yaml"
 
 export class Document<A> extends Node {
@@ -25,6 +26,12 @@ export class Document<A> extends Node {
       kind: this.kind,
       children: this.children.map((child) => child.json()),
     }
+  }
+
+  accept<T>(visitor: NodeVisitor<T>): T {
+    return visitor.onDocument
+      ? visitor.onDocument(this)
+      : visitor.default(this)
   }
 
   format(): string {
