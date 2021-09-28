@@ -1,6 +1,30 @@
+# nested ordered list
+
 1. a
 2. b
 3. c
    1. a
    2. b
    3. c
+
+# nested ordered list
+
+1. a
+2. b
+3. c
+
+# ordered list with ugly delimiter
+
+1) a
+2) b
+3) c
+
+# ordered list with different delimiters
+
+Will be parsed as `loose` instead of `tight`:
+
+1) a
+
+2. b
+
+3) c
