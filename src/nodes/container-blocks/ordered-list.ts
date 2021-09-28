@@ -45,4 +45,12 @@ export class OrderedList extends List {
       ? visitor.onOrderedList(this)
       : visitor.default(this)
   }
+
+  format(): string {
+    if (this.tight) {
+      return this.children.map((child) => child.format()).join("\n")
+    } else {
+      return this.children.map((child) => child.format()).join("\n\n")
+    }
+  }
 }

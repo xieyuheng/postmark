@@ -1,0 +1,3 @@
+{"kind":"OrderedListItem","number":1,"delimiter":".","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"a"}]}]}
+{"kind":"OrderedListItem","number":2,"delimiter":".","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"b"}]}]}
+{"kind":"OrderedListItem","number":3,"delimiter":".","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"c"}]}]}
