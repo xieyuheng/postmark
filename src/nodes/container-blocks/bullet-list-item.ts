@@ -33,8 +33,9 @@ export class BulletListItem extends ListItem {
 
   indent(text: string): string {
     const lines = text.split("\n")
-    const head = "- " + lines[0]
-    const tail = lines.splice(1).map((line) => "  " + line)
+    const prefix = "- "
+    const head = prefix + lines[0]
+    const tail = lines.splice(1).map((line) => " ".repeat(prefix.length) + line)
 
     return [head, ...tail].join("\n")
   }
