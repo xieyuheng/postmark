@@ -25,4 +25,8 @@ export class HtmlTag extends Inline {
   accept<T>(visitor: NodeVisitor<T>): T {
     return visitor.onHtmlTag ? visitor.onHtmlTag(this) : visitor.default(this)
   }
+
+  // format(): string {
+  //   return this.text
+  // }
 }

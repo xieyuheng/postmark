@@ -1,0 +1,11 @@
+# html tag
+
+x {"kind":"HtmlTag","text":"<x-card />"} x
+
+# html tag pair
+
+{"kind":"HtmlTag","text":"<x-card>"} hiya {"kind":"HtmlTag","text":"</x-card>"}
+
+<x-card>
+  hiya
+</x-card>
