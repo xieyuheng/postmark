@@ -1,5 +1,3 @@
-- [test] [cli] snapshot testing for `postmark format`
-
 - container-blocks/block-quote -- `format`
 - container-blocks/bullet-list -- `format`
 - container-blocks/bullet-list-item -- `format`

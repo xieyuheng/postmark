@@ -19,6 +19,7 @@ commands.t = async () => {
 commands.test_all = async () => {
   await commands.test_lib()
   await commands.test_snapshot()
+  await commands.test_postmark_format()
 }
 
 commands.test_lib = async () => {
@@ -32,6 +33,14 @@ commands.test_snapshot = async () => {
     snapshot.out(({ file }) =>
       path.resolve("snapshot", changeCase.paramCase(file) + ".out")
     )
+  )
+}
+
+commands.test_postmark_format = async () => {
+  await test(
+    "./bin/postmark.js format $file",
+    { file: "tests/format/**/*.md" },
+    snapshot.out(({ file }) => file + ".out")
   )
 }
 
