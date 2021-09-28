@@ -1,1 +1,0 @@
-- `Node.render()` render node to html.

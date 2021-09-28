@@ -6,9 +6,10 @@ Hello *world*
 Hi **there**
 `
 
-const renderer = new Commonmark.HtmlRenderer()
 const parser = new Commonmark.Parser()
 const document = parser.parse(examples)
-const result = renderer.render(document)
 
-console.log(result)
+const renderer = new Commonmark.HtmlRenderer()
+const html = renderer.render(document)
+
+console.log(html)

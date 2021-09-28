@@ -20,6 +20,7 @@ commands.test_all = async () => {
   await commands.test_lib()
   await commands.test_snapshot()
   await commands.test_postmark_format()
+  await commands.test_postmark_render()
 }
 
 commands.test_lib = async () => {
@@ -39,8 +40,16 @@ commands.test_snapshot = async () => {
 commands.test_postmark_format = async () => {
   await test(
     "./bin/postmark.js format $file",
-    { file: "tests/format/**/*.md" },
-    snapshot.out(({ file }) => file + ".out")
+    { file: "examples/**/*.md" },
+    snapshot.out(({ file }) => file + ".format.out")
+  )
+}
+
+commands.test_postmark_render = async () => {
+  await test(
+    "./bin/postmark.js render $file",
+    { file: "examples/**/*.md" },
+    snapshot.out(({ file }) => file + ".render.out")
   )
 }
 

@@ -1,0 +1,443 @@
+<hr />
+<p>title: A Recursive Combinatorial Description of Cell-complex
+author: Xie Yuheng
+date: 2019-05-06T00:00:00.000Z
+keywords:</p>
+<ul>
+<li>cell-complex</li>
+<li>data structure</li>
+</ul>
+<hr />
+<h1>Abstract</h1>
+<p>I provide a recursive combinatorial description of cell-complex,
+which can be used to model higher order incidence relations in higher dimensional topological structures,
+I hope it will serve as a stepstone for further formalization and experiments in algebraic topology.</p>
+<h2>Contains</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#graph-as-an-example-to-help-readers-be-familiar-with-the-pseudo-code">Graph as an example (to help readers be familiar with the pseudo code)</a></li>
+<li><a href="#cell-complex">Cell-complex</a></li>
+<li><a href="#cell-complex-again-with-comments">Cell-complex (again, with comments)</a></li>
+<li><a href="#examples">Examples</a></li>
+<li><a href="#note-about-space-complexity">Note about space complexity</a></li>
+<li><a href="#note-about-incidence-matrix">Note about incidence matrix</a></li>
+<li><a href="#future-works">Future works</a></li>
+<li><a href="#appendixes">Appendixes</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<h1>Introduction</h1>
+<p>My description of cell-complex follows closely with the classical definition (such as in <a href="#3-the-topology-of-cw-complexes">[3]</a>),
+excpet that I describe the incidence relation of cells more explicitly.</p>
+<p>It is known that higher dimensional sphere recognition is undecidable<a href="#1-unrecognizability-of-manifolds">[1]</a>.</p>
+<p>But we should not conclude that combinatorial description cannot be given (such as in section 12 of <a href="#2-topological-methods-in-handbook-of-combinatorics">[2]</a>),
+because &quot;describable&quot; (or &quot;constructible&quot;) is weaker than &quot;decidable&quot;.</p>
+<p>And the construction of higher dimensional cell-complex by my method
+is not limited by sphere recognition problem's undecidability.</p>
+<ul>
+<li>See section <a href="#cell-complex-again-with-comments">&quot;Cell-complex (again, with comments)&quot;</a> for details.</li>
+</ul>
+<h1>Graph as an example (to help readers be familiar with the pseudo code)</h1>
+<p>In the following I use a javascript-like pseudo code to describe data structures.</p>
+<ul>
+<li>The postfix <code>_t</code> denotes type</li>
+<li><code>id_t</code> is a serial number uniquely identify a vertex or an edge</li>
+<li><code>dic_t &lt;K, V&gt;</code> is a dictionary (a finite map) from <code>K</code> to <code>V</code></li>
+</ul>
+<pre><code class="language-typescript">type id_t = number
+
+class vertex_t {}
+
+class edge_t {
+  start: id_t
+  end: id_t
+}
+
+class graph_t {
+  vertex_dic: dic_t &lt;id_t, vertex_t&gt;
+  edge_dic: dic_t &lt;id_t, edge_t&gt;
+}
+</code></pre>
+<h1>Cell-complex</h1>
+<p><code>cell_complex_t</code> can be viewed as generalization of <code>graph_t</code> to higher dimension,</p>
+<ul>
+<li>Merge <code>vertex_dic</code> and <code>edge_dic</code> to <code>cell_dic</code></li>
+<li>Add <code>dim</code> field in <code>id_t</code> to distinguish dimension</li>
+</ul>
+<pre><code class="language-typescript">class id_t {
+  dim: number
+  ser: number
+}
+
+class cell_complex_t {
+  cell_dic: dic_t &lt;id_t, cell_t&gt;
+}
+
+class cell_t {
+  dom: spherical_t
+  cod: cell_complex_t
+  dic: dic_t &lt;id_t, { id: id_t, cell: cell_t }&gt;
+}
+
+class spherical_t extends cell_complex_t {
+  spherical_evidence: spherical_evidence_t
+}
+
+class spherical_evidence_t {
+  /**
+   * [detail definition omitted]
+   */
+}
+</code></pre>
+<h1>Cell-complex (again, with comments)</h1>
+<p>Comments in code block are written in <code>/** ... */</code>, while corresponding comments follows the code block.</p>
+<pre><code class="language-typescript">class id_t {
+  dim: number
+  ser: number
+}
+
+class cell_complex_t {
+  cell_dic: dic_t &lt;id_t, cell_t&gt;
+}
+</code></pre>
+<p>To build a <code>cell_complex</code> we attach <code>cell</code>s to it iteratively,
+while attaching a <code>cell</code> we also introduce a new <code>id</code>
+to uniquely identify the <code>cell</code> within this <code>cell_complex</code>,</p>
+<ul>
+<li>where an <code>id</code> consist of a dimension and a serial number.</li>
+</ul>
+<pre><code class="language-typescript">class cell_t {
+  /**
+   * `dom` -- domain
+   * `cod` -- codomain
+   */
+  dom: spherical_t
+  cod: cell_complex_t
+  dic: dic_t &lt;id_t, { id: id_t, cell: cell_t }&gt;
+}
+</code></pre>
+<p>When attaching a <code>cell</code> to a <code>cell_complex</code>, the <code>dom</code> must be a spherical cell-complex.
+And the <code>cod</code> is the <code>n</code>-dimensional skeleton of the <code>cell_complex</code>, where <code>n</code> is the dimension of the <code>dom</code>.</p>
+<p>Here the <code>dic</code> is a map from id of <code>dom</code> to id to <code>cod</code>,
+which serves as a record of how the <code>cell</code>s in <code>dom</code> are mapped to the <code>cell</code>s in <code>cod</code>.</p>
+<ul>
+<li>
+<p>Here we can not simply use: <code>dic: dic_t &lt;id_t, id_t&gt;</code>
+we also need to record how the boundary of a cell <code>A</code> in <code>dom</code>
+is mapped to the boundary of the corresponding cell <code>B</code> in <code>cod</code>.
+we can record this extra information by another cell <code>C</code>, such that <code>C.dom == A.dom</code> &amp; <code>C.cod == B.dom</code>.</p>
+</li>
+<li>
+<p>I found this only when trying to construct <code>vertex_figure</code> of <code>cell_complex</code>,
+without the extra information, it will be impossible to construct <code>vertex_figure</code>,
+and the construction of <code>vertex_figure</code> is important for checking whether a <code>cell_complex</code> is a <code>manifold</code>.</p>
+</li>
+</ul>
+<pre><code class="language-typescript">class spherical_t extends cell_complex_t {
+  spherical_evidence: spherical_evidence_t
+}
+</code></pre>
+<p><code>spherical_t</code> is special <code>cell_complex_t</code>,
+it extends <code>cell_complex_t</code> by adding field <code>spherical_evidence</code>,
+which contains a homeomorphism between the <code>cell_complex</code>
+and a standard sphere (for example, boundary of n-simplex or n-cube).</p>
+<ul>
+<li>Homeomorphism between two cell-complexes is defined as isomorphism after subdivisions,</li>
+<li>and isomorphism between two cell-complexes is a generalization of isomorphism between two graphs.</li>
+</ul>
+<p>It is known that higher dimensional sphere recognition is undecidable.</p>
+<p>This means, for higher dimensional (d &gt;= 5) sphere,
+we can not write a program to decide whether a cell-complex is homeomorphic to sphere.</p>
+<ul>
+<li>By &quot;to decide&quot; I mean to generate a proof, i.e. to construct the evidence of homeomorphism.</li>
+</ul>
+<p>But for each specific cell-complex,
+it is always possible for one to provide the evidence of homeomorphism,</p>
+<ul>
+<li>i.e. not automatically generated by computer, but provided by human.</li>
+</ul>
+<p>The definition of <code>cell_t</code> uses this evidence,
+but does not require a program to automatically generate <code>spherical_evidence</code> for all cell-complexes.</p>
+<p>Thus the construction of higher dimensional cell-complex by my method
+is not limited by whether sphere recognition problem's decidable or not.</p>
+<pre><code class="language-typescript">class spherical_evidence_t {
+  /**
+   * [detail definition omitted]
+   */
+}
+</code></pre>
+<h1>Examples</h1>
+<h2><code>triangle</code> represented as javascript object</h2>
+<p>In the following example <em>in extenso</em>:</p>
+<ul>
+<li><code>1:2</code> means an <code>id</code> of dimension <code>1</code>, serial number <code>2</code></li>
+<li><code>null</code> denotes <code>empty_cell</code></li>
+</ul>
+<p>The representation is designed to be readily serializable to JSON.</p>
+<pre><code class="language-typescript">{ '0:0': null,
+  '0:1': null,
+  '0:2': null,
+  '1:0':
+   { dom: { '0:0': null, '0:1': null },
+     cod: { '0:0': null, '0:1': null, '0:2': null },
+     dic:
+      { '0:0': { id: '0:0', cell: null },
+        '0:1': { id: '0:1', cell: null } } },
+  '1:1':
+   { dom: { '0:0': null, '0:1': null },
+     cod: { '0:0': null, '0:1': null, '0:2': null },
+     dic:
+      { '0:0': { id: '0:1', cell: null },
+        '0:1': { id: '0:2', cell: null } } },
+  '1:2':
+   { dom: { '0:0': null, '0:1': null },
+     cod: { '0:0': null, '0:1': null, '0:2': null },
+     dic:
+      { '0:0': { id: '0:2', cell: null },
+        '0:1': { id: '0:0', cell: null } } } }
+</code></pre>
+<h2><code>triangle</code> defined as subclass of <code>cell_complex_t</code></h2>
+<pre><code class="language-typescript">class triangle_t extends cell_complex_t {
+  constructor () {
+    let builder = new cell_complex_builder_t ()
+    let [a, b, c] = builder.attach_vertexes (3)
+    let x = builder.attach_edge (a, b)
+    let y = builder.attach_edge (b, c)
+    let y = builder.attach_edge (c, a)
+    super (builder)
+  }
+}
+</code></pre>
+<h2><code>torus</code> represented as javascript object</h2>
+<p><em>in extenso</em></p>
+<pre><code class="language-typescript">{ '0:0': null,
+  '1:0':
+   { dom: { '0:0': null, '0:1': null },
+     cod: { '0:0': null },
+     dic:
+      { '0:0': { id: '0:0', cell: null },
+        '0:1': { id: '0:0', cell: null } } },
+  '1:1':
+   { dom: { '0:0': null, '0:1': null },
+     cod: { '0:0': null },
+     dic:
+      { '0:0': { id: '0:0', cell: null },
+        '0:1': { id: '0:0', cell: null } } },
+  '2:0':
+   { dom:
+      { '0:0': null,
+        '0:1': null,
+        '0:2': null,
+        '0:3': null,
+        '1:0':
+         { dom: { '0:0': null, '0:1': null },
+           cod: { '0:0': null, '0:1': null, '0:2': null, '0:3': null },
+           dic:
+            { '0:0': { id: '0:0', cell: null },
+              '0:1': { id: '0:1', cell: null } } },
+        '1:1':
+         { dom: { '0:0': null, '0:1': null },
+           cod: { '0:0': null, '0:1': null, '0:2': null, '0:3': null },
+           dic:
+            { '0:0': { id: '0:1', cell: null },
+              '0:1': { id: '0:2', cell: null } } },
+        '1:2':
+         { dom: { '0:0': null, '0:1': null },
+           cod: { '0:0': null, '0:1': null, '0:2': null, '0:3': null },
+           dic:
+            { '0:0': { id: '0:2', cell: null },
+              '0:1': { id: '0:3', cell: null } } },
+        '1:3':
+         { dom: { '0:0': null, '0:1': null },
+           cod: { '0:0': null, '0:1': null, '0:2': null, '0:3': null },
+           dic:
+            { '0:0': { id: '0:3', cell: null },
+              '0:1': { id: '0:0', cell: null } } } },
+     cod:
+      { '0:0': null,
+        '1:0':
+         { dom: { '0:0': null, '0:1': null },
+           cod: { '0:0': null },
+           dic:
+            { '0:0': { id: '0:0', cell: null },
+              '0:1': { id: '0:0', cell: null } } },
+        '1:1':
+         { dom: { '0:0': null, '0:1': null },
+           cod: { '0:0': null },
+           dic:
+            { '0:0': { id: '0:0', cell: null },
+              '0:1': { id: '0:0', cell: null } } } },
+     dic:
+      { '0:0': { id: '0:0', cell: null },
+        '0:1': { id: '0:0', cell: null },
+        '1:0':
+         { id: '1:0',
+           cell:
+            { dom: { '0:0': null, '0:1': null },
+              cod:
+               { '0:0': null,
+                 '1:0':
+                  { dom: { '0:0': null, '0:1': null },
+                    cod: { '0:0': null },
+                    dic:
+                     { '0:0': { id: '0:0', cell: null },
+                       '0:1': { id: '0:0', cell: null } } },
+                 '1:1':
+                  { dom: { '0:0': null, '0:1': null },
+                    cod: { '0:0': null },
+                    dic:
+                     { '0:0': { id: '0:0', cell: null },
+                       '0:1': { id: '0:0', cell: null } } } },
+              dic:
+               { '0:0': { id: '0:0', cell: null },
+                 '0:1': { id: '0:1', cell: null } } } },
+        '0:2': { id: '0:0', cell: null },
+        '1:1':
+         { id: '1:1',
+           cell:
+            { dom: { '0:0': null, '0:1': null },
+              cod:
+               { '0:0': null,
+                 '1:0':
+                  { dom: { '0:0': null, '0:1': null },
+                    cod: { '0:0': null },
+                    dic:
+                     { '0:0': { id: '0:0', cell: null },
+                       '0:1': { id: '0:0', cell: null } } },
+                 '1:1':
+                  { dom: { '0:0': null, '0:1': null },
+                    cod: { '0:0': null },
+                    dic:
+                     { '0:0': { id: '0:0', cell: null },
+                       '0:1': { id: '0:0', cell: null } } } },
+              dic:
+               { '0:0': { id: '0:0', cell: null },
+                 '0:1': { id: '0:1', cell: null } } } },
+        '0:3': { id: '0:0', cell: null },
+        '1:2':
+         { id: '1:0',
+           cell:
+            { dom: { '0:0': null, '0:1': null },
+              cod:
+               { '0:0': null,
+                 '1:0':
+                  { dom: { '0:0': null, '0:1': null },
+                    cod: { '0:0': null },
+                    dic:
+                     { '0:0': { id: '0:0', cell: null },
+                       '0:1': { id: '0:0', cell: null } } },
+                 '1:1':
+                  { dom: { '0:0': null, '0:1': null },
+                    cod: { '0:0': null },
+                    dic:
+                     { '0:0': { id: '0:0', cell: null },
+                       '0:1': { id: '0:0', cell: null } } } },
+              dic:
+               { '0:0': { id: '0:1', cell: null },
+                 '0:1': { id: '0:0', cell: null } } } },
+        '1:3':
+         { id: '1:1',
+           cell:
+            { dom: { '0:0': null, '0:1': null },
+              cod:
+               { '0:0': null,
+                 '1:0':
+                  { dom: { '0:0': null, '0:1': null },
+                    cod: { '0:0': null },
+                    dic:
+                     { '0:0': { id: '0:0', cell: null },
+                       '0:1': { id: '0:0', cell: null } } },
+                 '1:1':
+                  { dom: { '0:0': null, '0:1': null },
+                    cod: { '0:0': null },
+                    dic:
+                     { '0:0': { id: '0:0', cell: null },
+                       '0:1': { id: '0:0', cell: null } } } },
+              dic:
+               { '0:0': { id: '0:1', cell: null },
+                 '0:1': { id: '0:0', cell: null } } } } } } }
+</code></pre>
+<h2><code>torus</code> defined as subclass of <code>cell_complex_t</code></h2>
+<pre><code class="language-typescript">class torus_t extends cell_complex_t {
+  constructor () {
+    let builder = new cell_complex_builder_t ()
+    let origin = builder.attach_vertex ()
+    let toro = builder.attach_edge (origin, origin)
+    let polo = builder.attach_edge (origin, origin)
+    let surf = builder.attach_face ([
+      toro,
+      polo,
+      toro.rev (),
+      polo.rev (),
+    ])
+    super (builder)
+  }
+}
+</code></pre>
+<h2>Remarks</h2>
+<p>Even for simple example like <code>torus</code>, the plain representation
+goes far beyond the cognitive complexity I can endure.</p>
+<p>And indeed, instead of using the plain object representation,
+the intended usage is to abstract over the basic data structures,
+and, layer by layer, design higher level interface functions.</p>
+<ul>
+<li>This is how people control the cognitive complexity in computer science in general.</li>
+</ul>
+<p>The <code>cell_t</code> is recursively defined in the same way for all dimensions, but each dimension is special.
+And, for example, interface functions such as <code>attach_vertex</code>, <code>attach_face</code>, <code>attach_body</code> can be designed for each specific dimension.</p>
+<p>More example cell-complexes can be found at the <a href="https://github.com/xieyuheng/cell-complex#hl-homology">main project page</a>.</p>
+<ul>
+<li>Further documentation about programming interface is work in progress.</li>
+</ul>
+<h1>Note about incidence matrix</h1>
+<p><code>dic_t</code> can be viewed as sparse matrix.</p>
+<p>Each level of incidence relation in a cell-complex can be represented as cell-valued incidence matrix.
+the cell in matrix encode the orientation of the incidence relation.</p>
+<p>For example,</p>
+<ul>
+<li>for incidence relation between edges and vertexes (i.e. graph theory),
+values of incidence matrix are 1-cells (which can be encoded by <code>+1</code> or <code>-1</code>),</li>
+<li>for incidence relation between bodies and edges,
+values of incidence matrix are 2-cells,</li>
+</ul>
+<p>and so on and so forth ...</p>
+<h1>Note about space complexity</h1>
+<p>Due to the recursive construction, the space increases exponentially with the dimension.</p>
+<p>If the dimension is bounded by <code>d</code>,
+the space complexity is <code>O(n^d)</code>,
+where <code>n</code> is the number of <code>d</code> dimension cells.</p>
+<h1>Future works</h1>
+<p>Based on the basic construction of cell-complex, I plan to:</p>
+<ul>
+<li>Generalize the relation between 2-dimensional cell-complex
+and the presentation theory of groupoid to higher dimension.</li>
+<li>Provide more online interactive tools to help people study cell-complexes and algebraic topology,
+<ul>
+<li>The library is developed for javascript with this aim in mind.</li>
+</ul>
+</li>
+</ul>
+<h1>Appendixes</h1>
+<ul>
+<li><a href="/paper/a-substitution-model-for-class-definition">A Substitution Model for Class Definition</a>
+<ul>
+<li>Further clarify the use of class definitions in this paper
+for people with less programming experiences.</li>
+<li>Also summarize the difference between &quot;describable&quot; and &quot;decidable&quot;.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h1>References</h1>
+<h2>[1] Unrecognizability of manifolds</h2>
+<ul>
+<li>by A.V. Chernavsky, V.P. Leksine.</li>
+</ul>
+<h2>[2] Topological methods, in: &quot;Handbook of Combinatorics&quot;</h2>
+<ul>
+<li>by Anders Björner, (R. Graham, M. Grötschel, and L. Lovász, eds.)</li>
+</ul>
+<h2>[3] The Topology of CW Complexes</h2>
+<ul>
+<li>by Albert T. Lundell, Stephen Weingram</li>
+</ul>
+
