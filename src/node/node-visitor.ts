@@ -2,7 +2,6 @@ import { Node } from "../node"
 import * as Nodes from "../nodes"
 
 export abstract class NodeVisitor<T> {
-  constructor() {}
   default(node: Node): T {
     throw new Error("The default visiting method is not implemented")
   }
