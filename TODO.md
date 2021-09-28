@@ -1,5 +1,4 @@
 - container-blocks/block-quote -- `format`
-- container-blocks/bullet-list -- `format`
 - container-blocks/bullet-list-item -- `format`
 - container-blocks/ordered-list -- `format`
 - container-blocks/ordered-list-item -- `format`

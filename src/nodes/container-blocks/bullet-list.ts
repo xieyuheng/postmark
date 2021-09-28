@@ -33,4 +33,12 @@ export class BulletList extends List {
       ? visitor.onBulletList(this)
       : visitor.default(this)
   }
+
+  format(): string {
+    if (this.tight) {
+      return this.children.map((child) => child.format()).join("\n")
+    } else {
+      return this.children.map((child) => child.format()).join("\n\n")
+    }
+  }
 }
