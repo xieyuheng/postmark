@@ -15,31 +15,31 @@ I hope it will serve as a stepstone for further formalization and experiments in
 
 ## Contains
 
-- {"kind":"Link","title":"","href":"#introduction","children":[{"kind":"Text","text":"Introduction"}]}
-- {"kind":"Link","title":"","href":"#graph-as-an-example-to-help-readers-be-familiar-with-the-pseudo-code","children":[{"kind":"Text","text":"Graph as an example (to help readers be familiar with the pseudo code)"}]}
-- {"kind":"Link","title":"","href":"#cell-complex","children":[{"kind":"Text","text":"Cell-complex"}]}
-- {"kind":"Link","title":"","href":"#cell-complex-again-with-comments","children":[{"kind":"Text","text":"Cell-complex (again, with comments)"}]}
-- {"kind":"Link","title":"","href":"#examples","children":[{"kind":"Text","text":"Examples"}]}
-- {"kind":"Link","title":"","href":"#note-about-space-complexity","children":[{"kind":"Text","text":"Note about space complexity"}]}
-- {"kind":"Link","title":"","href":"#note-about-incidence-matrix","children":[{"kind":"Text","text":"Note about incidence matrix"}]}
-- {"kind":"Link","title":"","href":"#future-works","children":[{"kind":"Text","text":"Future works"}]}
-- {"kind":"Link","title":"","href":"#appendixes","children":[{"kind":"Text","text":"Appendixes"}]}
-- {"kind":"Link","title":"","href":"#references","children":[{"kind":"Text","text":"References"}]}
+- [Introduction](#introduction)
+- [Graph as an example (to help readers be familiar with the pseudo code)](#graph-as-an-example-to-help-readers-be-familiar-with-the-pseudo-code)
+- [Cell-complex](#cell-complex)
+- [Cell-complex (again, with comments)](#cell-complex-again-with-comments)
+- [Examples](#examples)
+- [Note about space complexity](#note-about-space-complexity)
+- [Note about incidence matrix](#note-about-incidence-matrix)
+- [Future works](#future-works)
+- [Appendixes](#appendixes)
+- [References](#references)
 
 # Introduction
 
-My description of cell-complex follows closely with the classical definition (such as in {"kind":"Link","title":"","href":"#3-the-topology-of-cw-complexes","children":[{"kind":"Text","text":"["},{"kind":"Text","text":"3"},{"kind":"Text","text":"]"}]}),
+My description of cell-complex follows closely with the classical definition (such as in [[3]](#3-the-topology-of-cw-complexes)),
 excpet that I describe the incidence relation of cells more explicitly.
 
-It is known that higher dimensional sphere recognition is undecidable{"kind":"Link","title":"","href":"#1-unrecognizability-of-manifolds","children":[{"kind":"Text","text":"["},{"kind":"Text","text":"1"},{"kind":"Text","text":"]"}]}.
+It is known that higher dimensional sphere recognition is undecidable[[1]](#1-unrecognizability-of-manifolds).
 
-But we should not conclude that combinatorial description cannot be given (such as in section 12 of {"kind":"Link","title":"","href":"#2-topological-methods-in-handbook-of-combinatorics","children":[{"kind":"Text","text":"["},{"kind":"Text","text":"2"},{"kind":"Text","text":"]"}]}),
+But we should not conclude that combinatorial description cannot be given (such as in section 12 of [[2]](#2-topological-methods-in-handbook-of-combinatorics)),
 because "describable" (or "constructible") is weaker than "decidable".
 
 And the construction of higher dimensional cell-complex by my method
 is not limited by sphere recognition problem's undecidability.
 
-- See section {"kind":"Link","title":"","href":"#cell-complex-again-with-comments","children":[{"kind":"Text","text":"\""},{"kind":"Text","text":"Cell-complex (again, with comments)"},{"kind":"Text","text":"\""}]} for details.
+- See section ["Cell-complex (again, with comments)"](#cell-complex-again-with-comments) for details.
 
 # Graph as an example (to help readers be familiar with the pseudo code)
 
@@ -424,7 +424,7 @@ and, layer by layer, design higher level interface functions.
 The `cell_t` is recursively defined in the same way for all dimensions, but each dimension is special.
 And, for example, interface functions such as `attach_vertex`, `attach_face`, `attach_body` can be designed for each specific dimension.
 
-More example cell-complexes can be found at the {"kind":"Link","title":"","href":"https://github.com/xieyuheng/cell-complex#hl-homology","children":[{"kind":"Text","text":"main project page"}]}.
+More example cell-complexes can be found at the [main project page](https://github.com/xieyuheng/cell-complex#hl-homology).
 
 - Further documentation about programming interface is work in progress.
 
@@ -459,13 +459,11 @@ Based on the basic construction of cell-complex, I plan to:
 - Generalize the relation between 2-dimensional cell-complex
   and the presentation theory of groupoid to higher dimension.
 - Provide more online interactive tools to help people study cell-complexes and algebraic topology,
-  
   - The library is developed for javascript with this aim in mind.
 
 # Appendixes
 
-- {"kind":"Link","title":"","href":"/paper/a-substitution-model-for-class-definition","children":[{"kind":"Text","text":"A Substitution Model for Class Definition"}]}
-  
+- [A Substitution Model for Class Definition](/paper/a-substitution-model-for-class-definition)
   - Further clarify the use of class definitions in this paper
     for people with less programming experiences.
   - Also summarize the difference between "describable" and "decidable".
