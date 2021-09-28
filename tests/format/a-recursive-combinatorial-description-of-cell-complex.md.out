@@ -15,7 +15,16 @@ I hope it will serve as a stepstone for further formalization and experiments in
 
 ## Contains
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Link","title":"","href":"#introduction","children":[{"kind":"Text","text":"Introduction"}]}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Link","title":"","href":"#graph-as-an-example-to-help-readers-be-familiar-with-the-pseudo-code","children":[{"kind":"Text","text":"Graph as an example (to help readers be familiar with the pseudo code)"}]}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Link","title":"","href":"#cell-complex","children":[{"kind":"Text","text":"Cell-complex"}]}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Link","title":"","href":"#cell-complex-again-with-comments","children":[{"kind":"Text","text":"Cell-complex (again, with comments)"}]}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Link","title":"","href":"#examples","children":[{"kind":"Text","text":"Examples"}]}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Link","title":"","href":"#note-about-space-complexity","children":[{"kind":"Text","text":"Note about space complexity"}]}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Link","title":"","href":"#note-about-incidence-matrix","children":[{"kind":"Text","text":"Note about incidence matrix"}]}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Link","title":"","href":"#future-works","children":[{"kind":"Text","text":"Future works"}]}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Link","title":"","href":"#appendixes","children":[{"kind":"Text","text":"Appendixes"}]}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Link","title":"","href":"#references","children":[{"kind":"Text","text":"References"}]}]}]}]}
+- {"kind":"Link","title":"","href":"#introduction","children":[{"kind":"Text","text":"Introduction"}]}
+- {"kind":"Link","title":"","href":"#graph-as-an-example-to-help-readers-be-familiar-with-the-pseudo-code","children":[{"kind":"Text","text":"Graph as an example (to help readers be familiar with the pseudo code)"}]}
+- {"kind":"Link","title":"","href":"#cell-complex","children":[{"kind":"Text","text":"Cell-complex"}]}
+- {"kind":"Link","title":"","href":"#cell-complex-again-with-comments","children":[{"kind":"Text","text":"Cell-complex (again, with comments)"}]}
+- {"kind":"Link","title":"","href":"#examples","children":[{"kind":"Text","text":"Examples"}]}
+- {"kind":"Link","title":"","href":"#note-about-space-complexity","children":[{"kind":"Text","text":"Note about space complexity"}]}
+- {"kind":"Link","title":"","href":"#note-about-incidence-matrix","children":[{"kind":"Text","text":"Note about incidence matrix"}]}
+- {"kind":"Link","title":"","href":"#future-works","children":[{"kind":"Text","text":"Future works"}]}
+- {"kind":"Link","title":"","href":"#appendixes","children":[{"kind":"Text","text":"Appendixes"}]}
+- {"kind":"Link","title":"","href":"#references","children":[{"kind":"Text","text":"References"}]}
 
 # Introduction
 
@@ -30,13 +39,15 @@ because "describable" (or "constructible") is weaker than "decidable".
 And the construction of higher dimensional cell-complex by my method
 is not limited by sphere recognition problem's undecidability.
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"See section "},{"kind":"Link","title":"","href":"#cell-complex-again-with-comments","children":[{"kind":"Text","text":"\""},{"kind":"Text","text":"Cell-complex (again, with comments)"},{"kind":"Text","text":"\""}]},{"kind":"Text","text":" for details."}]}]}]}
+- See section {"kind":"Link","title":"","href":"#cell-complex-again-with-comments","children":[{"kind":"Text","text":"\""},{"kind":"Text","text":"Cell-complex (again, with comments)"},{"kind":"Text","text":"\""}]} for details.
 
 # Graph as an example (to help readers be familiar with the pseudo code)
 
 In the following I use a javascript-like pseudo code to describe data structures.
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"The postfix "},{"kind":"Code","text":"_t"},{"kind":"Text","text":" denotes type"}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Code","text":"id_t"},{"kind":"Text","text":" is a serial number uniquely identify a vertex or an edge"}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Code","text":"dic_t <K, V>"},{"kind":"Text","text":" is a dictionary (a finite map) from "},{"kind":"Code","text":"K"},{"kind":"Text","text":" to "},{"kind":"Code","text":"V"}]}]}]}
+- The postfix `_t` denotes type
+- `id_t` is a serial number uniquely identify a vertex or an edge
+- `dic_t <K, V>` is a dictionary (a finite map) from `K` to `V`
 
 ``` typescript
 type id_t = number
@@ -58,7 +69,8 @@ class graph_t {
 
 `cell_complex_t` can be viewed as generalization of `graph_t` to higher dimension,
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Merge "},{"kind":"Code","text":"vertex_dic"},{"kind":"Text","text":" and "},{"kind":"Code","text":"edge_dic"},{"kind":"Text","text":" to "},{"kind":"Code","text":"cell_dic"}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Add "},{"kind":"Code","text":"dim"},{"kind":"Text","text":" field in "},{"kind":"Code","text":"id_t"},{"kind":"Text","text":" to distinguish dimension"}]}]}]}
+- Merge `vertex_dic` and `edge_dic` to `cell_dic`
+- Add `dim` field in `id_t` to distinguish dimension
 
 ``` typescript
 class id_t {
@@ -106,7 +118,7 @@ To build a `cell_complex` we attach `cell`s to it iteratively,
 while attaching a `cell` we also introduce a new `id`
 to uniquely identify the `cell` within this `cell_complex`,
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"where an "},{"kind":"Code","text":"id"},{"kind":"Text","text":" consist of a dimension and a serial number."}]}]}]}
+- where an `id` consist of a dimension and a serial number.
 
 ``` typescript
 class cell_t {
@@ -126,7 +138,14 @@ And the `cod` is the `n`-dimensional skeleton of the `cell_complex`, where `n` i
 Here the `dic` is a map from id of `dom` to id to `cod`,
 which serves as a record of how the `cell`s in `dom` are mapped to the `cell`s in `cod`.
 
-{"kind":"BulletList","tight":false,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Here we can not simply use: "},{"kind":"Code","text":"dic: dic_t <id_t, id_t>"},{"kind":"SoftLineBreak"},{"kind":"Text","text":"we also need to record how the boundary of a cell "},{"kind":"Code","text":"A"},{"kind":"Text","text":" in "},{"kind":"Code","text":"dom"},{"kind":"SoftLineBreak"},{"kind":"Text","text":"is mapped to the boundary of the corresponding cell "},{"kind":"Code","text":"B"},{"kind":"Text","text":" in "},{"kind":"Code","text":"cod"},{"kind":"Text","text":"."},{"kind":"SoftLineBreak"},{"kind":"Text","text":"we can record this extra information by another cell "},{"kind":"Code","text":"C"},{"kind":"Text","text":", such that "},{"kind":"Code","text":"C.dom == A.dom"},{"kind":"Text","text":" "},{"kind":"Text","text":"&"},{"kind":"Text","text":" "},{"kind":"Code","text":"C.cod == B.dom"},{"kind":"Text","text":"."}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"I found this only when trying to construct "},{"kind":"Code","text":"vertex_figure"},{"kind":"Text","text":" of "},{"kind":"Code","text":"cell_complex"},{"kind":"Text","text":","},{"kind":"SoftLineBreak"},{"kind":"Text","text":"without the extra information, it will be impossible to construct "},{"kind":"Code","text":"vertex_figure"},{"kind":"Text","text":","},{"kind":"SoftLineBreak"},{"kind":"Text","text":"and the construction of "},{"kind":"Code","text":"vertex_figure"},{"kind":"Text","text":" is important for checking whether a "},{"kind":"Code","text":"cell_complex"},{"kind":"Text","text":" is a "},{"kind":"Code","text":"manifold"},{"kind":"Text","text":"."}]}]}]}
+- Here we can not simply use: `dic: dic_t <id_t, id_t>`
+  we also need to record how the boundary of a cell `A` in `dom`
+  is mapped to the boundary of the corresponding cell `B` in `cod`.
+  we can record this extra information by another cell `C`, such that `C.dom == A.dom` & `C.cod == B.dom`.
+
+- I found this only when trying to construct `vertex_figure` of `cell_complex`,
+  without the extra information, it will be impossible to construct `vertex_figure`,
+  and the construction of `vertex_figure` is important for checking whether a `cell_complex` is a `manifold`.
 
 ``` typescript
 class spherical_t extends cell_complex_t {
@@ -139,19 +158,20 @@ it extends `cell_complex_t` by adding field `spherical_evidence`,
 which contains a homeomorphism between the `cell_complex`
 and a standard sphere (for example, boundary of n-simplex or n-cube).
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Homeomorphism between two cell-complexes is defined as isomorphism after subdivisions,"}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"and isomorphism between two cell-complexes is a generalization of isomorphism between two graphs."}]}]}]}
+- Homeomorphism between two cell-complexes is defined as isomorphism after subdivisions,
+- and isomorphism between two cell-complexes is a generalization of isomorphism between two graphs.
 
 It is known that higher dimensional sphere recognition is undecidable.
 
 This means, for higher dimensional (d >= 5) sphere,
 we can not write a program to decide whether a cell-complex is homeomorphic to sphere.
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"By "},{"kind":"Text","text":"\""},{"kind":"Text","text":"to decide"},{"kind":"Text","text":"\""},{"kind":"Text","text":" I mean to generate a proof, i.e. to construct the evidence of homeomorphism."}]}]}]}
+- By "to decide" I mean to generate a proof, i.e. to construct the evidence of homeomorphism.
 
 But for each specific cell-complex,
 it is always possible for one to provide the evidence of homeomorphism,
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"i.e. not automatically generated by computer, but provided by human."}]}]}]}
+- i.e. not automatically generated by computer, but provided by human.
 
 The definition of `cell_t` uses this evidence,
 but does not require a program to automatically generate `spherical_evidence` for all cell-complexes.
@@ -173,7 +193,8 @@ class spherical_evidence_t {
 
 In the following example *in extenso*:
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Code","text":"1:2"},{"kind":"Text","text":" means an "},{"kind":"Code","text":"id"},{"kind":"Text","text":" of dimension "},{"kind":"Code","text":"1"},{"kind":"Text","text":", serial number "},{"kind":"Code","text":"2"}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Code","text":"null"},{"kind":"Text","text":" denotes "},{"kind":"Code","text":"empty_cell"}]}]}]}
+- `1:2` means an `id` of dimension `1`, serial number `2`
+- `null` denotes `empty_cell`
 
 The representation is designed to be readily serializable to JSON.
 
@@ -398,14 +419,14 @@ And indeed, instead of using the plain object representation,
 the intended usage is to abstract over the basic data structures,
 and, layer by layer, design higher level interface functions.
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"This is how people control the cognitive complexity in computer science in general."}]}]}]}
+- This is how people control the cognitive complexity in computer science in general.
 
 The `cell_t` is recursively defined in the same way for all dimensions, but each dimension is special.
 And, for example, interface functions such as `attach_vertex`, `attach_face`, `attach_body` can be designed for each specific dimension.
 
 More example cell-complexes can be found at the {"kind":"Link","title":"","href":"https://github.com/xieyuheng/cell-complex#hl-homology","children":[{"kind":"Text","text":"main project page"}]}.
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Further documentation about programming interface is work in progress."}]}]}]}
+- Further documentation about programming interface is work in progress.
 
 # Note about incidence matrix
 
@@ -416,7 +437,10 @@ the cell in matrix encode the orientation of the incidence relation.
 
 For example,
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"for incidence relation between edges and vertexes (i.e. graph theory),"},{"kind":"SoftLineBreak"},{"kind":"Text","text":"values of incidence matrix are 1-cells (which can be encoded by "},{"kind":"Code","text":"+1"},{"kind":"Text","text":" or "},{"kind":"Code","text":"-1"},{"kind":"Text","text":"),"}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"for incidence relation between bodies and edges,"},{"kind":"SoftLineBreak"},{"kind":"Text","text":"values of incidence matrix are 2-cells,"}]}]}]}
+- for incidence relation between edges and vertexes (i.e. graph theory),
+  values of incidence matrix are 1-cells (which can be encoded by `+1` or `-1`),
+- for incidence relation between bodies and edges,
+  values of incidence matrix are 2-cells,
 
 and so on and so forth ...
 
@@ -432,11 +456,17 @@ where `n` is the number of `d` dimension cells.
 
 Based on the basic construction of cell-complex, I plan to:
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Generalize the relation between 2-dimensional cell-complex"},{"kind":"SoftLineBreak"},{"kind":"Text","text":"and the presentation theory of groupoid to higher dimension."}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Provide more online interactive tools to help people study cell-complexes and algebraic topology,"}]},{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"The library is developed for javascript with this aim in mind."}]}]}]}]}]}
+- Generalize the relation between 2-dimensional cell-complex
+  and the presentation theory of groupoid to higher dimension.
+- Provide more online interactive tools to help people study cell-complexes and algebraic topology,
+  - The library is developed for javascript with this aim in mind.
 
 # Appendixes
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Link","title":"","href":"/paper/a-substitution-model-for-class-definition","children":[{"kind":"Text","text":"A Substitution Model for Class Definition"}]}]},{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Further clarify the use of class definitions in this paper"},{"kind":"SoftLineBreak"},{"kind":"Text","text":"for people with less programming experiences."}]}]},{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Also summarize the difference between "},{"kind":"Text","text":"\""},{"kind":"Text","text":"describable"},{"kind":"Text","text":"\""},{"kind":"Text","text":" and "},{"kind":"Text","text":"\""},{"kind":"Text","text":"decidable"},{"kind":"Text","text":"\""},{"kind":"Text","text":"."}]}]}]}]}]}
+- {"kind":"Link","title":"","href":"/paper/a-substitution-model-for-class-definition","children":[{"kind":"Text","text":"A Substitution Model for Class Definition"}]}
+  - Further clarify the use of class definitions in this paper
+    for people with less programming experiences.
+  - Also summarize the difference between "describable" and "decidable".
 
 ------
 
@@ -444,12 +474,12 @@ Based on the basic construction of cell-complex, I plan to:
 
 ## [1] Unrecognizability of manifolds
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"by A.V. Chernavsky, V.P. Leksine."}]}]}]}
+- by A.V. Chernavsky, V.P. Leksine.
 
 ## [2] Topological methods, in: "Handbook of Combinatorics"
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"by Anders Björner, (R. Graham, M. Grötschel, and L. Lovász, eds.)"}]}]}]}
+- by Anders Björner, (R. Graham, M. Grötschel, and L. Lovász, eds.)
 
 ## [3] The Topology of CW Complexes
 
-{"kind":"BulletList","tight":true,"children":[{"kind":"BulletListItem","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"by Albert T. Lundell, Stephen Weingram"}]}]}]}
+- by Albert T. Lundell, Stephen Weingram

@@ -30,4 +30,16 @@ export class BulletListItem extends ListItem {
       ? visitor.onBulletListItem(this)
       : visitor.default(this)
   }
+
+  indent(text: string): string {
+    const lines = text.split("\n")
+    const head = "- " + lines[0]
+    const tail = lines.splice(1).map((line) => "  " + line)
+
+    return [head, ...tail].join("\n")
+  }
+
+  format(): string {
+    return this.indent(this.children.map((child) => child.format()).join("\n"))
+  }
 }
