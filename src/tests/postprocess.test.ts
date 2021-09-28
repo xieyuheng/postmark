@@ -1,6 +1,7 @@
 import { postprocess } from "../api"
 import { tester } from "../api"
 import * as Nodes from "../nodes"
+import { CodeBlockParser } from "../code-block-parser"
 
 class Trivial {
   text: string
@@ -10,7 +11,7 @@ class Trivial {
   }
 }
 
-class TrivialParser extends Nodes.CodeBlockParser<Trivial> {
+class TrivialParser extends CodeBlockParser<Trivial> {
   customKind = "Trivial"
 
   recognize(info: string): boolean {

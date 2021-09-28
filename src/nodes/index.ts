@@ -43,5 +43,3 @@ export * from "./inlines/image"
 export * from "./inlines/code"
 export * from "./inlines/html-tag"
 export * from "./inlines/text"
-
-export * from "./code-block-parser"

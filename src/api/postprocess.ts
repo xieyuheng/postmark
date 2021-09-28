@@ -1,11 +1,12 @@
 import { Node, ContainerBlock } from "../node"
 import { NodeVisitor } from "../node"
 import * as Nodes from "../nodes"
+import { CodeBlockParser } from "../code-block-parser"
 
 export function postprocess(
   node: Node,
   opts: {
-    codeBlockParsers: Array<Nodes.CodeBlockParser<unknown>>
+    codeBlockParsers: Array<CodeBlockParser<unknown>>
   }
 ): Node {
   const postprocessor = new Postprocessor(opts)
@@ -13,10 +14,10 @@ export function postprocess(
 }
 
 class Postprocessor extends NodeVisitor<Node> {
-  codeBlockParsers: Array<Nodes.CodeBlockParser<unknown>>
+  codeBlockParsers: Array<CodeBlockParser<unknown>>
 
   constructor(opts: {
-    codeBlockParsers: Array<Nodes.CodeBlockParser<unknown>>
+    codeBlockParsers: Array<CodeBlockParser<unknown>>
   }) {
     super()
     this.codeBlockParsers = opts.codeBlockParsers
