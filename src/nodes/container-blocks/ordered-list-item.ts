@@ -42,7 +42,8 @@ export class OrderedListItem extends ListItem {
       : visitor.default(this)
   }
 
-  indent(text: string): string {
+  format(): string {
+    const text = this.children.map((child) => child.format()).join("\n")
     const lines = text.split("\n")
 
     const prefix = this.number + this.delimiter + " "
@@ -50,9 +51,5 @@ export class OrderedListItem extends ListItem {
     const tail = lines.splice(1).map((line) => " ".repeat(prefix.length) + line)
 
     return [head, ...tail].join("\n")
-  }
-
-  format(): string {
-    return this.indent(this.children.map((child) => child.format()).join("\n"))
   }
 }
