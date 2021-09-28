@@ -2,6 +2,19 @@
 
 Markdown-based content engineeing.
 
+## Install
+
+``` bash
+npm i @forchange/postmark
+```
+
+## Usage
+
+```
+postmark render <file>  Render a markdown file to html
+postmark format <file>  Format a markdown file
+```
+
 ## API Docs
 
 ### `format` & `render`
@@ -10,12 +23,6 @@ The `format` & `render` methods, help user to avoid handle `Node` recursively.
 
 - `Node.format()` format node back to markdown itself.
 - `Node.render()` render node to html.
-
-## Install
-
-``` bash
-npm i @forchange/postmark
-```
 
 ## Contributions
 
