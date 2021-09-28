@@ -1,7 +1,18 @@
 # simple block quote
 
-{"kind":"BlockQuote","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Make the change easy, then make the easy change."}]},{"kind":"Paragraph","children":[{"kind":"Text","text":"-- Kent Beck"}]}]}
+> Make the change easy, then make the easy change.
+> 
+> -- Kent Beck
 
 # block quote with headline and list
 
-{"kind":"BlockQuote","children":[{"kind":"Headline","level":1,"children":[{"kind":"Text","text":"How to solve it?"}]},{"kind":"Paragraph","children":[{"kind":"Text","text":"Our list:"}]},{"kind":"OrderedList","tight":true,"start":1,"delimiter":".","children":[{"kind":"OrderedListItem","number":1,"delimiter":".","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Understanding the problem"}]}]},{"kind":"OrderedListItem","number":2,"delimiter":".","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Devising a plan"}]}]},{"kind":"OrderedListItem","number":3,"delimiter":".","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Carrying out the plan"}]}]},{"kind":"OrderedListItem","number":4,"delimiter":".","children":[{"kind":"Paragraph","children":[{"kind":"Text","text":"Looking back"}]}]}]},{"kind":"Paragraph","children":[{"kind":"Text","text":"-- Polya"}]}]}
+> # How to solve it?
+> 
+> Our list:
+> 
+> 1. Understanding the problem
+> 2. Devising a plan
+> 3. Carrying out the plan
+> 4. Looking back
+> 
+> -- Polya

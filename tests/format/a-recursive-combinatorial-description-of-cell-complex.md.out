@@ -459,11 +459,13 @@ Based on the basic construction of cell-complex, I plan to:
 - Generalize the relation between 2-dimensional cell-complex
   and the presentation theory of groupoid to higher dimension.
 - Provide more online interactive tools to help people study cell-complexes and algebraic topology,
+  
   - The library is developed for javascript with this aim in mind.
 
 # Appendixes
 
 - {"kind":"Link","title":"","href":"/paper/a-substitution-model-for-class-definition","children":[{"kind":"Text","text":"A Substitution Model for Class Definition"}]}
+  
   - Further clarify the use of class definitions in this paper
     for people with less programming experiences.
   - Also summarize the difference between "describable" and "decidable".
