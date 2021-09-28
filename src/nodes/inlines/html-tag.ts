@@ -26,7 +26,7 @@ export class HtmlTag extends Inline {
     return visitor.onHtmlTag ? visitor.onHtmlTag(this) : visitor.default(this)
   }
 
-  // format(): string {
-  //   return this.text
-  // }
+  format(): string {
+    return this.text
+  }
 }
