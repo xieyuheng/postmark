@@ -1,0 +1,18 @@
+# simple block quote
+
+> Make the change easy, then make the easy change.
+>
+> -- Kent Beck
+
+# block quote with headline and list
+
+> # How to solve it?
+>
+> Our list:
+>
+> 1. Understanding the problem
+> 2. Devising a plan
+> 3. Carrying out the plan
+> 4. Looking back
+>
+> -- Polya
