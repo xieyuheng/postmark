@@ -10,19 +10,68 @@ npm i @forchange/postmark
 
 ## Usage
 
+### Command line
+
 ```
 postmark render <file>  Render a markdown file to html
 postmark format <file>  Format a markdown file
 ```
 
+### Parse markdown to `Node`
+
+``` typescript
+import { Parser } from "@forchange/postmark"
+
+const text = `\
+---
+title: The principle of type theory
+date: 2021-08-27
+author: Xie Yuheng
+---
+
+# The principle
+
+The principle of type theory is:
+
+> We should study **terms** and **types** together.
+`
+
+const parser = new Parser()
+const document = parser.parseDocument(text)
+
+console.log(document)
+
+// Document {
+//   kind: 'Document',
+//   attributes: {
+//     title: 'The principle of type theory',
+//     date: 2021-08-27T00:00:00.000Z,
+//     author: 'Xie Yuheng'
+//   },
+//   span: Span {
+//     start: Position { line: 1, column: 1 },
+//     end: Position { line: 5, column: 51 }
+//   },
+//   children: [
+//     Headline { ... },
+//     Paragraph { ... },
+//     BlockQuote { ... }
+//   ]
+// }
+```
+
+### Custom `CodeBlockParser`
+
+TODO
+
 ## API Docs
 
-### `format` & `render`
+### `Node.format` & `Node.render`
 
-The `format` & `render` methods, help user to avoid handle `Node` recursively.
+The `Node.format` & `Node.render` methods, help user to avoid handle `Node` recursively.
 
-- `Node.format()` format node back to markdown itself.
-- `Node.render()` render node to html.
+- `Node.format()` -- format node back to markdown itself.
+- `Node.render()` -- render node to html.
 
 ## Contributions
 
