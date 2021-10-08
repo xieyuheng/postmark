@@ -38,7 +38,7 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "@xieyuheng/enchanter": "^0.0.8",
+    "@xieyuheng/enchanter": "^0.0.9",
     "@xieyuheng/ty": "^0.1.6",
     "commonmark": "^0.30.0",
     "deep-diff": "^1.0.2",
