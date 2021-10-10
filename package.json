@@ -1,9 +1,6 @@
 {
-  "name": "@forchange/postmark",
+  "name": "@xieyuheng/postmark",
   "version": "0.0.2",
-  "publishConfig": {
-    "registry": "https://nexus.forchange.cn/repository/npm-private/"
-  },
   "bin": {
     "postmark": "bin/postmark.js"
   },
@@ -38,8 +35,8 @@
     "typescript": "^4.4.3"
   },
   "dependencies": {
-    "@xieyuheng/enchanter": "^0.0.9",
-    "@xieyuheng/ty": "^0.1.6",
+    "@xieyuheng/enchanter": "^0.0.17",
+    "@xieyuheng/ty": "^0.1.7",
     "commonmark": "^0.30.0",
     "deep-diff": "^1.0.2",
     "fast-deep-equal": "^3.1.3",

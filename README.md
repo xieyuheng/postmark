@@ -5,7 +5,7 @@ Markdown-based content engineeing.
 ## Install
 
 ``` bash
-npm i @forchange/postmark
+npm i @xieyuheng/postmark
 ```
 
 ## Usage
