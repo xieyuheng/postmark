@@ -1,4 +1,4 @@
-- help message about format and render
+- help message for `render` commands
 
 # later
 

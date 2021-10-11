@@ -16,9 +16,7 @@ export function postprocess(
 class Postprocessor extends NodeVisitor<Node> {
   codeBlockParsers: Array<CodeBlockParser<unknown>>
 
-  constructor(opts: {
-    codeBlockParsers: Array<CodeBlockParser<unknown>>
-  }) {
+  constructor(opts: { codeBlockParsers: Array<CodeBlockParser<unknown>> }) {
     super()
     this.codeBlockParsers = opts.codeBlockParsers
   }

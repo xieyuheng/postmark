@@ -1,7 +1,6 @@
 import { tester } from "../../api"
 
 {
-
   // NOTE A single self-closing tag will be parsed as `HtmlBlock`.
 
   const text = `
@@ -11,9 +10,7 @@ import { tester } from "../../api"
 `
   const document = tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
-    { kind: "HtmlBlock", text: "<x />" },
-  ])
+  tester.assertDocument(document, [{ kind: "HtmlBlock", text: "<x />" }])
 }
 
 {
