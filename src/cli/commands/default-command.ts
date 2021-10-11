@@ -2,7 +2,7 @@ import { Command } from "@xieyuheng/enchanter/lib/command"
 import { CommandRunner } from "@xieyuheng/enchanter/lib/command-runner"
 import { CommonHelpCommand } from "@xieyuheng/enchanter/lib/commands"
 import * as Commands from "../commands"
-// import app from "../../app"
+import app from "../../app"
 import ty from "@xieyuheng/ty"
 
 type Args = {}
@@ -24,10 +24,10 @@ export class DefaultCommand extends Command<Args, Opts> {
       return
     }
 
-    // if (argv["version"]) {
-    //   console.log(app.config.pkg.version)
-    //   return
-    // }
+    if (argv["version"]) {
+      console.log(app.config.pkg.version)
+      return
+    }
 
     {
       const command = new CommonHelpCommand()
