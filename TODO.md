@@ -1,5 +1,3 @@
-- help message for `render` commands
-
 # later
 
 - `CodeBlockParser` be able to report error
