@@ -1,3 +1,5 @@
+- [cli] `DefaultCommand`
+
 # later
 
 - `CodeBlockParser` be able to report error
