@@ -1,4 +1,8 @@
-- [cli] `DefaultCommand`
+- [app] add `app` module
+
+  - `DefaultCommand` be bale to print version
+
+- help message about format and render
 
 # later
 
