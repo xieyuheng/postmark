@@ -8,12 +8,14 @@ export abstract class NodeVisitor<T> {
 
   onDocument?<A>(node: Nodes.Document<A>): T
 
+  // NOTE container-block
   onBlockQuote?(node: Nodes.BlockQuote): T
   onBulletList?(node: Nodes.BulletList): T
   onBulletListItem?(node: Nodes.BulletListItem): T
   onOrderedList?(node: Nodes.OrderedList): T
   onOrderedListItem?(node: Nodes.OrderedListItem): T
 
+  // NOTE leaf-block
   onParagraph?(node: Nodes.Paragraph): T
   onHeadline?(node: Nodes.Headline): T
   onThematicBreak?(node: Nodes.ThematicBreak): T
@@ -21,6 +23,7 @@ export abstract class NodeVisitor<T> {
   onCodeBlock?(node: Nodes.CodeBlock): T
   onCustomBlock?<A>(node: Nodes.CustomBlock<A>): T
 
+  // NOTE inline
   onEmphasis?(node: Nodes.Emphasis): T
   onStrong?(node: Nodes.Strong): T
   onHardLineBreak?(node: Nodes.HardLineBreak): T
