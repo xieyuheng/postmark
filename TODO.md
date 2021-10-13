@@ -1,5 +1,3 @@
-- `Nodes.Document<A>` take `any` by default
-
 # later
 
 - `CodeBlockParser` be able to report error

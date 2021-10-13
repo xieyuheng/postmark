@@ -3,7 +3,7 @@ import { NodeVisitor } from "../node"
 import YAML from "js-yaml"
 import * as ut from "../ut"
 
-export class Document<A> extends Node {
+export class Document<A = any> extends Node {
   kind = "Document"
 
   attributes: A

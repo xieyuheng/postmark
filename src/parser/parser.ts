@@ -18,7 +18,7 @@ export class Parser {
     })
   }
 
-  parseDocument(text: string): Nodes.Document<any> {
+  parseDocument(text: string): Nodes.Document {
     return this.parseDocumentWithFrontMatter(text, { attributes: ty.any() })
   }
 }
