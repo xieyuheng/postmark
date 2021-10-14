@@ -1,4 +1,4 @@
-export class CodeBlockParser<T> {
+export class CustomBlockParser<T> {
   customKind: string
   recognize: (info: string) => boolean
   parse: (text: string) => T

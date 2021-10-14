@@ -60,7 +60,7 @@ console.log(document)
 // }
 ```
 
-### Custom `CodeBlockParser`
+### Custom `CustomBlockParser`
 
 TODO
 

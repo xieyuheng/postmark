@@ -1,7 +1,7 @@
 import { Node, Span } from "../node"
 import { NodeVisitor } from "../node"
 import { postprocess } from "../postprocess"
-import { CodeBlockParser } from "../code-block-parser"
+import { CustomBlockParser } from "../custom-block-parser"
 import YAML from "js-yaml"
 import * as ut from "../ut"
 
@@ -64,7 +64,7 @@ export class Document<A = any> extends Node {
   }
 
   postprocess(opts: {
-    codeBlockParsers: Array<CodeBlockParser<unknown>>
+    customBlockParsers: Array<CustomBlockParser<unknown>>
   }): Document {
     return postprocess(this, opts)
   }

@@ -50,8 +50,8 @@ Hello! I am Trivial.
   ])
 
   const processed = document.postprocess({
-    codeBlockParsers: [
-      app.createCodeBlockParser({
+    customBlockParsers: [
+      app.createCustomBlockParser({
         customKind: "Trivial",
         recognize: (info) => info.startsWith("trivial"),
         parse: (text) => new Trivial(text),
@@ -142,8 +142,8 @@ Hello! I am Trivial.
   ])
 
   const processed = document.postprocess({
-    codeBlockParsers: [
-      app.createCodeBlockParser({
+    customBlockParsers: [
+      app.createCustomBlockParser({
         customKind: "Trivial",
         recognize: (info) => info.startsWith("trivial"),
         parse: (text) => new Trivial(text),

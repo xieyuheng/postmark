@@ -1,12 +1,12 @@
 import { Node, ContainerBlock } from "../node"
 import { NodeVisitor } from "../node"
 import * as Nodes from "../nodes"
-import { CodeBlockParser } from "../code-block-parser"
+import { CustomBlockParser } from "../custom-block-parser"
 
 export function postprocess<T extends Node>(
   node: T,
   opts: {
-    codeBlockParsers: Array<CodeBlockParser<unknown>>
+    customBlockParsers: Array<CustomBlockParser<unknown>>
   }
 ): T {
   const postprocessor = new Postprocessor(opts)
@@ -14,11 +14,11 @@ export function postprocess<T extends Node>(
 }
 
 class Postprocessor extends NodeVisitor<Node> {
-  codeBlockParsers: Array<CodeBlockParser<unknown>>
+  customBlockParsers: Array<CustomBlockParser<unknown>>
 
-  constructor(opts: { codeBlockParsers: Array<CodeBlockParser<unknown>> }) {
+  constructor(opts: { customBlockParsers: Array<CustomBlockParser<unknown>> }) {
     super()
-    this.codeBlockParsers = opts.codeBlockParsers
+    this.customBlockParsers = opts.customBlockParsers
   }
 
   default(node: Node): Node {
@@ -35,12 +35,12 @@ class Postprocessor extends NodeVisitor<Node> {
   }
 
   onCodeBlock(node: Nodes.CodeBlock): Node {
-    for (const codeBlockParser of this.codeBlockParsers) {
-      if (codeBlockParser.recognize(node.info)) {
+    for (const customBlockParser of this.customBlockParsers) {
+      if (customBlockParser.recognize(node.info)) {
         return new Nodes.CustomBlock({
           ...node,
-          customKind: codeBlockParser.customKind,
-          value: codeBlockParser.parse(node.text),
+          customKind: customBlockParser.customKind,
+          value: customBlockParser.parse(node.text),
         })
       }
     }
