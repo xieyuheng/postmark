@@ -3,14 +3,12 @@ export class CodeBlockParser<T> {
   recognize: (info: string) => boolean
   parse: (text: string) => T
 
-  constructor(
-    customKind: string,
-    opts: {
-      recognize: (info: string) => boolean
-      parse: (text: string) => T
-    }
-  ) {
-    this.customKind = customKind
+  constructor(opts: {
+    customKind: string
+    recognize: (info: string) => boolean
+    parse: (text: string) => T
+  }) {
+    this.customKind = opts.customKind
     this.recognize = opts.recognize
     this.parse = opts.parse
   }

@@ -1,6 +1,5 @@
 import app from "../app"
 import * as Nodes from "../nodes"
-import { CodeBlockParser } from "../code-block-parser"
 
 class Trivial {
   text: string
@@ -9,11 +8,6 @@ class Trivial {
     this.text = text
   }
 }
-
-const trivialParser = new CodeBlockParser("Trivial", {
-  recognize: (info) => info.startsWith("trivial"),
-  parse: (text) => new Trivial(text),
-})
 
 {
   const text = `\
@@ -56,7 +50,13 @@ Hello! I am Trivial.
   ])
 
   const processed = document.postprocess({
-    codeBlockParsers: [trivialParser],
+    codeBlockParsers: [
+      app.createCodeBlockParser({
+        customKind: "Trivial",
+        recognize: (info) => info.startsWith("trivial"),
+        parse: (text) => new Trivial(text),
+      }),
+    ],
   })
 
   app.tester.assertDocument(processed, [
@@ -142,7 +142,13 @@ Hello! I am Trivial.
   ])
 
   const processed = document.postprocess({
-    codeBlockParsers: [trivialParser],
+    codeBlockParsers: [
+      app.createCodeBlockParser({
+        customKind: "Trivial",
+        recognize: (info) => info.startsWith("trivial"),
+        parse: (text) => new Trivial(text),
+      }),
+    ],
   })
 
   app.tester.assertDocument(processed, [
