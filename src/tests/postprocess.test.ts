@@ -11,17 +11,10 @@ class Trivial {
   }
 }
 
-class TrivialParser extends CodeBlockParser<Trivial> {
-  customKind = "Trivial"
-
-  recognize(info: string): boolean {
-    return info.startsWith("trivial")
-  }
-
-  parse(text: string): Trivial {
-    return new Trivial(text)
-  }
-}
+const trivialParser = new CodeBlockParser("Trivial", {
+  recognize: (info) => info.startsWith("trivial"),
+  parse: (text) => new Trivial(text),
+})
 
 {
   const text = `\
@@ -64,7 +57,7 @@ Hello! I am Trivial.
   ])
 
   const processed = postprocess(document, {
-    codeBlockParsers: [new TrivialParser()],
+    codeBlockParsers: [trivialParser],
   })
 
   tester.assertDocument(processed, [
@@ -150,7 +143,7 @@ Hello! I am Trivial.
   ])
 
   const processed = postprocess(document, {
-    codeBlockParsers: [new TrivialParser()],
+    codeBlockParsers: [trivialParser],
   })
 
   tester.assertDocument(processed, [
