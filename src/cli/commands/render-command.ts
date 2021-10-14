@@ -1,6 +1,6 @@
 import { Command } from "@xieyuheng/enchanter/lib/command"
 import { CommandRunner } from "@xieyuheng/enchanter/lib/command-runner"
-import { Parser } from "../../api"
+import app from "../../app"
 import ty from "@xieyuheng/ty"
 import Path from "path"
 import fs from "fs"
@@ -42,8 +42,7 @@ export class RenderCommand extends Command<Args, Opts> {
     Command.assertFile(argv["file"])
     const file = argv["file"]
     const text = await fs.promises.readFile(file, "utf8")
-    const parser = new Parser()
-    const document = parser.parseDocument(text)
+    const document = app.parser.parseDocument(text)
     const result = document.render()
     console.log(result)
   }

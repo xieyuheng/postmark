@@ -3,7 +3,11 @@ import { Parser } from "../parser"
 import * as ut from "../ut"
 
 export class Tester {
-  parser = new Parser()
+  parser: Parser
+
+  constructor(opts: { parser: Parser }) {
+    this.parser = opts.parser
+  }
 
   assertDocument(node: Node, children: Array<any>): void {
     this.assertNode(node, { kind: "Document", children })
