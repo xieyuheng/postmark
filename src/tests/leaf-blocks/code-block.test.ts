@@ -1,8 +1,8 @@
 import { tester } from "../../api"
-import { formatCodeBlock } from "../../ut"
+import * as ut from "../../ut"
 
 {
-  const text = formatCodeBlock("sisuo", "console.log('Hello')")
+  const text = ut.formatCodeBlock("sisuo", "console.log('Hello')")
   const document = tester.parser.parseDocument(text)
 
   tester.assertDocument(document, [
