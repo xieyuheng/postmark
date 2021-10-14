@@ -28,14 +28,14 @@
     "@types/deep-diff": "^1.0.1",
     "@types/js-yaml": "^4.0.3",
     "@types/marked": "^3.0.1",
-    "@types/node": "^16.10.4",
+    "@types/node": "^16.10.9",
     "@types/yargs": "^17.0.3",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.4.1",
     "typescript": "^4.4.4"
   },
   "dependencies": {
-    "@xieyuheng/enchanter": "^0.0.23",
+    "@xieyuheng/enchanter": "^0.0.29",
     "@xieyuheng/ty": "^0.1.7",
     "commonmark": "^0.30.0",
     "deep-diff": "^1.0.2",
@@ -43,7 +43,7 @@
     "front-matter": "^4.0.2",
     "js-yaml": "^4.1.0",
     "marked": "^3.0.7",
-    "nanoid": "^3.1.29",
+    "nanoid": "^3.1.30",
     "yargs": "^17.2.1"
   },
   "license": "GPL-3.0-or-later"
