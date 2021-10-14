@@ -1,5 +1,5 @@
 import { tester } from "../../api"
-import { formatCodeBlock } from "../../api"
+import { formatCodeBlock } from "../../ut"
 
 {
   const text = formatCodeBlock("sisuo", "console.log('Hello')")

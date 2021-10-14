@@ -1,6 +1,6 @@
 import { Node, Span } from "../node"
 import { NodeVisitor } from "../node"
-import { postprocess } from "../api"
+import { postprocess } from "../postprocess"
 import { CodeBlockParser } from "../code-block-parser"
 import YAML from "js-yaml"
 import * as ut from "../ut"

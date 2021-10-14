@@ -1,4 +1,3 @@
-import { postprocess } from "../api"
 import { tester } from "../api"
 import * as Nodes from "../nodes"
 import { CodeBlockParser } from "../code-block-parser"
@@ -56,7 +55,7 @@ Hello! I am Trivial.
     },
   ])
 
-  const processed = postprocess(document, {
+  const processed = document.postprocess({
     codeBlockParsers: [trivialParser],
   })
 
@@ -142,7 +141,7 @@ Hello! I am Trivial.
     },
   ])
 
-  const processed = postprocess(document, {
+  const processed = document.postprocess({
     codeBlockParsers: [trivialParser],
   })
 
