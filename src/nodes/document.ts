@@ -1,5 +1,7 @@
 import { Node, Span } from "../node"
 import { NodeVisitor } from "../node"
+import { postprocess } from "../api"
+import { CodeBlockParser } from "../code-block-parser"
 import YAML from "js-yaml"
 import * as ut from "../ut"
 
@@ -59,5 +61,11 @@ export class Document<A = any> extends Node {
         this.children.map((child) => child.format()).join("\n\n"),
       ].join("\n")
     }
+  }
+
+  postprocess(opts: {
+    codeBlockParsers: Array<CodeBlockParser<unknown>>
+  }): Document {
+    return postprocess(this, opts)
   }
 }

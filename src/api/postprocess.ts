@@ -3,14 +3,14 @@ import { NodeVisitor } from "../node"
 import * as Nodes from "../nodes"
 import { CodeBlockParser } from "../code-block-parser"
 
-export function postprocess(
-  node: Node,
+export function postprocess<T extends Node>(
+  node: T,
   opts: {
     codeBlockParsers: Array<CodeBlockParser<unknown>>
   }
-): Node {
+): T {
   const postprocessor = new Postprocessor(opts)
-  return node.accept(postprocessor)
+  return node.accept(postprocessor) as T
 }
 
 class Postprocessor extends NodeVisitor<Node> {
