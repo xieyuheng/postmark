@@ -1,6 +1,3 @@
-- merge `api` into `index`
-- export `App` instance in `index`
-
 # later
 
 - `CodeBlockParser` be able to report error
