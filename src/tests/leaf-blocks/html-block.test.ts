@@ -1,4 +1,4 @@
-import { tester } from "../../api"
+import app from "../../app"
 
 {
   const text = `
@@ -6,9 +6,9 @@ import { tester } from "../../api"
 <x-card />
 
 `
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "HtmlBlock",
       text: text.trim(),
@@ -23,9 +23,9 @@ import { tester } from "../../api"
 </x-card>
 `
 
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "HtmlBlock",
       text: text.trim(),

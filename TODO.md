@@ -1,5 +1,3 @@
-- `app` extends `ServiceContainer`
-- move `Tester` instance to `app`
 - merge `api` into `index`
 - export `App` instance in `index`
 

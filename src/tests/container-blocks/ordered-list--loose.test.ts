@@ -1,4 +1,4 @@
-import { tester } from "../../api"
+import app from "../../app"
 
 {
   const text = `\
@@ -13,9 +13,9 @@ A loose ordered list:
 100. c
 `
 
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "Paragraph",
       children: [{ kind: "Text", text: "A loose ordered list:" }],

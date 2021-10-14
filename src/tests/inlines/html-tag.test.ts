@@ -1,4 +1,4 @@
-import { tester } from "../../api"
+import app from "../../app"
 
 {
   // NOTE A single self-closing tag will be parsed as `HtmlBlock`.
@@ -8,9 +8,9 @@ import { tester } from "../../api"
 <x />
 
 `
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [{ kind: "HtmlBlock", text: "<x />" }])
+  app.tester.assertDocument(document, [{ kind: "HtmlBlock", text: "<x />" }])
 }
 
 {
@@ -19,9 +19,9 @@ import { tester } from "../../api"
 a <x /> b
 
 `
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "Paragraph",
       children: [
@@ -39,9 +39,9 @@ a <x /> b
 a <x> hi </x> b
 
 `
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "Paragraph",
       children: [
@@ -61,9 +61,9 @@ a <x> hi </x> b
 <x> hi </x>
 
 `
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "Paragraph",
       children: [

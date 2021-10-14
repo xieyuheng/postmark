@@ -1,4 +1,4 @@
-import { tester } from "../../api"
+import app from "../../app"
 
 {
   const text = `\
@@ -7,9 +7,9 @@ import { tester } from "../../api"
 ### headline 3
 `
 
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "Headline",
       level: 1,
@@ -37,9 +37,9 @@ headline 2
 ----------
 `
 
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "Headline",
       level: 1,

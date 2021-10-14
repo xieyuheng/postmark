@@ -1,11 +1,11 @@
-import { tester } from "../../api"
+import app from "../../app"
 import * as ut from "../../ut"
 
 {
   const text = ut.formatCodeBlock("sisuo", "console.log('Hello')")
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "CodeBlock",
       info: "sisuo",

@@ -1,4 +1,4 @@
-import { tester } from "../api"
+import app from "../app"
 import * as Nodes from "../nodes"
 import { CodeBlockParser } from "../code-block-parser"
 
@@ -30,9 +30,9 @@ Hello! I am Trivial.
 ~~~
 `
 
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "Headline",
       level: 1,
@@ -59,7 +59,7 @@ Hello! I am Trivial.
     codeBlockParsers: [trivialParser],
   })
 
-  tester.assertDocument(processed, [
+  app.tester.assertDocument(processed, [
     {
       kind: "Headline",
       level: 1,
@@ -100,9 +100,9 @@ Hello! I am Trivial.
   ~~~
 `
 
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "BulletList",
       tight: false,
@@ -145,7 +145,7 @@ Hello! I am Trivial.
     codeBlockParsers: [trivialParser],
   })
 
-  tester.assertDocument(processed, [
+  app.tester.assertDocument(processed, [
     {
       kind: "BulletList",
       tight: false,

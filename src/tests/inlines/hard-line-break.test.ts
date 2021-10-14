@@ -1,10 +1,10 @@
-import { tester } from "../../api"
+import app from "../../app"
 
 {
   const text = "Hello  \nWorld"
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "Paragraph",
       children: [
@@ -18,9 +18,9 @@ import { tester } from "../../api"
 
 {
   const text = "Hello\\\nWorld"
-  const document = tester.parser.parseDocument(text)
+  const document = app.tester.parser.parseDocument(text)
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "Paragraph",
       children: [

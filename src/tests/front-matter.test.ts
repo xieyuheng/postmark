@@ -1,4 +1,4 @@
-import { tester } from "../api"
+import app from "../app"
 import * as Nodes from "../nodes"
 import * as ut from "../ut"
 import ty from "@xieyuheng/ty"
@@ -20,7 +20,7 @@ Hi Hi Yo Yo
     title: string
     authors: Array<string>
     date: Date
-  }> = tester.parser.parseDocumentWithFrontMatter(text, {
+  }> = app.tester.parser.parseDocumentWithFrontMatter(text, {
     attributes: ty.object({
       title: ty.string(),
       authors: ty.array(ty.string()),
@@ -34,7 +34,7 @@ Hi Hi Yo Yo
     date: new Date("2021-09-22"),
   })
 
-  tester.assertDocument(document, [
+  app.tester.assertDocument(document, [
     {
       kind: "Headline",
       level: 1,
