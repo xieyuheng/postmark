@@ -3,14 +3,14 @@ import { NodeVisitor } from "../node"
 import * as Nodes from "../nodes"
 import { CustomBlockParser } from "../custom-block-parser"
 
-export function postprocess<T extends Node>(
-  node: T,
+export function postprocess(
+  node: Nodes.Document,
   opts: {
     customBlockParsers: Array<CustomBlockParser<unknown>>
   }
-): T {
+): Nodes.Document {
   const postprocessor = new Postprocessor(opts)
-  return node.accept(postprocessor) as T
+  return node.accept(postprocessor) as Nodes.Document
 }
 
 class Postprocessor extends NodeVisitor<Node> {
