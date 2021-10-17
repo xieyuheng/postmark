@@ -13,13 +13,7 @@ export class App extends ServiceContainer {
   parser = new Parser()
   tester = new Tester({ parser: this.parser })
 
-  createCustomBlockParser<T>(opts: {
-    customKind: string
-    recognize: (info: string) => boolean
-    parse: (text: string) => T
-  }): CustomBlockParser<T> {
-    return new CustomBlockParser(opts)
-  }
+  createCustomBlockParser = CustomBlockParser.create
 }
 
 export default new App()
