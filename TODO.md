@@ -1,5 +1,3 @@
-- inline `postprocess` into `Document.postprocess`
-
 # later
 
 - update readme about using custom-block-parser

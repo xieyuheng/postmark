@@ -1,9 +1,8 @@
 import { Node, Span } from "../node"
 import { NodeVisitor } from "../node"
-import { postprocess } from "../postprocess"
 import { CustomBlockParser } from "../custom-block-parser"
+import * as Postprocessors from "../postprocessors"
 import YAML from "js-yaml"
-import * as ut from "../ut"
 
 export class Document<A = any> extends Node {
   kind = "Document"
@@ -66,6 +65,8 @@ export class Document<A = any> extends Node {
   postprocess(opts: {
     customBlockParsers: Array<CustomBlockParser<unknown>>
   }): Document {
-    return postprocess(this, opts)
+    return this.accept(
+      new Postprocessors.CustomBlockPostprocessor(opts)
+    ) as Document
   }
 }
