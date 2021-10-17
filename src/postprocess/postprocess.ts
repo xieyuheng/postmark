@@ -16,6 +16,8 @@ export function postprocess<T extends Node>(
 class Postprocessor extends NodeVisitor<Node> {
   customBlockParsers: Array<CustomBlockParser<unknown>>
 
+  private codeBlockCounter = 0
+
   constructor(opts: { customBlockParsers: Array<CustomBlockParser<unknown>> }) {
     super()
     this.customBlockParsers = opts.customBlockParsers
@@ -35,12 +37,16 @@ class Postprocessor extends NodeVisitor<Node> {
   }
 
   onCodeBlock(node: Nodes.CodeBlock): Node {
+    this.codeBlockCounter++
+
     for (const customBlockParser of this.customBlockParsers) {
       if (customBlockParser.recognize(node.info)) {
         return new Nodes.CustomBlock({
           ...node,
           customKind: customBlockParser.customKind,
-          value: customBlockParser.parse(node.text),
+          value: customBlockParser.parse(node.text, {
+            index: this.codeBlockCounter - 1,
+          }),
         })
       }
     }
