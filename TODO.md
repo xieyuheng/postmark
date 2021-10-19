@@ -1,3 +1,5 @@
+- support github flavored markdown table
+
 # later
 
 - update readme about using custom-block-parser
