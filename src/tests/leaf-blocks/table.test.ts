@@ -10,7 +10,7 @@ import app from "../../app"
 
   const document = app.tester.parser.parseDocument(text)
 
-  console.dir(document)
+  console.dir(document, { depth: null })
 
   // app.tester.assertDocument(document, [
   //   {

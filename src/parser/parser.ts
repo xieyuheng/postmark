@@ -46,10 +46,11 @@ export class Parser {
     return node
   }
 
-  parseNode(text: string): Node {
+  parseNodes(text: string): Array<Node> {
     const commonmarkParser = new Commonmark.Parser()
-    const node = nodeFromCommonmark(commonmarkParser.parse(text))
-    return this.postprocess(node)
+    return Commonmark.children(commonmarkParser.parse(text))
+      .map((child) => nodeFromCommonmark(child))
+      .map((node) => this.postprocess(node))
   }
 
   parseDocument(text: string): Nodes.Document {

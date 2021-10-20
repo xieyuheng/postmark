@@ -1,4 +1,4 @@
-import { Node, ContainerBlock } from "../node"
+import { Node } from "../node"
 import { NodeVisitor } from "../node-visitor"
 import { Parser } from "../parser"
 import * as Nodes from "../nodes"

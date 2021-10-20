@@ -1,6 +1,5 @@
-- `TablePostprocessor` -- create `Nodes.Table` -- only `children` is needed, we compute other fields
-
 - `Nodes.Table` -- `header`
+
 - `Nodes.Table` -- `rows`
 
 - `Nodes.Table` -- `render`

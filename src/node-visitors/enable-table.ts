@@ -20,8 +20,29 @@ export class EnableTable extends NodeVisitor<Node> {
     const tokens = Marked.lexer(text)
     if (tokens.length === 1 && tokens[0].type === "table") {
       const markedToken = tokens[0]
-      console.dir(markedToken, { depth: null })
-      return node
+
+      const alignments = markedToken.align.map((x) => (x === null ? "none" : x))
+
+      const children = [
+        ...markedToken.header,
+        ...markedToken.rows.flatMap((row) => row),
+      ].map(
+        ({ text }) =>
+          // NOTE We use `Nodes.Paragraph` as a wrapper.
+          // TODO When using the `this.parser.parseNodes`,
+          //   the resulting `span` is wrong.
+          new Nodes.Paragraph({
+            children: this.parser.parseNodes(text),
+            span: node.span,
+          })
+      )
+
+      return new Nodes.Table({
+        span: node.span,
+        children,
+        alignments,
+        raw: markedToken.raw,
+      })
     } else {
       return node
     }
