@@ -1,28 +1,27 @@
-<h1>nested ordered list</h1>
+<h1 id="nested-ordered-list">nested ordered list</h1>
 <ol>
 <li>a</li>
 <li>b</li>
-<li>c
-<ol>
+<li>c<ol>
 <li>a</li>
 <li>b</li>
 <li>c</li>
 </ol>
 </li>
 </ol>
-<h1>nested ordered list</h1>
+<h1 id="nested-ordered-list-1">nested ordered list</h1>
 <ol>
 <li>a</li>
 <li>b</li>
 <li>c</li>
 </ol>
-<h1>ordered list with ugly delimiter</h1>
+<h1 id="ordered-list-with-ugly-delimiter">ordered list with ugly delimiter</h1>
 <ol>
 <li>a</li>
 <li>b</li>
 <li>c</li>
 </ol>
-<h1>ordered list with different delimiters</h1>
+<h1 id="ordered-list-with-different-delimiters">ordered list with different delimiters</h1>
 <p>Will be parsed as <code>loose</code> instead of <code>tight</code>:</p>
 <ol>
 <li>a</li>

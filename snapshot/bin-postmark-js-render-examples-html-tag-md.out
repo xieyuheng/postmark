@@ -1,5 +1,5 @@
-<h1>html tag</h1>
+<h1 id="html-tag">html tag</h1>
 <p>x <x-card /> x</p>
-<h1>html tag pair</h1>
+<h1 id="html-tag-pair">html tag pair</h1>
 <p><x-card> hiya </x-card></p>
 

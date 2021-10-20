@@ -1,0 +1,21 @@
+<h1 id="table">Table</h1>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th align="center">b</th>
+<th align="left">c</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><em>1</em></td>
+<td align="center"><strong>3</strong></td>
+<td align="left">5</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">a <em>4</em> b</td>
+<td align="left">6</td>
+</tr>
+</tbody></table>
+

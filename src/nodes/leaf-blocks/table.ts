@@ -84,7 +84,7 @@ export class Table extends LeafBlock {
     const text = this.format()
 
     const tokens = Marked.lexer(text)
-    const html = Marked.parser(tokens)
+    const html = Marked.parser(tokens, { xhtml: true })
 
     return html
   }

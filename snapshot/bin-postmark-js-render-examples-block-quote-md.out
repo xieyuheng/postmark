@@ -1,11 +1,11 @@
-<h1>simple block quote</h1>
+<h1 id="simple-block-quote">simple block quote</h1>
 <blockquote>
 <p>Make the change easy, then make the easy change.</p>
 <p>-- Kent Beck</p>
 </blockquote>
-<h1>block quote with headline and list</h1>
+<h1 id="block-quote-with-headline-and-list">block quote with headline and list</h1>
 <blockquote>
-<h1>How to solve it?</h1>
+<h1 id="how-to-solve-it">How to solve it?</h1>
 <p>Our list:</p>
 <ol>
 <li>Understanding the problem</li>
