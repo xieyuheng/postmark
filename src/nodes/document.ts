@@ -4,22 +4,22 @@ import { CustomBlockParser } from "../custom-block-parser"
 import * as Postprocessors from "../postprocessors"
 import YAML from "js-yaml"
 
-export class Document<A = any> extends Node {
+export class Document extends Node {
   kind = "Document"
 
-  attributes: A
+  attributes: any
 
   span: Span
   children: Array<Node>
 
-  constructor(opts: { attributes: A; span: Span; children: Array<Node> }) {
+  constructor(opts: { attributes: any; span: Span; children: Array<Node> }) {
     super()
     this.attributes = opts.attributes
     this.span = opts.span
     this.children = opts.children
   }
 
-  shallowCopy(): Document<A> {
+  shallowCopy(): Document {
     return new Document(this)
   }
 

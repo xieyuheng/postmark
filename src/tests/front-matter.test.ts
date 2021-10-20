@@ -16,17 +16,7 @@ date: 2021-09-22
 Hi Hi Yo Yo
 `
 
-  const document: Nodes.Document<{
-    title: string
-    authors: Array<string>
-    date: Date
-  }> = app.tester.parser.parseDocumentWithFrontMatter(text, {
-    attributes: ty.object({
-      title: ty.string(),
-      authors: ty.array(ty.string()),
-      date: ty.guard((x: any): x is Date => x instanceof Date),
-    }),
-  })
+  const document: Nodes.Document = app.tester.parser.parseDocument(text)
 
   ut.assertEqual(document.attributes, {
     title: "Hello world",

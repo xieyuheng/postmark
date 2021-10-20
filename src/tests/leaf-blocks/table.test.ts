@@ -8,9 +8,7 @@ import app from "../../app"
 | 2   | 4     | 6 |
 `
 
-  const document = app.tester.parser.parseDocument(text, {
-    enableTable: true,
-  })
+  const document = app.tester.parser.parseDocument(text)
 
   console.dir(document)
 

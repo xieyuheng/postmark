@@ -3,10 +3,10 @@ import * as Nodes from "../nodes"
 import * as Commonmark from "../vendor/commonmark"
 import { nodeFromCommonmark } from "./node-from-commonmark"
 
-export function documentFromCommonmark<A>(
+export function documentFromCommonmark(
   node: Commonmark.Node,
-  opts: { attributes: A }
-): Nodes.Document<A> {
+  opts: { attributes: any }
+): Nodes.Document {
   if (node.type === "document") {
     return new Nodes.Document({
       attributes: opts.attributes,

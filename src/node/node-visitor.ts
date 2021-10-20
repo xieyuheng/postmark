@@ -6,7 +6,7 @@ export abstract class NodeVisitor<T> {
     throw new Error("The default visiting method is not implemented")
   }
 
-  onDocument?<A>(node: Nodes.Document<A>): T
+  onDocument?(node: Nodes.Document): T
 
   // NOTE container-block
   onBlockQuote?(node: Nodes.BlockQuote): T

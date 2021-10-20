@@ -1,5 +1,3 @@
-- `Parser` -- methods should not take `opts`
-
 - no `Nodes.Document.postprocess` -- use `ParserOptions`
 
 - rename `ParserOptions.attributes` to `ParserOptions.attributeSchema`

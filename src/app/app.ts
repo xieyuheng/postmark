@@ -5,7 +5,6 @@ import { customAlphabet } from "nanoid"
 import { Tester } from "../tester"
 import { Parser } from "../parser"
 import { CustomBlockParser } from "../custom-block-parser"
-import ty, { Schema } from "@xieyuheng/ty"
 
 export class App extends ServiceContainer {
   nanoid = customAlphabet("1234567890abcdef", 16)
@@ -15,7 +14,6 @@ export class App extends ServiceContainer {
   createParser = Parser.create
 
   defaultParser = this.createParser({
-    attributes: ty.object({}),
     enableTable: true,
   })
 
