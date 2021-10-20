@@ -59,16 +59,31 @@ import app from "../../app"
         [{ kind: "Text", text: "y" }],
       ],
       rows: [
-        [
-          [{ kind: "Text", text: "a" }],
-          [],
-          [],
-        ],
-        [
-          [{ kind: "Text", text: "b" }],
-          [],
-          [],
-        ],
+        [[{ kind: "Text", text: "a" }], [], []],
+        [[{ kind: "Text", text: "b" }], [], []],
+      ],
+    },
+  ])
+}
+
+{
+  // NOTE According to GFM spec, no header no table:
+  //   https://github.github.com/gfm/#tables-extension-
+
+  const text = `\
+| 1 | 3 | 5 |
+| 2 | 4 | 6 |
+`
+
+  const document = app.tester.parser.parseDocument(text)
+
+  app.tester.assertDocument(document, [
+    {
+      kind: "Paragraph",
+      children: [
+        { kind: "Text", text: "| 1 | 3 | 5 |" },
+        { kind: "SoftLineBreak" },
+        { kind: "Text", text: "| 2 | 4 | 6 |" },
       ],
     },
   ])
