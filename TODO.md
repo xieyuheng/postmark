@@ -1,7 +1,3 @@
-- no `Nodes.Document.postprocess` -- use `ParserOptions`
-
-- rename `ParserOptions.attributes` to `ParserOptions.attributeSchema`
-
 - `Parser.parseNode`
 
 - `NodeVisitor` take `parser`

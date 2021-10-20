@@ -1,18 +1,22 @@
+import { Node } from "../node"
 import * as Nodes from "../nodes"
 import * as Commonmark from "../vendor/commonmark"
 import { documentFromCommonmark } from "./document-from-commonmark"
 import frontMatter from "front-matter"
+import * as Postprocessors from "../postprocessors"
+import { CustomBlockParser } from "../custom-block-parser"
 
 export interface ParserOptions {
+  customBlockParsers?: Array<CustomBlockParser<unknown>>
   enableTable?: boolean
 }
 
 export class Parser {
-  commonmarkParser = new Commonmark.Parser()
-
+  customBlockParsers: Array<CustomBlockParser<unknown>>
   enableTable: boolean
 
   constructor(opts: ParserOptions) {
+    this.customBlockParsers = opts.customBlockParsers || []
     this.enableTable = Boolean(opts.enableTable)
   }
 
@@ -23,12 +27,24 @@ export class Parser {
   parseDocument(text: string): Nodes.Document {
     const { attributes, body } = frontMatter(text)
 
-    let document = documentFromCommonmark(this.commonmarkParser.parse(body), {
+    const commonmarkParser = new Commonmark.Parser()
+
+    let document: Node = documentFromCommonmark(commonmarkParser.parse(body), {
       attributes,
     })
 
-    document = document.postprocess({ enableTable: this.enableTable })
+    if (this.customBlockParsers.length > 0) {
+      document = document.accept(
+        new Postprocessors.CustomBlockPostprocessor({
+          customBlockParsers: this.customBlockParsers,
+        })
+      )
+    }
 
-    return document
+    if (this.enableTable) {
+      document = document.accept(new Postprocessors.TablePostprocessor())
+    }
+
+    return document as any
   }
 }

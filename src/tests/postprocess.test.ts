@@ -24,32 +24,7 @@ Hello! I am Trivial.
 ~~~
 `
 
-  const document = app.tester.parser.parseDocument(text)
-
-  app.tester.assertDocument(document, [
-    {
-      kind: "Headline",
-      level: 1,
-      children: [{ kind: "Text", text: "Non Trivial" }],
-    },
-    {
-      kind: "CodeBlock",
-      info: "non-trivial",
-      text: "Hello! I am Non Trivial.\n",
-    },
-    {
-      kind: "Headline",
-      level: 1,
-      children: [{ kind: "Text", text: "Trivial" }],
-    },
-    {
-      kind: "CodeBlock",
-      info: "trivial",
-      text: "Hello! I am Trivial.\n",
-    },
-  ])
-
-  const processed = document.postprocess({
+  const parser = app.createParser({
     customBlockParsers: [
       app.createCustomBlockParser({
         customKind: "Trivial",
@@ -59,7 +34,9 @@ Hello! I am Trivial.
     ],
   })
 
-  app.tester.assertDocument(processed, [
+  const document = parser.parseDocument(text)
+
+  app.tester.assertDocument(document, [
     {
       kind: "Headline",
       level: 1,
@@ -100,48 +77,7 @@ Hello! I am Trivial.
   ~~~
 `
 
-  const document = app.tester.parser.parseDocument(text)
-
-  app.tester.assertDocument(document, [
-    {
-      kind: "BulletList",
-      tight: false,
-      children: [
-        {
-          kind: "BulletListItem",
-          children: [
-            {
-              kind: "CodeBlock",
-              info: "trivial",
-              text: "a\n",
-            },
-          ],
-        },
-        {
-          kind: "BulletListItem",
-          children: [
-            {
-              kind: "CodeBlock",
-              info: "trivial",
-              text: "b\n",
-            },
-          ],
-        },
-        {
-          kind: "BulletListItem",
-          children: [
-            {
-              kind: "CodeBlock",
-              info: "trivial",
-              text: "c\n",
-            },
-          ],
-        },
-      ],
-    },
-  ])
-
-  const processed = document.postprocess({
+  const parser = app.createParser({
     customBlockParsers: [
       app.createCustomBlockParser({
         customKind: "Trivial",
@@ -151,7 +87,9 @@ Hello! I am Trivial.
     ],
   })
 
-  app.tester.assertDocument(processed, [
+  const document = parser.parseDocument(text)
+
+  app.tester.assertDocument(document, [
     {
       kind: "BulletList",
       tight: false,
