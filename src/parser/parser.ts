@@ -29,13 +29,18 @@ export class Parser {
     if (this.customBlockParsers.length > 0) {
       node = node.accept(
         new Postprocessors.CustomBlockPostprocessor({
+          parser: this,
           customBlockParsers: this.customBlockParsers,
         })
       )
     }
 
     if (this.enableTable) {
-      node = node.accept(new Postprocessors.TablePostprocessor())
+      node = node.accept(
+        new Postprocessors.TablePostprocessor({
+          parser: this,
+        })
+      )
     }
 
     return node

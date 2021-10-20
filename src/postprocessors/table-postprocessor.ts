@@ -1,11 +1,12 @@
 import { Node } from "../node"
 import { NodeVisitor } from "../node"
 import * as Nodes from "../nodes"
+import { Parser } from "../parser"
 import Marked from "marked"
 
 export class TablePostprocessor extends NodeVisitor<Node> {
-  constructor() {
-    super()
+  constructor(opts: { parser: Parser }) {
+    super({ parser: opts.parser })
   }
 
   default(node: Node): Node {

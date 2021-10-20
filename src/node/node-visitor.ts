@@ -1,7 +1,14 @@
 import { Node } from "../node"
 import * as Nodes from "../nodes"
+import { Parser } from "../parser"
 
 export abstract class NodeVisitor<T> {
+  parser: Parser
+
+  constructor(opts: { parser: Parser }) {
+    this.parser = opts.parser
+  }
+
   default(node: Node): T {
     throw new Error("The default visiting method is not implemented")
   }

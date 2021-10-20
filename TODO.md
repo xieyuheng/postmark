@@ -1,5 +1,3 @@
-- `NodeVisitor` take `parser`
-
 - `TablePostprocessor` -- create `Nodes.Table` -- only `children` is needed, we compute other fields
 
 - `Nodes.Table` -- `header`

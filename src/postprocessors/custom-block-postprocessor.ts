@@ -1,5 +1,6 @@
 import { Node, ContainerBlock } from "../node"
 import { NodeVisitor } from "../node"
+import { Parser } from "../parser"
 import * as Nodes from "../nodes"
 import { CustomBlockParser } from "../custom-block-parser"
 
@@ -8,8 +9,11 @@ export class CustomBlockPostprocessor extends NodeVisitor<Node> {
 
   private codeBlockCounter = 0
 
-  constructor(opts: { customBlockParsers: Array<CustomBlockParser<unknown>> }) {
-    super()
+  constructor(opts: {
+    parser: Parser
+    customBlockParsers: Array<CustomBlockParser<unknown>>
+  }) {
+    super({ parser: opts.parser })
     this.customBlockParsers = opts.customBlockParsers
   }
 
