@@ -1,4 +1,4 @@
-import { NodeVisitor } from "../node"
+import { NodeVisitor } from "../node-visitor"
 import * as Commonmark from "../vendor/commonmark"
 
 export abstract class Node {

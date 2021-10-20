@@ -1,5 +1,5 @@
 import { Node, Span } from "../node"
-import { NodeVisitor } from "../node"
+import { NodeVisitor } from "../node-visitor"
 import { CustomBlockParser } from "../custom-block-parser"
 import * as Postprocessors from "../postprocessors"
 import YAML from "js-yaml"

@@ -1,5 +1,5 @@
 import { Node } from "../node"
-import { NodeVisitor } from "../node"
+import { NodeVisitor } from "../node-visitor"
 import * as Nodes from "../nodes"
 import { Parser } from "../parser"
 import Marked from "marked"

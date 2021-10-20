@@ -1,5 +1,5 @@
 import { LeafBlock, Span } from "../../node"
-import { NodeVisitor } from "../../node"
+import { NodeVisitor } from "../../node-visitor"
 
 export class HtmlBlock extends LeafBlock {
   kind = "HtmlBlock"

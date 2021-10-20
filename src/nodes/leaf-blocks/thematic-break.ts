@@ -1,5 +1,5 @@
 import { LeafBlock, Span } from "../../node"
-import { NodeVisitor } from "../../node"
+import { NodeVisitor } from "../../node-visitor"
 
 export class ThematicBreak extends LeafBlock {
   kind = "ThematicBreak"

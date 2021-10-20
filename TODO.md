@@ -1,3 +1,9 @@
+- use `node-visitors/` to replace `postprocessors/`
+
+- rename `TablePostprocessor` to `EnableTable`
+
+- rename `CustomBlockPostprocessor` to `EnableCustomBlock`
+
 - `TablePostprocessor` -- create `Nodes.Table` -- only `children` is needed, we compute other fields
 
 - `Nodes.Table` -- `header`

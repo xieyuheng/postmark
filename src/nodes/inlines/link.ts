@@ -1,5 +1,5 @@
 import { Inline, Node } from "../../node"
-import { NodeVisitor } from "../../node"
+import { NodeVisitor } from "../../node-visitor"
 
 export class Link extends Inline {
   kind = "Link"

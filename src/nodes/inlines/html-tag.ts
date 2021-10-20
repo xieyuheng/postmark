@@ -1,5 +1,5 @@
 import { Inline } from "../../node"
-import { NodeVisitor } from "../../node"
+import { NodeVisitor } from "../../node-visitor"
 
 export class HtmlTag extends Inline {
   kind = "HtmlTag"
