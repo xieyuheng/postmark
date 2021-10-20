@@ -28,13 +28,12 @@ export class EnableTable extends NodeVisitor<Node> {
         ...markedToken.rows.flatMap((row) => row),
       ].map(
         ({ text }) =>
-          // NOTE We use `Nodes.Paragraph` as a wrapper.
-          // TODO When using the `this.parser.parseNodes`,
-          //   the resulting `span` is wrong.
-          new Nodes.Paragraph({
-            children: this.parser.parseNodes(text),
-            span: node.span,
-          })
+          // NOTE When using the `this.parser.parseNodes`,
+          // - the result will be wrapped in the first `Paragraph` of `nodes`.
+          // - the result will be inline node,
+          //   thus we do not need to worry about wrong `span`,
+          //   for inline node does not have `span`.
+          this.parser.parseNodes(text)[0]
       )
 
       return new Nodes.Table({

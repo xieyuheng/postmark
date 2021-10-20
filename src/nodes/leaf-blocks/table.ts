@@ -24,6 +24,17 @@ export class Table extends LeafBlock {
     this.raw = opts.raw
   }
 
+  // NOTE We calculate `header` and `rows` from `children` and `alignments`.
+  //   note that `children` are wrapped in `Paragraph`.
+  // NOTE we view `children` as the source of truth,
+  //   because we need to use this constraint in some `NodeVisitor`.
+
+  get header(): Array<Array<Node>> {
+    return this.children
+      .slice(0, this.alignments.length)
+      .map((paragraph) => paragraph.children)
+  }
+
   shallowCopy(): Table {
     return new Table(this)
   }
@@ -31,8 +42,8 @@ export class Table extends LeafBlock {
   json() {
     return {
       kind: this.kind,
-      children: this.children.map((child) => child.json()),
       alignments: this.alignments,
+      header: this.header.map((nodes) => nodes.map((node) => node.json())),
     }
   }
 

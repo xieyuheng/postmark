@@ -1,5 +1,3 @@
-- `Nodes.Table` -- `header`
-
 - `Nodes.Table` -- `rows`
 
 - `Nodes.Table` -- `render`
