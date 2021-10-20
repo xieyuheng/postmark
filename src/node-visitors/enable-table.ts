@@ -4,7 +4,7 @@ import * as Nodes from "../nodes"
 import { Parser } from "../parser"
 import Marked from "marked"
 
-export class TablePostprocessor extends NodeVisitor<Node> {
+export class EnableTable extends NodeVisitor<Node> {
   constructor(opts: { parser: Parser }) {
     super({ parser: opts.parser })
   }

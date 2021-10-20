@@ -4,7 +4,7 @@ import * as Commonmark from "../vendor/commonmark"
 import { documentFromCommonmark } from "./document-from-commonmark"
 import { nodeFromCommonmark } from "./node-from-commonmark"
 import frontMatter from "front-matter"
-import * as Postprocessors from "../postprocessors"
+import * as NodeVisitors from "../node-visitors"
 import { CustomBlockParser } from "../custom-block-parser"
 
 export interface ParserOptions {
@@ -28,7 +28,7 @@ export class Parser {
   private postprocess(node: Node): Node {
     if (this.customBlockParsers.length > 0) {
       node = node.accept(
-        new Postprocessors.CustomBlockPostprocessor({
+        new NodeVisitors.HandleCustomBlock({
           parser: this,
           customBlockParsers: this.customBlockParsers,
         })
@@ -37,7 +37,7 @@ export class Parser {
 
     if (this.enableTable) {
       node = node.accept(
-        new Postprocessors.TablePostprocessor({
+        new NodeVisitors.EnableTable({
           parser: this,
         })
       )

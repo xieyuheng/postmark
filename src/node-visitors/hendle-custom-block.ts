@@ -4,7 +4,7 @@ import { Parser } from "../parser"
 import * as Nodes from "../nodes"
 import { CustomBlockParser } from "../custom-block-parser"
 
-export class CustomBlockPostprocessor extends NodeVisitor<Node> {
+export class HandleCustomBlock extends NodeVisitor<Node> {
   customBlockParsers: Array<CustomBlockParser<unknown>>
 
   private codeBlockCounter = 0

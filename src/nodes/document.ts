@@ -1,7 +1,7 @@
 import { Node, Span } from "../node"
 import { NodeVisitor } from "../node-visitor"
 import { CustomBlockParser } from "../custom-block-parser"
-import * as Postprocessors from "../postprocessors"
+import * as Postprocessors from "../node-visitors"
 import YAML from "js-yaml"
 
 export class Document extends Node {
