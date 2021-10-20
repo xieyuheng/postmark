@@ -37,9 +37,7 @@ export class Table extends LeafBlock {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onTable
-      ? visitor.onTable(this)
-      : visitor.default(this)
+    return visitor.onTable ? visitor.onTable(this) : visitor.default(this)
   }
 
   format(): string {

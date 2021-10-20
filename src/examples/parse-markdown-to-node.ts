@@ -14,6 +14,6 @@ The principle of type theory is:
 > We should study **terms** and **types** together.
 `
 
-const document = postmark.parser.parseDocument(text)
+const document = postmark.defaultParser.parseDocument(text)
 
 console.log(document)

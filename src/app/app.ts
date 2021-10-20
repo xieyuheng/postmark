@@ -5,13 +5,21 @@ import { customAlphabet } from "nanoid"
 import { Tester } from "../tester"
 import { Parser } from "../parser"
 import { CustomBlockParser } from "../custom-block-parser"
+import ty, { Schema } from "@xieyuheng/ty"
 
 export class App extends ServiceContainer {
   nanoid = customAlphabet("1234567890abcdef", 16)
   config = new AppConfig()
   logger = new Loggers.PrettyLogger()
-  parser = new Parser()
-  tester = new Tester({ parser: this.parser })
+
+  createParser = Parser.create
+
+  defaultParser = this.createParser({
+    attributes: ty.object({}),
+    enableTable: true,
+  })
+
+  tester = new Tester({ parser: this.defaultParser })
 
   createCustomBlockParser = CustomBlockParser.create
 }
