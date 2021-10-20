@@ -1,5 +1,3 @@
-- `Nodes.Table` -- `render`
-
 # later
 
 - update readme about using custom-block-parser
