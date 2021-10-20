@@ -1,6 +1,5 @@
 import { LeafBlock, Node, Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
-import Marked from "marked"
 
 type Alignment = "none" | "left" | "right" | "center"
 
@@ -78,14 +77,5 @@ export class Table extends LeafBlock {
 
   format(): string {
     return this.raw
-  }
-
-  render(): string {
-    const text = this.format()
-
-    const tokens = Marked.lexer(text)
-    const html = Marked.parser(tokens, { xhtml: true })
-
-    return html
   }
 }
