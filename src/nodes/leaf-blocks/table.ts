@@ -1,7 +1,7 @@
 import { LeafBlock, Node, Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
 
-type Alignment = "none" | "left" | "right" | "center"
+type Alignment = null | "left" | "right" | "center"
 
 export class Table extends LeafBlock {
   kind = "Table"

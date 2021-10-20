@@ -21,8 +21,6 @@ export class EnableTable extends NodeVisitor<Node> {
     if (tokens.length === 1 && tokens[0].type === "table") {
       const markedToken = tokens[0]
 
-      const alignments = markedToken.align.map((x) => (x === null ? "none" : x))
-
       const children = [
         ...markedToken.header,
         ...markedToken.rows.flatMap((row) => row),
@@ -43,7 +41,7 @@ export class EnableTable extends NodeVisitor<Node> {
       return new Nodes.Table({
         span: node.span,
         children,
-        alignments,
+        alignments: markedToken.align,
         raw: markedToken.raw,
       })
     } else {

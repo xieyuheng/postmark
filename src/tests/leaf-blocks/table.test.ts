@@ -13,7 +13,7 @@ import app from "../../app"
   app.tester.assertDocument(document, [
     {
       kind: "Table",
-      alignments: ["none", "center", "left"],
+      alignments: [null, "center", "left"],
       header: [
         [{ kind: "Text", text: "a" }],
         [{ kind: "Text", text: "b" }],
@@ -52,7 +52,7 @@ import app from "../../app"
   app.tester.assertDocument(document, [
     {
       kind: "Table",
-      alignments: ["none", "none", "none"],
+      alignments: [null, null, null],
       header: [
         [],
         [{ kind: "Text", text: "x" }],
