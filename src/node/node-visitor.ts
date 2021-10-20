@@ -17,6 +17,7 @@ export abstract class NodeVisitor<T> {
 
   // NOTE leaf-block
   onParagraph?(node: Nodes.Paragraph): T
+  onTable?(node: Nodes.Table): T
   onHeadline?(node: Nodes.Headline): T
   onThematicBreak?(node: Nodes.ThematicBreak): T
   onHtmlBlock?(node: Nodes.HtmlBlock): T

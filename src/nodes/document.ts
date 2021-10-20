@@ -63,10 +63,25 @@ export class Document<A = any> extends Node {
   }
 
   postprocess(opts: {
-    customBlockParsers: Array<CustomBlockParser<unknown>>
+    customBlockParsers?: Array<CustomBlockParser<unknown>>
+    enableTable?: boolean
   }): Document {
-    return this.accept(
-      new Postprocessors.CustomBlockPostprocessor(opts)
-    ) as Document
+    let document: Document = this
+
+    if (opts.customBlockParsers) {
+      document = document.accept(
+        new Postprocessors.CustomBlockPostprocessor({
+          customBlockParsers: opts.customBlockParsers,
+        })
+      ) as Document
+    }
+
+    if (opts.enableTable) {
+      document = document.accept(
+        new Postprocessors.TablePostprocessor()
+      ) as Document
+    }
+
+    return document
   }
 }

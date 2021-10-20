@@ -7,6 +7,8 @@ export abstract class Node {
   abstract shallowCopy(): Node
   abstract format(): string
 
+  children: Array<Node> = []
+
   accept<T>(visitor: NodeVisitor<T>): T {
     return visitor.default(this)
   }

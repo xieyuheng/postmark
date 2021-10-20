@@ -9,16 +9,28 @@ export class Parser {
 
   parseDocumentWithFrontMatter<A>(
     text: string,
-    opts: { attributes: Schema<A> }
+    opts: { attributes: Schema<A>; enableTable?: boolean }
   ): Nodes.Document<A> {
     const { attributes, body } = frontMatter(text)
 
-    return documentFromCommonmark(this.commonmarkParser.parse(body), {
+    let document = documentFromCommonmark(this.commonmarkParser.parse(body), {
       attributes: opts.attributes.validate(attributes),
     })
+
+    document = document.postprocess({
+      enableTable: opts.enableTable,
+    })
+
+    return document
   }
 
-  parseDocument(text: string): Nodes.Document {
-    return this.parseDocumentWithFrontMatter(text, { attributes: ty.any() })
+  parseDocument(
+    text: string,
+    opts?: { enableTable?: boolean }
+  ): Nodes.Document {
+    return this.parseDocumentWithFrontMatter(text, {
+      attributes: ty.any(),
+      enableTable: opts?.enableTable,
+    })
   }
 }

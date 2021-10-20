@@ -15,14 +15,7 @@ export class CustomBlockPostprocessor extends NodeVisitor<Node> {
 
   default(node: Node): Node {
     const newNode = node.shallowCopy()
-
-    if (
-      newNode instanceof Nodes.Document ||
-      ContainerBlock.isContainerBlock(newNode)
-    ) {
-      newNode.children = newNode.children.map((child) => child.accept(this))
-    }
-
+    newNode.children = newNode.children.map((child) => child.accept(this))
     return newNode
   }
 
