@@ -38,3 +38,38 @@ import app from "../../app"
     },
   ])
 }
+
+{
+  const text = `\
+|   | x | y |
+|---|---|---|
+| a |   |   |
+| b |   |   |
+`
+
+  const document = app.tester.parser.parseDocument(text)
+
+  app.tester.assertDocument(document, [
+    {
+      kind: "Table",
+      alignments: ["none", "none", "none"],
+      header: [
+        [],
+        [{ kind: "Text", text: "x" }],
+        [{ kind: "Text", text: "y" }],
+      ],
+      rows: [
+        [
+          [{ kind: "Text", text: "a" }],
+          [],
+          [],
+        ],
+        [
+          [{ kind: "Text", text: "b" }],
+          [],
+          [],
+        ],
+      ],
+    },
+  ])
+}

@@ -26,15 +26,19 @@ export class EnableTable extends NodeVisitor<Node> {
       const children = [
         ...markedToken.header,
         ...markedToken.rows.flatMap((row) => row),
-      ].map(
-        ({ text }) =>
-          // NOTE When using the `this.parser.parseNodes`,
-          // - the result will be wrapped in the first `Paragraph` of `nodes`.
-          // - the result will be inline node,
-          //   thus we do not need to worry about wrong `span`,
-          //   for inline node does not have `span`.
-          this.parser.parseNodes(text)[0]
-      )
+      ].map(({ text }) => {
+        // NOTE When using the `this.parser.parseNodes`,
+        // - the result will be wrapped in the first `Paragraph` of `nodes`.
+        // - the result will be inline node,
+        //   thus we do not need to worry about wrong `span`,
+        //   for inline node does not have `span`.
+        const firstParagraph = this.parser.parseNodes(text)[0]
+        if (firstParagraph) {
+          return firstParagraph
+        } else {
+          return new Nodes.Paragraph({ children: [], span: node.span })
+        }
+      })
 
       return new Nodes.Table({
         span: node.span,
