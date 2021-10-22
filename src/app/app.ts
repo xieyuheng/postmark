@@ -1,5 +1,5 @@
-import { ServiceContainer } from "@xieyuheng/enchanter/lib/service-container"
-import * as Loggers from "@xieyuheng/enchanter/lib/loggers"
+import { ServiceContainer } from "@enchanterjs/enchanter/lib/service-container"
+import * as Loggers from "@enchanterjs/enchanter/lib/loggers"
 import { AppConfig } from "./app-config"
 import { customAlphabet } from "nanoid"
 import { Tester } from "../tester"

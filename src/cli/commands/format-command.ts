@@ -1,5 +1,5 @@
-import { Command } from "@xieyuheng/enchanter/lib/command"
-import { CommandRunner } from "@xieyuheng/enchanter/lib/command-runner"
+import { Command } from "@enchanterjs/enchanter/lib/command"
+import { CommandRunner } from "@enchanterjs/enchanter/lib/command-runner"
 import app from "../../app"
 import ty from "@xieyuheng/ty"
 import Path from "path"
