@@ -33,6 +33,7 @@ export class HandleCustomBlock extends NodeVisitor<Node> {
           customKind: customBlockParser.customKind,
           value: customBlockParser.parse(node.text, {
             index: this.codeBlockCounter - 1,
+            info: node.info,
           }),
         })
       }
