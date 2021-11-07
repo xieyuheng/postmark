@@ -79,3 +79,9 @@ The `Node.format` & `Node.render` methods, help user to avoid handle `Node` recu
 
 - [TODO.md](TODO.md)
 - [STYLE-GUIDE.md](STYLE-GUIDE.md)
+- [CODE-OF-CONDUCT.md](CODE-OF-CONDUCT.md)
+- When contributing, add yourself to [AUTHORS](AUTHORS)
+
+## License
+
+- [GPLv3](LICENSE)
