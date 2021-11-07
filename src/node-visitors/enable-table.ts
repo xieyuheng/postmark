@@ -2,7 +2,7 @@ import { Node } from "../node"
 import { NodeVisitor } from "../node-visitor"
 import * as Nodes from "../nodes"
 import { Parser } from "../parser"
-import Marked from "marked"
+const { marked } = require("marked")
 
 export class EnableTable extends NodeVisitor<Node> {
   constructor(opts: { parser: Parser }) {
@@ -17,13 +17,13 @@ export class EnableTable extends NodeVisitor<Node> {
 
   onParagraph(node: Nodes.Paragraph): Node {
     const text = node.format()
-    const tokens = Marked.lexer(text)
+    const tokens = marked.lexer(text)
     if (tokens.length === 1 && tokens[0].type === "table") {
       const markedToken = tokens[0]
 
       const children = [
         ...markedToken.header,
-        ...markedToken.rows.flatMap((row) => row),
+        ...markedToken.rows.flatMap((row: any) => row),
       ].map(({ text }) => {
         // NOTE When using the `this.parser.parseNodes`,
         // - the result will be wrapped in the first `Paragraph` of `nodes`.

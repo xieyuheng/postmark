@@ -1,5 +1,5 @@
 import { NodeVisitor } from "../node-visitor"
-import Marked from "marked"
+const { marked } = require("marked")
 
 export abstract class Node {
   abstract kind: string
@@ -16,8 +16,8 @@ export abstract class Node {
   render(): string {
     const text = this.format()
 
-    const tokens = Marked.lexer(text)
-    const html = Marked.parser(tokens)
+    const tokens = marked.lexer(text)
+    const html = marked.parser(tokens)
 
     return html
   }

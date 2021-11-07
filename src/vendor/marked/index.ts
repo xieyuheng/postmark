@@ -1,4 +1,4 @@
-import Marked from "marked"
+const { marked } = require("marked")
 
 const md = `
 | a | b |
@@ -7,5 +7,5 @@ const md = `
 | 3 | 4 |
 `
 
-const tokens = Marked.lexer(md)
+const tokens = marked.lexer(md)
 console.dir(tokens, { depth: null })
