@@ -1,6 +1,6 @@
 # Postmark
 
-Markdown-based content engineeing.
+Markdown-based content engineering.
 
 ## Install
 
@@ -20,7 +20,7 @@ postmark format <file>  Format a markdown file
 ### Parse markdown to `Node`
 
 ``` typescript
-import { Parser } from "@forchange/postmark"
+import { Parser } from "@xieyuheng/postmark"
 
 const text = `\
 ---
