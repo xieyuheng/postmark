@@ -1,4 +1,7 @@
-- prettier organize imports
+- [refactor] [maybe] rename `CustomBlockParser`
+- [refactor] rename `cli/` to `console/`
+- [refactor] prettier organize imports
+- [refactor] remove `defaultParser` from `app` -- use `createParser` instead
 
 # custom list
 

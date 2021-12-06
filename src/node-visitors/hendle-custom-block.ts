@@ -2,16 +2,16 @@ import { Node } from "../node"
 import { NodeVisitor } from "../node-visitor"
 import { Parser } from "../parser"
 import * as Nodes from "../nodes"
-import { CustomBlockParser } from "../custom-block-parser"
+import * as Plugins from "../plugins"
 
 export class HandleCustomBlock extends NodeVisitor<Node> {
-  customBlockParsers: Array<CustomBlockParser<unknown>>
+  customBlockParsers: Array<Plugins.CustomBlockParser<unknown>>
 
   private codeBlockCounter = 0
 
   constructor(opts: {
     parser: Parser
-    customBlockParsers: Array<CustomBlockParser<unknown>>
+    customBlockParsers: Array<Plugins.CustomBlockParser<unknown>>
   }) {
     super({ parser: opts.parser })
     this.customBlockParsers = opts.customBlockParsers

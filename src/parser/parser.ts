@@ -5,15 +5,15 @@ import { documentFromCommonmark } from "./document-from-commonmark"
 import { nodeFromCommonmark } from "./node-from-commonmark"
 import frontMatter from "front-matter"
 import * as NodeVisitors from "../node-visitors"
-import { CustomBlockParser } from "../custom-block-parser"
+import * as Plugins from "../plugins"
 
 export interface ParserOptions {
-  customBlockParsers?: Array<CustomBlockParser<unknown>>
+  customBlockParsers?: Array<Plugins.CustomBlockParser<unknown>>
   enableTable?: boolean
 }
 
 export class Parser {
-  customBlockParsers: Array<CustomBlockParser<unknown>>
+  customBlockParsers: Array<Plugins.CustomBlockParser<unknown>>
   enableTable: boolean
 
   constructor(opts: ParserOptions) {
@@ -21,7 +21,7 @@ export class Parser {
     this.enableTable = Boolean(opts.enableTable)
   }
 
-  customBlock<T>(customBlockParser: CustomBlockParser<T>): this {
+  customBlock<T>(customBlockParser: Plugins.CustomBlockParser<T>): this {
     this.customBlockParsers.push(customBlockParser)
     return this
   }
