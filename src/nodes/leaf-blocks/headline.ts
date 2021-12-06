@@ -29,7 +29,7 @@ export class Headline extends Nodes.LeafBlock {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onHeadline ? visitor.onHeadline(this) : visitor.default(this)
+    return visitor.onHeadline(this)
   }
 
   format(): string {

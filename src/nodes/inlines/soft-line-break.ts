@@ -19,9 +19,7 @@ export class SoftLineBreak extends LineBreak {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onSoftLineBreak
-      ? visitor.onSoftLineBreak(this)
-      : visitor.default(this)
+    return visitor.onSoftLineBreak(this)
   }
 
   format(): string {

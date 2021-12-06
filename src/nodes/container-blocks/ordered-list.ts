@@ -42,9 +42,7 @@ export class OrderedList extends List {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onOrderedList
-      ? visitor.onOrderedList(this)
-      : visitor.default(this)
+    return visitor.onOrderedList(this)
   }
 
   format(): string {

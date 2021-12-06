@@ -43,9 +43,7 @@ export class CustomBlock<T> extends Nodes.LeafBlock {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onCustomBlock
-      ? visitor.onCustomBlock(this)
-      : visitor.default(this)
+    return visitor.onCustomBlock(this)
   }
 
   format(): string {

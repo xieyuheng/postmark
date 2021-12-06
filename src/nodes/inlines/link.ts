@@ -30,7 +30,7 @@ export class Link extends Nodes.Inline {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onLink ? visitor.onLink(this) : visitor.default(this)
+    return visitor.onLink(this)
   }
 
   format(): string {

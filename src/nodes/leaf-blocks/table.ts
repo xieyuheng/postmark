@@ -73,7 +73,7 @@ export class Table extends Nodes.LeafBlock {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onTable ? visitor.onTable(this) : visitor.default(this)
+    return visitor.onTable(this)
   }
 
   format(): string {

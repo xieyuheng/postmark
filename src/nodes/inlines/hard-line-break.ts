@@ -19,9 +19,7 @@ export class HardLineBreak extends LineBreak {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onHardLineBreak
-      ? visitor.onHardLineBreak(this)
-      : visitor.default(this)
+    return visitor.onHardLineBreak(this)
   }
 
   format(): string {

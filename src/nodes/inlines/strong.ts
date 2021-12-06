@@ -24,7 +24,7 @@ export class Strong extends Nodes.Inline {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onStrong ? visitor.onStrong(this) : visitor.default(this)
+    return visitor.onStrong(this)
   }
 
   format(): string {

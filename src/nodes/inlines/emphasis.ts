@@ -24,7 +24,7 @@ export class Emphasis extends Nodes.Inline {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onEmphasis ? visitor.onEmphasis(this) : visitor.default(this)
+    return visitor.onEmphasis(this)
   }
 
   format(): string {

@@ -26,9 +26,7 @@ export class HtmlBlock extends Nodes.LeafBlock {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onHtmlBlock
-      ? visitor.onHtmlBlock(this)
-      : visitor.default(this)
+    return visitor.onHtmlBlock(this)
   }
 
   format(): string {

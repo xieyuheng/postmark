@@ -37,9 +37,7 @@ export class CustomList<T> extends List {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onCustomList
-      ? visitor.onCustomList(this)
-      : visitor.default(this)
+    return visitor.onCustomList(this)
   }
 
   format(): string {

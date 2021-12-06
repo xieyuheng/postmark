@@ -26,9 +26,7 @@ export class BlockQuote extends Nodes.ContainerBlock {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onBlockQuote
-      ? visitor.onBlockQuote(this)
-      : visitor.default(this)
+    return visitor.onBlockQuote(this)
   }
 
   format(): string {

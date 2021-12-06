@@ -30,7 +30,7 @@ export class Image extends Nodes.Inline {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onImage ? visitor.onImage(this) : visitor.default(this)
+    return visitor.onImage(this)
   }
 
   format(): string {

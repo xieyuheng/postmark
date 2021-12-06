@@ -23,7 +23,7 @@ export class Code extends Nodes.Inline {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onCode ? visitor.onCode(this) : visitor.default(this)
+    return visitor.onCode(this)
   }
 
   format(): string {

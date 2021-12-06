@@ -23,7 +23,7 @@ export class HtmlTag extends Nodes.Inline {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onHtmlTag ? visitor.onHtmlTag(this) : visitor.default(this)
+    return visitor.onHtmlTag(this)
   }
 
   format(): string {

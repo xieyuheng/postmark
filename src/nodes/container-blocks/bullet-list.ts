@@ -34,9 +34,7 @@ export class BulletList extends List {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onBulletList
-      ? visitor.onBulletList(this)
-      : visitor.default(this)
+    return visitor.onBulletList(this)
   }
 
   format(): string {

@@ -1,5 +1,4 @@
-- [refactor] improve implementation of `Node.accept` -- should not use `default`
-- [refactor] `NodeVisitor` `onList`
+- [refactor] `NodeVisitor` has `onList` and `onListItem`
 
 # docs
 

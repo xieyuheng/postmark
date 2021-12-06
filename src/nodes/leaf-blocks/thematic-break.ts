@@ -23,9 +23,7 @@ export class ThematicBreak extends Nodes.LeafBlock {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onThematicBreak
-      ? visitor.onThematicBreak(this)
-      : visitor.default(this)
+    return visitor.onThematicBreak(this)
   }
 
   format(): string {

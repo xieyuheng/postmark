@@ -23,7 +23,7 @@ export class Text extends Nodes.Inline {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onText ? visitor.onText(this) : visitor.default(this)
+    return visitor.onText(this)
   }
 
   format(): string {

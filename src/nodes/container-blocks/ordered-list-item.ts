@@ -37,9 +37,7 @@ export class OrderedListItem extends ListItem {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onOrderedListItem
-      ? visitor.onOrderedListItem(this)
-      : visitor.default(this)
+    return visitor.onOrderedListItem(this)
   }
 
   format(): string {

@@ -26,9 +26,7 @@ export class Paragraph extends Nodes.LeafBlock {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onParagraph
-      ? visitor.onParagraph(this)
-      : visitor.default(this)
+    return visitor.onParagraph(this)
   }
 
   format(): string {

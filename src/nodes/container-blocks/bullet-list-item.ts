@@ -26,9 +26,7 @@ export class BulletListItem extends ListItem {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onBulletListItem
-      ? visitor.onBulletListItem(this)
-      : visitor.default(this)
+    return visitor.onBulletListItem(this)
   }
 
   format(): string {
