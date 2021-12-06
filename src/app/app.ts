@@ -12,11 +12,7 @@ export class App extends ServiceContainer {
 
   createParser = Parser.create
 
-  defaultParser = this.createParser({
-    enableTable: true,
-  })
-
-  tester = new Tester({ parser: this.defaultParser })
+  tester = new Tester({ parser: this.createParser() })
 }
 
 export default new App()

@@ -41,7 +41,7 @@ export class FormatCommand extends Command<Args, Opts> {
     Command.assertFile(argv["file"])
     const file = argv["file"]
     const text = await fs.promises.readFile(file, "utf8")
-    const document = app.defaultParser.parseDocument(text)
+    const document = app.createParser().parseDocument(text)
     const result = document.format()
     console.log(result)
   }

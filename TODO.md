@@ -1,5 +1,3 @@
-- [refactor] remove `defaultParser` from `app` -- use `createParser` instead
-
 # custom list
 
 - `CustomList`

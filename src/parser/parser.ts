@@ -16,9 +16,9 @@ export class Parser {
   customBlockPlugins: Array<Plugins.CustomBlockPlugin<unknown>>
   enableTable: boolean
 
-  constructor(opts: ParserOptions) {
-    this.customBlockPlugins = opts.customBlockPlugins || []
-    this.enableTable = Boolean(opts.enableTable)
+  constructor(opts?: ParserOptions) {
+    this.customBlockPlugins = opts?.customBlockPlugins || []
+    this.enableTable = opts?.enableTable ?? true
   }
 
   customBlock<T>(customBlockPlugin: Plugins.CustomBlockPlugin<T>): this {
@@ -26,7 +26,7 @@ export class Parser {
     return this
   }
 
-  static create(opts: ParserOptions): Parser {
+  static create(opts?: ParserOptions): Parser {
     return new Parser(opts)
   }
 
