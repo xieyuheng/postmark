@@ -4,7 +4,6 @@ import { AppConfig } from "./app-config"
 import { customAlphabet } from "nanoid"
 import { Tester } from "../tester"
 import { Parser } from "../parser"
-import { CustomBlockParser } from "../custom-block-parser"
 
 export class App extends ServiceContainer {
   nanoid = customAlphabet("1234567890abcdef", 16)
@@ -18,8 +17,6 @@ export class App extends ServiceContainer {
   })
 
   tester = new Tester({ parser: this.defaultParser })
-
-  createCustomBlockParser = CustomBlockParser.create
 }
 
 export default new App()

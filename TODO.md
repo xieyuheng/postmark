@@ -1,4 +1,4 @@
-- `Parser.customBlock` fluent API
+- prettier organize imports
 
 # custom list
 
@@ -13,4 +13,4 @@
 # errors
 
 - `CustomBlockParser` be able to report error
-- `CustomListdParser` be able to report error
+- `CustomListParser` be able to report error

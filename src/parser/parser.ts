@@ -21,6 +21,11 @@ export class Parser {
     this.enableTable = Boolean(opts.enableTable)
   }
 
+  customBlock<T>(customBlockParser: CustomBlockParser<T>): this {
+    this.customBlockParsers.push(customBlockParser)
+    return this
+  }
+
   static create(opts: ParserOptions): Parser {
     return new Parser(opts)
   }

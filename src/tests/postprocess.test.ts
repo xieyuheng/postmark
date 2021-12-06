@@ -26,11 +26,11 @@ Hello! I am Trivial.
 
   const parser = app.createParser({
     customBlockParsers: [
-      app.createCustomBlockParser({
+      {
         customKind: "Trivial",
         recognize: (info) => info.startsWith("trivial"),
         parse: (text) => new Trivial(text),
-      }),
+      },
     ],
   })
 
@@ -79,11 +79,11 @@ Hello! I am Trivial.
 
   const parser = app.createParser({
     customBlockParsers: [
-      app.createCustomBlockParser({
+      {
         customKind: "Trivial",
         recognize: (info) => info.startsWith("trivial"),
         parse: (text) => new Trivial(text),
-      }),
+      },
     ],
   })
 
