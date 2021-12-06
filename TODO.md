@@ -1,5 +1,3 @@
-- `NodeVisitor.onCustomList`
-
 - `CustomList` has underlying `list`
 
   - remind to use setter for `children`

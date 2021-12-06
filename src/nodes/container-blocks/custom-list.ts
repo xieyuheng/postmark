@@ -2,7 +2,7 @@ import { Node, Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
 import { List } from "./list"
 
-export class CustomList extends List {
+export class CustomList<T> extends List {
   kind = "CustomList"
 
   customKind: string
@@ -11,20 +11,24 @@ export class CustomList extends List {
   tight: boolean
   children: Array<Node>
 
+  value: T
+
   constructor(opts: {
     customKind: string
     span: Span
     tight: boolean
     children: Array<Node>
+    value: T
   }) {
     super()
     this.customKind = opts.customKind
     this.span = opts.span
     this.tight = opts.tight
     this.children = opts.children
+    this.value = opts.value
   }
 
-  shallowCopy(): CustomList {
+  shallowCopy(): CustomList<T> {
     return new CustomList(this)
   }
 
@@ -37,8 +41,8 @@ export class CustomList extends List {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onBulletList
-      ? visitor.onBulletList(this)
+    return visitor.onCustomList
+      ? visitor.onCustomList(this)
       : visitor.default(this)
   }
 

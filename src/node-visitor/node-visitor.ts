@@ -21,6 +21,7 @@ export abstract class NodeVisitor<T> {
   onBulletListItem?(node: Nodes.BulletListItem): T
   onOrderedList?(node: Nodes.OrderedList): T
   onOrderedListItem?(node: Nodes.OrderedListItem): T
+  onCustomList?<A>(node: Nodes.CustomList<A>): T
 
   // NOTE leaf-block
   onParagraph?(node: Nodes.Paragraph): T
