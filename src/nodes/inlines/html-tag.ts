@@ -1,7 +1,7 @@
-import { Inline } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import * as Nodes from "../../nodes"
 
-export class HtmlTag extends Inline {
+export class HtmlTag extends Nodes.Inline {
   kind = "HtmlTag"
 
   text: string

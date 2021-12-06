@@ -1,7 +1,8 @@
-import { Inline, Node } from "../../node"
+import { Node } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import * as Nodes from "../../nodes"
 
-export class Emphasis extends Inline {
+export class Emphasis extends Nodes.Inline {
   kind = "Emphasis"
 
   children: Array<Node>

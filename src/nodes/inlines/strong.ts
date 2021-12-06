@@ -1,7 +1,8 @@
-import { Inline, Node } from "../../node"
+import { Node } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import * as Nodes from "../../nodes"
 
-export class Strong extends Inline {
+export class Strong extends Nodes.Inline {
   kind = "Strong"
 
   children: Array<Node>

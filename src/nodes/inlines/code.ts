@@ -1,7 +1,7 @@
-import { Inline } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import * as Nodes from "../../nodes"
 
-export class Code extends Inline {
+export class Code extends Nodes.Inline {
   kind = "Code"
 
   text: string
