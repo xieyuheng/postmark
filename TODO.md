@@ -1,5 +1,3 @@
-- move `block` from `node/` to `nodes/`
-
 - `NodeVisitor.onCustomList`
 
 - `CustomList` has underlying `list`
