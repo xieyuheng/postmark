@@ -6,7 +6,7 @@
 
 # docs
 
-- update readme about using custom-block-parser
+- update readme about using custom-block-plugin
 
 # errors
 
