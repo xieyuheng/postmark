@@ -1,5 +1,6 @@
-import { Node, Span } from "../../node"
+import { Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import * as Nodes from "../../nodes"
 import { List } from "./list"
 
 export class BulletList extends List {
@@ -7,9 +8,13 @@ export class BulletList extends List {
 
   span: Span
   tight: boolean
-  children: Array<Node>
+  children: Array<Nodes.BulletListItem>
 
-  constructor(opts: { children: Array<Node>; tight: boolean; span: Span }) {
+  constructor(opts: {
+    children: Array<Nodes.BulletListItem>
+    tight: boolean
+    span: Span
+  }) {
     super()
     this.span = opts.span
     this.tight = opts.tight

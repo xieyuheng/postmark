@@ -105,7 +105,18 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
     return new Nodes.BulletList({
       span: node.sourcepos && Span.fromPairs(node.sourcepos),
       tight: ty.boolean().validate(node.listTight),
-      children: Commonmark.children(node).map(nodeFromCommonmark),
+      children: Commonmark.children(node).map((node) => {
+        const result = nodeFromCommonmark(node)
+        if (!(result instanceof Nodes.BulletListItem)) {
+          throw new Error(
+            [
+              `I expect node to be Nodes.BulletListItem`,
+              `  class name: ${result.constructor.name}`,
+            ].join("\n")
+          )
+        }
+        return result
+      }),
     })
   }
 
