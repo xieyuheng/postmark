@@ -25,10 +25,13 @@ export * from "./document"
 //   - text
 
 export * from "./container-blocks/block-quote"
+export * from "./container-blocks/list"
+export * from "./container-blocks/list-item"
 export * from "./container-blocks/bullet-list"
 export * from "./container-blocks/bullet-list-item"
 export * from "./container-blocks/ordered-list"
 export * from "./container-blocks/ordered-list-item"
+export * from "./container-blocks/custom-list"
 
 export * from "./leaf-blocks/paragraph"
 export * from "./leaf-blocks/table"

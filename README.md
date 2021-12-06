@@ -10,7 +10,6 @@ npm i @xieyuheng/postmark
 
 ## Usage
 
-
 ### Command Line Interface
 
 After installed the `@xieyuheng/postmark` package, you can run `postmark help` to see help messages.
@@ -79,12 +78,12 @@ TODO
 TODO
 ```
 
-### `Node.format` & `Node.render`
+### `node.format()` & `node.render()`
 
-The `Node.format` & `Node.render` methods, help user to avoid handle `Node` recursively.
+The `node.format` & `node.render` methods, help user to avoid handle `Node` recursively.
 
-- `Node.format()` -- format node back to markdown itself.
-- `Node.render()` -- render node to html.
+- `node.format()` -- format `node` back to markdown itself.
+- `node.render()` -- render `node` to html.
 
 ## Development
 

@@ -40,6 +40,15 @@ export class Parser {
       )
     }
 
+    // if (this.customListPlugins.length > 0) {
+    //   node = node.accept(
+    //     new NodeVisitors.HandleCustomList({
+    //       parser: this,
+    //       customListPlugins: this.customListPlugins,
+    //     })
+    //   )
+    // }
+
     if (this.enableTable) {
       node = node.accept(
         new NodeVisitors.EnableTable({
