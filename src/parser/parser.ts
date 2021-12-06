@@ -9,20 +9,28 @@ import { nodeFromCommonmark } from "./node-from-commonmark"
 
 export interface ParserOptions {
   customBlockPlugins?: Array<Plugins.CustomBlockPlugin<unknown>>
+  customListPlugins?: Array<Plugins.CustomListPlugin<unknown>>
   enableTable?: boolean
 }
 
 export class Parser {
   customBlockPlugins: Array<Plugins.CustomBlockPlugin<unknown>>
+  customListPlugins: Array<Plugins.CustomListPlugin<unknown>>
   enableTable: boolean
 
   constructor(opts?: ParserOptions) {
     this.customBlockPlugins = opts?.customBlockPlugins || []
+    this.customListPlugins = opts?.customListPlugins || []
     this.enableTable = opts?.enableTable ?? true
   }
 
   customBlock<T>(customBlockPlugin: Plugins.CustomBlockPlugin<T>): this {
     this.customBlockPlugins.push(customBlockPlugin)
+    return this
+  }
+
+  customList<T>(customListPlugin: Plugins.CustomListPlugin<T>): this {
+    this.customListPlugins.push(customListPlugin)
     return this
   }
 
@@ -40,14 +48,14 @@ export class Parser {
       )
     }
 
-    // if (this.customListPlugins.length > 0) {
-    //   node = node.accept(
-    //     new NodeVisitors.HandleCustomList({
-    //       parser: this,
-    //       customListPlugins: this.customListPlugins,
-    //     })
-    //   )
-    // }
+    if (this.customListPlugins.length > 0) {
+      node = node.accept(
+        new NodeVisitors.HandleCustomList({
+          parser: this,
+          customListPlugins: this.customListPlugins,
+        })
+      )
+    }
 
     if (this.enableTable) {
       node = node.accept(

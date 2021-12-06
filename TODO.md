@@ -1,7 +1,3 @@
-# custom list
-
-- `Parser.customList` fluent API
-
 # docs
 
 - update readme about using custom-block-plugin
