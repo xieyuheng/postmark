@@ -1,9 +1,8 @@
 import { Command } from "@enchanterjs/enchanter/lib/command"
 import { CommandRunner } from "@enchanterjs/enchanter/lib/command-runner"
 import { CommonHelpCommand } from "@enchanterjs/enchanter/lib/commands"
-import * as Commands from "../commands"
-import app from "../../app"
 import ty from "@xieyuheng/ty"
+import app from "../../app"
 
 type Args = {}
 type Opts = { help?: boolean; version?: boolean }

@@ -1,7 +1,7 @@
 import { Node } from "../node"
 import { NodeVisitor } from "../node-visitor"
-import { Parser } from "../parser"
 import * as Nodes from "../nodes"
+import { Parser } from "../parser"
 import * as Plugins from "../plugins"
 
 export class HandleCustomBlock extends NodeVisitor<Node> {

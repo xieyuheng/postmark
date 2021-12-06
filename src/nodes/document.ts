@@ -1,6 +1,6 @@
+import YAML from "js-yaml"
 import { Node, Span } from "../node"
 import { NodeVisitor } from "../node-visitor"
-import YAML from "js-yaml"
 
 export class Document extends Node {
   kind = "Document"

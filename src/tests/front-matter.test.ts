@@ -1,7 +1,6 @@
 import app from "../app"
 import * as Nodes from "../nodes"
 import * as ut from "../ut"
-import ty from "@xieyuheng/ty"
 
 {
   const text = `\

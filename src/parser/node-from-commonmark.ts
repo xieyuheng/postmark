@@ -1,7 +1,7 @@
+import ty from "@xieyuheng/ty"
 import { Node, Span } from "../index"
 import * as Nodes from "../nodes"
 import * as Commonmark from "../vendor/commonmark"
-import ty from "@xieyuheng/ty"
 
 export function nodeFromCommonmark(node: Commonmark.Node): Node {
   if (node.type === "text") {

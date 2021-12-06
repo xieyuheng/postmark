@@ -1,11 +1,11 @@
+import frontMatter from "front-matter"
 import { Node } from "../node"
+import * as NodeVisitors from "../node-visitors"
 import * as Nodes from "../nodes"
+import * as Plugins from "../plugins"
 import * as Commonmark from "../vendor/commonmark"
 import { documentFromCommonmark } from "./document-from-commonmark"
 import { nodeFromCommonmark } from "./node-from-commonmark"
-import frontMatter from "front-matter"
-import * as NodeVisitors from "../node-visitors"
-import * as Plugins from "../plugins"
 
 export interface ParserOptions {
   customBlockParsers?: Array<Plugins.CustomBlockParser<unknown>>

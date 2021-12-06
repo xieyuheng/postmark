@@ -1,3 +1,5 @@
+// organize-imports-ignore
+
 export * from "./document"
 
 // NOTE https://spec.commonmark.org/current

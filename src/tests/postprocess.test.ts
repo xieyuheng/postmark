@@ -1,5 +1,4 @@
 import app from "../app"
-import * as Nodes from "../nodes"
 
 class Trivial {
   text: string

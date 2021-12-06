@@ -1,5 +1,5 @@
-import { LineBreak } from "./line-break"
 import { NodeVisitor } from "../../node-visitor"
+import { LineBreak } from "./line-break"
 
 export class SoftLineBreak extends LineBreak {
   kind = "SoftLineBreak"

@@ -1,4 +1,4 @@
-import { Node, Inline } from "../../node"
+import { Inline, Node } from "../../node"
 
 export abstract class LineBreak extends Inline {
   instanceofLineBreak = true

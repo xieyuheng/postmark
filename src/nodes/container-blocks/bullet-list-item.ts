@@ -1,6 +1,6 @@
-import { ListItem } from "./list-item"
 import { Node, Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import { ListItem } from "./list-item"
 
 export class BulletListItem extends ListItem {
   kind = "BulletListItem"

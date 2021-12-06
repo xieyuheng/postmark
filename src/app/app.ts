@@ -1,9 +1,9 @@
-import { ServiceContainer } from "@enchanterjs/enchanter/lib/service-container"
 import * as Loggers from "@enchanterjs/enchanter/lib/loggers"
-import { AppConfig } from "./app-config"
+import { ServiceContainer } from "@enchanterjs/enchanter/lib/service-container"
 import { customAlphabet } from "nanoid"
-import { Tester } from "../tester"
 import { Parser } from "../parser"
+import { Tester } from "../tester"
+import { AppConfig } from "./app-config"
 
 export class App extends ServiceContainer {
   nanoid = customAlphabet("1234567890abcdef", 16)

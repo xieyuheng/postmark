@@ -1,5 +1,5 @@
-import * as Commonmark from "../commonmark"
 import * as ut from "../../ut"
+import * as Commonmark from "../commonmark"
 
 const examples = `\
 Hello *world*

@@ -1,6 +1,6 @@
-import { List } from "./list"
 import { Node, Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import { List } from "./list"
 
 export class OrderedList extends List {
   kind = "OrderedList"
