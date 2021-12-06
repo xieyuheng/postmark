@@ -1,4 +1,4 @@
-import { Node, Span } from "../../node"
+import { Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
 import * as Nodes from "../../nodes"
 import { List } from "./list"
@@ -25,31 +25,14 @@ export class CustomList<T> extends List {
     this.value = opts.value
   }
 
-  get tight(): boolean {
-    return this.list.tight
-  }
-
-  set tight(tight: boolean) {
-    this.list.tight = tight
-  }
-
-  get children(): Array<Node> {
-    return this.list.children
-  }
-
-  set children(children: Array<Node>) {
-    this.list.children = children
-  }
-
   shallowCopy(): CustomList<T> {
     return new CustomList(this)
   }
 
   json() {
     return {
-      kind: this.kind,
-      tight: this.tight,
-      children: this.children.map((child) => child.json()),
+      customKind: this.customKind,
+      list: this.list.json(),
     }
   }
 
@@ -60,10 +43,6 @@ export class CustomList<T> extends List {
   }
 
   format(): string {
-    if (this.tight) {
-      return this.children.map((child) => child.format()).join("\n")
-    } else {
-      return this.children.map((child) => child.format()).join("\n\n")
-    }
+    return this.list.format()
   }
 }

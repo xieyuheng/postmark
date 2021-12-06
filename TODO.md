@@ -1,6 +1,11 @@
+- [refactor] `NodeVisitor` fallback to `default` on each not implemented cases
+- [refactor] improve implementation of `Node.accept` -- should not use `default`
+- [refactor] `NodeVisitor` `onList`
+
 # docs
 
-- update readme about using custom-block-plugin
+- docs about using `CustomBlockPlugin`
+- docs about using `CustomListPlugin`
 
 # errors
 

@@ -15,10 +15,8 @@ export abstract class Node {
 
   render(): string {
     const text = this.format()
-
     const tokens = marked.lexer(text)
     const html = marked.parser(tokens)
-
     return html
   }
 }

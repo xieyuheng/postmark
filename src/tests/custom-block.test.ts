@@ -8,6 +8,12 @@ class Trivial {
   }
 }
 
+const parser = app.createParser().customBlock({
+  customKind: "Trivial",
+  recognize: (info) => info.startsWith("trivial"),
+  parse: (text) => new Trivial(text),
+})
+
 {
   const text = `\
 # Non Trivial
@@ -22,16 +28,6 @@ Hello! I am Non Trivial.
 Hello! I am Trivial.
 ~~~
 `
-
-  const parser = app.createParser({
-    customBlockPlugins: [
-      {
-        customKind: "Trivial",
-        recognize: (info) => info.startsWith("trivial"),
-        parse: (text) => new Trivial(text),
-      },
-    ],
-  })
 
   const document = parser.parseDocument(text)
 
@@ -62,6 +58,8 @@ Hello! I am Trivial.
 }
 
 {
+  // NOTE `CodeBlock` nested in list
+
   const text = `\
 - ~~~ trivial
   a
@@ -75,16 +73,6 @@ Hello! I am Trivial.
   c
   ~~~
 `
-
-  const parser = app.createParser({
-    customBlockPlugins: [
-      {
-        customKind: "Trivial",
-        recognize: (info) => info.startsWith("trivial"),
-        parse: (text) => new Trivial(text),
-      },
-    ],
-  })
 
   const document = parser.parseDocument(text)
 

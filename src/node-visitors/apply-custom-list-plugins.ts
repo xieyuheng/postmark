@@ -21,7 +21,15 @@ export class ApplyCustomListPlugins extends NodeVisitor<Node> {
     return newNode
   }
 
-  onCodeList(node: Nodes.List): Node {
+  onBulletList(node: Nodes.BulletList): Node {
+    return this.onList(node)
+  }
+
+  onOrderedList(node: Nodes.OrderedList): Node {
+    return this.onList(node)
+  }
+
+  onList(node: Nodes.List): Node {
     for (const customListPlugin of this.customListPlugins) {
       if (customListPlugin.recognize(node)) {
         return new Nodes.CustomList({

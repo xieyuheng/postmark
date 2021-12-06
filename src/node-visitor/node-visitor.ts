@@ -23,6 +23,10 @@ export abstract class NodeVisitor<T> {
   onOrderedListItem?(node: Nodes.OrderedListItem): T
   onCustomList?<A>(node: Nodes.CustomList<A>): T
 
+  // onList(node: Nodes.List): T {
+  //   return this.default(node)
+  // }
+
   // NOTE leaf-block
   onParagraph?(node: Nodes.Paragraph): T
   onTable?(node: Nodes.Table): T
