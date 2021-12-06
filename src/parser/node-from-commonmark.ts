@@ -105,18 +105,9 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
     return new Nodes.BulletList({
       span: node.sourcepos && Span.fromPairs(node.sourcepos),
       tight: ty.boolean().validate(node.listTight),
-      children: Commonmark.children(node).map((node) => {
-        const result = nodeFromCommonmark(node)
-        if (!(result instanceof Nodes.BulletListItem)) {
-          throw new Error(
-            [
-              `I expect node to be Nodes.BulletListItem`,
-              `  class name: ${result.constructor.name}`,
-            ].join("\n")
-          )
-        }
-        return result
-      }),
+      children: Commonmark.children(node).map((node) =>
+        ty.instanceof(Nodes.BulletListItem).validate(nodeFromCommonmark(node))
+      ),
     })
   }
 
@@ -135,18 +126,9 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
       delimiter: ty
         .union(ty.const("." as const), ty.const(")" as const))
         .validate(node.listDelimiter),
-      children: Commonmark.children(node).map((node) => {
-        const result = nodeFromCommonmark(node)
-        if (!(result instanceof Nodes.OrderedListItem)) {
-          throw new Error(
-            [
-              `I expect node to be Nodes.OrderedListItem`,
-              `  class name: ${result.constructor.name}`,
-            ].join("\n")
-          )
-        }
-        return result
-      }),
+      children: Commonmark.children(node).map((node) =>
+        ty.instanceof(Nodes.OrderedListItem).validate(nodeFromCommonmark(node))
+      ),
     })
   }
 

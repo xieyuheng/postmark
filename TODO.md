@@ -1,5 +1,3 @@
-- [refactor] use `ty.instanceof(value, Class)`
-
 - [refactor] `NodeVisitor` fallback to `default` on each not implemented cases
 - [refactor] improve implementation of `Node.accept` -- should not use `default`
 - [refactor] `NodeVisitor` `onList`

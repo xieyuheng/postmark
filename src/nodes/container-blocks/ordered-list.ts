@@ -1,4 +1,4 @@
-import { Node, Span } from "../../node"
+import { Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
 import * as Nodes from "../../nodes"
 import { List } from "./list"
