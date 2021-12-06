@@ -1,4 +1,4 @@
-import { Node, Span } from "../api"
+import { Node, Span } from "../index"
 import * as Nodes from "../nodes"
 import * as Commonmark from "../vendor/commonmark"
 import ty from "@xieyuheng/ty"
