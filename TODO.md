@@ -1,5 +1,3 @@
-- [refactor] refine `OrderedList.children` typing
-
 - [refactor] use `ty.instanceof(value, Class)`
 
 - [refactor] `NodeVisitor` fallback to `default` on each not implemented cases

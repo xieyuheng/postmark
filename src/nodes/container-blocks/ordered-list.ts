@@ -1,5 +1,6 @@
 import { Node, Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import * as Nodes from "../../nodes"
 import { List } from "./list"
 
 export class OrderedList extends List {
@@ -9,10 +10,10 @@ export class OrderedList extends List {
   tight: boolean
   start: number
   delimiter: "." | ")"
-  children: Array<Node>
+  children: Array<Nodes.OrderedListItem>
 
   constructor(opts: {
-    children: Array<Node>
+    children: Array<Nodes.OrderedListItem>
     tight: boolean
     start: number
     delimiter: "." | ")"

@@ -135,7 +135,18 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
       delimiter: ty
         .union(ty.const("." as const), ty.const(")" as const))
         .validate(node.listDelimiter),
-      children: Commonmark.children(node).map(nodeFromCommonmark),
+      children: Commonmark.children(node).map((node) => {
+        const result = nodeFromCommonmark(node)
+        if (!(result instanceof Nodes.OrderedListItem)) {
+          throw new Error(
+            [
+              `I expect node to be Nodes.OrderedListItem`,
+              `  class name: ${result.constructor.name}`,
+            ].join("\n")
+          )
+        }
+        return result
+      }),
     })
   }
 
