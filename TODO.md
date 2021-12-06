@@ -1,9 +1,5 @@
-- `CustomListPlugin` should be a class instead of interface -- to use template pattern
-- `CustomBlockPlugin` should be a class instead of interface -- to use template pattern
-
 # custom list
 
-- `NodeVisitors.HandleCustomList`
 - `Parser.customList` fluent API
 
 # docs
@@ -14,3 +10,10 @@
 
 - `CustomBlockPlugin` be able to report error
 - `CustomListPlugin` be able to report error
+
+# maybe
+
+- [maybe] to use template pattern
+
+  - `CustomListPlugin` should be a class instead of interface
+  - `CustomBlockPlugin` should be a class instead of interface
