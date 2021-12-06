@@ -1,5 +1,3 @@
-- [refactor] `NodeVisitor` has `onList` and `onListItem`
-
 # docs
 
 - docs about using `CustomBlockPlugin`
