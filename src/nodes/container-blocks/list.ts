@@ -1,6 +1,7 @@
-import { ContainerBlock, Node } from "../../node"
+import { Node } from "../../node"
+import * as Nodes from "../../nodes"
 
-export abstract class List extends ContainerBlock {
+export abstract class List extends Nodes.ContainerBlock {
   instanceofList = true
 
   abstract tight: boolean

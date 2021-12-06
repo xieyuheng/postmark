@@ -1,7 +1,8 @@
-import { ContainerBlock, Node, Span } from "../../node"
+import { Node, Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import * as Nodes from "../../nodes"
 
-export class BlockQuote extends ContainerBlock {
+export class BlockQuote extends Nodes.ContainerBlock {
   kind = "BlockQuote"
 
   span: Span

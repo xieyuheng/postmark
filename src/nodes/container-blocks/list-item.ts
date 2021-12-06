@@ -1,6 +1,7 @@
-import { ContainerBlock, Node } from "../../node"
+import { Node } from "../../node"
+import * as Nodes from "../../nodes"
 
-export abstract class ListItem extends ContainerBlock {
+export abstract class ListItem extends Nodes.ContainerBlock {
   instanceofListItem = true
 
   static isListItem(node: Node): node is ListItem {

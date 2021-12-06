@@ -1,4 +1,3 @@
-- move `container-block` from `node/` to `nodes/`
 - move `block` from `node/` to `nodes/`
 
 - `NodeVisitor.onCustomList`

@@ -24,8 +24,9 @@ export * from "./document"
 //   - line-break > hard-line-break, soft-line-break
 //   - text
 
-export * from "./inline"
+export * from "./container-block"
 export * from "./leaf-block"
+export * from "./inline"
 
 export * from "./container-blocks/block-quote"
 export * from "./container-blocks/list"
