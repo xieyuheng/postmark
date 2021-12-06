@@ -1,7 +1,3 @@
-- `CustomList` has underlying `list`
-
-  - remind to use setter for `children`
-
 - `CustomListPlugin` should be a class instead of interface -- to use template pattern
 - `CustomBlockPlugin` should be a class instead of interface -- to use template pattern
 
