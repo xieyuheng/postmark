@@ -1,5 +1,4 @@
 - [refactor] [maybe] rename `CustomBlockParser`
-- [refactor] rename `cli/` to `console/`
 - [refactor] remove `defaultParser` from `app` -- use `createParser` instead
 
 # custom list
