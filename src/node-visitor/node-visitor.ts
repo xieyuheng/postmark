@@ -24,7 +24,7 @@ export abstract class NodeVisitor<T> {
   onOrderedListItem(node: Nodes.OrderedListItem): T { return this.onListItem(node) }
   onCustomList<A>(node: Nodes.CustomList<A>): T { return this.default(node) }
   onList(node: Nodes.List): T { return this.default(node) }
-  onListItem(node: Nodes.List): T { return this.default(node) }
+  onListItem(node: Nodes.ListItem): T { return this.default(node) }
 
   // NOTE leaf-block
   onParagraph(node: Nodes.Paragraph): T { return this.default(node) }
