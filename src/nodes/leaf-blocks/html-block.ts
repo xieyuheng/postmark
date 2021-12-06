@@ -1,7 +1,8 @@
-import { LeafBlock, Span } from "../../node"
+import { Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import * as Nodes from "../../nodes"
 
-export class HtmlBlock extends LeafBlock {
+export class HtmlBlock extends Nodes.LeafBlock {
   kind = "HtmlBlock"
 
   span: Span

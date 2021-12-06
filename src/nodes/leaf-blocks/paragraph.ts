@@ -1,7 +1,8 @@
-import { LeafBlock, Node, Span } from "../../node"
+import { Node, Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import * as Nodes from "../../nodes"
 
-export class Paragraph extends LeafBlock {
+export class Paragraph extends Nodes.LeafBlock {
   kind = "Paragraph"
 
   span: Span

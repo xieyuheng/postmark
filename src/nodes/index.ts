@@ -25,6 +25,7 @@ export * from "./document"
 //   - text
 
 export * from "./inline"
+export * from "./leaf-block"
 
 export * from "./container-blocks/block-quote"
 export * from "./container-blocks/list"

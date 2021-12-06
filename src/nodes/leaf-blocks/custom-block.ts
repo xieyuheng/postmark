@@ -1,7 +1,8 @@
-import { LeafBlock, Span } from "../../node"
+import { Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import * as Nodes from "../../nodes"
 
-export class CustomBlock<T> extends LeafBlock {
+export class CustomBlock<T> extends Nodes.LeafBlock {
   kind = "CustomBlock"
 
   customKind: string

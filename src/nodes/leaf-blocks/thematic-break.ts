@@ -1,7 +1,8 @@
-import { LeafBlock, Span } from "../../node"
+import { Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import * as Nodes from "../../nodes"
 
-export class ThematicBreak extends LeafBlock {
+export class ThematicBreak extends Nodes.LeafBlock {
   kind = "ThematicBreak"
 
   span: Span

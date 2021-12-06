@@ -1,9 +1,10 @@
-import { LeafBlock, Node, Span } from "../../node"
+import { Node, Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
+import * as Nodes from "../../nodes"
 
 type Alignment = null | "left" | "right" | "center"
 
-export class Table extends LeafBlock {
+export class Table extends Nodes.LeafBlock {
   kind = "Table"
 
   span: Span
