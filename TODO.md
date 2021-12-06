@@ -1,6 +1,11 @@
 # later
 
+- `Parser.customBlock` fluent API
+
+- `CustomList`
+- `CustomListParser`
+- `Parser.customList` fluent API
+
 - update readme about using custom-block-parser
-  - after `sisuo` use this library
 
 - `CustomBlockParser` be able to report error
