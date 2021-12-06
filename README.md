@@ -10,18 +10,26 @@ npm i @xieyuheng/postmark
 
 ## Usage
 
-### Command line
 
-```
-postmark render <file>  Render a markdown file to html
-postmark format <file>  Format a markdown file
-```
+### Command Line Interface
 
-### Parse markdown to `Node`
+After installed the `@xieyuheng/postmark` package, you can run `postmark help` to see help messages.
+
+## API Docs
+
+### `postmark.createParser(opts: ParserOptions)`
 
 ``` typescript
-import { Parser } from "@xieyuheng/postmark"
+import postmark from "@xieyuheng/postmark"
 
+const parser = postmark.createParser({
+  enableTable: true // default
+})
+```
+
+### `parser.parseDocument(text: string)`
+
+``` typescript
 const text = `\
 ---
 title: The principle of type theory
@@ -36,7 +44,6 @@ The principle of type theory is:
 > We should study **terms** and **types** together.
 `
 
-const parser = new Parser()
 const document = parser.parseDocument(text)
 
 console.log(document)
@@ -60,15 +67,17 @@ console.log(document)
 // }
 ```
 
-### Custom Block
+### `parser.customBlock(plugin: CustomBlockPlugin)`
 
+``` typescript
 TODO
+```
 
-### Custom List
+### `parser.customList(plugin: CustomListPlugin)`
 
+``` typescript
 TODO
-
-## API Docs
+```
 
 ### `Node.format` & `Node.render`
 
@@ -76,6 +85,15 @@ The `Node.format` & `Node.render` methods, help user to avoid handle `Node` recu
 
 - `Node.format()` -- format node back to markdown itself.
 - `Node.render()` -- render node to html.
+
+## Development
+
+```
+npm install    // Install dependences
+npm run build  // Compile `src/` to `lib/`
+npm run watch  // Watch the compilation
+npm run test   // Run test
+```
 
 ## Contributions
 
