@@ -8,21 +8,21 @@ import { documentFromCommonmark } from "./document-from-commonmark"
 import { nodeFromCommonmark } from "./node-from-commonmark"
 
 export interface ParserOptions {
-  customBlockParsers?: Array<Plugins.CustomBlockParser<unknown>>
+  customBlockPlugins?: Array<Plugins.CustomBlockPlugin<unknown>>
   enableTable?: boolean
 }
 
 export class Parser {
-  customBlockParsers: Array<Plugins.CustomBlockParser<unknown>>
+  customBlockPlugins: Array<Plugins.CustomBlockPlugin<unknown>>
   enableTable: boolean
 
   constructor(opts: ParserOptions) {
-    this.customBlockParsers = opts.customBlockParsers || []
+    this.customBlockPlugins = opts.customBlockPlugins || []
     this.enableTable = Boolean(opts.enableTable)
   }
 
-  customBlock<T>(customBlockParser: Plugins.CustomBlockParser<T>): this {
-    this.customBlockParsers.push(customBlockParser)
+  customBlock<T>(customBlockPlugin: Plugins.CustomBlockPlugin<T>): this {
+    this.customBlockPlugins.push(customBlockPlugin)
     return this
   }
 
@@ -31,11 +31,11 @@ export class Parser {
   }
 
   private postprocess(node: Node): Node {
-    if (this.customBlockParsers.length > 0) {
+    if (this.customBlockPlugins.length > 0) {
       node = node.accept(
         new NodeVisitors.HandleCustomBlock({
           parser: this,
-          customBlockParsers: this.customBlockParsers,
+          customBlockPlugins: this.customBlockPlugins,
         })
       )
     }

@@ -1,1 +1,1 @@
-export * from "./custom-block-parser"
+export * from "./custom-block-plugin"

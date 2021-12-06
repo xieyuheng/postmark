@@ -1,10 +1,9 @@
-- [refactor] [maybe] rename `CustomBlockParser`
 - [refactor] remove `defaultParser` from `app` -- use `createParser` instead
 
 # custom list
 
 - `CustomList`
-- `CustomListParser`
+- `CustomListPlugin`
 - `Parser.customList` fluent API
 
 # docs
@@ -13,5 +12,5 @@
 
 # errors
 
-- `CustomBlockParser` be able to report error
-- `CustomListParser` be able to report error
+- `CustomBlockPlugin` be able to report error
+- `CustomListPlugin` be able to report error

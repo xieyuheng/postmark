@@ -5,16 +5,16 @@ import { Parser } from "../parser"
 import * as Plugins from "../plugins"
 
 export class HandleCustomBlock extends NodeVisitor<Node> {
-  customBlockParsers: Array<Plugins.CustomBlockParser<unknown>>
+  customBlockPlugins: Array<Plugins.CustomBlockPlugin<unknown>>
 
   private codeBlockCounter = 0
 
   constructor(opts: {
     parser: Parser
-    customBlockParsers: Array<Plugins.CustomBlockParser<unknown>>
+    customBlockPlugins: Array<Plugins.CustomBlockPlugin<unknown>>
   }) {
     super({ parser: opts.parser })
-    this.customBlockParsers = opts.customBlockParsers
+    this.customBlockPlugins = opts.customBlockPlugins
   }
 
   default(node: Node): Node {
@@ -26,12 +26,12 @@ export class HandleCustomBlock extends NodeVisitor<Node> {
   onCodeBlock(node: Nodes.CodeBlock): Node {
     this.codeBlockCounter++
 
-    for (const customBlockParser of this.customBlockParsers) {
-      if (customBlockParser.recognize(node.info)) {
+    for (const customBlockPlugin of this.customBlockPlugins) {
+      if (customBlockPlugin.recognize(node.info)) {
         return new Nodes.CustomBlock({
           ...node,
-          customKind: customBlockParser.customKind,
-          value: customBlockParser.parse(node.text, {
+          customKind: customBlockPlugin.customKind,
+          value: customBlockPlugin.parse(node.text, {
             index: this.codeBlockCounter - 1,
           }),
         })

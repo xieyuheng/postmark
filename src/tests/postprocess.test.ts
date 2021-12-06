@@ -24,7 +24,7 @@ Hello! I am Trivial.
 `
 
   const parser = app.createParser({
-    customBlockParsers: [
+    customBlockPlugins: [
       {
         customKind: "Trivial",
         recognize: (info) => info.startsWith("trivial"),
@@ -77,7 +77,7 @@ Hello! I am Trivial.
 `
 
   const parser = app.createParser({
-    customBlockParsers: [
+    customBlockPlugins: [
       {
         customKind: "Trivial",
         recognize: (info) => info.startsWith("trivial"),
