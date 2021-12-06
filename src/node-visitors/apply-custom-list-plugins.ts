@@ -4,7 +4,7 @@ import * as Nodes from "../nodes"
 import { Parser } from "../parser"
 import * as Plugins from "../plugins"
 
-export class HandleCustomList extends NodeVisitor<Node> {
+export class ApplyCustomListPlugins extends NodeVisitor<Node> {
   customListPlugins: Array<Plugins.CustomListPlugin<unknown>>
 
   constructor(opts: {

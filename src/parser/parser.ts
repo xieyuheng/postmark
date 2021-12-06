@@ -41,7 +41,7 @@ export class Parser {
   private postprocess(node: Node): Node {
     if (this.customBlockPlugins.length > 0) {
       node = node.accept(
-        new NodeVisitors.HandleCustomBlock({
+        new NodeVisitors.ApplyCustomBlockPlugins({
           parser: this,
           customBlockPlugins: this.customBlockPlugins,
         })
@@ -50,7 +50,7 @@ export class Parser {
 
     if (this.customListPlugins.length > 0) {
       node = node.accept(
-        new NodeVisitors.HandleCustomList({
+        new NodeVisitors.ApplyCustomListPlugins({
           parser: this,
           customListPlugins: this.customListPlugins,
         })
@@ -59,7 +59,7 @@ export class Parser {
 
     if (this.enableTable) {
       node = node.accept(
-        new NodeVisitors.EnableTable({
+        new NodeVisitors.CreateTableFromParagraph({
           parser: this,
         })
       )

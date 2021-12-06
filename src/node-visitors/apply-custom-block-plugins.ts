@@ -4,7 +4,7 @@ import * as Nodes from "../nodes"
 import { Parser } from "../parser"
 import * as Plugins from "../plugins"
 
-export class HandleCustomBlock extends NodeVisitor<Node> {
+export class ApplyCustomBlockPlugins extends NodeVisitor<Node> {
   customBlockPlugins: Array<Plugins.CustomBlockPlugin<unknown>>
 
   private codeBlockCounter = 0
