@@ -1,6 +1,6 @@
-# markdown list extension
+- fix parsing of `indented-code-block`
 
-- `plugins/tagged-list/content` has `text` and markdown `node`
+# markdown list extension
 
 - parser markdown list to `tagged-list`
 
