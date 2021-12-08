@@ -71,7 +71,7 @@ console.log(document)
 We can make a markdown code block extension by providing a `CustomBlockPlugin`.
 
 ``` typescript
-const parser = app.createParser().customBlock({
+const parser = postmark.createParser().customBlock({
   customKind: "SisuoSession",
   recognize: (info) => info.startsWith("sisuo-session"),
   parse: (text) => Session.create(YAML.load(text)),
@@ -83,7 +83,7 @@ const parser = app.createParser().customBlock({
 We can make a markdown list item extension by providing a `CustomItemPlugin`.
 
 ``` typescript
-const parser = app.createParser().customItem({
+const parser = postmark.createParser().customItem({
   customKind: "XMind",
   recognize: (item) =>
     item.start.some((tag) => tag.name.toLowerCase() === "xmind"),
