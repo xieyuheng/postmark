@@ -1,26 +1,33 @@
 # markdown list extension
 
-- parser markdown list to `tagged-list`
-
 - `CustomTaggedList` extends `CustomList`
-
 - `CustomTaggedListPlugin`
+- `parser.customTaggedList`
 
-- `parser.customTaggedList` -- as top level API
+- `plugins/tagged-list` -- setup tests
+
+- `plugins/tagged-list` -- parser markdown list to `tagged-list`
+
+- `plugins/tagged-list/content` -- `text` and `fullText`
 
 # docs
 
-- docs about using `CustomBlockPlugin`
-- docs about using `CustomListPlugin`
+- docs about using plugin interface to build markdown extension
+
+  - `CustomBlockPlugin`
+  - `CustomListPlugin`
+  - `CustomTaggedListPlugin`
 
 # errors
 
-- `CustomBlockPlugin` be able to report error
-- `CustomListPlugin` be able to report error
+- be able to custom error report in plugin interface
+
+  - `CustomBlockPlugin`
+  - `CustomListPlugin`
+  - `CustomTaggedListPlugin`
 
 # maybe
 
-- [maybe] to use template pattern
+- `CustomBlockPlugin` -- maybe should pass the whole block as callback argument.
 
-  - `CustomListPlugin` should be a class instead of interface
-  - `CustomBlockPlugin` should be a class instead of interface
+  - to be symmetric to `CustomListPlugin`

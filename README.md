@@ -1,6 +1,6 @@
 # Postmark
 
-Markdown-based content engineering.
+A framework for building markdown extensions.
 
 ## Install
 
