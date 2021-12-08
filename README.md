@@ -70,6 +70,8 @@ console.log(document)
 
 We can make a markdown code block extension by providing a `CustomBlockPlugin`.
 
+- See [custom-block.test.ts](src/tests/custom-block.test.ts).
+
 ``` typescript
 const parser = postmark.createParser().customBlock({
   customKind: "SisuoSession",
@@ -81,6 +83,8 @@ const parser = postmark.createParser().customBlock({
 ### `parser.customItem(plugin: CustomItemPlugin)`
 
 We can make a markdown list item extension by providing a `CustomItemPlugin`.
+
+- See [custom-item.test.ts](src/tests/custom-item.test.ts).
 
 ``` typescript
 const parser = postmark.createParser().customItem({
