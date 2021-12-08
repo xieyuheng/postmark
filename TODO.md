@@ -9,7 +9,6 @@
 
 - parse markdown `ListItem` to `TaggedItem`
 
-
 - `parser.customTaggedItem`
 
 - `plugins/tagged-item` -- tests -- using high level API `parser.customTaggedItem`
