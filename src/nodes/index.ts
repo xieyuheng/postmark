@@ -49,6 +49,7 @@ export * from "./leaf-blocks/custom-block"
 
 export * from "./inlines/emphasis"
 export * from "./inlines/strong"
+export * from "./inlines/line-break"
 export * from "./inlines/hard-line-break"
 export * from "./inlines/soft-line-break"
 export * from "./inlines/link"

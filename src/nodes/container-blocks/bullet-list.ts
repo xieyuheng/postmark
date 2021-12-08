@@ -1,8 +1,7 @@
 import { NodeVisitor, Span } from "../../node"
 import * as Nodes from "../../nodes"
-import { List } from "./list"
 
-export class BulletList extends List {
+export class BulletList extends Nodes.List {
   kind = "BulletList"
 
   span: Span

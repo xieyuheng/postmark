@@ -1,7 +1,7 @@
 import { NodeVisitor } from "../../node"
-import { LineBreak } from "./line-break"
+import * as Nodes from "../../nodes"
 
-export class HardLineBreak extends LineBreak {
+export class HardLineBreak extends Nodes.LineBreak {
   kind = "HardLineBreak"
 
   constructor() {

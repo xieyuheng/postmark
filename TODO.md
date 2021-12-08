@@ -1,6 +1,6 @@
 # markdown list extension
 
-- `CustomTaggedList.taggedList` -- parser markdown list to `tagged-list`
+- `CustomTaggedList.taggedList` -- parse markdown list to `tagged-list`
 
 - `CustomTaggedListPlugin`
 - `parser.customTaggedList`
@@ -24,6 +24,12 @@
   - `CustomBlockPlugin`
   - `CustomListPlugin`
   - `CustomTaggedListPlugin`
+
+# later
+
+- `NodeMapper` as a special `NodeVisitor`
+
+  - to avoid implement `default` in client code
 
 # maybe
 

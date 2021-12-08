@@ -1,7 +1,7 @@
 import { Node, NodeVisitor, Span } from "../../node"
-import { ListItem } from "./list-item"
+import * as Nodes from "../../nodes"
 
-export class OrderedListItem extends ListItem {
+export class OrderedListItem extends Nodes.ListItem {
   kind = "OrderedListItem"
 
   span: Span
