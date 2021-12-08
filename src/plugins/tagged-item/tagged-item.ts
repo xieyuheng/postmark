@@ -24,23 +24,21 @@ export class TaggedItem {
   }
 
   json(): any {
-    const result: any = {}
+    return {
+      ...(this.start.length && {
+        start: this.start.map((tag) => tag.json()),
+      }),
 
-    if (this.start.length > 0) {
-      result.start = this.start.map((tag) => tag.json())
+      content: this.content.json(),
+
+      ...(this.end.length && {
+        end: this.end.map((tag) => tag.json()),
+      }),
+
+      ...(this.children.length && {
+        children: this.children.map((child) => child.json()),
+      }),
     }
-
-    result.content = this.content.json()
-
-    if (this.end.length > 0) {
-      result.end = this.end.map((tag) => tag.json())
-    }
-
-    if (this.children.length > 0) {
-      result.children = this.children.map((child) => child.json())
-    }
-
-    return result
   }
 
   static build(item: Nodes.Item): TaggedItem {
