@@ -1,5 +1,3 @@
-- fix parsing of `indented-code-block`
-
 # markdown list extension
 
 - parser markdown list to `tagged-list`

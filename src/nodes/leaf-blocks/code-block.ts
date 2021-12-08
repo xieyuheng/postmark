@@ -7,12 +7,19 @@ export class CodeBlock extends Nodes.LeafBlock {
   span: Span
   info: string
   text: string
+  isIndentedCodeBlock: boolean
 
-  constructor(opts: { span: Span; info: string; text: string }) {
+  constructor(opts: {
+    span: Span
+    info: string
+    text: string
+    isIndentedCodeBlock: boolean
+  }) {
     super()
     this.span = opts.span
     this.info = opts.info
     this.text = opts.text
+    this.isIndentedCodeBlock = opts.isIndentedCodeBlock
   }
 
   shallowCopy(): CodeBlock {

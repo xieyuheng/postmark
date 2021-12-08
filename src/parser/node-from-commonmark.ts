@@ -61,8 +61,12 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
   if (node.type === "code_block") {
     return new Nodes.CodeBlock({
       span: node.sourcepos && Span.fromPairs(node.sourcepos),
-      info: ty.string().validate(node.info),
+      // NOTE For indented-code-block, the `node.info` is not a string but a `null`.
+      //   We use this bit of information to get
+      //   the `isIndentedCodeBlock` field in our class.
+      info: ty.string().validate(node.info || ""),
       text: ty.string().validate(node.literal),
+      isIndentedCodeBlock: node.info === null,
     })
   }
 
