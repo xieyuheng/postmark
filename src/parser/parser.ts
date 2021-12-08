@@ -29,7 +29,7 @@ export class Parser {
     return this
   }
 
-  customList<T>(customListPlugin: Plugins.CustomItemPlugin<T>): this {
+  customItem<T>(customListPlugin: Plugins.CustomItemPlugin<T>): this {
     this.customItemPlugins.push(customListPlugin)
     return this
   }
@@ -48,7 +48,7 @@ export class Parser {
       )
     }
 
-    if (this.customBlockPlugins.length > 0) {
+    if (this.customItemPlugins.length > 0) {
       node = node.accept(
         new NodeVisitors.ApplyCustomItemPlugins({
           parser: this,

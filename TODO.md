@@ -1,9 +1,10 @@
 # markdown list item extension
 
-- `plugins/tagged-item` -- tests -- using high level API `parser.customItem`
 - `TaggedItem.build` -- handle `start` and `end`
-- `plugins/tagged-item/content` -- has both `text` (without tags) and `fullText`
 
+- `tests/custom-item` -- recognize by `start`
+
+- `plugins/tagged-item/content` -- has both `text` (without tags) and `fullText`
 
 # plugins
 
