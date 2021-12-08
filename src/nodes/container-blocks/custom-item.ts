@@ -32,11 +32,11 @@ export class CustomItem<T> extends Nodes.Item {
     return new CustomItem(this)
   }
 
-  json() {
+  json(): any {
     return {
       kind: this.kind,
       customKind: this.customKind,
-      ...this.taggedItem.json(),
+      taggedItem: this.taggedItem.json(),
     }
   }
 

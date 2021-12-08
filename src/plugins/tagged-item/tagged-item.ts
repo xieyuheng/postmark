@@ -24,7 +24,7 @@ export class TaggedItem {
   }
 
   json(): any {
-    const result = {}
+    const result: any = {}
 
     if (this.start.length > 0) {
       result.start = this.start.map((tag) => tag.json())

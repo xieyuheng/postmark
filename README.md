@@ -68,14 +68,27 @@ console.log(document)
 
 ### `parser.customBlock(plugin: CustomBlockPlugin)`
 
+We can make a markdown code block extension by providing a `CustomBlockPlugin`.
+
 ``` typescript
-TODO
+const parser = app.createParser().customBlock({
+  customKind: "SisuoSession",
+  recognize: (info) => info.startsWith("sisuo-session"),
+  parse: (text) => Session.create(YAML.load(text)),
+})
 ```
 
-### `parser.customList(plugin: CustomListPlugin)`
+### `parser.customItem(plugin: CustomItemPlugin)`
+
+We can make a markdown list item extension by providing a `CustomItemPlugin`.
 
 ``` typescript
-TODO
+const parser = app.createParser().customItem({
+  customKind: "XMind",
+  recognize: (item) =>
+    item.start.some((tag) => tag.name.toLowerCase() === "xmind"),
+  parse: (item) => ...,
+})
 ```
 
 ### `node.format()` & `node.render()`
