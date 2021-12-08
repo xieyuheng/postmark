@@ -1,6 +1,18 @@
-# markdown list extension
+> We should use `CustomListItem` instead `CustomList`
 
-- `parseTaggedList` parse markdown list to `tagged-list`
+- remove `CustomTaggedList`
+
+- rename `taggedList` to `TaggedItem`
+
+- remove `CustomList`
+
+- inline `BulletList` & `BulletListItem` to `List` & `ListItem`
+
+- `CustomListItem` -- the only way to custom list item is to use `TaggedItem`
+
+# markdown list item extension
+
+- `taggedListFromListItem` parse markdown list item to `tagged-list`
 
 - `CustomTaggedListPlugin`
 - `parser.customTaggedList`
@@ -9,30 +21,17 @@
 
 - `plugins/tagged-list/content` -- has both `text` (without tags) and `fullText`
 
-# docs
+# plugins
 
-- docs about using plugin interface to build markdown extension
+- [docs] `plugins/` docs about using plugin interface to build markdown extension
+- [error report] `plugins/` be able to custom error report in plugin interface
 
-  - `CustomBlockPlugin`
-  - `CustomListPlugin`
-  - `CustomTaggedListPlugin`
+# refactor
 
-# errors
-
-- be able to custom error report in plugin interface
-
-  - `CustomBlockPlugin`
-  - `CustomListPlugin`
-  - `CustomTaggedListPlugin`
-
-# later
-
-- `NodeMapper` as a special `NodeVisitor`
+- [refactor] `NodeMapper` as a special `NodeVisitor`
 
   - to avoid implement `default` in client code
 
-# maybe
+- [refactor] `CustomBlockPlugin` -- maybe should pass the whole block as callback argument.
 
-- `CustomBlockPlugin` -- maybe should pass the whole block as callback argument.
-
-  - to be symmetric to `CustomListPlugin`
+  - to be symmetric to `CustomListItemPlugin`
