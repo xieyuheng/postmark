@@ -1,21 +1,24 @@
-- rename `taggedList` to `TaggedItem`
-
-- remove `CustomList`
-
-- inline `BulletList` & `BulletListItem` to `List` & `ListItem`
-
-- `CustomListItem` -- the only way to custom list item is to use `TaggedItem`
-
 # markdown list item extension
 
-- `taggedListFromListItem` parse markdown list item to `tagged-list`
+- inline `BulletList` & `BulletListItem` to `List` & `Item`
 
-- `CustomTaggedListPlugin`
-- `parser.customTaggedList`
+- rename `OrderedListItem` to `OrderedItem`
 
-- `plugins/tagged-list` -- tests -- using high level API `parser.customTaggedList`
+- `CustomItem` -- the only way to custom `Item` is to use `TaggedItem`
 
-- `plugins/tagged-list/content` -- has both `text` (without tags) and `fullText`
+  - `CustomItem` compose of `TaggedItem` -- instead of `TaggedItem` inherit `Item` directly
+
+- `CustomTaggedItemPlugin` new plugin
+- `ApplyCustomTaggedItemPlugins` new visitor
+
+- parse markdown `ListItem` to `TaggedItem`
+
+
+- `parser.customTaggedItem`
+
+- `plugins/tagged-item` -- tests -- using high level API `parser.customTaggedItem`
+
+- `plugins/tagged-item/content` -- has both `text` (without tags) and `fullText`
 
 # plugins
 

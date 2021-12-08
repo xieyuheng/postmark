@@ -22,7 +22,6 @@ export abstract class NodeVisitor<T> {
   onBulletListItem(node: Nodes.BulletListItem): T { return this.onListItem(node) }
   onOrderedList(node: Nodes.OrderedList): T { return this.onList(node) }
   onOrderedListItem(node: Nodes.OrderedListItem): T { return this.onListItem(node) }
-  onCustomList<A>(node: Nodes.CustomList<A>): T { return this.onList(node) }
   onList(node: Nodes.List): T { return this.default(node) }
   onListItem(node: Nodes.ListItem): T { return this.default(node) }
 
