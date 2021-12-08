@@ -1,3 +1,20 @@
+- [refactor] move `node-visitor` to `node/`
+
+# markdown list extension
+
+- `plugins/tagged-list`
+
+- `TaggedList` parser
+
+- utilities about parsing markdown lists to target data type.
+
+  example target data types:
+
+  - `MindMap`
+  - `QA`
+
+- `CustomTaggedList`
+
 # docs
 
 - docs about using `CustomBlockPlugin`
