@@ -23,7 +23,6 @@ export abstract class NodeVisitor<T> {
   onOrderedList(node: Nodes.OrderedList): T { return this.onList(node) }
   onOrderedListItem(node: Nodes.OrderedListItem): T { return this.onListItem(node) }
   onCustomList<A>(node: Nodes.CustomList<A>): T { return this.onList(node) }
-  onCustomTaggedList<A>(node: Nodes.CustomTaggedList<A>): T { return this.onCustomList(node) }
   onList(node: Nodes.List): T { return this.default(node) }
   onListItem(node: Nodes.ListItem): T { return this.default(node) }
 

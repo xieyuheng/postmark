@@ -1,7 +1,3 @@
-> We should use `CustomListItem` instead `CustomList`
-
-- remove `CustomTaggedList`
-
 - rename `taggedList` to `TaggedItem`
 
 - remove `CustomList`
