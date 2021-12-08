@@ -1,3 +1,4 @@
+import { Node } from "../../node"
 import * as Nodes from "../../nodes"
 import { Content } from "./content"
 import { Tag } from "./tag"
@@ -25,9 +26,30 @@ export class TaggedItem {
   static build(item: Nodes.Item): TaggedItem {
     const nodes = item.children
 
-    const start: Array<Tag> = []
-    const end: Array<Tag> = []
+    const content = new Content(this.beforeList(nodes))
+    const start = Tag.parseStart(content.fullText)
+    const end = Tag.parseEnd(content.fullText)
+    const children = this.filterList(nodes)
+      .flatMap((list) => list.children)
+      .map((item) => TaggedItem.build(item))
 
+    return new TaggedItem({ content, start, end, children })
+  }
+
+  static beforeList(nodes: Array<Node>): Array<Node> {
+    const results: Array<Node> = []
+    for (const node of nodes) {
+      if (node instanceof Nodes.List) {
+        break
+      } else {
+        results.push(node)
+      }
+    }
+
+    return results
+  }
+
+  static filterList(nodes: Array<Node>): Array<Nodes.List> {
     const lists: Array<Nodes.List> = []
     for (const node of nodes) {
       if (node instanceof Nodes.List) {
@@ -35,13 +57,6 @@ export class TaggedItem {
       }
     }
 
-    return new TaggedItem({
-      content: Content.build(nodes),
-      start,
-      end,
-      children: lists
-        .flatMap((list) => list.children)
-        .map((item) => TaggedItem.build(item)),
-    })
+    return lists
   }
 }

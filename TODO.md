@@ -1,10 +1,6 @@
 # markdown list item extension
 
-- `TaggedItem.build` -- handle `start` and `end`
-
-- `tests/custom-item` -- recognize by `start`
-
-- `plugins/tagged-item/content` -- has both `text` (without tags) and `fullText`
+- `tests/custom-item` -- improve testing
 
 # plugins
 

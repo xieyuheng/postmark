@@ -1,5 +1,5 @@
 import { Node } from "../../node"
-import * as Nodes from "../../nodes"
+import { Tag } from "./tag"
 
 export class Content {
   nodes: Array<Node>
@@ -8,20 +8,11 @@ export class Content {
     this.nodes = nodes
   }
 
-  static build(nodes: Array<Node>): Content {
-    const results: Array<Node> = []
-    for (const node of nodes) {
-      if (node instanceof Nodes.List) {
-        break
-      } else {
-        results.push(node)
-      }
-    }
-
-    return new Content(results)
+  get fullText(): string {
+    return this.nodes.map((node) => node.format()).join("")
   }
 
   get text(): string {
-    return this.nodes.map((node) => node.format()).join("")
+    return Tag.trim(this.fullText)
   }
 }
