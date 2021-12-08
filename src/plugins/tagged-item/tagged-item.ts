@@ -23,6 +23,25 @@ export class TaggedItem {
   }
 
   static build(item: Nodes.Item): TaggedItem {
-    throw new Error("TODO")
+    const nodes = item.children
+
+    const start: Array<Tag> = []
+    const end: Array<Tag> = []
+
+    const lists: Array<Nodes.List> = []
+    for (const node of nodes) {
+      if (node instanceof Nodes.List) {
+        lists.push(node)
+      }
+    }
+
+    return new TaggedItem({
+      content: Content.build(nodes),
+      start,
+      end,
+      children: lists
+        .flatMap((list) => list.children)
+        .map((item) => TaggedItem.build(item)),
+    })
   }
 }

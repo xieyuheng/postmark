@@ -1,11 +1,9 @@
 # markdown list item extension
 
-  - call `TaggedItem.build` before call callback functions
-
-- parse markdown `ListItem` to `TaggedItem`
-
 - `plugins/tagged-item` -- tests -- using high level API `parser.customItem`
+- `TaggedItem.build` -- handle `start` and `end`
 - `plugins/tagged-item/content` -- has both `text` (without tags) and `fullText`
+
 
 # plugins
 
