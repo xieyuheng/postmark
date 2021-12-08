@@ -1,4 +1,4 @@
-import { NodeVisitor } from "../../node-visitor"
+import { NodeVisitor } from "../../node"
 import { LineBreak } from "./line-break"
 
 export class HardLineBreak extends LineBreak {

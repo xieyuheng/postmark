@@ -1,8 +1,7 @@
-import { Node } from "../node"
-import { NodeVisitor } from "../node-visitor"
-import * as Nodes from "../nodes"
-import { Parser } from "../parser"
-import * as Plugins from "../plugins"
+import { Node, NodeVisitor } from "../../node"
+import * as Nodes from "../../nodes"
+import { Parser } from "../../parser"
+import * as Plugins from "../../plugins"
 
 export class ApplyCustomBlockPlugins extends NodeVisitor<Node> {
   customBlockPlugins: Array<Plugins.CustomBlockPlugin<unknown>>

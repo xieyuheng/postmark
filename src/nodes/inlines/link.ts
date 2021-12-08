@@ -1,5 +1,4 @@
-import { Node } from "../../node"
-import { NodeVisitor } from "../../node-visitor"
+import { Node, NodeVisitor } from "../../node"
 import * as Nodes from "../../nodes"
 
 export class Link extends Nodes.Inline {

@@ -1,4 +1,4 @@
-import { NodeVisitor } from "../node-visitor"
+import { NodeVisitor } from "./node-visitor"
 const { marked } = require("marked")
 
 export abstract class Node {

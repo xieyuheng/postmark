@@ -1,5 +1,4 @@
-import { Node, Span } from "../../node"
-import { NodeVisitor } from "../../node-visitor"
+import { Node, NodeVisitor, Span } from "../../node"
 import { ListItem } from "./list-item"
 
 export class BulletListItem extends ListItem {

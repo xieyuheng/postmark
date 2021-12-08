@@ -1,4 +1,4 @@
-import { NodeVisitor } from "../../node-visitor"
+import { NodeVisitor } from "../../node"
 import * as Nodes from "../../nodes"
 
 export class Text extends Nodes.Inline {

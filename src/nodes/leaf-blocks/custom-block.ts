@@ -1,5 +1,4 @@
-import { Span } from "../../node"
-import { NodeVisitor } from "../../node-visitor"
+import { NodeVisitor, Span } from "../../node"
 import * as Nodes from "../../nodes"
 
 export class CustomBlock<T> extends Nodes.LeafBlock {

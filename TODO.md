@@ -1,5 +1,3 @@
-- [refactor] move `node-visitor` to `node/`
-
 # markdown list extension
 
 - `plugins/tagged-list`
