@@ -1,6 +1,11 @@
 # markdown list item extension
 
-- `tests/custom-item` -- improve testing
+- `Document.assertChildrenJson`
+
+- remove `Tester`
+- `TaggedItem.json`
+- `CustomItem.json` -- by `TaggedItem.json`
+- `tests/custom-item` -- to improve testing
 
 # plugins
 
