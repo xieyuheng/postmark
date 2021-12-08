@@ -1,8 +1,8 @@
 import { Node, NodeVisitor, Span } from "../../node"
 import * as Nodes from "../../nodes"
 
-export class BulletListItem extends Nodes.ListItem {
-  kind = "BulletListItem"
+export class Item extends Nodes.ContainerBlock {
+  kind = "Item"
 
   span: Span
   children: Array<Node>
@@ -13,8 +13,8 @@ export class BulletListItem extends Nodes.ListItem {
     this.children = opts.children
   }
 
-  shallowCopy(): BulletListItem {
-    return new BulletListItem(this)
+  shallowCopy(): Item {
+    return new Item(this)
   }
 
   json() {
@@ -25,7 +25,7 @@ export class BulletListItem extends Nodes.ListItem {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onBulletListItem(this)
+    return visitor.onItem(this)
   }
 
   format(): string {

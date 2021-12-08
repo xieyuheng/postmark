@@ -1,7 +1,5 @@
 # markdown list item extension
 
-- inline `BulletList` & `BulletListItem` to `List` & `Item`
-
 - rename `OrderedListItem` to `OrderedItem`
 
 - `CustomItem` -- the only way to custom `Item` is to use `TaggedItem`

@@ -1,7 +1,8 @@
 import { Node, NodeVisitor } from "../../node"
-import * as Nodes from "../../nodes"
 import { Parser } from "../../parser"
 import * as Plugins from "../../plugins"
+
+// TODO ApplyCustomTaggedItemPlugins
 
 export class ApplyCustomListPlugins extends NodeVisitor<Node> {
   customListPlugins: Array<Plugins.CustomListPlugin<unknown>>
@@ -18,21 +19,5 @@ export class ApplyCustomListPlugins extends NodeVisitor<Node> {
     const newNode = node.shallowCopy()
     newNode.children = newNode.children.map((child) => child.accept(this))
     return newNode
-  }
-
-  onList(node: Nodes.List): Node {
-    for (const customListPlugin of this.customListPlugins) {
-      if (customListPlugin.recognize(node)) {
-        throw new Error("TODO")
-        // return new Nodes.CustomList({
-        //   customKind: customListPlugin.customKind,
-        //   span: node.span,
-        //   list: node,
-        //   value: customListPlugin.parse(node),
-        // })
-      }
-    }
-
-    return this.default(node)
   }
 }

@@ -106,17 +106,17 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
   }
 
   if (node.type === "list" && node.listType === "bullet") {
-    return new Nodes.BulletList({
+    return new Nodes.List({
       span: node.sourcepos && Span.fromPairs(node.sourcepos),
       tight: ty.boolean().validate(node.listTight),
       children: Commonmark.children(node).map((node) =>
-        ty.instanceof(Nodes.BulletListItem).validate(nodeFromCommonmark(node))
+        ty.instanceof(Nodes.Item).validate(nodeFromCommonmark(node))
       ),
     })
   }
 
   if (node.type === "item" && node.listType === "bullet") {
-    return new Nodes.BulletListItem({
+    return new Nodes.Item({
       span: node.sourcepos && Span.fromPairs(node.sourcepos),
       children: Commonmark.children(node).map(nodeFromCommonmark),
     })

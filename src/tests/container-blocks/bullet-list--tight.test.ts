@@ -16,23 +16,23 @@ A tight list:
       children: [{ kind: "Text", text: "A tight list:" }],
     },
     {
-      kind: "BulletList",
+      kind: "List",
       tight: true,
       children: [
         {
-          kind: "BulletListItem",
+          kind: "Item",
           children: [
             { kind: "Paragraph", children: [{ kind: "Text", text: "a" }] },
           ],
         },
         {
-          kind: "BulletListItem",
+          kind: "Item",
           children: [
             { kind: "Paragraph", children: [{ kind: "Text", text: "b" }] },
           ],
         },
         {
-          kind: "BulletListItem",
+          kind: "Item",
           children: [
             { kind: "Paragraph", children: [{ kind: "Text", text: "c" }] },
           ],

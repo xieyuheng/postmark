@@ -1,7 +1,7 @@
 import { Node, NodeVisitor, Span } from "../../node"
 import * as Nodes from "../../nodes"
 
-export class OrderedListItem extends Nodes.ListItem {
+export class OrderedListItem extends Nodes.Item {
   kind = "OrderedListItem"
 
   span: Span
@@ -15,7 +15,7 @@ export class OrderedListItem extends Nodes.ListItem {
     delimiter: "." | ")"
     span: Span
   }) {
-    super()
+    super(opts)
     this.span = opts.span
     this.number = opts.number
     this.delimiter = opts.delimiter

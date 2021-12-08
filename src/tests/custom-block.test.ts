@@ -78,11 +78,11 @@ Hello! I am Trivial.
 
   app.tester.assertDocument(document, [
     {
-      kind: "BulletList",
+      kind: "List",
       tight: false,
       children: [
         {
-          kind: "BulletListItem",
+          kind: "Item",
           children: [
             {
               kind: "CustomBlock",
@@ -94,7 +94,7 @@ Hello! I am Trivial.
           ],
         },
         {
-          kind: "BulletListItem",
+          kind: "Item",
           children: [
             {
               kind: "CustomBlock",
@@ -106,7 +106,7 @@ Hello! I am Trivial.
           ],
         },
         {
-          kind: "BulletListItem",
+          kind: "Item",
           children: [
             {
               kind: "CustomBlock",

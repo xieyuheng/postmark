@@ -7,8 +7,8 @@ export * from "./document"
 // NOTE The class hierarchy:
 // - ContainerBlock < Block < Node
 //   - block-quote
-//   - list > bullet-list, ordered-list
-//   - list-item > bullet-list-item, ordered-list-item
+//   - list > ordered-list
+//   - item > ordered-item
 // - LeafBlock < Block < Node
 //   - paragraph
 //   - table
@@ -31,9 +31,7 @@ export * from "./inline"
 
 export * from "./container-blocks/block-quote"
 export * from "./container-blocks/list"
-export * from "./container-blocks/list-item"
-export * from "./container-blocks/bullet-list"
-export * from "./container-blocks/bullet-list-item"
+export * from "./container-blocks/item"
 export * from "./container-blocks/ordered-list"
 export * from "./container-blocks/ordered-list-item"
 

@@ -18,12 +18,10 @@ export abstract class NodeVisitor<T> {
 
   // NOTE container-block
   onBlockQuote(node: Nodes.BlockQuote): T { return this.default(node) }
-  onBulletList(node: Nodes.BulletList): T { return this.onList(node) }
-  onBulletListItem(node: Nodes.BulletListItem): T { return this.onListItem(node) }
-  onOrderedList(node: Nodes.OrderedList): T { return this.onList(node) }
-  onOrderedListItem(node: Nodes.OrderedListItem): T { return this.onListItem(node) }
   onList(node: Nodes.List): T { return this.default(node) }
-  onListItem(node: Nodes.ListItem): T { return this.default(node) }
+  onItem(node: Nodes.Item): T { return this.default(node) }
+  onOrderedList(node: Nodes.OrderedList): T { return this.onList(node) }
+  onOrderedListItem(node: Nodes.OrderedListItem): T { return this.onItem(node) }
 
   // NOTE leaf-block
   onParagraph(node: Nodes.Paragraph): T { return this.default(node) }

@@ -17,7 +17,7 @@ export class OrderedList extends Nodes.List {
     delimiter: "." | ")"
     span: Span
   }) {
-    super()
+    super(opts)
     this.span = opts.span
     this.tight = opts.tight
     this.start = opts.start
