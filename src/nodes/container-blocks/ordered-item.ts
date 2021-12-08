@@ -1,8 +1,8 @@
+import * as Nodes from ".."
 import { Node, NodeVisitor, Span } from "../../node"
-import * as Nodes from "../../nodes"
 
-export class OrderedListItem extends Nodes.Item {
-  kind = "OrderedListItem"
+export class OrderedItem extends Nodes.Item {
+  kind = "OrderedItem"
 
   span: Span
   number: number
@@ -22,8 +22,8 @@ export class OrderedListItem extends Nodes.Item {
     this.children = opts.children
   }
 
-  shallowCopy(): OrderedListItem {
-    return new OrderedListItem(this)
+  shallowCopy(): OrderedItem {
+    return new OrderedItem(this)
   }
 
   json() {
@@ -36,7 +36,7 @@ export class OrderedListItem extends Nodes.Item {
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onOrderedListItem(this)
+    return visitor.onOrderedItem(this)
   }
 
   format(): string {

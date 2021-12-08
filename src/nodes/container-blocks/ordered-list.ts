@@ -8,10 +8,10 @@ export class OrderedList extends Nodes.List {
   tight: boolean
   start: number
   delimiter: "." | ")"
-  children: Array<Nodes.OrderedListItem>
+  children: Array<Nodes.OrderedItem>
 
   constructor(opts: {
-    children: Array<Nodes.OrderedListItem>
+    children: Array<Nodes.OrderedItem>
     tight: boolean
     start: number
     delimiter: "." | ")"

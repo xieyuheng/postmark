@@ -131,13 +131,13 @@ export function nodeFromCommonmark(node: Commonmark.Node): Node {
         .union(ty.const("." as const), ty.const(")" as const))
         .validate(node.listDelimiter),
       children: Commonmark.children(node).map((node) =>
-        ty.instanceof(Nodes.OrderedListItem).validate(nodeFromCommonmark(node))
+        ty.instanceof(Nodes.OrderedItem).validate(nodeFromCommonmark(node))
       ),
     })
   }
 
   if (node.type === "item" && node.listType === "ordered") {
-    return new Nodes.OrderedListItem({
+    return new Nodes.OrderedItem({
       span: node.sourcepos && Span.fromPairs(node.sourcepos),
       number: ty.number().validate(node.listStart),
       delimiter: ty

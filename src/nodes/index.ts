@@ -33,7 +33,7 @@ export * from "./container-blocks/block-quote"
 export * from "./container-blocks/list"
 export * from "./container-blocks/item"
 export * from "./container-blocks/ordered-list"
-export * from "./container-blocks/ordered-list-item"
+export * from "./container-blocks/ordered-item"
 
 export * from "./leaf-blocks/paragraph"
 export * from "./leaf-blocks/table"

@@ -27,7 +27,7 @@ A loose ordered list:
       delimiter: ".",
       children: [
         {
-          kind: "OrderedListItem",
+          kind: "OrderedItem",
           number: 6,
           delimiter: ".",
           children: [
@@ -44,7 +44,7 @@ A loose ordered list:
           ],
         },
         {
-          kind: "OrderedListItem",
+          kind: "OrderedItem",
           number: 7,
           delimiter: ".",
           children: [
@@ -52,7 +52,7 @@ A loose ordered list:
           ],
         },
         {
-          kind: "OrderedListItem",
+          kind: "OrderedItem",
           number: 100,
           delimiter: ".",
           children: [

@@ -1,7 +1,5 @@
 # markdown list item extension
 
-- rename `OrderedListItem` to `OrderedItem`
-
 - `CustomItem` -- the only way to custom `Item` is to use `TaggedItem`
 
   - `CustomItem` compose of `TaggedItem` -- instead of `TaggedItem` inherit `Item` directly
