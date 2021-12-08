@@ -1,10 +1,3 @@
-# markdown list item extension
-
-- remove `Tester`
-- `TaggedItem.json`
-- `CustomItem.json` -- by `TaggedItem.json`
-- `tests/custom-item` -- to improve testing
-
 # plugins
 
 - [docs] `plugins/` docs about using plugin interface to build markdown extension

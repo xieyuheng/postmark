@@ -7,6 +7,10 @@ export class Tag {
     this.name = name
   }
 
+  json() {
+    return this.name
+  }
+
   static startPattern = rr.seq(
     rr.beginning,
     "[",

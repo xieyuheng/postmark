@@ -23,6 +23,26 @@ export class TaggedItem {
     this.children = opts.children
   }
 
+  json(): any {
+    const result = {}
+
+    if (this.start.length > 0) {
+      result.start = this.start.map((tag) => tag.json())
+    }
+
+    result.content = this.content.json()
+
+    if (this.end.length > 0) {
+      result.end = this.end.map((tag) => tag.json())
+    }
+
+    if (this.children.length > 0) {
+      result.children = this.children.map((child) => child.json())
+    }
+
+    return result
+  }
+
   static build(item: Nodes.Item): TaggedItem {
     const nodes = item.children
 

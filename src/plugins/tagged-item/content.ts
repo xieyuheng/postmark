@@ -15,4 +15,8 @@ export class Content {
   get text(): string {
     return Tag.trim(this.fullText)
   }
+
+  json() {
+    return this.text
+  }
 }

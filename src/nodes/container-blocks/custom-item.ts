@@ -34,8 +34,9 @@ export class CustomItem<T> extends Nodes.Item {
 
   json() {
     return {
-      ...this.item.json(),
+      kind: this.kind,
       customKind: this.customKind,
+      ...this.taggedItem.json(),
     }
   }
 
