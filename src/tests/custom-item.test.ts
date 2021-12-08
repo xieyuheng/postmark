@@ -1,7 +1,7 @@
 import app from "../app"
 
 const parser = app.createParser().customItem({
-  customKind: "Trivial",
+  customKind: "XMind",
   recognize: (item) =>
     item.start.some((tag) => tag.name.toLowerCase() === "xmind"),
   parse: (item) => null,
@@ -35,7 +35,7 @@ const parser = app.createParser().customItem({
       children: [
         {
           kind: "CustomItem",
-          customKind: "Trivial",
+          customKind: "XMind",
           taggedItem: {
             start: ["xmind"],
             content: "Sept 2021",
