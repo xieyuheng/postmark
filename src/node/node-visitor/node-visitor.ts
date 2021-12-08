@@ -22,6 +22,7 @@ export abstract class NodeVisitor<T> {
   onItem(node: Nodes.Item): T { return this.default(node) }
   onOrderedList(node: Nodes.OrderedList): T { return this.onList(node) }
   onOrderedItem(node: Nodes.OrderedItem): T { return this.onItem(node) }
+  onCustomItem(node: Nodes.CustomItem): T { return this.onItem(node) }
 
   // NOTE leaf-block
   onParagraph(node: Nodes.Paragraph): T { return this.default(node) }
@@ -30,7 +31,7 @@ export abstract class NodeVisitor<T> {
   onThematicBreak(node: Nodes.ThematicBreak): T { return this.default(node) }
   onHtmlBlock(node: Nodes.HtmlBlock): T { return this.default(node) }
   onCodeBlock(node: Nodes.CodeBlock): T { return this.default(node) }
-  onCustomBlock<A>(node: Nodes.CustomBlock<A>): T { return this.default(node) }
+  onCustomBlock<A>(node: Nodes.CustomBlock<A>): T { return this.onCodeBlock(node) }
 
   // NOTE inline
   onEmphasis(node: Nodes.Emphasis): T { return this.default(node) }

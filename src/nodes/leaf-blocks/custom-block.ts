@@ -1,7 +1,7 @@
 import { NodeVisitor, Span } from "../../node"
 import * as Nodes from "../../nodes"
 
-export class CustomBlock<T> extends Nodes.LeafBlock {
+export class CustomBlock<T> extends Nodes.CodeBlock {
   kind = "CustomBlock"
 
   customKind: string
@@ -19,7 +19,7 @@ export class CustomBlock<T> extends Nodes.LeafBlock {
     text: string
     value: T
   }) {
-    super()
+    super({ ...opts, isIndentedCodeBlock: false })
     this.customKind = opts.customKind
     this.span = opts.span
     this.info = opts.info
