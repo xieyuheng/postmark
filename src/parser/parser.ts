@@ -9,18 +9,18 @@ import { nodeFromCommonmark } from "./node-from-commonmark"
 
 export interface ParserOptions {
   customBlockPlugins?: Array<Plugins.CustomBlockPlugin<unknown>>
-  customListPlugins?: Array<Plugins.CustomItemPlugin<unknown>>
+  customItemPlugins?: Array<Plugins.CustomItemPlugin<unknown>>
   enableTable?: boolean
 }
 
 export class Parser {
   customBlockPlugins: Array<Plugins.CustomBlockPlugin<unknown>>
-  customListPlugins: Array<Plugins.CustomItemPlugin<unknown>>
+  customItemPlugins: Array<Plugins.CustomItemPlugin<unknown>>
   enableTable: boolean
 
   constructor(opts?: ParserOptions) {
     this.customBlockPlugins = opts?.customBlockPlugins || []
-    this.customListPlugins = opts?.customListPlugins || []
+    this.customItemPlugins = opts?.customItemPlugins || []
     this.enableTable = opts?.enableTable ?? true
   }
 
@@ -30,7 +30,7 @@ export class Parser {
   }
 
   customList<T>(customListPlugin: Plugins.CustomItemPlugin<T>): this {
-    this.customListPlugins.push(customListPlugin)
+    this.customItemPlugins.push(customListPlugin)
     return this
   }
 
@@ -44,6 +44,15 @@ export class Parser {
         new NodeVisitors.ApplyCustomBlockPlugins({
           parser: this,
           customBlockPlugins: this.customBlockPlugins,
+        })
+      )
+    }
+
+    if (this.customBlockPlugins.length > 0) {
+      node = node.accept(
+        new NodeVisitors.ApplyCustomItemPlugins({
+          parser: this,
+          customItemPlugins: this.customItemPlugins,
         })
       )
     }

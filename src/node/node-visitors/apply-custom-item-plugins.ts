@@ -3,14 +3,14 @@ import { Parser } from "../../parser"
 import * as Plugins from "../../plugins"
 
 export class ApplyCustomItemPlugins extends NodeVisitor<Node> {
-  customListPlugins: Array<Plugins.CustomItemPlugin<unknown>>
+  customItemPlugins: Array<Plugins.CustomItemPlugin<unknown>>
 
   constructor(opts: {
     parser: Parser
-    customListPlugins: Array<Plugins.CustomItemPlugin<unknown>>
+    customItemPlugins: Array<Plugins.CustomItemPlugin<unknown>>
   }) {
     super({ parser: opts.parser })
-    this.customListPlugins = opts.customListPlugins
+    this.customItemPlugins = opts.customItemPlugins
   }
 
   default(node: Node): Node {
