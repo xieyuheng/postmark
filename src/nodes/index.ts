@@ -37,6 +37,7 @@ export * from "./container-blocks/bullet-list-item"
 export * from "./container-blocks/ordered-list"
 export * from "./container-blocks/ordered-list-item"
 export * from "./container-blocks/custom-list"
+export * from "./container-blocks/custom-tagged-list"
 
 export * from "./leaf-blocks/paragraph"
 export * from "./leaf-blocks/table"

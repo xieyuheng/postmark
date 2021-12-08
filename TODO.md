@@ -1,14 +1,13 @@
 # markdown list extension
 
-- `CustomTaggedList` extends `CustomList`
+- `CustomTaggedList.taggedList` -- parser markdown list to `tagged-list`
+
 - `CustomTaggedListPlugin`
 - `parser.customTaggedList`
 
-- `plugins/tagged-list` -- setup tests
+- `plugins/tagged-list` -- tests -- using high level API `parser.customTaggedList`
 
-- `plugins/tagged-list` -- parser markdown list to `tagged-list`
-
-- `plugins/tagged-list/content` -- `text` and `fullText`
+- `plugins/tagged-list/content` -- has both `text` (without tags) and `fullText`
 
 # docs
 

@@ -1,8 +1,9 @@
 import { NodeVisitor, Span } from "../../node"
 import * as Nodes from "../../nodes"
+import { TaggedList } from "../../plugins/tagged-list"
 
-export class CustomList<T> extends Nodes.List {
-  kind = "CustomList"
+export class CustomTaggedList<T> extends Nodes.CustomList<T> {
+  kind = "CustomTaggedList"
 
   customKind: string
 
@@ -16,30 +17,22 @@ export class CustomList<T> extends Nodes.List {
     list: Nodes.List
     value: T
   }) {
-    super()
+    super(opts)
     this.customKind = opts.customKind
     this.span = opts.span
     this.list = opts.list
     this.value = opts.value
   }
 
-  shallowCopy(): CustomList<T> {
-    return new CustomList(this)
+  get taggedList(): TaggedList {
+    throw new Error("TODO")
   }
 
-  json() {
-    return {
-      kind: this.kind,
-      customKind: this.customKind,
-      list: this.list.json(),
-    }
+  shallowCopy(): CustomTaggedList<T> {
+    return new CustomTaggedList(this)
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
-    return visitor.onCustomList(this)
-  }
-
-  format(): string {
-    return this.list.format()
+    return visitor.onCustomTaggedList(this)
   }
 }
