@@ -1,19 +1,14 @@
 # markdown list extension
 
-- `plugins/tagged-list/content`
-- `plugins/tagged-list/tag`
-- `plugins/tagged-list/root-tagged-list` -- the only node that knows about its `siblings`
+- `plugins/tagged-list/content` has `text` and markdown `node`
 
-- `TaggedList` parser
+- parser markdown list to `tagged-list`
 
-- utilities about parsing markdown lists to target data type.
+- `CustomTaggedList` extends `CustomList`
 
-  example target data types:
+- `CustomTaggedListPlugin`
 
-  - `MindMap`
-  - `QA`
-
-- `CustomTaggedList`
+- `parser.customTaggedList` -- as top level API
 
 # docs
 
