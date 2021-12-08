@@ -7,9 +7,9 @@ import app from "../../app"
 > -- Kent Beck
 `
 
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "BlockQuote",
       children: [

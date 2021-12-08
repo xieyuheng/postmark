@@ -9,9 +9,9 @@ A tight ordered list:
 100. c
 `
 
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Paragraph",
       children: [{ kind: "Text", text: "A tight ordered list:" }],
@@ -60,9 +60,9 @@ A tight ordered list:
 100) c
 `
 
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Paragraph",
       children: [{ kind: "Text", text: "A tight ordered list:" }],

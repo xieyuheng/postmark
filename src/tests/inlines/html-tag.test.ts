@@ -8,9 +8,9 @@ import app from "../../app"
 <x />
 
 `
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [{ kind: "HtmlBlock", text: "<x />" }])
+  document.assertChildrenJson([{ kind: "HtmlBlock", text: "<x />" }])
 }
 
 {
@@ -19,9 +19,9 @@ import app from "../../app"
 a <x /> b
 
 `
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Paragraph",
       children: [
@@ -39,9 +39,9 @@ a <x /> b
 a <x> hi </x> b
 
 `
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Paragraph",
       children: [
@@ -61,9 +61,9 @@ a <x> hi </x> b
 <x> hi </x>
 
 `
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Paragraph",
       children: [

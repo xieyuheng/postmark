@@ -6,9 +6,9 @@ import app from "../../app"
 <x-card />
 
 `
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "HtmlBlock",
       text: text.trim(),
@@ -23,9 +23,9 @@ import app from "../../app"
 </x-card>
 `
 
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "HtmlBlock",
       text: text.trim(),

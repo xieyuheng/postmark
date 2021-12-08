@@ -2,9 +2,9 @@ import app from "../../app"
 
 {
   const text = '[example link](https://example.com "example title")'
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Paragraph",
       children: [
@@ -25,9 +25,9 @@ import app from "../../app"
 
 [example link]: https://example.com "example title"
 `
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Paragraph",
       children: [
@@ -44,9 +44,9 @@ import app from "../../app"
 
 {
   const text = `<https://example.com>`
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Paragraph",
       children: [

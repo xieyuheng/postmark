@@ -15,7 +15,7 @@ date: 2021-09-22
 Hi Hi Yo Yo
 `
 
-  const document: Nodes.Document = app.tester.parser.parseDocument(text)
+  const document: Nodes.Document = app.createParser().parseDocument(text)
 
   ut.assertEqual(document.attributes, {
     title: "Hello world",
@@ -23,7 +23,7 @@ Hi Hi Yo Yo
     date: new Date("2021-09-22"),
   })
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Headline",
       level: 1,

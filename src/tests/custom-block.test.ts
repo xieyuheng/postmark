@@ -31,7 +31,7 @@ Hello! I am Trivial.
 
   const document = parser.parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Headline",
       level: 1,
@@ -76,7 +76,7 @@ Hello! I am Trivial.
 
   const document = parser.parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "List",
       tight: false,

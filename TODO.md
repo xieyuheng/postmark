@@ -1,7 +1,5 @@
 # markdown list item extension
 
-- `Document.assertChildrenJson`
-
 - remove `Tester`
 - `TaggedItem.json`
 - `CustomItem.json` -- by `TaggedItem.json`

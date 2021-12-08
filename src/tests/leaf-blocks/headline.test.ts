@@ -7,9 +7,9 @@ import app from "../../app"
 ### headline 3
 `
 
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Headline",
       level: 1,
@@ -37,9 +37,9 @@ headline 2
 ----------
 `
 
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Headline",
       level: 1,

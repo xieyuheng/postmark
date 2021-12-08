@@ -2,9 +2,9 @@ import app from "../../app"
 
 {
   const text = "Hello  \nWorld"
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Paragraph",
       children: [
@@ -18,9 +18,9 @@ import app from "../../app"
 
 {
   const text = "Hello\\\nWorld"
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Paragraph",
       children: [

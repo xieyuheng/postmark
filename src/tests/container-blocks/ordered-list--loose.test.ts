@@ -13,9 +13,9 @@ A loose ordered list:
 100. c
 `
 
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Paragraph",
       children: [{ kind: "Text", text: "A loose ordered list:" }],

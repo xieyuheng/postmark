@@ -8,9 +8,9 @@ import app from "../../app"
 | 2   | a *4* b | 6 |
 `
 
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Table",
       alignments: [null, "center", "left"],
@@ -47,9 +47,9 @@ import app from "../../app"
 | b |   |   |
 `
 
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Table",
       alignments: [null, null, null],
@@ -75,9 +75,9 @@ import app from "../../app"
 | 2 | 4 | 6 |
 `
 
-  const document = app.tester.parser.parseDocument(text)
+  const document = app.createParser().parseDocument(text)
 
-  app.tester.assertDocument(document, [
+  document.assertChildrenJson([
     {
       kind: "Paragraph",
       children: [
