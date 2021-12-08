@@ -1,6 +1,8 @@
 # markdown list extension
 
-- `plugins/tagged-list`
+- `plugins/tagged-list/content`
+- `plugins/tagged-list/tag`
+- `plugins/tagged-list/root-tagged-list` -- the only node that knows about its `siblings`
 
 - `TaggedList` parser
 
