@@ -1,20 +1,20 @@
 import { Content } from "./content"
 import { Tag } from "./tag"
 
-export interface TaggedListOptions {
+export interface TaggedItemOptions {
   content: Content
   start: Array<Tag>
   end: Array<Tag>
-  children: Array<TaggedList>
+  children: Array<TaggedItem>
 }
 
-export class TaggedList {
+export class TaggedItem {
   content: Content
   start: Array<Tag>
   end: Array<Tag>
-  children: Array<TaggedList>
+  children: Array<TaggedItem>
 
-  constructor(opts: TaggedListOptions) {
+  constructor(opts: TaggedItemOptions) {
     this.content = opts.content
     this.start = opts.start
     this.end = opts.end
