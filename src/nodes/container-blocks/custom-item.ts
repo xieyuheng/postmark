@@ -2,7 +2,7 @@ import { Node, NodeVisitor, Span } from "../../node"
 import * as Nodes from "../../nodes"
 import { TaggedItem } from "../../plugins/tagged-item"
 
-export class CustomItem extends Nodes.Item {
+export class CustomItem<T> extends Nodes.Item {
   kind = "CustomItem"
 
   customKind: string
@@ -10,18 +10,22 @@ export class CustomItem extends Nodes.Item {
   children: Array<Node> = []
   taggedItem: TaggedItem
 
+  value: T
+
   constructor(opts: {
     customKind: string
     span: Span
     taggedItem: TaggedItem
+    value: T
   }) {
     super({ ...opts, children: [] })
     this.customKind = opts.customKind
     this.span = opts.span
     this.taggedItem = opts.taggedItem
+    this.value = opts.value
   }
 
-  shallowCopy(): CustomItem {
+  shallowCopy(): CustomItem<T> {
     return new CustomItem(this)
   }
 

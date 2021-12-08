@@ -22,7 +22,7 @@ export abstract class NodeVisitor<T> {
   onItem(node: Nodes.Item): T { return this.default(node) }
   onOrderedList(node: Nodes.OrderedList): T { return this.onList(node) }
   onOrderedItem(node: Nodes.OrderedItem): T { return this.onItem(node) }
-  onCustomItem(node: Nodes.CustomItem): T { return this.onItem(node) }
+  onCustomItem<A>(node: Nodes.CustomItem<A>): T { return this.onItem(node) }
 
   // NOTE leaf-block
   onParagraph(node: Nodes.Paragraph): T { return this.default(node) }

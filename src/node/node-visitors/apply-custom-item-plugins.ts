@@ -1,15 +1,13 @@
-import { Node, NodeVisitor } from "../../node"
+import { Node, NodeVisitor } from ".."
 import { Parser } from "../../parser"
 import * as Plugins from "../../plugins"
 
-// TODO ApplyCustomTaggedItemPlugins
-
-export class ApplyCustomListPlugins extends NodeVisitor<Node> {
-  customListPlugins: Array<Plugins.CustomListPlugin<unknown>>
+export class ApplyCustomItemPlugins extends NodeVisitor<Node> {
+  customListPlugins: Array<Plugins.CustomItemPlugin<unknown>>
 
   constructor(opts: {
     parser: Parser
-    customListPlugins: Array<Plugins.CustomListPlugin<unknown>>
+    customListPlugins: Array<Plugins.CustomItemPlugin<unknown>>
   }) {
     super({ parser: opts.parser })
     this.customListPlugins = opts.customListPlugins
@@ -20,4 +18,7 @@ export class ApplyCustomListPlugins extends NodeVisitor<Node> {
     newNode.children = newNode.children.map((child) => child.accept(this))
     return newNode
   }
+
+  // TODO
+  // onItem()
 }

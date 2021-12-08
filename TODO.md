@@ -1,11 +1,11 @@
 # markdown list item extension
 
-- `CustomItemPlugin` new plugin
+- `parser.customItem` -- the high level API
+
 - `ApplyCustomItemPlugins` new visitor
 
 - parse markdown `ListItem` to `TaggedItem`
 
-- `parser.customItem` -- the high level API
 
 - `plugins/tagged-item` -- tests -- using high level API `parser.customItem`
 - `plugins/tagged-item/content` -- has both `text` (without tags) and `fullText`

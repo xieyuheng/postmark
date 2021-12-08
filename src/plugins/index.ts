@@ -7,4 +7,4 @@ export * from "./tagged-item"
 // NOTE Developers can build markdown extensions
 //   through our plugin interfaces.
 export * from "./custom-block-plugin"
-export * from "./custom-list-plugin"
+export * from "./custom-item-plugin"

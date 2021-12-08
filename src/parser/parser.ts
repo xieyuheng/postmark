@@ -9,13 +9,13 @@ import { nodeFromCommonmark } from "./node-from-commonmark"
 
 export interface ParserOptions {
   customBlockPlugins?: Array<Plugins.CustomBlockPlugin<unknown>>
-  customListPlugins?: Array<Plugins.CustomListPlugin<unknown>>
+  customListPlugins?: Array<Plugins.CustomItemPlugin<unknown>>
   enableTable?: boolean
 }
 
 export class Parser {
   customBlockPlugins: Array<Plugins.CustomBlockPlugin<unknown>>
-  customListPlugins: Array<Plugins.CustomListPlugin<unknown>>
+  customListPlugins: Array<Plugins.CustomItemPlugin<unknown>>
   enableTable: boolean
 
   constructor(opts?: ParserOptions) {
@@ -29,7 +29,7 @@ export class Parser {
     return this
   }
 
-  customList<T>(customListPlugin: Plugins.CustomListPlugin<T>): this {
+  customList<T>(customListPlugin: Plugins.CustomItemPlugin<T>): this {
     this.customListPlugins.push(customListPlugin)
     return this
   }
