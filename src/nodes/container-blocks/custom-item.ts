@@ -8,6 +8,7 @@ export class CustomItem<T> extends Nodes.Item {
   customKind: string
   span: Span
   children: Array<Node> = []
+  item: Nodes.Item
   taggedItem: TaggedItem
 
   value: T
@@ -16,11 +17,13 @@ export class CustomItem<T> extends Nodes.Item {
     customKind: string
     span: Span
     taggedItem: TaggedItem
+    item: Nodes.Item
     value: T
   }) {
     super({ ...opts, children: [] })
     this.customKind = opts.customKind
     this.span = opts.span
+    this.item = opts.item
     this.taggedItem = opts.taggedItem
     this.value = opts.value
   }
@@ -31,13 +34,16 @@ export class CustomItem<T> extends Nodes.Item {
 
   json() {
     return {
-      kind: this.kind,
+      ...this.item.json(),
       customKind: this.customKind,
-      children: this.children.map((child) => child.json()),
     }
   }
 
   accept<T>(visitor: NodeVisitor<T>): T {
     return visitor.onCustomItem(this)
+  }
+
+  format(): string {
+    return this.item.format()
   }
 }

@@ -1,3 +1,4 @@
+import * as Nodes from "../../nodes"
 import { Content } from "./content"
 import { Tag } from "./tag"
 
@@ -19,5 +20,9 @@ export class TaggedItem {
     this.start = opts.start
     this.end = opts.end
     this.children = opts.children
+  }
+
+  static build(item: Nodes.Item): TaggedItem {
+    throw new Error("TODO")
   }
 }

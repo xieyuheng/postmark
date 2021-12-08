@@ -1,8 +1,6 @@
 # markdown list item extension
 
-- `ApplyCustomItemPlugins` new visitor
-
-  - call `TaggedItem`'s parser before call callback functions
+  - call `TaggedItem.build` before call callback functions
 
 - parse markdown `ListItem` to `TaggedItem`
 

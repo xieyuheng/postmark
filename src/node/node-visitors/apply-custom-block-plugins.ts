@@ -25,12 +25,12 @@ export class ApplyCustomBlockPlugins extends NodeVisitor<Node> {
   onCodeBlock(node: Nodes.CodeBlock): Node {
     this.codeBlockCounter++
 
-    for (const customBlockPlugin of this.customBlockPlugins) {
-      if (customBlockPlugin.recognize(node.info)) {
+    for (const plugin of this.customBlockPlugins) {
+      if (plugin.recognize(node.info)) {
         return new Nodes.CustomBlock({
           ...node,
-          customKind: customBlockPlugin.customKind,
-          value: customBlockPlugin.parse(node.text, {
+          customKind: plugin.customKind,
+          value: plugin.parse(node.text, {
             index: this.codeBlockCounter - 1,
           }),
         })
