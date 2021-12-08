@@ -9,23 +9,22 @@ export class CustomTaggedList<T> extends Nodes.CustomList<T> {
 
   span: Span
   list: Nodes.List
+  taggedList: TaggedList
   value: T
 
   constructor(opts: {
     customKind: string
     span: Span
     list: Nodes.List
+    taggedList: TaggedList
     value: T
   }) {
     super(opts)
     this.customKind = opts.customKind
     this.span = opts.span
     this.list = opts.list
+    this.taggedList = opts.taggedList
     this.value = opts.value
-  }
-
-  get taggedList(): TaggedList {
-    throw new Error("TODO")
   }
 
   shallowCopy(): CustomTaggedList<T> {

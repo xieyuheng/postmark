@@ -1,6 +1,6 @@
 # markdown list extension
 
-- `CustomTaggedList.taggedList` -- parse markdown list to `tagged-list`
+- `parseTaggedList` parse markdown list to `tagged-list`
 
 - `CustomTaggedListPlugin`
 - `parser.customTaggedList`

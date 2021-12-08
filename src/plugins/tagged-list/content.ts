@@ -3,8 +3,8 @@ import { Node } from "../../node"
 export class Content {
   nodes: Array<Node>
 
-  constructor(opts: { nodes: Array<Node> }) {
-    this.nodes = opts.nodes
+  constructor(nodes: Array<Node>) {
+    this.nodes = nodes
   }
 
   get text(): string {
