@@ -1,3 +1,7 @@
+# plugins
+
+- be able to custom `render` function, to generate enriched html
+
 # refactor
 
 - [refactor] `NodeMapper` as a special `NodeVisitor`
