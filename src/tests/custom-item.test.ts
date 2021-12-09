@@ -1,29 +1,25 @@
 import app from "../app"
 
 const parser = app.createParser().customItem({
-  customKind: "XMind",
+  customKind: "Hello",
   recognize: (item) =>
-    item.start.some((tag) => tag.name.toLowerCase() === "xmind"),
+    item.start.some((tag) => tag.name.toLowerCase() === "hello"),
   parse: (item) => null,
 })
 
 {
   const text = `\
-- [xmind] Sept 2021
-  - Programmable Mind Mapping
-  - PNG to XMind
-  - Inspire Me
-  - Article Reader
-  - M3
-  - Styles
-    - Smart Color Theme [B]
-    - Loop Branch Color [S1, B]
-    - Hand-draw Style [B, S1]
-    - Live Background [S1]
-    - [B] Snowbrush (Apple)
-    - [S1, 1] Chips
-      - After Apple
-  - YoungMind [1]
+- [hello] Hiya ~
+  - A
+  - B
+  - C [B]
+  - D [S]
+  - E [S, B]
+  - F [B, S]
+  - G [S]
+  - [B] X
+  - [S, 1] Y
+  - Z [1]
 `
 
   const document = parser.parseDocument(text)
@@ -35,32 +31,21 @@ const parser = app.createParser().customItem({
       children: [
         {
           kind: "CustomItem",
-          customKind: "XMind",
+          customKind: "Hello",
           taggedItem: {
-            start: ["xmind"],
-            content: "Sept 2021",
+            start: ["hello"],
+            content: "Hiya ~",
             children: [
-              { content: "Programmable Mind Mapping" },
-              { content: "PNG to XMind" },
-              { content: "Inspire Me" },
-              { content: "Article Reader" },
-              { content: "M3" },
-              {
-                content: "Styles",
-                children: [
-                  { content: "Smart Color Theme", end: ["B"] },
-                  { content: "Loop Branch Color", end: ["S1", "B"] },
-                  { content: "Hand-draw Style", end: ["B", "S1"] },
-                  { content: "Live Background", end: ["S1"] },
-                  { start: ["B"], content: "Snowbrush (Apple)" },
-                  {
-                    start: ["S1", "1"],
-                    content: "Chips",
-                    children: [{ content: "After Apple" }],
-                  },
-                ],
-              },
-              { content: "YoungMind", end: ["1"] },
+              { content: "A" },
+              { content: "B" },
+              { content: "C", end: ["B"] },
+              { content: "D", end: ["S"] },
+              { content: "E", end: ["S", "B"] },
+              { content: "F", end: ["B", "S"] },
+              { content: "G", end: ["S"] },
+              { start: ["B"], content: "X" },
+              { start: ["S", "1"], content: "Y" },
+              { content: "Z", end: ["1"] },
             ],
           },
         },

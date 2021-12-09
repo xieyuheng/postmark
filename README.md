@@ -88,9 +88,9 @@ We can make a markdown list item extension by providing a `CustomItemPlugin`.
 
 ``` typescript
 const parser = postmark.createParser().customItem({
-  customKind: "XMind",
+  customKind: "Hello",
   recognize: (item) =>
-    item.start.some((tag) => tag.name.toLowerCase() === "xmind"),
+    item.start.some((tag) => tag.name.toLowerCase() === "hello"),
   parse: (item) => ...,
 })
 ```
