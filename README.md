@@ -8,11 +8,6 @@ A framework for building markdown extensions.
 npm i @xieyuheng/postmark
 ```
 
-## Used By
-
-- [Cicada Language Website](https://cicada-lang.org)
-- [SisuoApp](https://sisuo.app)
-
 ## Usage
 
 ### Components
@@ -26,6 +21,11 @@ to render your custom markdown extensions.
 - postmark-components-vue3 TODO
   (require [tailwindcss](https://tailwindcss.com))
 - postmark-web-components TODO
+
+## Used By
+
+- [Cicada Language Website](https://cicada-lang.org)
+- [SisuoApp](https://sisuo.app)
 
 ### Command Line Interface
 
