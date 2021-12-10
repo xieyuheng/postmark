@@ -8,6 +8,11 @@ A framework for building markdown extensions.
 npm i @xieyuheng/postmark
 ```
 
+## Used By
+
+- [Cicada Language Website](https://cicada-lang.org)
+- [SisuoApp](https://sisuo.app)
+
 ## Usage
 
 ### Command Line Interface
