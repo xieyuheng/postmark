@@ -17,9 +17,9 @@ npm i @xieyuheng/postmark
 
 ### Components
 
-Components for rendering Postmark `Nodes`,
-where your can plugin custom components
-to render your custom markdown extensions.
+Components for rendering Postmark `Nodes`.
+
+By which your can provide custom components to render your markdown extensions.
 
 - [postmark-components-vue2](https://github.com/xieyuheng/postmark-components-vue2)
   (require [tailwindcss](https://tailwindcss.com))
