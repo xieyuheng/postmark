@@ -15,6 +15,13 @@ npm i @xieyuheng/postmark
 
 ## Usage
 
+### Components
+
+- [postmark-components-vue2](https://github.com/xieyuheng/postmark-components-vue2)
+  - only to be used with [tailwindcss](https://tailwindcss.com)
+- TODO postmark-components-vue3
+- TODO postmark-web-components
+
 ### Command Line Interface
 
 After installed the `@xieyuheng/postmark` package, you can run `postmark help` to see help messages.
