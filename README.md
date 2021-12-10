@@ -22,9 +22,10 @@ where your can plugin custom components
 to render your custom markdown extensions.
 
 - [postmark-components-vue2](https://github.com/xieyuheng/postmark-components-vue2)
-  - Require [tailwindcss](https://tailwindcss.com).
-- TODO postmark-components-vue3
-- TODO postmark-web-components
+  (require [tailwindcss](https://tailwindcss.com))
+- postmark-components-vue3 TODO
+  (require [tailwindcss](https://tailwindcss.com))
+- postmark-web-components TODO
 
 ### Command Line Interface
 
