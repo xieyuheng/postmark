@@ -17,8 +17,12 @@ npm i @xieyuheng/postmark
 
 ### Components
 
+Components for rendering Postmark `Nodes`,
+where your can plugin custom components
+to render your custom markdown extensions.
+
 - [postmark-components-vue2](https://github.com/xieyuheng/postmark-components-vue2)
-  - only to be used with [tailwindcss](https://tailwindcss.com)
+  - Require [tailwindcss](https://tailwindcss.com).
 - TODO postmark-components-vue3
 - TODO postmark-web-components
 
@@ -28,12 +32,12 @@ After installed the `@xieyuheng/postmark` package, you can run `postmark help` t
 
 ## API Docs
 
-### `postmark.createParser(opts: ParserOptions)`
+### `Postmark.createParser(opts: ParserOptions)`
 
 ``` typescript
-import postmark from "@xieyuheng/postmark"
+import Postmark from "@xieyuheng/postmark"
 
-const parser = postmark.createParser({
+const parser = Postmark.createParser({
   enableTable: true // default
 })
 ```
@@ -85,7 +89,7 @@ We can make a markdown code block extension by providing a `CustomBlockPlugin`.
 - See [src/tests/custom-block.test.ts](src/tests/custom-block.test.ts)
 
 ``` typescript
-const parser = postmark.createParser().customBlock({
+const parser = Postmark.createParser().customBlock({
   customKind: "SisuoSession",
   recognize: (info) => info.startsWith("sisuo-session"),
   parse: (text) => Session.create(YAML.load(text)),
@@ -99,7 +103,7 @@ We can make a markdown list item extension by providing a `CustomItemPlugin`.
 - See [src/tests/custom-item.test.ts](src/tests/custom-item.test.ts)
 
 ``` typescript
-const parser = postmark.createParser().customItem({
+const parser = Postmark.createParser().customItem({
   customKind: "Hello",
   recognize: (item) =>
     item.start.some((tag) => tag.name.toLowerCase() === "hello"),
