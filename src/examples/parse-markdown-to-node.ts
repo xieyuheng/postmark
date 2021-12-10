@@ -1,4 +1,4 @@
-import postmark from "../index"
+import Postmark from "../index"
 
 const text = `\
 ---
@@ -14,6 +14,6 @@ The principle of type theory is:
 > We should study **terms** and **types** together.
 `
 
-const document = postmark.createParser().parseDocument(text)
+const document = Postmark.createParser().parseDocument(text)
 
 console.log(document)
