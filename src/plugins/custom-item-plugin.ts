@@ -2,6 +2,6 @@ import { TaggedItem } from "./tagged-item"
 
 export interface CustomItemPlugin<T> {
   customKind: string
-  recognize: (list: TaggedItem) => boolean
-  parse: (list: TaggedItem) => T
+  recognize: (item: TaggedItem) => boolean
+  parse: (item: TaggedItem) => T
 }
