@@ -17,17 +17,16 @@ npm i @xieyuheng/postmark
 
 ### Plain
 
-![gallery/plain/1.png](https://github.com/xieyuheng/postmark/raw/master/gallery/plain/1.png)
+![gallery/plain/1.png](https://postmark.vercel.app/gallery/plain/1.png)
 
 ### Cicada
 
-![gallery/cicada/1.png](https://github.com/xieyuheng/postmark/raw/master/gallery/cicada/1.png)
+![gallery/cicada/1.png](https://postmark.vercel.app/gallery/cicada/1.png)
 
 ### Sisuo
 
-![gallery/sisuo/1.png](https://github.com/xieyuheng/postmark/raw/master/gallery/sisuo/1.png)
-
-![gallery/sisuo/2.png](https://github.com/xieyuheng/postmark/raw/master/gallery/sisuo/2.png)
+![gallery/sisuo/1.png](https://postmark.vercel.app/gallery/sisuo/1.png)
+![gallery/sisuo/2.png](https://postmark.vercel.app/gallery/sisuo/2.png)
 
 ## Usage
 
