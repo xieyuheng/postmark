@@ -1,7 +1,5 @@
 # Postmark
 
-![postmark](https://postmark.vercel.app/assets/images/German_Office_in_China_Fournier_Forged_Postmark2.jpg)
-
 A framework for building markdown extensions.
 
 ## Install
