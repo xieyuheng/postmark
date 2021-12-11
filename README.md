@@ -13,21 +13,6 @@ npm i @xieyuheng/postmark
 - [SisuoApp](https://sisuo.app)
 - [Cicada Language Website](https://cicada-lang.org)
 
-## Gallery
-
-### Plain
-
-![gallery/plain/1.png](https://postmark.vercel.app/gallery/plain/1.png)
-
-### Cicada
-
-![gallery/cicada/1.png](https://postmark.vercel.app/gallery/cicada/1.png)
-
-### Sisuo
-
-![gallery/sisuo/1.png](https://postmark.vercel.app/gallery/sisuo/1.png)
-![gallery/sisuo/2.png](https://postmark.vercel.app/gallery/sisuo/2.png)
-
 ## Usage
 
 ### Components
