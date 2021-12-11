@@ -1,6 +1,6 @@
 # Postmark
 
-![assets/images/postmark-logo.jpg](https://postmark.vercel.app/assets/images/postmark-logo.jpg)
+![assets/images/postmark-logo.png](https://postmark.vercel.app/assets/images/postmark-logo.png)
 
 A framework for building markdown extensions.
 
