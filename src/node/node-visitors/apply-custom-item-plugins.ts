@@ -30,7 +30,7 @@ export class ApplyCustomItemPlugins extends NodeVisitor<Node> {
           customKind: plugin.customKind,
           item: node,
           taggedItem,
-          value: plugin.parse(taggedItem),
+          value: plugin.build(taggedItem),
         })
       }
     }

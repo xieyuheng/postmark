@@ -4,7 +4,7 @@ const parser = app.createParser().customItem({
   customKind: "Hello",
   recognize: (item) =>
     item.start.some((tag) => tag.name.toLowerCase() === "hello"),
-  parse: (item) => null,
+  build: (item) => null,
 })
 
 {

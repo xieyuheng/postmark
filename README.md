@@ -4,7 +4,7 @@ A framework for building markdown extensions.
 
 ## Install
 
-``` bash
+```bash
 npm i @xieyuheng/postmark
 ```
 
@@ -35,17 +35,17 @@ After installed the `@xieyuheng/postmark` package, you can run `postmark help` t
 
 ### `Postmark.createParser(opts: ParserOptions)`
 
-``` typescript
+```typescript
 import Postmark from "@xieyuheng/postmark"
 
 const parser = Postmark.createParser({
-  enableTable: true // default
+  enableTable: true, // default
 })
 ```
 
 ### `parser.parseDocument(text: string)`
 
-``` typescript
+```typescript
 const text = `\
 ---
 title: The principle of type theory
@@ -63,24 +63,28 @@ The principle of type theory is:
 const document = parser.parseDocument(text)
 
 console.log(document)
+```
 
-// Document {
-//   kind: 'Document',
-//   attributes: {
-//     title: 'The principle of type theory',
-//     date: 2021-08-27T00:00:00.000Z,
-//     author: 'Xie Yuheng'
-//   },
-//   span: Span {
-//     start: Position { line: 1, column: 1 },
-//     end: Position { line: 5, column: 51 }
-//   },
-//   children: [
-//     Headline { ... },
-//     Paragraph { ... },
-//     BlockQuote { ... }
-//   ]
-// }
+Output:
+
+``` javascript output
+Document {
+  kind: 'Document',
+  attributes: {
+    title: 'The principle of type theory',
+    date: 2021-08-27T00:00:00.000Z,
+    author: 'Xie Yuheng'
+  },
+  span: Span {
+    start: Position { line: 1, column: 1 },
+    end: Position { line: 5, column: 51 }
+  },
+  children: [
+    Headline { ... },
+    Paragraph { ... },
+    BlockQuote { ... }
+  ]
+}
 ```
 
 ### `parser.customBlock(plugin: CustomBlockPlugin)`
@@ -89,7 +93,7 @@ We can make a markdown code block extension by providing a `CustomBlockPlugin`.
 
 - See [src/tests/custom-block.test.ts](src/tests/custom-block.test.ts)
 
-``` typescript
+```typescript
 const parser = Postmark.createParser().customBlock({
   customKind: "SisuoSession",
   recognize: (info) => info.startsWith("sisuo-session"),
@@ -103,12 +107,12 @@ We can make a markdown list item extension by providing a `CustomItemPlugin`.
 
 - See [src/tests/custom-item.test.ts](src/tests/custom-item.test.ts)
 
-``` typescript
+```typescript
 const parser = Postmark.createParser().customItem({
   customKind: "Hello",
   recognize: (item) =>
     item.start.some((tag) => tag.name.toLowerCase() === "hello"),
-  parse: (item) => ...,
+  build: (item) => ...,
 })
 ```
 
