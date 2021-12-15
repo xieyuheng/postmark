@@ -10,7 +10,8 @@ npm i @xieyuheng/postmark
 
 ## Used By
 
-- [SisuoApp](https://sisuo.app)
+- [Sisuo App](https://sisuo.app)
+- [Xie Yuheng Website](https://xieyuheng.com)
 - [Cicada Language Website](https://cicada-lang.org)
 
 ## Usage
