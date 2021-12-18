@@ -34,9 +34,9 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "@enchanterjs/enchanter": "^0.1.30",
+    "@enchanterjs/enchanter": "^0.1.31",
     "@xieyuheng/readable-regular-expression": "^0.0.13",
-    "@xieyuheng/ty": "^0.1.9",
+    "@xieyuheng/ty": "^0.1.10",
     "commonmark": "^0.30.0",
     "deep-diff": "^1.0.2",
     "fast-deep-equal": "^3.1.3",
