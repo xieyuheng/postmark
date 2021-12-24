@@ -24,9 +24,7 @@ Components for rendering Postmark `Nodes`.
 By which your can provide custom components to render your markdown extensions.
 
 - [postmark-components-vue2](https://github.com/xieyuheng/postmark-components-vue2)
-  (require [tailwindcss](https://tailwindcss.com))
-- postmark-components-vue3 TODO
-  (require [tailwindcss](https://tailwindcss.com))
+- [postmark-components-vue3](https://github.com/xieyuheng/postmark-components-vue3)
 - postmark-web-components TODO
 
 ### Command Line Interface
