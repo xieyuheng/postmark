@@ -16,7 +16,7 @@ export class RenderCommand extends Command<Args, Opts> {
 
   // prettier-ignore
   help(runner: CommandRunner): string {
-    const { blue } = this.colors
+    const blue = this.colors;
 
     return [
       `The ${blue(this.name)} command renders a markdown file to html.`,
