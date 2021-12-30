@@ -31,9 +31,13 @@ export class Headline extends Nodes.LeafBlock {
     return visitor.onHeadline(this)
   }
 
+  formatBody(): string {
+    return this.children.map((child) => child.format()).join("")
+  }
+
   format(): string {
     const head = "#".repeat(this.level)
-    const body = this.children.map((child) => child.format()).join("")
+    const body = this.formatBody()
     return `${head} ${body}`
   }
 }
