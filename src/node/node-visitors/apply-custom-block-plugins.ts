@@ -30,9 +30,11 @@ export class ApplyCustomBlockPlugins extends NodeVisitor<Node> {
         return new Nodes.CustomBlock({
           ...node,
           customKind: plugin.customKind,
-          value: plugin.parse(node.text, {
-            index: this.codeBlockCounter - 1,
-          }),
+          value: plugin.parse
+            ? plugin.parse(node.text, {
+                index: this.codeBlockCounter - 1,
+              })
+            : null,
         })
       }
     }
