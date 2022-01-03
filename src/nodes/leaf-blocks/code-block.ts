@@ -22,6 +22,16 @@ export class CodeBlock extends Nodes.LeafBlock {
     this.isIndentedCodeBlock = opts.isIndentedCodeBlock
   }
 
+  get name(): string {
+    const [name] = this.info.split(" ")
+    return name
+  }
+
+  get extraInfo(): string {
+    const [_name, ...extra] = this.info.split(" ")
+    return extra.join(" ")
+  }
+
   shallowCopy(): CodeBlock {
     return new CodeBlock(this)
   }

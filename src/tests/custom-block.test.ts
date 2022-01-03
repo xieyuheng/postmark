@@ -10,7 +10,7 @@ class Trivial {
 
 const parser = app.createParser().customBlock({
   customKind: "Trivial",
-  recognize: (info) => info.startsWith("trivial"),
+  recognize: ({ name }) => name === "trivial",
   parse: (text) => new Trivial(text),
 })
 

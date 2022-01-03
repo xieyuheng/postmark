@@ -26,7 +26,7 @@ export class ApplyCustomBlockPlugins extends NodeVisitor<Node> {
     this.codeBlockCounter++
 
     for (const plugin of this.customBlockPlugins) {
-      if (plugin.recognize(node.info)) {
+      if (plugin.recognize(node)) {
         return new Nodes.CustomBlock({
           ...node,
           customKind: plugin.customKind,
