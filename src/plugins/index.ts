@@ -8,3 +8,4 @@ export * from "./tagged-item"
 //   through our plugin interfaces.
 export * from "./custom-block-plugin"
 export * from "./custom-item-plugin"
+export * from "./custom-plugin"

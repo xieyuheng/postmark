@@ -8,7 +8,7 @@ class Trivial {
   }
 }
 
-const parser = app.createParser().customBlock({
+const parser = app.createParser().use({
   kind: "CustomBlock",
   customKind: "Trivial",
   recognize: ({ name }) => name === "trivial",

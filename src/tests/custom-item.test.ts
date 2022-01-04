@@ -1,6 +1,6 @@
 import app from "../app"
 
-const parser = app.createParser().customItem({
+const parser = app.createParser().use({
   kind: "CustomItem",
   customKind: "Hello",
   recognize: (item) =>

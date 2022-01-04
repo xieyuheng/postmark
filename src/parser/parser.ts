@@ -3,6 +3,7 @@ import { Node } from "../node"
 import * as NodeVisitors from "../node/node-visitors"
 import * as Nodes from "../nodes"
 import * as Plugins from "../plugins"
+import { CustomPlugin } from "../plugins"
 import * as Commonmark from "../vendor/commonmark"
 import { documentFromCommonmark } from "./document-from-commonmark"
 import { nodeFromCommonmark } from "./node-from-commonmark"
@@ -12,10 +13,6 @@ export interface ParserOptions {
   customItemPlugins?: Array<Plugins.CustomItemPlugin<unknown>>
   enableTable?: boolean
 }
-
-type CustomPlugin =
-  | Plugins.CustomBlockPlugin<unknown>
-  | Plugins.CustomItemPlugin<unknown>
 
 export class Parser {
   customBlockPlugins: Array<Plugins.CustomBlockPlugin<unknown>>
@@ -28,34 +25,28 @@ export class Parser {
     this.enableTable = opts?.enableTable ?? true
   }
 
-  customParsers(plugins: Array<CustomPlugin>): this {
+  use(plugins: Array<CustomPlugin> | CustomPlugin): this {
+    if (!(plugins instanceof Array)) {
+      return this.useOne(plugins)
+    }
+
     for (const plugin of plugins) {
-      this.customParser(plugin)
+      this.useOne(plugin)
     }
 
     return this
   }
 
-  customParser(plugin: CustomPlugin): this {
+  useOne(plugin: CustomPlugin): this {
     if (plugin.kind === "CustomBlock") {
-      this.customBlock(plugin)
+      this.customBlockPlugins.push(plugin)
     } else if (plugin.kind === "CustomItem") {
-      this.customItem(plugin)
+      this.customItemPlugins.push(plugin)
     } else {
       const kind = (plugin as CustomPlugin).kind
       throw new Error(`Unknown plugin kind: ${kind}`)
     }
 
-    return this
-  }
-
-  customBlock<T>(customBlockPlugin: Plugins.CustomBlockPlugin<T>): this {
-    this.customBlockPlugins.push(customBlockPlugin)
-    return this
-  }
-
-  customItem<T>(customListPlugin: Plugins.CustomItemPlugin<T>): this {
-    this.customItemPlugins.push(customListPlugin)
     return this
   }
 

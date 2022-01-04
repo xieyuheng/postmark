@@ -1,3 +1,6 @@
+- unify plugin interface
+
+
 # plugins
 
 - be able to custom `render` function, to generate enriched html
