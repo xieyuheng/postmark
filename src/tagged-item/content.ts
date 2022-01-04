@@ -1,19 +1,26 @@
 import { Node } from "../node"
+import { Parser } from "../parser"
 import { Tag } from "./tag"
 
 export class Content {
-  nodes: Array<Node>
+  fullNodes: Array<Node>
+  parser: Parser
 
-  constructor(nodes: Array<Node>) {
-    this.nodes = nodes
+  constructor(fullNodes: Array<Node>, opts: { parser: Parser }) {
+    this.fullNodes = fullNodes
+    this.parser = opts.parser
   }
 
   get fullText(): string {
-    return this.nodes.map((node) => node.format()).join("")
+    return this.fullNodes.map((node) => node.format()).join("")
   }
 
   get text(): string {
     return Tag.trim(this.fullText)
+  }
+
+  get nodes(): Array<Node> {
+    return this.parser.parseNodes(this.text)
   }
 
   json() {

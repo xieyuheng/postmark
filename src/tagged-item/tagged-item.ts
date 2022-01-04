@@ -1,5 +1,6 @@
 import { Node } from "../node"
 import * as Nodes from "../nodes"
+import { Parser } from "../parser"
 import { Content } from "./content"
 import { Tag } from "./tag"
 
@@ -8,6 +9,7 @@ export interface TaggedItemOptions {
   start: Array<Tag>
   end: Array<Tag>
   children: Array<TaggedItem>
+  parser: Parser
 }
 
 export class TaggedItem {
@@ -15,12 +17,14 @@ export class TaggedItem {
   start: Array<Tag>
   end: Array<Tag>
   children: Array<TaggedItem>
+  parser: Parser
 
   constructor(opts: TaggedItemOptions) {
     this.content = opts.content
     this.start = opts.start
     this.end = opts.end
     this.children = opts.children
+    this.parser = opts.parser
   }
 
   json(): any {
@@ -41,17 +45,23 @@ export class TaggedItem {
     }
   }
 
-  static build(item: Nodes.Item): TaggedItem {
+  static build(item: Nodes.Item, opts: { parser: Parser }): TaggedItem {
     const nodes = item.children
 
-    const content = new Content(this.beforeList(nodes))
+    const content = new Content(this.beforeList(nodes), opts)
     const start = Tag.parseStart(content.fullText)
     const end = Tag.parseEnd(content.fullText)
     const children = this.filterList(nodes)
       .flatMap((list) => list.children)
-      .map((item) => TaggedItem.build(item))
+      .map((item) => TaggedItem.build(item, opts))
 
-    return new TaggedItem({ content, start, end, children })
+    return new TaggedItem({
+      content,
+      start,
+      end,
+      children,
+      parser: opts.parser,
+    })
   }
 
   static beforeList(nodes: Array<Node>): Array<Node> {
