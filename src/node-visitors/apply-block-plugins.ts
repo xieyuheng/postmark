@@ -2,16 +2,12 @@ import { Node } from "../node"
 import { NodeVisitor } from "../node-visitor"
 import * as Nodes from "../nodes"
 import { Parser } from "../parser"
-import { Plugin } from "../plugins"
 
 export class ApplyBlockPlugins extends NodeVisitor<Node> {
-  private plugins: Array<Plugin>
-
   private codeBlockCounter = 0
 
-  constructor(opts: { parser: Parser; plugins: Array<Plugin> }) {
-    super({ parser: opts.parser })
-    this.plugins = opts.plugins
+  constructor(parser: Parser) {
+    super({ parser })
   }
 
   default(node: Node): Node {
@@ -23,7 +19,7 @@ export class ApplyBlockPlugins extends NodeVisitor<Node> {
   onCodeBlock(node: Nodes.CodeBlock): Node {
     this.codeBlockCounter++
 
-    for (const plugin of this.plugins) {
+    for (const plugin of this.parser.plugins) {
       if (plugin.kind === "CustomBlock") {
         if (plugin.recognize(node)) {
           return new Nodes.CustomBlock({

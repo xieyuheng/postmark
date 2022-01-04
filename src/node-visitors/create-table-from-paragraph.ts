@@ -5,8 +5,8 @@ import { Parser } from "../parser"
 const { marked } = require("marked")
 
 export class CreateTableFromParagraph extends NodeVisitor<Node> {
-  constructor(opts: { parser: Parser }) {
-    super({ parser: opts.parser })
+  constructor(parser: Parser) {
+    super({ parser })
   }
 
   default(node: Node): Node {

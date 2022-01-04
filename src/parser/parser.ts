@@ -36,26 +36,10 @@ export class Parser {
   }
 
   private postprocess(node: Node): Node {
-    node = node.accept(
-      new NodeVisitors.ApplyBlockPlugins({
-        parser: this,
-        plugins: this.plugins.filter((plugin) => plugin.kind === "CustomBlock"),
-      })
-    )
-
-    node = node.accept(
-      new NodeVisitors.ApplyItemPlugins({
-        parser: this,
-        plugins: this.plugins.filter((plugin) => plugin.kind === "CustomItem"),
-      })
-    )
-
+    node = node.accept(new NodeVisitors.ApplyBlockPlugins(this))
+    node = node.accept(new NodeVisitors.ApplyItemPlugins(this))
     if (this.enableTable) {
-      node = node.accept(
-        new NodeVisitors.CreateTableFromParagraph({
-          parser: this,
-        })
-      )
+      node = node.accept(new NodeVisitors.CreateTableFromParagraph(this))
     }
 
     return node

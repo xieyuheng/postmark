@@ -2,15 +2,11 @@ import { Node } from "../node"
 import { NodeVisitor } from "../node-visitor"
 import * as Nodes from "../nodes"
 import { Parser } from "../parser"
-import { Plugin } from "../plugins"
 import { TaggedItem } from "../tagged-item"
 
 export class ApplyItemPlugins extends NodeVisitor<Node> {
-  private plugins: Array<Plugin>
-
-  constructor(opts: { parser: Parser; plugins: Array<Plugin> }) {
-    super({ parser: opts.parser })
-    this.plugins = opts.plugins
+  constructor(parser: Parser) {
+    super({ parser })
   }
 
   default(node: Node): Node {
@@ -20,8 +16,10 @@ export class ApplyItemPlugins extends NodeVisitor<Node> {
   }
 
   onItem(node: Nodes.Item): Node {
-    for (const plugin of this.plugins) {
+    for (const plugin of this.parser.plugins) {
       if (plugin.kind === "CustomItem") {
+        const previous: Array<TaggedItem> = []
+
         const taggedItem = TaggedItem.build(node)
         if (plugin.recognize(taggedItem)) {
           return new Nodes.CustomItem({
@@ -29,7 +27,7 @@ export class ApplyItemPlugins extends NodeVisitor<Node> {
             customKind: plugin.customKind,
             item: node,
             taggedItem,
-            value: plugin.build ? plugin.build(taggedItem) : null,
+            value: plugin.build ? plugin.build(taggedItem, { previous }) : null,
           })
         }
       }
