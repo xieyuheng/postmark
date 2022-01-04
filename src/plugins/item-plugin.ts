@@ -7,6 +7,6 @@ export interface ItemPlugin<T = null> {
   recognize: (item: TaggedItem) => boolean
   build?: (
     item: TaggedItem,
-    opts: { previousItems: Array<Nodes.CustomItem<unknown>> }
+    opts: { previousCustomItems: Array<Nodes.CustomItem<T>> }
   ) => T
 }

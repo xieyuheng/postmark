@@ -5,7 +5,7 @@ import { Parser } from "../parser"
 import { TaggedItem } from "../tagged-item"
 
 export class ApplyItemPlugins extends NodeVisitor<Node> {
-  private previousItems: Array<Nodes.CustomItem<unknown>> = []
+  private previousCustomItems: Array<Nodes.CustomItem<unknown>> = []
 
   constructor(parser: Parser) {
     super({ parser })
@@ -30,12 +30,12 @@ export class ApplyItemPlugins extends NodeVisitor<Node> {
             taggedItem,
             value: plugin.build
               ? plugin.build(taggedItem, {
-                  previousItems: this.previousItems,
+                  previousCustomItems: this.previousCustomItems,
                 })
               : null,
           })
 
-          this.previousItems.push(item)
+          this.previousCustomItems.push(item)
 
           return item
         }
