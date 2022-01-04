@@ -13,6 +13,10 @@ export interface ParserOptions {
   enableTable?: boolean
 }
 
+type CustomPlugin =
+  | Plugins.CustomBlockPlugin<unknown>
+  | Plugins.CustomItemPlugin<unknown>
+
 export class Parser {
   customBlockPlugins: Array<Plugins.CustomBlockPlugin<unknown>>
   customItemPlugins: Array<Plugins.CustomItemPlugin<unknown>>
@@ -22,6 +26,27 @@ export class Parser {
     this.customBlockPlugins = opts?.customBlockPlugins || []
     this.customItemPlugins = opts?.customItemPlugins || []
     this.enableTable = opts?.enableTable ?? true
+  }
+
+  customParsers(plugins: Array<CustomPlugin>): this {
+    for (const plugin of plugins) {
+      this.customParser(plugin)
+    }
+
+    return this
+  }
+
+  customParser(plugin: CustomPlugin): this {
+    if (plugin.kind === "CustomBlock") {
+      this.customBlock(plugin)
+    } else if (plugin.kind === "CustomItem") {
+      this.customItem(plugin)
+    } else {
+      const kind = (plugin as CustomPlugin).kind
+      throw new Error(`Unknown plugin kind: ${kind}`)
+    }
+
+    return this
   }
 
   customBlock<T>(customBlockPlugin: Plugins.CustomBlockPlugin<T>): this {

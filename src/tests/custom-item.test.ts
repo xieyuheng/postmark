@@ -1,6 +1,7 @@
 import app from "../app"
 
 const parser = app.createParser().customItem({
+  kind: "CustomItem",
   customKind: "Hello",
   recognize: (item) =>
     item.start.some((tag) => tag.name.toLowerCase() === "hello"),
