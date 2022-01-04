@@ -1,5 +1,4 @@
-- unify plugin interface
-
+- add plugin api to help `DialogItem` render frame index
 
 # plugins
 

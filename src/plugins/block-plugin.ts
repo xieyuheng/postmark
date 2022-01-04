@@ -1,4 +1,4 @@
-export interface CustomBlockPlugin<T = null> {
+export interface BlockPlugin<T = null> {
   kind: "CustomBlock"
   customKind: string
   recognize: (opts: {

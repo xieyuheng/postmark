@@ -87,9 +87,9 @@ Document {
 }
 ```
 
-### `parser.customBlock(plugin: CustomBlockPlugin)`
+### `parser.customBlock(plugin: BlockPlugin)`
 
-We can make a markdown code block extension by providing a `CustomBlockPlugin`.
+We can make a markdown code block extension by providing a `BlockPlugin`.
 
 - See [src/tests/custom-block.test.ts](src/tests/custom-block.test.ts)
 
@@ -101,9 +101,9 @@ const parser = Postmark.createParser().customBlock({
 })
 ```
 
-### `parser.customItem(plugin: CustomItemPlugin)`
+### `parser.customItem(plugin: ItemPlugin)`
 
-We can make a markdown list item extension by providing a `CustomItemPlugin`.
+We can make a markdown list item extension by providing a `ItemPlugin`.
 
 - See [src/tests/custom-item.test.ts](src/tests/custom-item.test.ts)
 

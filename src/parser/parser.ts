@@ -2,49 +2,30 @@ import frontMatter from "front-matter"
 import { Node } from "../node"
 import * as NodeVisitors from "../node/node-visitors"
 import * as Nodes from "../nodes"
-import * as Plugins from "../plugins"
-import { CustomPlugin } from "../plugins"
+import { Plugin } from "../plugins"
 import * as Commonmark from "../vendor/commonmark"
 import { documentFromCommonmark } from "./document-from-commonmark"
 import { nodeFromCommonmark } from "./node-from-commonmark"
 
 export interface ParserOptions {
-  customBlockPlugins?: Array<Plugins.CustomBlockPlugin<unknown>>
-  customItemPlugins?: Array<Plugins.CustomItemPlugin<unknown>>
+  plugins?: Array<Plugin>
   enableTable?: boolean
 }
 
 export class Parser {
-  customBlockPlugins: Array<Plugins.CustomBlockPlugin<unknown>>
-  customItemPlugins: Array<Plugins.CustomItemPlugin<unknown>>
+  plugins: Array<Plugin>
   enableTable: boolean
 
   constructor(opts?: ParserOptions) {
-    this.customBlockPlugins = opts?.customBlockPlugins || []
-    this.customItemPlugins = opts?.customItemPlugins || []
+    this.plugins = opts?.plugins || []
     this.enableTable = opts?.enableTable ?? true
   }
 
-  use(plugins: Array<CustomPlugin> | CustomPlugin): this {
+  use(plugins: Array<Plugin> | Plugin): this {
     if (!(plugins instanceof Array)) {
-      return this.useOne(plugins)
-    }
-
-    for (const plugin of plugins) {
-      this.useOne(plugin)
-    }
-
-    return this
-  }
-
-  useOne(plugin: CustomPlugin): this {
-    if (plugin.kind === "CustomBlock") {
-      this.customBlockPlugins.push(plugin)
-    } else if (plugin.kind === "CustomItem") {
-      this.customItemPlugins.push(plugin)
+      this.plugins.push(plugins)
     } else {
-      const kind = (plugin as CustomPlugin).kind
-      throw new Error(`Unknown plugin kind: ${kind}`)
+      this.plugins.push(...plugins)
     }
 
     return this
@@ -55,23 +36,19 @@ export class Parser {
   }
 
   private postprocess(node: Node): Node {
-    if (this.customBlockPlugins.length > 0) {
-      node = node.accept(
-        new NodeVisitors.ApplyCustomBlockPlugins({
-          parser: this,
-          customBlockPlugins: this.customBlockPlugins,
-        })
-      )
-    }
+    node = node.accept(
+      new NodeVisitors.ApplyBlockPlugins({
+        parser: this,
+        plugins: this.plugins.filter((plugin) => plugin.kind === "CustomBlock"),
+      })
+    )
 
-    if (this.customItemPlugins.length > 0) {
-      node = node.accept(
-        new NodeVisitors.ApplyCustomItemPlugins({
-          parser: this,
-          customItemPlugins: this.customItemPlugins,
-        })
-      )
-    }
+    node = node.accept(
+      new NodeVisitors.ApplyItemPlugins({
+        parser: this,
+        plugins: this.plugins.filter((plugin) => plugin.kind === "CustomItem"),
+      })
+    )
 
     if (this.enableTable) {
       node = node.accept(

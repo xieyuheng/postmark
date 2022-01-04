@@ -1,6 +1,6 @@
 import { TaggedItem } from "./tagged-item"
 
-export interface CustomItemPlugin<T = null> {
+export interface ItemPlugin<T = null> {
   kind: "CustomItem"
   customKind: string
   recognize: (item: TaggedItem) => boolean
