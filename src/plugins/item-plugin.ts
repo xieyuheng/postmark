@@ -1,4 +1,4 @@
-import { TaggedItem } from "./tagged-item"
+import { TaggedItem } from "../tagged-item"
 
 export interface ItemPlugin<T = null> {
   kind: "CustomItem"

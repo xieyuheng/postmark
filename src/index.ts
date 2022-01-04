@@ -1,5 +1,7 @@
 export { default } from "./app"
 export * from "./node"
+export * from "./node-visitor"
 export * as Nodes from "./nodes"
 export * from "./parser"
 export * from "./plugins"
+export * from "./tagged-item"

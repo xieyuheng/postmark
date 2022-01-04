@@ -1,5 +1,5 @@
-import { Node } from "../../node"
-import * as Nodes from "../../nodes"
+import { Node } from "../node"
+import * as Nodes from "../nodes"
 import { Content } from "./content"
 import { Tag } from "./tag"
 

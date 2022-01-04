@@ -1,4 +1,4 @@
-import { Node } from "../../node"
+import { Node } from "../node"
 import { Tag } from "./tag"
 
 export class Content {

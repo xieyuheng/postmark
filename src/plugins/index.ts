@@ -7,4 +7,3 @@
 export * from "./block-plugin"
 export * from "./item-plugin"
 export * from "./plugin"
-export * from "./tagged-item"

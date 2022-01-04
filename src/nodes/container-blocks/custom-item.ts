@@ -1,7 +1,7 @@
 import { Node, Span } from "../../node"
 import { NodeVisitor } from "../../node-visitor"
 import * as Nodes from "../../nodes"
-import { TaggedItem } from "../../plugins/tagged-item"
+import { TaggedItem } from "../../tagged-item"
 
 export class CustomItem<T> extends Nodes.Item {
   kind = "CustomItem"

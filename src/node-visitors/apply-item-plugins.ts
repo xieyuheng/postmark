@@ -3,7 +3,7 @@ import { NodeVisitor } from "../node-visitor"
 import * as Nodes from "../nodes"
 import { Parser } from "../parser"
 import { Plugin } from "../plugins"
-import { TaggedItem } from "../plugins/tagged-item"
+import { TaggedItem } from "../tagged-item"
 
 export class ApplyItemPlugins extends NodeVisitor<Node> {
   private plugins: Array<Plugin>
