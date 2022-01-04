@@ -1,5 +1,5 @@
+import { NodeVisitor } from "../node-visitor"
 import * as ut from "../ut"
-import { NodeVisitor } from "./node-visitor"
 const { marked } = require("marked")
 
 export abstract class Node {

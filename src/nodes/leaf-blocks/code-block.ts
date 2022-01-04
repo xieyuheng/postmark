@@ -1,4 +1,5 @@
-import { NodeVisitor, Span } from "../../node"
+import { Span } from "../../node"
+import { NodeVisitor } from "../../node-visitor"
 import * as Nodes from "../../nodes"
 
 export class CodeBlock extends Nodes.LeafBlock {

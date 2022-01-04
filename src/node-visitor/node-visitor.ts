@@ -1,6 +1,6 @@
-import { Node } from "../../node"
-import * as Nodes from "../../nodes"
-import { Parser } from "../../parser"
+import { Node } from "../node"
+import * as Nodes from "../nodes"
+import { Parser } from "../parser"
 
 // prettier-ignore
 export abstract class NodeVisitor<T> {

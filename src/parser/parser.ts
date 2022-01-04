@@ -1,6 +1,6 @@
 import frontMatter from "front-matter"
 import { Node } from "../node"
-import * as NodeVisitors from "../node/node-visitors"
+import * as NodeVisitors from "../node-visitors"
 import * as Nodes from "../nodes"
 import { Plugin } from "../plugins"
 import * as Commonmark from "../vendor/commonmark"

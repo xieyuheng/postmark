@@ -1,4 +1,5 @@
-import { Node, NodeVisitor, Span } from "../../node"
+import { Node, Span } from "../../node"
+import { NodeVisitor } from "../../node-visitor"
 import * as Nodes from "../../nodes"
 
 type Alignment = null | "left" | "right" | "center"

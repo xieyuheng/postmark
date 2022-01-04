@@ -1,7 +1,8 @@
-import { Node, NodeVisitor } from "../../node"
-import * as Nodes from "../../nodes"
-import { Parser } from "../../parser"
-import { Plugin } from "../../plugins"
+import { Node } from "../node"
+import { NodeVisitor } from "../node-visitor"
+import * as Nodes from "../nodes"
+import { Parser } from "../parser"
+import { Plugin } from "../plugins"
 
 export class ApplyBlockPlugins extends NodeVisitor<Node> {
   private plugins: Array<Plugin>

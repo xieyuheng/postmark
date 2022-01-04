@@ -1,6 +1,7 @@
-import { Node, NodeVisitor } from "../../node"
-import * as Nodes from "../../nodes"
-import { Parser } from "../../parser"
+import { Node } from "../node"
+import { NodeVisitor } from "../node-visitor"
+import * as Nodes from "../nodes"
+import { Parser } from "../parser"
 const { marked } = require("marked")
 
 export class CreateTableFromParagraph extends NodeVisitor<Node> {

@@ -1,4 +1,5 @@
-import { Node, NodeVisitor } from "../../node"
+import { Node } from "../../node"
+import { NodeVisitor } from "../../node-visitor"
 import * as Nodes from "../../nodes"
 
 export class Image extends Nodes.Inline {

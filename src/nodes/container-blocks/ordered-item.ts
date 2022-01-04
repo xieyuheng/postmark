@@ -1,5 +1,6 @@
 import * as Nodes from ".."
-import { Node, NodeVisitor, Span } from "../../node"
+import { Node, Span } from "../../node"
+import { NodeVisitor } from "../../node-visitor"
 
 export class OrderedItem extends Nodes.Item {
   kind = "OrderedItem"
