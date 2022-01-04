@@ -1,5 +1,3 @@
-- add plugin api to help `DialogItem` render frame index
-
 # plugins
 
 - be able to custom `render` function, to generate enriched html

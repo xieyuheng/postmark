@@ -5,6 +5,8 @@ import { Parser } from "../parser"
 import { TaggedItem } from "../tagged-item"
 
 export class ApplyItemPlugins extends NodeVisitor<Node> {
+  private previousItems: Array<Nodes.CustomItem<unknown>> = []
+
   constructor(parser: Parser) {
     super({ parser })
   }
@@ -18,17 +20,24 @@ export class ApplyItemPlugins extends NodeVisitor<Node> {
   onItem(node: Nodes.Item): Node {
     for (const plugin of this.parser.plugins) {
       if (plugin.kind === "CustomItem") {
-        const previous: Array<TaggedItem> = []
-
         const taggedItem = TaggedItem.build(node)
+
         if (plugin.recognize(taggedItem)) {
-          return new Nodes.CustomItem({
+          const item = new Nodes.CustomItem({
             ...node,
             customKind: plugin.customKind,
             item: node,
             taggedItem,
-            value: plugin.build ? plugin.build(taggedItem, { previous }) : null,
+            value: plugin.build
+              ? plugin.build(taggedItem, {
+                  previousItems: this.previousItems,
+                })
+              : null,
           })
+
+          this.previousItems.push(item)
+
+          return item
         }
       }
     }
