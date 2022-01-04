@@ -8,12 +8,12 @@ import { documentFromCommonmark } from "./document-from-commonmark"
 import { nodeFromCommonmark } from "./node-from-commonmark"
 
 export interface ParserOptions {
-  plugins?: Array<Plugin>
+  plugins?: Array<Plugin<any>>
   enableTable?: boolean
 }
 
 export class Parser {
-  plugins: Array<Plugin>
+  plugins: Array<Plugin<any>>
   enableTable: boolean
 
   constructor(opts?: ParserOptions) {
@@ -21,13 +21,8 @@ export class Parser {
     this.enableTable = opts?.enableTable ?? true
   }
 
-  use(plugins: Array<Plugin> | Plugin): this {
-    if (!(plugins instanceof Array)) {
-      this.plugins.push(plugins)
-    } else {
-      this.plugins.push(...plugins)
-    }
-
+  use<T>(plugin: Plugin<T>): this {
+    this.plugins.push(plugin)
     return this
   }
 
