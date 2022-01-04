@@ -12,7 +12,7 @@ export class Content {
   }
 
   get fullText(): string {
-    return this.fullNodes.map((node) => node.format()).join("")
+    return this.fullNodes.map((node) => node.format()).join("\n\n")
   }
 
   get text(): string {
