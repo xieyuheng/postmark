@@ -20,7 +20,7 @@ export class ApplyItemPlugins extends NodeVisitor<Node> {
   onItem(node: Nodes.Item): Node {
     for (const plugin of this.parser.plugins) {
       if (plugin.kind === "CustomItem") {
-        const taggedItem = TaggedItem.build(node, { parser: this.parser })
+        const taggedItem = TaggedItem.build(node)
 
         if (plugin.recognize(taggedItem)) {
           const item = new Nodes.CustomItem({
