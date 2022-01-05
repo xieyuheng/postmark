@@ -50,8 +50,6 @@ export class Tag {
   }
 
   static trim(text: string): string {
-    console.log(text, this.trimEnd(this.trimStart(text)))
-
     return this.trimEnd(this.trimStart(text))
   }
 }
