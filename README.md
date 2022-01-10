@@ -76,7 +76,7 @@ Document {
 }
 ```
 
-### `parser.use(plugin)`
+### `parser.use<T>(plugin: Plugin<T>)`
 
 ```typescript
 const parser = Postmark.createParser()
