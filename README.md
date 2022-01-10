@@ -13,19 +13,8 @@ npm i @xieyuheng/postmark
 - [Sisuo App](https://sisuo.app)
 - [Readonly.Link](https://readonly.link)
 - [Xie Yuheng Website](https://xieyuheng.com)
-- [Cicada Language Website](https://cicada-lang.org)
 
 ## Usage
-
-### Components
-
-Components for rendering Postmark `Nodes`.
-
-By which your can provide custom components to render your markdown extensions.
-
-- [postmark-components-vue2](https://github.com/xieyuheng/postmark-components-vue2)
-- [postmark-components-vue3](https://github.com/xieyuheng/postmark-components-vue3)
-- postmark-web-components TODO
 
 ### Command Line Interface
 
@@ -87,33 +76,23 @@ Document {
 }
 ```
 
-### `parser.customBlock(plugin: BlockPlugin)`
-
-We can make a markdown code block extension by providing a `BlockPlugin`.
-
-- See [src/tests/custom-block.test.ts](src/tests/custom-block.test.ts)
+### `parser.use(plugin)`
 
 ```typescript
-const parser = Postmark.createParser().customBlock({
-  customKind: "SisuoSession",
-  recognize: (info) => info.startsWith("sisuo-session"),
-  parse: (text) => Session.create(YAML.load(text)),
-})
-```
-
-### `parser.customItem(plugin: ItemPlugin)`
-
-We can make a markdown list item extension by providing a `ItemPlugin`.
-
-- See [src/tests/custom-item.test.ts](src/tests/custom-item.test.ts)
-
-```typescript
-const parser = Postmark.createParser().customItem({
-  customKind: "Hello",
-  recognize: (item) =>
-    item.start.some((tag) => tag.name.toLowerCase() === "hello"),
-  build: (item) => ...,
-})
+const parser = Postmark.createParser()
+  .use<null>({
+    kind: "CustomBlock",
+    customKind: "Katex",
+    recognize: ({ name }) => name.toLowerCase() === "katex",
+  })
+  .use<Dialog>({
+    kind: "CustomItem",
+    customKind: "Dialog",
+    recognize: (item) =>
+      item.start.some((tag) => tag.name.toLowerCase() === "dialog"),
+    build: (item, { previousCustomItems }) =>
+      Dialog.build(item, { previousCustomItems }),
+  })
 ```
 
 ### `node.format()` & `node.render()`
