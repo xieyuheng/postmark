@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@enchanterjs/enchanter": "^0.1.37",
-    "@xieyuheng/readable-regular-expression": "^0.0.13",
+    "@xieyuheng/readable-regular-expression": "^0.0.15",
     "@xieyuheng/ty": "^0.1.10",
     "commonmark": "^0.30.0",
     "deep-diff": "^1.0.2",
