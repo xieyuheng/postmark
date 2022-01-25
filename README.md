@@ -105,7 +105,7 @@ The `node.format` & `node.render` methods, help user to avoid handle `Node` recu
 ## Development
 
 ```
-npm install    // Install dependences
+npm install    // Install dependencies
 npm run build  // Compile `src/` to `lib/`
 npm run watch  // Watch the compilation
 npm run test   // Run test
