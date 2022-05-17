@@ -1,8 +1,7 @@
-import { Command } from "@enchanterjs/enchanter/lib/command"
-import { CommandRunner } from "@enchanterjs/enchanter/lib/command-runner"
-import { CommonHelpCommand } from "@enchanterjs/enchanter/lib/commands"
+import { Command, CommandRunner } from "@xieyuheng/command-line"
 import ty from "@xieyuheng/ty"
 import app from "../../app"
+import * as Commands from "../commands"
 
 type Args = {}
 type Opts = { help?: boolean; version?: boolean }
@@ -18,7 +17,7 @@ export class DefaultCommand extends Command<Args, Opts> {
 
   async execute(argv: Args & Opts, runner: CommandRunner): Promise<void> {
     if (argv["help"]) {
-      const command = new CommonHelpCommand()
+      const command = new Commands.CommonHelpCommand()
       await command.execute({}, runner)
       return
     }
@@ -29,7 +28,7 @@ export class DefaultCommand extends Command<Args, Opts> {
     }
 
     {
-      const command = new CommonHelpCommand()
+      const command = new Commands.CommonHelpCommand()
       await command.execute({}, runner)
       return
     }
