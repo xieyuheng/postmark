@@ -1,6 +1,6 @@
 {
   "name": "@xieyuheng/postmark",
-  "version": "0.2.20",
+  "version": "0.2.21",
   "bin": {
     "postmark": "bin/postmark.js"
   },
