@@ -35,7 +35,7 @@ export class Tag {
     return matchArray ? this.tagsFromMatchArray(matchArray) : []
   }
 
-  private static tagsFromMatchArray(matchArray: RegExpMatchArray): Array<Tag> {
+  static tagsFromMatchArray(matchArray: RegExpMatchArray): Array<Tag> {
     const found = matchArray[1]
     if (found === undefined) return []
     return found.split(",").map((part) => new Tag(part.trim()))

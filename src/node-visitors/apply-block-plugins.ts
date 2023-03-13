@@ -4,7 +4,7 @@ import * as Nodes from "../nodes"
 import { Parser } from "../parser"
 
 export class ApplyBlockPlugins extends NodeVisitor<Node> {
-  private codeBlockCounter = 0
+  codeBlockCounter = 0
 
   constructor(parser: Parser) {
     super({ parser })

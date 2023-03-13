@@ -1,13 +1,10 @@
 <hr>
-<p>title: A Recursive Combinatorial Description of Cell-complex
+<h2 id="title-a-recursive-combinatorial-description-of-cell-complex-author-xie-yuheng-date-2019-05-06t000000000z-keywords---cell-complex---data-structure">title: A Recursive Combinatorial Description of Cell-complex
 author: Xie Yuheng
 date: 2019-05-06T00:00:00.000Z
-keywords:</p>
-<ul>
-<li>cell-complex</li>
-<li>data structure</li>
-</ul>
-<hr>
+keywords:
+- cell-complex
+- data structure</h2>
 <h1 id="abstract">Abstract</h1>
 <p>I provide a recursive combinatorial description of cell-complex,
 which can be used to model higher order incidence relations in higher dimensional topological structures,

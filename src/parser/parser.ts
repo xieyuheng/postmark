@@ -30,7 +30,7 @@ export class Parser {
     return new Parser(opts)
   }
 
-  private postprocess(node: Node): Node {
+  postprocess(node: Node): Node {
     node = node.accept(new NodeVisitors.ApplyBlockPlugins(this))
     node = node.accept(new NodeVisitors.ApplyItemPlugins(this))
     if (this.enableTable) {

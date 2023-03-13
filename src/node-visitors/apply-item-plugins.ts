@@ -5,7 +5,7 @@ import { Parser } from "../parser"
 import { TaggedItem } from "../tagged-item"
 
 export class ApplyItemPlugins extends NodeVisitor<Node> {
-  private previousCustomItems: Array<Nodes.CustomItem<unknown>> = []
+  previousCustomItems: Array<Nodes.CustomItem<unknown>> = []
 
   constructor(parser: Parser) {
     super({ parser })

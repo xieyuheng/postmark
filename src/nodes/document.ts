@@ -32,7 +32,7 @@ export class Document extends Node {
     return visitor.onDocument ? visitor.onDocument(this) : visitor.default(this)
   }
 
-  private formatAttributes(): string {
+  formatAttributes(): string {
     function replacer(key: string, value: any): any {
       // NOTE
       return value
@@ -44,7 +44,7 @@ export class Document extends Node {
     }).trim()
   }
 
-  private formatFrontMatter(): string {
+  formatFrontMatter(): string {
     return ["---", this.formatAttributes(), "---"].join("\n")
   }
 
